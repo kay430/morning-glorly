@@ -1,0 +1,44 @@
+@charset "UTF-8";
+.header_area{}
+.header_area .header_menu_area{width: 60%; height: 40px; background-color: lightgray; margin: 0 auto; box-shadow: 0 7px 5px 0 grey;}
+.header_area .header_menu_area .row{margin: 0;}
+.header_area .header_menu_area .row .header_text1{font-size: 15px; line-height: 40px; width: 20%;  text-align: center; color: dimgray; float: left;}
+
+.header_area .header_menu_area .row .header_menu_list{width: 80%; float:left; padding-right: 40px;}
+.header_area .header_menu_area .row .header_menu_list .row{margin: 0;}
+.header_area .header_menu_area .row .header_menu_list .row .menu_list{float: right; padding: 0 20px; text-decoration: none; font-size:15px; line-height: 40px; color: dimgray;}
+
+.header_area .logo_area{height: 350px;  position: relative;}
+.header_area .logo_area .row{margin: 0;}
+.header_area .logo_area .row .logo_img{text-align: center; line-height: 350px;}
+.header_area .logo_area .row .logo_img .logo_detail{}
+
+.header_area .logo_area .row .logo_img2{text-align: center; line-height: 350px; position: absolute; top: 0; right: 320px;}
+.header_area .logo_area .row .logo_img2 .logo_detail2{width: 170px;}
+
+.header_area .header_line{border-bottom: 5px solid lightgray;}
+
+.header_area .menubar_area{height: 70px;  line-height: 70px; border-bottom: 5px solid skyblue;}
+.header_area .menubar_area .menubar_list{width: 60%; margin: 0 auto; height: 70px;}
+.header_area .menubar_area .menubar_list .row{margin: 0; height: 70px;}
+.header_area .menubar_area .menubar_list .row .menubar_btn{height: 70px; width: 70px; text-align: center; background-color:skyblue; float: left;}
+.header_area .menubar_area .menubar_list .row .menubar_btn .fa-bars{font-size: 40px; line-height: 70px; color: white;}
+
+.header_area .menubar_area .menubar_list .row .menubar_btn2{float:right; font-size: 28px;  font-weight: bold;  text-decoration: none;  color: black; padding: 0 30px;}
+
+.container{background-color: whitesmoke; height: 600px;}
+
+.footer_line{border-bottom: 5px solid black; margin-bottom: 10px;}
+
+.footer_area{width: 80%; margin: 0 auto;}
+.footer_area .row{margin: 0;}
+.footer_area .row .img_area{float: left;}
+
+.footer_area .row .text_area{float: left; padding-left: 100px;}
+.footer_area .row .text_area .footer_menubar_list{}
+.footer_area .row .text_area .footer_menubar_list .row{margin: 0;}
+.footer_area .footer_menubar_list .row .footer_menubar_btn{float:right; font-size: 20px;  font-weight: bold;  text-decoration: none;  color: black; padding: 0 30px;}
+.footer_area .row .text_area .footer_menubar_list .footer_area_text{text-align: center;}
+
+
+/* row는 bootstrap 안에있는 클래스로 float: left가 기본값*/

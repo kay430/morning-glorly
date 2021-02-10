@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="insertMember">
+INSERT INTO MG_MEMBER 
+ (MEMBER_NO, MEMBER_NAME, MEMBER_ID, MEMBER_PWD, MEMBER_PNO, MEMBER_GENDER
+ , ADDRESS, EMAIL, PHONE)
+VALUES
+ (SEQ_MEMBER_NO.NEXTVAL, ?, ?, ?, ?, ?
+ , ?, ?, ?)
+	</entry>
+	<entry key="selectEncryptPwd">
+	    SELECT /* com.greedy.jsp.member.model.dao.MemberDAO#selectEncryptPwd() */
+	           A.MEMBER_PWD
+	      FROM MG_MEMBER A
+	     WHERE A.MEMBER_STATUS = 'Y'
+	       AND A.MEMBER_ID = ?
+	</entry>
+	<entry key="selectLoginMember">
+		SELECT /* com.greedy.jsp.member.model.dao.MemberDAO#selectLoginMember() */
+		       A.MEMBER_NO
+		     , A.MEMBER_NAME
+		     , A.MEMBER_ID
+		     , A.MEMBER_PNO
+		     , A.MEMBER_GENDER
+		     , A.ADDRESS
+		     , A.EMAIL
+		     , A.PHONE
+		     , A.ENROLL_DATE
+		     , A.MEMBER_ROLE
+		     , A.MEMBER_STATUS
+	      FROM MG_MEMBER A
+		 WHERE A.MEMBER_STATUS = 'Y'
+		   AND A.MEMBER_ID = ?  
+	</entry>
+</properties>
