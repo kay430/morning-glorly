@@ -61,6 +61,18 @@ public class MgAdService {
 		return loginMember;
 		
 	}
+	
+	/* ID 중복 체크 */
+	public int adminIdOverlap(String id) {
+		
+		Connection con = getConnection();
+		
+		int result = mgAdDAO.adminIdOverlap(con, id);
+		
+		close(con);
+		
+		return result;
+	}
 
 	
 }

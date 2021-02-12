@@ -123,6 +123,32 @@ public class MgAdDAO {
 		return loginAdmin;
 	}
 
+	public int adminIdOverlap(Connection con, String id) {
+		
+		System.out.println("DAO에서 id 조회하자");
+		System.out.println(id);
+		
+		PreparedStatement pstmt = null;
+		
+		int result = 0;
+		
+		String query = prop.getProperty("adminIdOverlap");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, id);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
 }
 
 

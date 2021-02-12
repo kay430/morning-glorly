@@ -23,6 +23,7 @@
   <link href="/mg/resources/css/style.css" rel="stylesheet">
   <link href="/mg/resources/css/style-responsive.css" rel="stylesheet">
     <script src="/mg/resources/js/event.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
   <!-- =======================================================
     Template Name: Dashio
@@ -32,123 +33,9 @@
   ======================================================= -->
 </head>
 <body>
-  <section id="container">
-    <!-- **********************************************************************************************************************************************************
-        TOP BAR CONTENT & NOTIFICATIONS
-        *********************************************************************************************************************************************************** -->
-    <!--header start-->
-    <header class="header black-bg">
-      <div class="sidebar-toggle-box">
-        <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
-      </div>
-      <!--logo start-->
-      <a id="sweetHome" class="logo"><b>Morning Glory <span>admin</span></b></a>
-      <!--logo end-->
-
-      <div class="top-menu">
-        <ul class="nav pull-right top-menu">
-          <li><a class="logout" id="logoutAdmin">Logout</a></li>
-        </ul>
-      </div>
-    </header>
-    <!--header end-->
-    <!-- **********************************************************************************************************************************************************
-        MAIN SIDEBAR MENU
-        *********************************************************************************************************************************************************** -->
-    <!--sidebar start-->
-    <aside>
-      <div id="sidebar" class="nav-collapse ">
-        <!-- sidebar menu start-->
-        <ul class="sidebar-menu" id="nav-accordion">
-          <p class="centered"><a href="profile.html"><img src="/mg/resources/image/admin/ui-kor.jpg" class="img-circle" width="80"></a></p>
-          <h5 class="centered">프로필 사진</h5>
-          <li class="mt">
-            <a class="active">
-              <i class="fa fa-dashboard"></i>
-              <span id="sweetHome">메인 페이지</span>
-              </a>
-          </li>
-          <li class="sub-menu">
-            <a href="javascript:;">
-              <i class="fa fa-desktop"></i>
-              <span>회원관리</span>
-              </a>
-            <ul class="sub">
-              <li><a href="general.html">General</a></li>
-              <li><a href="buttons.html">Buttons</a></li>
-              <li><a href="panels.html">Panels</a></li>
-            </ul>
-          </li>
-          <li class="sub-menu">
-            <a href="javascript:;">
-              <i class="fa fa-cogs"></i>
-              <span>주문관리</span>
-              </a>
-            <ul class="sub">
-              <li><a href="grids.html">Grids</a></li>
-              <li><a href="calendar.html">Calendar</a></li>
-              <li><a href="gallery.html">Gallery</a></li>
-              <li><a href="file_upload.html">Multiple File Upload</a></li>
-            </ul>
-          </li>
-          <li class="sub-menu">
-            <a href="javascript:;">
-              <i class="fa fa-book"></i>
-              <span>상품관리</span>
-              </a>
-            <ul class="sub">
-              <li><a href="blank.html">Blank Page</a></li>
-              <li><a href="login.html">Login</a></li>
-              <li><a href="lock_screen.html">Lock Screen</a></li>
-              <li><a href="profile.html">Profile</a></li>
-              <li><a href="invoice.html">Invoice</a></li>
-              <li><a href="pricing_table.html">Pricing Table</a></li>
-              <li><a href="faq.html">FAQ</a></li>
-              <li><a href="404.html">404 Error</a></li>
-              <li><a href="500.html">500 Error</a></li>
-            </ul>
-          </li>
-          <li class="sub-menu">
-            <a href="javascript:;">
-              <i class="fa fa-tasks"></i>
-              <span>고객센터</span>
-              </a>
-            <ul class="sub">
-              <li><a id="adminNotice">공지사항</a></li>
-              <li><a href="form_component.html">Form Components</a></li>
-              <li><a href="advanced_form_components.html">Advanced Components</a></li>
-              <li><a href="form_validation.html">Form Validation</a></li>
-              <li><a href="contactform.html">Contact Form</a></li>
-            </ul>
-          </li>
-          <li class="sub-menu">
-            <a href="javascript:;">
-              <i class=" fa fa-bar-chart-o"></i>
-              <span>통계</span>
-              </a>
-            <ul class="sub">
-              <li><a href="morris.html">Morris</a></li>
-            </ul>
-          </li>
-          <li class="sub-menu">
-            <a href="javascript:;">
-              <i class="fa fa-th"></i>
-              <span>DB 조회용</span>
-              </a>
-            <ul class="sub">
-              <li><a href="basic_table.html">Basic Table</a></li>
-              <li><a href="responsive_table.html">Responsive Table</a></li>
-              <li><a href="advanced_table.html">Advanced Table</a></li>
-            </ul>
-          </li>
-        </ul>
-        <!-- sidebar menu end-->
-      </div>
-    </aside>
-    <!--sidebar end-->
-      </div>
-    </aside>
-    <!--sidebar end-->
+  	<jsp:include page="/WEB-INF/views/common/admin/adHeader.jsp"/>
+	
+	   <!--sidebar end-->
     <!-- **********************************************************************************************************************************************************
         MAIN CONTENT
         *********************************************************************************************************************************************************** -->
@@ -180,7 +67,7 @@
               <div class="panel-body ">
                 <div class="mail-header row">
                   <div class="col-md-8">
-                    <h4 class="pull-left">[ <c:out value="${ requestScope.notice.title }"/> ]</h4>
+                  <textarea id="headCore" style="resize:none; width:90%; height:30px;" readonly><c:out value="${ requestScope.notice.title }"/></textarea>
                   </div>
                   <div class="col-md-4">
                     <div class="compose-btn pull-right">
@@ -203,7 +90,8 @@
                   </div>
                 </div>
                 <div class="view-mail">
-                  <p><c:out value="${ requestScope.notice.body }"/></p>
+                  <%-- <p><c:out value="${ requestScope.notice.body }"/></p> --%>
+                  <textarea id="core" style="resize:none; width:90%; height:200px;" readonly><c:out value="${ requestScope.notice.body }"/></textarea>
                 </div>
                 <!-- 첨부파일 부분 -->
                <!--  <div class="attachment-mail">
@@ -241,15 +129,79 @@
                     </li>
                   </ul>
                 </div> -->
-                <div class="compose-btn pull-left">
-                  <a class="btn btn-sm btn-theme" onclick="location.href='${ pageContext.servletContext.contextPath }/admin/notice'">
+                <div id="holdUp2" class="compose-btn pull-left">
+                  <a id="rewriteNoList" class="btn btn-sm btn-theme" onclick="location.href='${ pageContext.servletContext.contextPath }/admin/notice'">
                   <i class="fa fa-reply"></i> 목록으로</a>
                   <c:if test="${ sessionScope.loginMember.status eq 'Y' }">
-                  <button class="btn btn-sm" onclick="location.href='${ pageContext.servletContext.contextPath }/admin/notice/update?no=${ requestScope.notice.no }'">
+                  <div id="holdUp">
+                  <button id="rewriteNo" class="btn btn-sm">
                   <i class="fa fa-arrow-right"></i> 수정하기</button>
+                  </div>
+                  <div id="holdUp4">
+                  <button id="rewriteNoCommit" class="btn btn-sm">
+                  <i class="fa fa-arrow-right"></i>완료하기</button>
+                  </div>
+                  <script>
+                  window.onload = function() {
+                	  $("#rewriteNoCommit").css("display","none");
+                	  console.log('${ pageNumNo }')
+                  		$("#holdUp2").css("float","left").css("display","inline");
+                  		$("#rewriteNoList").css("float","left").css("display","inline");
+                  		$("#holdUp").css("float","left").css("display","inline");
+                  		$("#holdUp3").css("float","left").css("display","inline");
+                  		$("#holdUp4").css("float","left").css("display","inline");
+                  }
+                  
+                  	$("#rewriteNo").click(function() {
+                  		$("#rewriteNoCommit").css("display","block");
+                  		$("#rewriteNo").css("display","none");
+                  		$("#headCore").attr('readonly', false);
+                  		$("#core").attr('readonly', false);
+                  		
+                  		$("#rewriteNoCommit").click(function() {
+                  			
+                  			if(confirm("공지사항을 수정하시겠습니까?")) {
+                      			const headCore = document.getElementById("headCore").value;
+                          		const body = document.getElementById("core").value;
+                          		const pageNumNo = '${ pageNumNo }';
+                          		const adminNo = '${ sessionScope.loginMember.no }';
+                          		console.log(headCore);
+                          		console.log(body);
+                          		
+                          		$.ajax({
+                          			url: "${ pageContext.servletContext.contextPath }/admin/notice/update",
+                          			type: "post",
+                          			data: {headCore : headCore, body : body, pageNumNo : pageNumNo, adminNo: adminNo },
+                          			success: function(data, textStatus, xhr) {
+                          				document.getElementById("headCore").innerHTML = data["title"];
+                          				document.getElementById("core").innerHTML = data["body"];
+                          				
+                          				console.log(data["title"]);
+                          				console.table(data["body"]);
+                                  	  $("#rewriteNoCommit").css("display","none");
+                                  	$("#rewriteNo").css("display","block");
+                              		$("#headCore").attr('readonly', true);
+                              		$("#core").attr('readonly', true);
+                          			},
+                          			error: function(xhr, status, error) {
+                          				console.log(error);
+                          			}
+                          		});
+                  				alert("수정 완료!")
+                  			} else {
+                  				alert("수정 취소~")
+                  				location.href = '${ pageContext.servletContext.contextPath }/admin/notice/detail?no=' + '${ pageNumNo }';
+                  			}
+
+                  		});
+                  		alert("공지사항 수정을 진행해주세요.");
+                  	});
+                  </script>
                   </c:if>
+                  <div id="holdUp3">
                   <button class="btn  btn-sm tooltips" data-original-title="Print" type="button" data-toggle="tooltip" data-placement="top" title=""><i class="fa fa-print"></i> </button>
                   <button class="btn btn-sm tooltips" data-original-title="Trash" data-toggle="tooltip" data-placement="top" title=""><i class="fa fa-trash-o"></i></button>
+                  </div>
                 </div>
               </div>
             </section>

@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
+	<entry key="adminIdOverlap">
+        SELECT
+               A.ADMIN_ID
+          FROM MG_ADMIN A     
+         WHERE A.ADMIN_ID = ?      
+	</entry>
 	<entry key="insertAdmin">
 INSERT INTO MG_ADMIN
  (ADMIN_NO, ADMIN_NAME, ADMIN_ID, ADMIN_PWD, ADMIN_PNO, EMAIL)
@@ -80,5 +86,13 @@ VALUES
           JOIN MG_MEMBER B ON (A.NOTICE_WRITER_MEMBER_NO = B.MEMBER_NO)
          WHERE A.NOTICE_STATUS = 'Y'
            AND A.NOTICE_NO = ?
+	</entry>
+	<entry key="updateNotice">
+	        UPDATE
+               MG_NOTICE A
+           SET A.NOTICE_TITLE = ?
+             , A.NOTICE_BODY = ?
+         WHERE A.NOTICE_NO = ?
+           AND A.NOTICE_WRITER_MEMBER_NO = ?
 	</entry>
 </properties>

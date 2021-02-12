@@ -159,6 +159,32 @@ public class NoticeDAO {
 		return noticeDetail;
 	}
 
+	public int updateNotice(Connection con, NoticeDTO newNotice) {
+		
+		PreparedStatement pstmt = null;
+		
+		int result = 0;
+		
+		String query = prop.getProperty("updateNotice");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, newNotice.getTitle());
+			pstmt.setString(2, newNotice.getBody());
+			pstmt.setInt(3, newNotice.getNo());
+			pstmt.setInt(4, newNotice.getWriterMemberNo());
+			
+			result = pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
 }
 
 

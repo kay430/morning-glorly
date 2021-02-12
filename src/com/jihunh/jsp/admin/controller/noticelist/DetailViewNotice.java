@@ -17,6 +17,7 @@ public class DetailViewNotice extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		int no = Integer.parseInt(request.getParameter("no"));
+		int pageNumNo = no;
 		
 		NoticeDTO noticeDetail = new NoticeService().selectNoticeDetail(no);
 		
@@ -26,6 +27,7 @@ public class DetailViewNotice extends HttpServlet {
 		if(noticeDetail != null) {
 			path = "/WEB-INF/views/admin/DetailNotice.jsp";
 			request.setAttribute("notice", noticeDetail);
+			request.setAttribute("pageNumNo", pageNumNo);
 		} else {
 			path = "/WEB-INF/views/common/failed.jsp";
 			request.setAttribute("message", "공지사항 상세 보기 조회에 실패하셨습니다.");

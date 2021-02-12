@@ -73,6 +73,25 @@ public class NoticeService {
 		return noticeDetail;
 	}
 
+	public NoticeDTO updateNotice(NoticeDTO newNotice) {
+		Connection con = getConnection();
+
+		int result = noticeDAO.updateNotice(con, newNotice);
+
+		NoticeDTO updateInfo  = noticeDAO.selectNoticeDetail(con, newNotice.getNo());
+
+		System.out.println("result 값 : " + result);
+		if(result > 0) {
+			commit(con);
+		} else {
+			rollback(con);
+		}
+
+		close(con);
+
+		return updateInfo;
+	}
+
 }
 
 
