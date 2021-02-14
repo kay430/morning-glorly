@@ -15,8 +15,8 @@
         <div class="header_area">
             <div class="header_menu_area">
                 <div class="row">
-                    <div class="header_text1">
-                        <input type="button" class="btn btn-yg" value="회원가입" id="regist">
+                    <div class="header_text1" style="height: 30px;">
+                        <input type="button" class="btn btn-yg" value="회원가입" id="regist" style="height: 30px; line-height: 10px; background-color: white; color: black;">
                     </div>
                     <div class="header_menu_list">
                         <div class="row">
@@ -52,9 +52,6 @@
                             <img class="logo_detail" src="/mg/resources/image/Logo1.png">
                         </a>
                     </div>
-                    <!-- <div class="logo_img2">
-                        <img class="logo_detail2" src="./img/Logo2.png">
-                    </div> -->
                 </div>
             </div>
             <div class="header_line"></div>

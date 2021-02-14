@@ -26,8 +26,6 @@
 
 .header_area .menubar_area .menubar_list .row .menubar_btn2{float:right; font-size: 28px;  font-weight: bold;  text-decoration: none;  color: black; padding: 0 30px;}
 
-.container{background-color: whitesmoke; height: 600px;}
-
 .footer_line{border-bottom: 5px solid black; margin-bottom: 10px;}
 
 .footer_area{width: 80%; margin: 0 auto;}
@@ -39,6 +37,3 @@
 .footer_area .row .text_area .footer_menubar_list .row{margin: 0;}
 .footer_area .footer_menubar_list .row .footer_menubar_btn{float:right; font-size: 20px;  font-weight: bold;  text-decoration: none;  color: black; padding: 0 30px;}
 .footer_area .row .text_area .footer_menubar_list .footer_area_text{text-align: center;}
-
-
-/* row는 bootstrap 안에있는 클래스로 float: left가 기본값*/

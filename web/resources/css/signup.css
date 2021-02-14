@@ -1,0 +1,33 @@
+.container {width: 90%; height: 1200px; padding-top: 50px;}
+.container .txt2{text-align: center; }
+.container .txt1{color: green; padding-right: 600px; padding-top: 50px; padding-bottom: 15px; text-align: left;}
+.container .required{color: red;}
+.container .body_line{border: 1px solid black;}
+
+.container .signup_detail .name{border-bottom: 1px solid dimgrey; height: 70px;}
+.container .signup_detail .id{border-bottom: 1px solid dimgrey; height: 70px;}
+.container .signup_detail .password{border-bottom: 1px solid dimgrey; height: 70px;}
+.container .signup_detail .check_password{border-bottom: 1px solid dimgrey; height: 70px;}
+.container .signup_detail .gender{border-bottom: 1px solid dimgrey; height: 70px;}
+.container .signup_detail .email{border-bottom: 1px solid dimgrey; height: 70px;}
+.container .signup_detail .postal_code{border-bottom: 1px solid dimgrey; height: 70px;}
+.container .signup_detail .address{border-bottom: 1px solid dimgrey; height: 70px;}
+.container .signup_detail .address_detail{border-bottom: 1px solid dimgrey; height: 70px;}
+.container .signup_detail .phone1{border-bottom: 1px solid dimgrey; height: 70px;}
+.container .signup_detail .phone2{height: 70px;}
+
+.container .signup_detail .email .email_sel{height: 45px;}
+
+.container .signup_detail{line-height: 40px;}
+.container .signup_detail .phone1 .signup_cate_detail .phone_num_sel1{height: 45px;}
+.container .signup_detail .phone2 .signup_cate_detail .phone_num_sel2{height: 45px; width: 200px;}
+
+.btn{background-color: blue; color: white; height: 45px;}
+.signup_cate{background-color: whitesmoke; width: 200px; border: 0.5px solid rgb(228, 226, 226);}
+.signup_cate_detail{border-bottom: 0.5px solid rgb(228, 226, 226); padding-left: 20px; width: 1500px;}
+
+#zipCode{width:455px;}
+#address1{width:455px;}
+#address2{width:455px;}
+
+.container .submit_btn{background-color: blue; color: white; height: 60px; width: 300px; margin-left: 40%; margin-top: 30px;}
