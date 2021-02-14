@@ -70,7 +70,7 @@
                         <td class="signup_cate"><sup class="required">*</sup> 이메일 </td>
                         <td class="signup_cate_detail">
                             <input type="text" name="email01"> @ <input type="text" name="email02"> &nbsp;&nbsp;
-                            <select class="email_sel">
+                            <select name="email03" class="email_sel">
                                 <option> 선택 </option>
                                 <option> naver.com </option>
                                 <option> daum.net </option>

@@ -30,7 +30,8 @@ public class MemberRegist extends HttpServlet {
             + "$" + request.getParameter("address1")
             + "$" + request.getParameter("address2");
       String email = request.getParameter("email01")
-            + "@" + request.getParameter("email02");
+            + "@" + request.getParameter("email02")
+      		+ "@" + request.getParameter("email03");
       String phone = request.getParameter("phone01")
             + request.getParameter("phone02")
             + request.getParameter("phone03");
