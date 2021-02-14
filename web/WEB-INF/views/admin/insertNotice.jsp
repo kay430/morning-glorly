@@ -91,8 +91,8 @@
               <span>고객센터</span>
               </a>
             <ul class="sub">
-              <li><a id="adminNotice">공지사항</a></li>
-              <li class="active"><a id="answer">Q&A</a></li>
+              <li class="active"><a id="adminNotice">공지사항</a></li>
+              <li><a id="answer">Q&A</a></li>
               <li><a id="review">상품후기</a></li>
               <li><a id="generalQna">자주 묻는 질문</a></li>
             </ul>
@@ -156,7 +156,7 @@
                   <button class="btn btn-sm">Draft</button>
                 </div>
                 <div class="compose-mail">
-                  <form role="form-horizontal" action="${ pageContext.servletContext.contextPath }/admin/answer/insert" method="post">
+                  <form role="form-horizontal" action="${ pageContext.servletContext.contextPath }/admin/notice/insert" method="post">
                     <div class="form-group">
                       <label for="to" class="">제목</label>
                       <input type="text" name="title" tabindex="1" id="to" class="form-control">
