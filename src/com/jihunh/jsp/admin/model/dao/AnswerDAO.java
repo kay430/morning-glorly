@@ -13,31 +13,31 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
-import com.jihunh.jsp.admin.model.dto.MgAdDTO;
+import com.jihunh.jsp.admin.model.dto.AnswerDTO;
 import com.jihunh.jsp.admin.model.dto.NoticeDTO;
 import com.jihunh.jsp.admin.model.dto.NoticePageInfoDTO;
 import com.jihunh.jsp.common.config.ConfigLocation;
 import com.jihunh.jsp.member.model.dto.MgDTO;
 
-public class NoticeDAO {
+public class AnswerDAO {
 	
 	private final Properties prop;
 	
-	public NoticeDAO() {
+	public AnswerDAO() {
 		prop = new Properties();
 		try {
-			prop.loadFromXML(new FileInputStream(ConfigLocation.MAPPER_LOCATION + "admin/admin-mapper.xml"));
+			prop.loadFromXML(new FileInputStream(ConfigLocation.MAPPER_LOCATION + "admin/answer-mapper.xml"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 	
-	public List<NoticeDTO> selectAllNoticeList(Connection con) {
+	public List<AnswerDTO> selectAllNoticeList(Connection con) {
 		
 		Statement stmt = null;
 		ResultSet rset = null;
 		
-		List<NoticeDTO> noticeList = null;
+		List<AnswerDTO> noticeList = null;
 		
 		String query = prop.getProperty("selectAllNoticeList");
 		
@@ -48,13 +48,13 @@ public class NoticeDAO {
 			noticeList = new ArrayList<>();
 			
 			while(rset.next()) {
-				NoticeDTO notice = new NoticeDTO();
-				notice.setWriter(new MgAdDTO());
+				AnswerDTO notice = new AnswerDTO();
+				notice.setWriter(new MgDTO());
 				
 				notice.setNo(rset.getInt("NOTICE_NO"));
 				notice.setTitle(rset.getString("NOTICE_TITLE"));
 				notice.setBody(rset.getString("NOTICE_BODY"));
-				notice.setWriterMemberNo(rset.getInt("NOTICE_WRITER_MEMBER_NO"));
+				notice.setWriterMgNo(rset.getInt("NOTICE_WRITER_MEMBER_NO"));
 				notice.getWriter().setName(rset.getString("MEMBER_NAME"));
 				notice.setCount(rset.getInt("NOTICE_COUNT"));
 				notice.setCreatedDate(rset.getDate("CREATED_DATE"));
@@ -72,7 +72,7 @@ public class NoticeDAO {
 		return noticeList;
 	}
 
-	public int insertNotice(Connection con, NoticeDTO newNotice) {
+	public int insertNotice(Connection con, AnswerDTO newNotice) {
 		
 		PreparedStatement pstmt = null;
 		
@@ -84,7 +84,9 @@ public class NoticeDAO {
 			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, newNotice.getTitle());
 			pstmt.setString(2, newNotice.getBody());
-			pstmt.setInt(3, newNotice.getWriterMemberNo());
+			pstmt.setInt(3, newNotice.getWriterMgNo());
+			pstmt.setString(4, newNotice.getType());
+			pstmt.setInt(5, newNotice.getCategoryNo());
 			
 			result = pstmt.executeUpdate();
 		
@@ -118,15 +120,18 @@ public class NoticeDAO {
 			close(pstmt);
 		}
 		
+		System.out.println("조회수 증가 결과 : " + result);
 		return result;
 	}
 
-	public NoticeDTO selectNoticeDetail(Connection con, int no) {
+	public AnswerDTO selectNoticeDetail(Connection con, int no) {
+		
+		System.out.println("디테일 조회 가즈아");
 		
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
-		NoticeDTO noticeDetail = null;
+		AnswerDTO noticeDetail = null;
 		
 		String query = prop.getProperty("selectNoticeDetail");
 		
@@ -137,15 +142,15 @@ public class NoticeDAO {
 			rset = pstmt.executeQuery();
 			
 			if(rset.next()) {
-				noticeDetail = new NoticeDTO();
-				noticeDetail.setWriter(new MgAdDTO());
+				noticeDetail = new AnswerDTO();
+				noticeDetail.setWriter(new MgDTO());
 				
-				noticeDetail.setNo(rset.getInt("NOTICE_NO"));
-				noticeDetail.setTitle(rset.getString("NOTICE_TITLE"));
-				noticeDetail.setBody(rset.getString("NOTICE_BODY"));
-				noticeDetail.setWriterMemberNo(rset.getInt("NOTICE_WRITER_MEMBER_NO"));
+				noticeDetail.setNo(rset.getInt("QNA_NO"));
+				noticeDetail.setTitle(rset.getString("QNA_TITLE"));
+				noticeDetail.setBody(rset.getString("QNA_BODY"));
+				noticeDetail.setWriterMgNo(rset.getInt("QNA_WRITER_MEMBER_NO"));
 				noticeDetail.getWriter().setName(rset.getString("MEMBER_NAME"));
-				noticeDetail.setCount(rset.getInt("NOTICE_COUNT"));
+				noticeDetail.setCount(rset.getInt("QNA_COUNT"));
 				noticeDetail.setCreatedDate(rset.getDate("CREATED_DATE"));
 			
 			}
@@ -160,7 +165,7 @@ public class NoticeDAO {
 		return noticeDetail;
 	}
 
-	public int updateNotice(Connection con, NoticeDTO newNotice) {
+	public int updateNotice(Connection con, AnswerDTO newNotice) {
 		
 		PreparedStatement pstmt = null;
 		
@@ -173,7 +178,7 @@ public class NoticeDAO {
 			pstmt.setString(1, newNotice.getTitle());
 			pstmt.setString(2, newNotice.getBody());
 			pstmt.setInt(3, newNotice.getNo());
-			pstmt.setInt(4, newNotice.getWriterMemberNo());
+			pstmt.setInt(4, newNotice.getWriterMgNo());
 			
 			result = pstmt.executeUpdate();
 
@@ -213,12 +218,12 @@ public class NoticeDAO {
 		return totalCount;
 	}
 
-	public List<NoticeDTO> selectBoardList(Connection con, NoticePageInfoDTO pageInfo) {
+	public List<AnswerDTO> selectBoardList(Connection con, NoticePageInfoDTO pageInfo) {
 
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
-		List<NoticeDTO> noticeList = null;
+		List<AnswerDTO> answerList = null;
 		
 		String query = prop.getProperty("selectNoticeList");
 		
@@ -229,21 +234,25 @@ public class NoticeDAO {
 			
 			rset = pstmt.executeQuery();
 			
-			noticeList = new ArrayList<>();
+			answerList = new ArrayList<>();
 			
 			while(rset.next()) {
-				NoticeDTO notice = new NoticeDTO();
-				notice.setWriter(new MgAdDTO());
+				AnswerDTO answer = new AnswerDTO();
+				answer.setWriter(new MgDTO());
 				
-				notice.setNo(rset.getInt("NOTICE_NO"));
-				notice.setTitle(rset.getString("NOTICE_TITLE"));
-				notice.setBody(rset.getString("NOTICE_BODY"));
-				notice.setWriterMemberNo(rset.getInt("NOTICE_WRITER_MEMBER_NO"));
-				notice.getWriter().setName(rset.getString("MEMBER_NAME"));
-				notice.setCount(rset.getInt("NOTICE_COUNT"));
-				notice.setCreatedDate(rset.getDate("CREATED_DATE"));
+				answer.setNo(rset.getInt("QNA_NO"));
+				answer.setType(rset.getString("QNA_TYPE"));
+				answer.setCategoryNo(rset.getInt("CATEGORY_CODE"));
+				answer.setTitle(rset.getString("QNA_TITLE"));
+				answer.setBody(rset.getString("QNA_BODY"));
+				answer.setWriterMgNo(rset.getInt("QNA_WRITER_MEMBER_NO"));
+				answer.getWriter().setName(rset.getString("MEMBER_NAME"));
+				answer.setCount(rset.getInt("QNA_COUNT"));
+				answer.setCreatedDate(rset.getDate("CREATED_DATE"));
+				answer.setModifiedDate(rset.getDate("MODIFIED_DATE"));
+				answer.setStatus(rset.getString("QNA_STATUS"));
 				
-				noticeList.add(notice);
+				answerList.add(answer);
 			}
 			
 		} catch (SQLException e) {
@@ -254,7 +263,7 @@ public class NoticeDAO {
 		}
 		
 		
-		return noticeList;
+		return answerList;
 	}
 
 }

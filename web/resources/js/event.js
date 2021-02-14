@@ -75,11 +75,53 @@ window.onload = function() {
 			location.href = "/mg/admin/notice/insert";
 		}
 	}
+	
+	if(document.getElementById("writeAnswer")) {
+		const $writeNotice = document.getElementById("writeAnswer");
+		$writeNotice.onclick = function() {
+			location.href = "/mg/admin/answer/insert";
+		}
+	}
 
 	if(document.getElementById("sweetHome")) {
 		const $writeNotice = document.getElementById("sweetHome");
 		$writeNotice.onclick = function() {
 			location.href = "/mg/admin/mainIndex";
+		}
+	}
+	
+	if(document.getElementById("sweetHome2")) {
+		const $writeNotice = document.getElementById("sweetHome2");
+		$writeNotice.onclick = function() {
+			location.href = "/mg/admin/mainIndex";
+		}
+	}
+	
+	if(document.getElementById("answer")) {
+		const $answer = document.getElementById("answer");
+		$answer.onclick = function() {
+			location.href = "/mg/admin/answer";
+		}
+	}
+	
+	if(document.getElementById("review")) {
+		const $review = document.getElementById("review");
+		$review.onclick = function() {
+			location.href = "/mg/admin/review";
+		}
+	}
+	
+	if(document.getElementById("generalQna")) {
+		const $generalQna = document.getElementById("generalQna");
+		$generalQna.onclick = function() {
+			location.href = "/mg/admin/generalQna";
+		}
+	}
+	
+	if(document.getElementById("test")) {
+		const $writeNotice = document.getElementById("test");
+		$writeNotice.onclick = function() {
+			location.href = "/mg/admin/test";
 		}
 	}
 	

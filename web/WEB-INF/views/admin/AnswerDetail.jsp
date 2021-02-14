@@ -92,8 +92,8 @@
               <span>고객센터</span>
               </a>
             <ul class="sub">
-              <li class="active"><a id="adminNotice">공지사항</a></li>
-              <li><a id="answer">Q&A</a></li>
+              <li><a id="adminNotice">공지사항</a></li>
+              <li class="active"><a id="answer">Q&A</a></li>
               <li><a id="review">상품후기</a></li>
               <li><a id="generalQna">자주 묻는 질문</a></li>
             </ul>
@@ -218,18 +218,18 @@
                   </ul>
                 </div> -->
                 <div id="holdUp2" class="compose-btn pull-left">
-                  <a id="rewriteNoList" class="btn btn-sm btn-theme" onclick="location.href='${ pageContext.servletContext.contextPath }/admin/notice'">
+                  <a id="rewriteNoListA1" class="btn btn-sm btn-theme" onclick="location.href='${ pageContext.servletContext.contextPath }/admin/answer'">
                   <i class="fa fa-reply"></i> 목록으로</a>
                   <c:if test="${ sessionScope.loginMember.status eq 'Y' }">
                   <div id="holdUp">
-                  <button id="rewriteNo" class="btn btn-sm">
+                  <button id="rewriteNoA1" class="btn btn-sm">
                   <!-- <a href='javascript:test("/mg/resources/js/event")'> -->
                   <i class="fa fa-arrow-right"></i> 수정하기
                   <!-- </a> -->
                   </button>
                   </div>
                   <div id="holdUp4">
-                  <button id="rewriteNoCommit" class="btn btn-sm">
+                  <button id="rewriteNoCommitA1" class="btn btn-sm">
                   <i class="fa fa-arrow-right"></i>완료하기</button>
                   </div>
                   <script src="/mg/resources/js/event.js"></script>
@@ -274,25 +274,25 @@
                 				location.href = "/mg/admin/generalQna";}}
                 	  
                 	  
-                	  $("#rewriteNoCommit").css("display","none");
+                	  $("#rewriteNoCommitA1").css("display","none");
                 	  console.log('${ pageNumNo }')
                   		$("#holdUp2").css("float","left").css("display","inline");
-                  		$("#rewriteNoList").css("float","left").css("display","inline");
+                  		$("#rewriteNoListA1").css("float","left").css("display","inline");
                   		$("#holdUp").css("float","left").css("display","inline");
                   		$("#holdUp3").css("float","left").css("display","inline");
                   		$("#holdUp4").css("float","left").css("display","inline");
                   		/* $("#test2").load(location.href + " #test2"); */
                   }
                   
-                  	$("#rewriteNo").click(function() {
-                  		$("#rewriteNoCommit").css("display","block");
-                  		$("#rewriteNo").css("display","none");
+                  	$("#rewriteNoA1").click(function() {
+                  		$("#rewriteNoCommitA1").css("display","block");
+                  		$("#rewriteNoA1").css("display","none");
                   		$("#headCore").attr('readonly', false);
                   		$("#core").attr('readonly', false);
                   		
-                  		$("#rewriteNoCommit").click(function() {
+                  		$("#rewriteNoCommitA1").click(function() {
                   			
-                  			if(confirm("공지사항을 수정하시겠습니까?")) {
+                  			if(confirm("QNA를 수정하시겠습니까?")) {
                       			const headCore = document.getElementById("headCore").value;
                           		const body = document.getElementById("core").value;
                           		const pageNumNo = '${ pageNumNo }';
@@ -301,7 +301,7 @@
                           		console.log(body);
                           		
                           		$.ajax({
-                          			url: "${ pageContext.servletContext.contextPath }/admin/notice/update",
+                          			url: "${ pageContext.servletContext.contextPath }/admin/answer/update",
                           			type: "post",
                           			data: {headCore : headCore, body : body, pageNumNo : pageNumNo, adminNo: adminNo },
                           			success: function(data, textStatus, xhr) {
@@ -310,8 +310,8 @@
                           				
                           				console.log(data["title"]);
                           				console.table(data["body"]);
-                                  	  $("#rewriteNoCommit").css("display","none");
-                                  	$("#rewriteNo").css("display","block");
+                                  	  $("#rewriteNoCommitA1").css("display","none");
+                                  	$("#rewriteNoA1").css("display","block");
                               		$("#headCore").attr('readonly', true);
                               		$("#core").attr('readonly', true);
                           			},
@@ -322,11 +322,11 @@
                   				alert("수정 완료!")
                   			} else {
                   				alert("수정 취소~")
-                  				location.href = '${ pageContext.servletContext.contextPath }/admin/notice/detail?no=' + '${ pageNumNo }';
+                  				location.href = '${ pageContext.servletContext.contextPath }/admin/answer/detail?no=' + '${ pageNumNo }';
                   			}
 
                   		});
-                  		alert("공지사항 수정을 진행해주세요.");
+                  		alert("Q&A 수정을 진행해주세요.");
                   	});
                   </script>
                   </c:if>

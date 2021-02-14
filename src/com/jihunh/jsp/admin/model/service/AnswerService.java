@@ -8,35 +8,39 @@ import static com.jihunh.jsp.common.jdbc.JDBCTemplate.rollback;
 import java.sql.Connection;
 import java.util.List;
 
+import com.jihunh.jsp.admin.model.dao.AnswerDAO;
 import com.jihunh.jsp.admin.model.dao.NoticeDAO;
+import com.jihunh.jsp.admin.model.dto.AnswerDTO;
 import com.jihunh.jsp.admin.model.dto.NoticeDTO;
 import com.jihunh.jsp.admin.model.dto.NoticePageInfoDTO;
 
-public class NoticeService {
+public class AnswerService {
 	
 	private final NoticeDAO noticeDAO;
+	private final AnswerDAO answerDAO;
 	
-	public NoticeService() {
+	public AnswerService() {
 		noticeDAO = new NoticeDAO();
+		answerDAO = new AnswerDAO();
 	}
 	
 	/* 공지사항 전체 목록 조회용 메소드 */
-	public List<NoticeDTO> selectAllNoticeList() {
+	public List<AnswerDTO> selectAllNoticeList() {
 		
 		Connection con = getConnection();
 		
-		List<NoticeDTO> noticeList = noticeDAO.selectAllNoticeList(con);
+		List<AnswerDTO> noticeList = answerDAO.selectAllNoticeList(con);
 		
 		close(con);
 		
 		return noticeList;
 	}
 
-	public int insertNotice(NoticeDTO newNotice) {
+	public int insertNotice(AnswerDTO newNotice) {
 		
 		Connection con = getConnection();
 		
-		int result = noticeDAO.insertNotice(con, newNotice);
+		int result = answerDAO.insertNotice(con, newNotice);
 		
 		if(result > 0) {
 			commit(con);
@@ -49,15 +53,15 @@ public class NoticeService {
 		return result;
 	}
 
-	public NoticeDTO selectNoticeDetail(int no) {
+	public AnswerDTO selectNoticeDetail(int no) {
 		
 		Connection con = getConnection();
-		NoticeDTO noticeDetail = null;
+		AnswerDTO noticeDetail = null;
 		
-		int result = noticeDAO.incrementNoticeCount(con, no);
+		int result = answerDAO.incrementNoticeCount(con, no);
 		
 		if(result > 0) {
-			noticeDetail = noticeDAO.selectNoticeDetail(con, no);
+			noticeDetail = answerDAO.selectNoticeDetail(con, no);
 			
 			if(noticeDetail != null) {
 				commit(con);
@@ -74,12 +78,12 @@ public class NoticeService {
 		return noticeDetail;
 	}
 
-	public NoticeDTO updateNotice(NoticeDTO newNotice) {
+	public AnswerDTO updateNotice(AnswerDTO newNotice) {
 		Connection con = getConnection();
 
-		int result = noticeDAO.updateNotice(con, newNotice);
+		int result = answerDAO.updateNotice(con, newNotice);
 
-		NoticeDTO updateInfo  = noticeDAO.selectNoticeDetail(con, newNotice.getNo());
+		AnswerDTO updateInfo  = answerDAO.selectNoticeDetail(con, newNotice.getNo());
 
 		System.out.println("result 값 : " + result);
 		if(result > 0) {
@@ -97,7 +101,7 @@ public class NoticeService {
 		
 	Connection con = getConnection();
 		
-		int totalCount = noticeDAO.selectTotalCount(con);
+		int totalCount = answerDAO.selectTotalCount(con);
 		
 		close(con);
 		
@@ -105,11 +109,11 @@ public class NoticeService {
 		
 	}
 
-	public List<NoticeDTO> selectNoticeList(NoticePageInfoDTO pageInfo) {
+	public List<AnswerDTO> selectNoticeList(NoticePageInfoDTO pageInfo) {
 		
 		Connection con = getConnection();
 		
-		List<NoticeDTO> boardList = noticeDAO.selectBoardList(con, pageInfo);
+		List<AnswerDTO> boardList = answerDAO.selectBoardList(con, pageInfo);
 		
 		close(con);
 		

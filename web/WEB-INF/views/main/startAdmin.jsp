@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="Dashboard">
   <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-  <title>Dashio - Bootstrap Admin Template</title>
+  <title>Morning Glory Admin</title>
 
   <!-- Favicons -->
   <link href="/mg/resources/image/admin/favicon.png" rel="icon">
@@ -37,7 +37,94 @@
 <body>
   	<jsp:include page="/WEB-INF/views/common/admin/adHeader.jsp"/>
 	
-	   <!--sidebar end-->
+   <!-- **********************************************************************************************************************************************************
+        MAIN SIDEBAR MENU
+        *********************************************************************************************************************************************************** -->
+    <!--sidebar start-->
+    <aside>
+      <div id="sidebar" class="nav-collapse ">
+        <!-- sidebar menu start-->
+        <ul class="sidebar-menu" id="nav-accordion">
+          <p class="centered"><a href="profile.html"><img src="/mg/resources/image/admin/ui-kor.jpg" class="img-circle" width="80"></a></p>
+          <h5 class="centered">프로필 사진</h5>
+          <li class="mt">
+            <a id="sweetHome2">
+              <i class="fa fa-dashboard"></i>
+              <span>메인 페이지</span>
+              </a>
+          </li>
+          <li class="sub-menu">
+            <a href="javascript:;">
+              <i class="fa fa-desktop"></i>
+              <span>회원관리</span>
+              </a>
+            <ul class="sub">
+              <li><a href="general.html">회원조회</a></li>
+              <li><a href="buttons.html">블랙리스트</a></li>
+              <li><a href="panels.html">적립금 조회 </a></li>
+            </ul>
+          </li>
+          <li class="sub-menu">
+            <a href="javascript:;">
+              <i class="fa fa-cogs"></i>
+              <span>주문관리</span>
+              </a>
+            <ul class="sub">
+              <li><a href="grids.html">주문 조회</a></li>
+              <li><a href="calendar.html">결제내역</a></li>
+              <li><a href="gallery.html">환불 및 반품</a></li>
+              <li><a href="file_upload.html">배송 조회</a></li>
+            </ul>
+          </li>
+          <li class="sub-menu">
+            <a href="javascript:;">
+              <i class="fa fa-book"></i>
+              <span>상품관리</span>
+              </a>
+            <ul class="sub">
+              <li><a href="blank.html">상품등록</a></li>
+              <li><a href="login.html">상품조회</a></li>
+              <li><a href="lock_screen.html">카테고리 관리</a></li>
+            </ul>
+          </li>
+          <li class="sub-menu">
+            <a href="javascript:;">
+              <i class="fa fa-tasks"></i>
+              <span>고객센터</span>
+              </a>
+            <ul class="sub">
+              <li><a id="adminNotice">공지사항</a></li>
+              <li><a id="answer">Q&A</a></li>
+              <li><a id="review">상품후기</a></li>
+              <li><a id="generalQna">자주 묻는 질문</a></li>
+            </ul>
+          </li>
+          <li class="sub-menu">
+            <a href="javascript:;">
+              <i class=" fa fa-bar-chart-o"></i>
+             <span>통계</span>
+              </a>
+            <ul class="sub">
+              <li><a href="morris.html">판매분석</a></li>
+              <li><a href="morris.html">카테고리별 매출 조회</a></li>
+            </ul>
+          </li>
+          <li class="sub-menu">
+            <a href="javascript:;">
+              <i class="fa fa-th"></i>
+              <span>DB 조회용</span>
+              </a>
+            <ul class="sub">
+              <li><a href="basic_table.html">Basic Table</a></li>
+              <li><a href="responsive_table.html">Responsive Table</a></li>
+              <li><a href="advanced_table.html">Advanced Table</a></li>
+            </ul>
+          </li>
+        </ul>
+        <!-- sidebar menu end-->
+      </div>
+    </aside>
+    <!--sidebar end-->
     <!-- **********************************************************************************************************************************************************
         MAIN CONTENT
         *********************************************************************************************************************************************************** -->

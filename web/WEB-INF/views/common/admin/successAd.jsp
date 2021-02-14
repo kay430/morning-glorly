@@ -31,6 +31,10 @@
 				successMessage = "공지사항 등록을 완료했습니다.";
 				movePath = "${ pageContext.servletContext.contextPath }/admin/notice"
 				break;	
+			case "insertAnswer" :
+				successMessage = "공지사항 등록을 완료했습니다.";
+				movePath = "${ pageContext.servletContext.contextPath }/admin/answer"
+				break;	
 			}
 			
 			

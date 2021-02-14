@@ -141,7 +141,7 @@
             <section class="panel">
               <header class="panel-heading wht-bg">
                 <h4 class="gen-case">
-                    	공지사항
+                    	Q&A
                     <form action="#" class="pull-right mail-src-position">
                       <div class="input-append">
                         <input type="text" class="form-control " placeholder="Search Mail">
@@ -174,8 +174,20 @@
                       <input type="text" tabindex="2" id="bcc" class="form-control">
                     </div>
                     <div class="form-group">
-                      <label for="subject" class="">작성자:</label>
-                      <input type="text" name="writer" tabindex="1" id="subject" class="form-control">
+                      <label for="subject" class="">유형 선택</label>
+                      <select name="type">
+          			<option value="문의">문의</option>
+          			<option value="재문의">재문의</option>
+        			<option value="완료">완료</option>
+      				</select>
+      				<select name="category">
+          			<option value="10">결제</option>
+          			<option value="20">배송</option>
+        			<option value="30">상품</option>
+        			<option value="40">환불</option>
+        			<option value="50">후기</option>
+        			<option value="60">기타</option>
+      				</select>
                     </div>
                     <div class="compose-editor">
                       <textarea class="wysihtml5 form-control" rows="9" name="body"></textarea>

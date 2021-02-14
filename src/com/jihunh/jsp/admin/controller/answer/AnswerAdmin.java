@@ -1,4 +1,4 @@
-package com.jihunh.jsp.admin.controller.noticelist;
+package com.jihunh.jsp.admin.controller.answer;
 
 import java.io.IOException;
 import java.util.List;
@@ -9,19 +9,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.jihunh.jsp.admin.model.dto.NoticeDTO;
+import com.jihunh.jsp.admin.model.dto.AnswerDTO;
 import com.jihunh.jsp.admin.model.dto.NoticePageInfoDTO;
-import com.jihunh.jsp.admin.model.service.NoticeService;
+import com.jihunh.jsp.admin.model.service.AnswerService;
 import com.jihunh.jsp.common.paging.Pagenation;
 
-@WebServlet("/admin/notice")
-public class NoticeAdmin extends HttpServlet {
+@WebServlet("/admin/answer")
+public class AnswerAdmin extends HttpServlet {
+       
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-	String currentPage = request.getParameter("currentPage");
 		
+		String currentPage = request.getParameter("currentPage");
+
 		int pageNo = 1;
-		
+
 		if(currentPage != null && !"".equals(currentPage)) {
 			pageNo = Integer.parseInt(currentPage);
 		}
@@ -32,9 +34,10 @@ public class NoticeAdmin extends HttpServlet {
 		
 		System.out.println("current페이지 : " + currentPage);
 		System.out.println("pageNo는? : " + pageNo);
+		System.out.println("여기는 Answer");
 		
-		NoticeService ntSv = new NoticeService();
-		int totalCount = ntSv.selectTotalCount();
+		AnswerService anSv = new AnswerService();
+		int totalCount = anSv.selectTotalCount();
 		
 		System.out.println("전체 게시물 수 : " + totalCount); 
 		
@@ -45,25 +48,28 @@ public class NoticeAdmin extends HttpServlet {
 		
 		System.out.println("pageInfo : " + pageInfo);
 		
-		List<NoticeDTO> noticeList = ntSv.selectNoticeList(pageInfo);
+		List<AnswerDTO> answerList = anSv.selectNoticeList(pageInfo);
 		
-		for(NoticeDTO notice : noticeList) {
-			System.out.println(notice);
+		for(AnswerDTO answer : answerList) {
+			System.out.println(answer);
 		}
 		
-		
+
 		String path = "";
-		if(noticeList != null) {
-			path = "/WEB-INF/views/admin/noticeList.jsp";
-			request.setAttribute("noticeList", noticeList);
+		if(answerList != null) {
+			path = "/WEB-INF/views/admin/AnswerAdmin.jsp";
+			request.setAttribute("answerList", answerList);
 			request.setAttribute("pageInfo", pageInfo);
 		} else {
-			path = "WEB-INF/views/common/failed.jsp";
-			request.setAttribute("message", "QnA 목록 조회 실패!");
+			path = "WEB-INF/views/common/failedAd.jsp";
+			request.setAttribute("message", "게시물 목록 조회 실패!");
 		}
 		
 		request.getRequestDispatcher(path).forward(request, response);
 		
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		
 	}

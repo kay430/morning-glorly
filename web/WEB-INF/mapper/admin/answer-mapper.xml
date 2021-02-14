@@ -49,12 +49,14 @@ VALUES
 	</entry>
 	<entry key="insertNotice">
         INSERT
-          INTO MG_NOTICE A
+          INTO MG_QNA A
         (
-          A.NOTICE_NO
-        , A.NOTICE_TITLE
-        , A.NOTICE_BODY
-        , A.NOTICE_WRITER_MEMBER_NO
+          A.QNA_NO
+        , A.QNA_TITLE
+        , A.QNA_BODY
+        , A.QNA_WRITER_MEMBER_NO
+        , A.QNA_TYPE
+        , A.CATEGORY_CODE
         )
         VALUES
         (
@@ -62,76 +64,90 @@ VALUES
         , ?
         , ?
         , ?
+        , ?
+        , ?
         )
 	</entry>
 	<entry key="incrementNoticeCount">
         UPDATE
-               MG_NOTICE A
-           SET A.NOTICE_COUNT = (SELECT B.NOTICE_COUNT
-                                   FROM MG_NOTICE B
-                                  WHERE B.NOTICE_NO = ?
+               MG_QNA A
+           SET A.QNA_COUNT = (SELECT B.QNA_COUNT
+                                   FROM MG_QNA B
+                                  WHERE B.QNA_NO = ?
                                 ) + 1
-         WHERE A.NOTICE_NO = ?
+         WHERE A.QNA_NO = ?
 	</entry>
 	<entry key="selectNoticeDetail">
         SELECT
-               A.NOTICE_NO
-             , A.NOTICE_TITLE
-             , A.NOTICE_BODY
-             , A.NOTICE_WRITER_MEMBER_NO
+               A.QNA_NO
+             , A.QNA_TITLE
+             , A.QNA_BODY
+             , A.QNA_WRITER_MEMBER_NO
              , B.MEMBER_NAME
-             , A.NOTICE_COUNT
+             , A.QNA_COUNT
              , A.CREATED_DATE
-          FROM MG_NOTICE A
-          JOIN MG_MEMBER B ON (A.NOTICE_WRITER_MEMBER_NO = B.MEMBER_NO)
-         WHERE A.NOTICE_STATUS = 'Y'
-           AND A.NOTICE_NO = ?
+          FROM MG_QNA A
+          JOIN MG_MEMBER B ON (A.QNA_WRITER_MEMBER_NO = B.MEMBER_NO)
+         WHERE A.QNA_STATUS = 'Y'
+           AND A.QNA_NO = ?
 	</entry>
 	<entry key="selectTotalCount">
 		SELECT /**/
 		       COUNT(*)
-		  FROM MG_NOTICE A
-		 WHERE A.NOTICE_STATUS = 'Y'
+		  FROM MG_QNA A
+		 WHERE A.QNA_STATUS = 'Y'
 	</entry>
 	<entry key="selectNoticeList">
 	    SELECT 
                A.RNUM
-             , A.NOTICE_NO
-             , A.NOTICE_TITLE
-             , A.NOTICE_BODY
-             , A.NOTICE_WRITER_MEMBER_NO
+             , A.QNA_NO
+             , A.QNA_TYPE
+             , A.CATEGORY_CODE
+             , A.QNA_TITLE
+             , A.QNA_BODY
+             , A.QNA_WRITER_MEMBER_NO
              , A.MEMBER_NAME
-             , A.NOTICE_COUNT
+             , A.QNA_COUNT
              , A.CREATED_DATE
+             , A.MODIFIED_DATE
+             , A.QNA_STATUS
         FROM (SELECT ROWNUM RNUM
-                   , B.NOTICE_NO
-                   , B.NOTICE_TITLE
-                   , B.NOTICE_BODY
-                   , B.NOTICE_WRITER_MEMBER_NO
+                   , B.QNA_NO
+                   , B.QNA_TYPE
+                   , B.CATEGORY_CODE
+                   , B.QNA_TITLE
+                   , B.QNA_BODY
+                   , B.QNA_WRITER_MEMBER_NO
                    , B.MEMBER_NAME
-                   , B.NOTICE_COUNT
+                   , B.QNA_COUNT
                    , B.CREATED_DATE
-              FROM (SELECT A.NOTICE_NO
-                         , A.NOTICE_TITLE
-                         , A.NOTICE_BODY
-                         , A.NOTICE_WRITER_MEMBER_NO
+                   , B.MODIFIED_DATE
+                   , B.QNA_STATUS
+              FROM (SELECT A.QNA_NO
+                         , A.QNA_TYPE
+                         , A.CATEGORY_CODE
+                         , A.QNA_TITLE
+                         , A.QNA_BODY
+                         , A.QNA_WRITER_MEMBER_NO
                          , B.MEMBER_NAME
-                         , A.NOTICE_COUNT
+                         , A.QNA_COUNT
                          , A.CREATED_DATE
-                      FROM MG_NOTICE A
-                      JOIN MG_MEMBER B ON (A.NOTICE_WRITER_MEMBER_NO = B.MEMBER_NO)
-                     WHERE A.NOTICE_STATUS = 'Y'
-                           ORDER BY A.NOTICE_NO DESC
+                         , A.MODIFIED_DATE
+                         , A.QNA_STATUS
+                      FROM MG_QNA A
+                      JOIN MG_MEMBER B ON (A.QNA_WRITER_MEMBER_NO = B.MEMBER_NO)
+                     WHERE A.QNA_STATUS = 'Y'
+                           ORDER BY A.QNA_NO DESC
                           ) B
                     ) A
                     WHERE RNUM BETWEEN ? AND ? 
 	</entry>
 	<entry key="updateNotice">
 	        UPDATE
-               MG_NOTICE A
-           SET A.NOTICE_TITLE = ?
-             , A.NOTICE_BODY = ?
-         WHERE A.NOTICE_NO = ?
-           AND A.NOTICE_WRITER_MEMBER_NO = ?
+               MG_QNA A
+           SET A.QNA_TITLE = ?
+             , A.QNA_BODY = ?
+         WHERE A.QNA_NO = ?
+           AND A.QNA_WRITER_MEMBER_NO = ?
 	</entry>
 </properties>
