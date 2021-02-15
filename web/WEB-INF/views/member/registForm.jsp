@@ -34,7 +34,7 @@
                         <td text-align="center" class="signup_cate"><sup class="required">*</sup> 아이디 </td>
                         <td class="signup_cate_detail">
                             <input type="text" maxlength="13" name="memberId" id="memberId" required>&nbsp;&nbsp;
-                            <input type="button" value="중복확인" class="btn btn-or" id="duplicationCheck">
+                            <input type="button" value="중복확인" class="duplication_check_btn btn-or" id="duplicationCheck">
                         </td>
                     </tr>
 
@@ -76,7 +76,7 @@
                                 <option> daum.net </option>
                                 <option> google.com </option>
                             </select>&nbsp;&nbsp;
-                            <input type="button" value="중복확인" class="btn">
+                            <input type="button" value="중복확인" class="duplication_check_btn">
                         </td>
                     </tr>
 
@@ -87,7 +87,7 @@
                         <td class="signup_cate"><sup class="required">*</sup> 우편번호 </td>
                         <td class="signup_cate_detail">
                             <input type="text" name="zipCode" id="zipCode" readonly>&nbsp;&nbsp;
-                            <input type="button" value="우편번호검색" class="btn btn-yg" id="searchZipCode">
+                            <input type="button" value="우편번호검색" class="postal_btn btn-yg" id="searchZipCode">
                         </td>
                     </tr>
                     <tr class="address">
