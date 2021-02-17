@@ -2,12 +2,12 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
 	<entry key="insertMember">
-INSERT INTO MG_MEMBER 
- (MEMBER_NO, MEMBER_NAME, MEMBER_ID, MEMBER_PWD, MEMBER_PNO, MEMBER_GENDER
- , ADDRESS, EMAIL, PHONE)
-VALUES
- (SEQ_MEMBER_NO.NEXTVAL, ?, ?, ?, ?, ?
- , ?, ?, ?)
+        INSERT INTO MG_MEMBER 
+         (MEMBER_NO, MEMBER_NAME, MEMBER_ID, MEMBER_PWD, MEMBER_PNO, MEMBER_GENDER
+         , EMAIL, ADDRESS, PHONE)
+        VALUES
+         (SEQ_MEMBER_NO.NEXTVAL, ?, ?, ?, ?, ?
+         , ?, ?, ?)
 	</entry>
 	<entry key="selectEncryptPwd">
 	    SELECT /* com.greedy.jsp.member.model.dao.MemberDAO#selectEncryptPwd() */
@@ -23,11 +23,14 @@ VALUES
 		     , A.MEMBER_ID
 		     , A.MEMBER_PNO
 		     , A.MEMBER_GENDER
-		     , A.ADDRESS
 		     , A.EMAIL
+		     , A.ADDRESS
 		     , A.PHONE
+		     , A.SUB_PHONE
+		     , A.MEMBER_POINT
 		     , A.ENROLL_DATE
-		     , A.MEMBER_ROLE
+		     , A.MODIFIED_DATE
+		     , A.CHECK_BLACKLIST
 		     , A.MEMBER_STATUS
 	      FROM MG_MEMBER A
 		 WHERE A.MEMBER_STATUS = 'Y'

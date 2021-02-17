@@ -10,17 +10,22 @@ public class MgDTO implements java.io.Serializable {
 	private String pwd;
 	private String pno;
 	private String gender;
-	private String address;
 	private String email;
+	private String address;
 	private String phone;
+	private String subPhone;
+	private String point;
+	private String memberPoint;
 	private java.sql.Date enrollDate;
-	private String role;
+	private java.sql.Date modifiedDate;
+	private String blackList;
 	private String status;
 	
 	public MgDTO() {}
 
-	public MgDTO(int no, String name, String id, String pwd, String pno, String gender, String address, String email,
-			String phone, Date enrollDate, String role, String status) {
+	public MgDTO(int no, String name, String id, String pwd, String pno, String gender, String email, String address,
+			String phone, String subPhone, String point, String memberPoint, Date enrollDate, Date modifiedDate,
+			String blackList, String status) {
 		super();
 		this.no = no;
 		this.name = name;
@@ -28,11 +33,15 @@ public class MgDTO implements java.io.Serializable {
 		this.pwd = pwd;
 		this.pno = pno;
 		this.gender = gender;
-		this.address = address;
 		this.email = email;
+		this.address = address;
 		this.phone = phone;
+		this.subPhone = subPhone;
+		this.point = point;
+		this.memberPoint = memberPoint;
 		this.enrollDate = enrollDate;
-		this.role = role;
+		this.modifiedDate = modifiedDate;
+		this.blackList = blackList;
 		this.status = status;
 	}
 
@@ -84,20 +93,20 @@ public class MgDTO implements java.io.Serializable {
 		this.gender = gender;
 	}
 
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
 	public String getEmail() {
 		return email;
 	}
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 	public String getPhone() {
@@ -108,6 +117,30 @@ public class MgDTO implements java.io.Serializable {
 		this.phone = phone;
 	}
 
+	public String getSubPhone() {
+		return subPhone;
+	}
+
+	public void setSubPhone(String subPhone) {
+		this.subPhone = subPhone;
+	}
+
+	public String getPoint() {
+		return point;
+	}
+
+	public void setPoint(String point) {
+		this.point = point;
+	}
+
+	public String getMemberPoint() {
+		return memberPoint;
+	}
+
+	public void setMemberPoint(String memberPoint) {
+		this.memberPoint = memberPoint;
+	}
+
 	public java.sql.Date getEnrollDate() {
 		return enrollDate;
 	}
@@ -116,12 +149,20 @@ public class MgDTO implements java.io.Serializable {
 		this.enrollDate = enrollDate;
 	}
 
-	public String getRole() {
-		return role;
+	public java.sql.Date getModifiedDate() {
+		return modifiedDate;
 	}
 
-	public void setRole(String role) {
-		this.role = role;
+	public void setModifiedDate(java.sql.Date modifiedDate) {
+		this.modifiedDate = modifiedDate;
+	}
+
+	public String getBlackList() {
+		return blackList;
+	}
+
+	public void setBlackList(String blackList) {
+		this.blackList = blackList;
 	}
 
 	public String getStatus() {
@@ -135,8 +176,9 @@ public class MgDTO implements java.io.Serializable {
 	@Override
 	public String toString() {
 		return "MgDTO [no=" + no + ", name=" + name + ", id=" + id + ", pwd=" + pwd + ", pno=" + pno + ", gender="
-				+ gender + ", address=" + address + ", email=" + email + ", phone=" + phone + ", enrollDate="
-				+ enrollDate + ", role=" + role + ", status=" + status + "]";
+				+ gender + ", email=" + email + ", address=" + address + ", phone=" + phone + ", subPhone=" + subPhone
+				+ ", point=" + point + ", memberPoint=" + memberPoint + ", enrollDate=" + enrollDate + ", modifiedDate="
+				+ modifiedDate + ", blackList=" + blackList + ", status=" + status + "]";
 	}
 	
 }
