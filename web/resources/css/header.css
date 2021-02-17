@@ -47,8 +47,6 @@ div#branding .snb li > a strong {color:skyblue;}
 div#branding .snb li > a:hover {color:#333;}
 
 
-
-
 /* 헤더 상단 영역*/
 div#hdTop { display:block; position: relative; z-index: 5; width: 1100px; height: 150px; margin:0 auto;  }
 div#hdTop:after { content:''; display:block; clear:both; }
