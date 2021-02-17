@@ -142,5 +142,19 @@
             </div>
         </div><!-- #branding // -->
         
+        <script type="text/javascript">
+         $(function(){
+        	 $("#allCategory").click(function(e){
+        		 e.preventDefault();
+        		 var $t = $(".categoryMenus")
+        		 
+        		 $t.toggleClass("on");
+        		 
+        		 console.log($t);
+        	 })
+        	 
+         })
+        </script>
+        
 </body>
 </html>
