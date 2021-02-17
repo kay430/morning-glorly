@@ -76,7 +76,7 @@ margin-left: -30px;
 /* 공지사항 리스트 크기 지정 */
 .outer-notice-list,
 .outer-notice-detail {
-	width:750px;
+	width:1000px;
 	height:750px;
     border:1px solid rgb(190, 190, 190);
     margin-left: 0px;
@@ -194,3 +194,6 @@ margin-left: -30px;
     
 .container-fluid{width: 1000px;}
 
+.notice-detail_btn{margin: 0 40px 0 40px;}
+
+.notice_detail_header_txt{font-size: 20px; margin: 8px 0 24px 0;}
