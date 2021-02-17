@@ -125,10 +125,18 @@ window.onload = function() {
 		}
 	}
 	
-	if(document.getElementById("customer")) {
+	/*if(document.getElementById("customer")) {
 		const $main = document.getElementById("customer");
 		$regist.onclick = function() {
 			location.href = "/mg/";
+		}
+		
+	}*/
+	
+	if(document.getElementById("notice")) {
+		const $notice = document.getElementById("notice");
+		$notice.onclick = function() {
+			location.href = "/mg/notice/list";
 		}
 		
 	}
