@@ -22,7 +22,7 @@
                 <li class="fr"><a href="/shop/basket.html" title="장바구니">장바구니 <span><span id="user_basket_quantity"
                                 class="user_basket_quantity">0</span></span></a></li>
                 <li class="fr"><a href="/shop/member.html?type=mynewmain" title="마이페이지">마이페이지</a></li>
-                <li class="fr"><input type="button" value="로그인/회원가입" id="regist" class="btn-yg"></input></li>
+                <li class="fr"><input type="button" value="로그인/회원가입" id="regist" class="login-btn btn-yg"></input></li>
             </ul>
 
             <h1><a href="${ pageContext.servletContext.contextPath }" title=""><img src="/mg/resources/image/Logo1(2).png" alt="" class="main_header_img_logo_1"></a></h1>
