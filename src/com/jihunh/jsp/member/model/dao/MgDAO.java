@@ -41,8 +41,8 @@ public class MgDAO {
 			pstmt.setString(3, requestMember.getPwd());
 			pstmt.setString(4, requestMember.getPno());
 			pstmt.setString(5, requestMember.getGender());
-			pstmt.setString(6, requestMember.getAddress());
-			pstmt.setString(7, requestMember.getEmail());
+			pstmt.setString(6, requestMember.getEmail());
+			pstmt.setString(7, requestMember.getAddress());
 			pstmt.setString(8, requestMember.getPhone());
 			
 			result = pstmt.executeUpdate();
@@ -108,11 +108,16 @@ public class MgDAO {
 				loginMember.setNo(rset.getInt("MEMBER_NO"));
 				loginMember.setName(rset.getString("MEMBER_NAME"));
 				loginMember.setId(rset.getString("MEMBER_ID"));
-				loginMember.setPhone(rset.getString("PHONE"));
+				loginMember.setPno(rset.getString("MEMBER_PNO"));
+				loginMember.setGender(rset.getString("MEMBER_GENDER"));
 				loginMember.setEmail(rset.getString("EMAIL"));
 				loginMember.setAddress(rset.getString("ADDRESS"));
+				loginMember.setPhone(rset.getString("PHONE"));
+				loginMember.setSubPhone(rset.getString("SUB_PHONE"));
+				loginMember.setPoint(rset.getString("MEMBER_POINT"));
 				loginMember.setEnrollDate(rset.getDate("ENROLL_DATE"));
-				loginMember.setRole(rset.getString("MEMBER_ROLE"));
+				loginMember.setModifiedDate(rset.getDate("MODIFIED_DATE"));
+				loginMember.setBlackList(rset.getString("CHECK_BLACKLIST"));
 				loginMember.setStatus(rset.getString("MEMBER_STATUS"));
 			}
 			
