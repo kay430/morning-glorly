@@ -81,9 +81,11 @@
 			
 			<c:if test="${ ! empty sessionScope.loginMember }">
 			<!-- 세션에 로그인멤버가 담겨있으면 로그인이 필요하지 않다는 의미  '!'로 부정-->
-				<h3><c:out value="${ sessionScope.loginMember.nickname }"/>님의 방문을 환영합니다.</h3>
+				<h3><c:out value="${ sessionScope.loginMember.name }"/>님의 방문을 환영합니다.</h3>
+				<br><br>
 				<div class="btns">
-					<input type="button" class="btn btn-yg" value="정보수정" id="update">
+					<input type="button" class="btn btn-or" value="정보수정" id="update">
+					<br><br>
 					<input type="button" class="btn btn-or" value="로그아웃" id="logout">
 				</div>
 			</c:if>
