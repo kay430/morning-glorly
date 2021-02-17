@@ -1,8 +1,8 @@
 window.onload = function() {
-	if(document.getElementById("regist")) {
-		const $regist = document.getElementById("regist");
-		$regist.onclick = function() {
-			location.href = "/mg/member/regist";
+	if(document.getElementById("mainLogin")) {
+		const $login = document.getElementById("mainLogin");
+		$login.onclick = function() {
+			location.href = "/mg/member/login";
 		}
 		
 	}

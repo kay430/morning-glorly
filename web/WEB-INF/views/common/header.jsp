@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="/mg/resources/js/event.js"></script>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 </head>
 <body>
     <div id="hdWrap">
@@ -22,7 +23,12 @@
                 <li class="fr"><a href="/shop/basket.html" title="장바구니">장바구니 <span><span id="user_basket_quantity"
                                 class="user_basket_quantity">0</span></span></a></li>
                 <li class="fr"><a href="/shop/member.html?type=mynewmain" title="마이페이지">마이페이지</a></li>
-                <li class="fr"><input type="button" value="로그인/회원가입" id="regist" class="login-btn btn-yg"></input></li>
+                <c:if test="${ empty sessionScope.loginMember }"> 
+                <li class="fr"><input type="button" value="로그인/회원가입" id="mainLogin" class="login-btn btn-yg"></input></li>
+            	</c:if>
+            	<c:if test="${ ! empty sessionScope.loginMember }"> 
+                <li class="fr"><input type="button" value="로그아웃" id="logout" class="login-btn btn-yg"></input></li>
+            	</c:if>
             </ul>
 
             <h1><a href="${ pageContext.servletContext.contextPath }" title=""><img src="/mg/resources/image/Logo1(2).png" alt="" class="main_header_img_logo_1"></a></h1>
