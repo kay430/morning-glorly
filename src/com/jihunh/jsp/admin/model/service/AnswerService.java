@@ -16,31 +16,17 @@ import com.jihunh.jsp.admin.model.dto.NoticePageInfoDTO;
 
 public class AnswerService {
 	
-	private final NoticeDAO noticeDAO;
 	private final AnswerDAO answerDAO;
 	
 	public AnswerService() {
-		noticeDAO = new NoticeDAO();
 		answerDAO = new AnswerDAO();
 	}
-	
-	/* 공지사항 전체 목록 조회용 메소드 */
-	public List<AnswerDTO> selectAllNoticeList() {
-		
-		Connection con = getConnection();
-		
-		List<AnswerDTO> noticeList = answerDAO.selectAllNoticeList(con);
-		
-		close(con);
-		
-		return noticeList;
-	}
 
-	public int insertNotice(AnswerDTO newNotice) {
+	public int insertAnswer(AnswerDTO newNotice) {
 		
 		Connection con = getConnection();
 		
-		int result = answerDAO.insertNotice(con, newNotice);
+		int result = answerDAO.insertAnswer(con, newNotice);
 		
 		if(result > 0) {
 			commit(con);
@@ -53,15 +39,15 @@ public class AnswerService {
 		return result;
 	}
 
-	public AnswerDTO selectNoticeDetail(int no) {
+	public AnswerDTO selectAnswerDetail(int no) {
 		
 		Connection con = getConnection();
 		AnswerDTO noticeDetail = null;
 		
-		int result = answerDAO.incrementNoticeCount(con, no);
+		int result = answerDAO.incrementAnswerCount(con, no);
 		
 		if(result > 0) {
-			noticeDetail = answerDAO.selectNoticeDetail(con, no);
+			noticeDetail = answerDAO.selectAnswerDetail(con, no);
 			
 			if(noticeDetail != null) {
 				commit(con);
@@ -78,12 +64,12 @@ public class AnswerService {
 		return noticeDetail;
 	}
 
-	public AnswerDTO updateNotice(AnswerDTO newNotice) {
+	public AnswerDTO updateAnswer(AnswerDTO newNotice) {
 		Connection con = getConnection();
 
-		int result = answerDAO.updateNotice(con, newNotice);
+		int result = answerDAO.updateAnswer(con, newNotice);
 
-		AnswerDTO updateInfo  = answerDAO.selectNoticeDetail(con, newNotice.getNo());
+		AnswerDTO updateInfo  = answerDAO.selectAnswerDetail(con, newNotice.getNo());
 
 		System.out.println("result 값 : " + result);
 		if(result > 0) {
@@ -109,15 +95,15 @@ public class AnswerService {
 		
 	}
 
-	public List<AnswerDTO> selectNoticeList(NoticePageInfoDTO pageInfo) {
+	public List<AnswerDTO> selectAnswerList(NoticePageInfoDTO pageInfo) {
 		
 		Connection con = getConnection();
 		
-		List<AnswerDTO> boardList = answerDAO.selectBoardList(con, pageInfo);
+		List<AnswerDTO> answerList = answerDAO.selectAnswerList(con, pageInfo);
 		
 		close(con);
 		
-		return boardList;
+		return answerList;
 	}
 
 }

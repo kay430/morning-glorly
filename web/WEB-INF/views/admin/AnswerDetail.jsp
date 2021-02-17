@@ -155,7 +155,7 @@
               <div class="panel-body ">
                 <div class="mail-header row">
                   <div class="col-md-8">
-                  <textarea id="headCore" style="resize:none; width:90%; height:30px;" readonly><c:out value="${ requestScope.notice.title }"/></textarea>
+                  <textarea id="headCore" style="resize:none; width:90%; height:30px;" readonly><c:out value="${ requestScope.answer.title }"/></textarea>
                   </div>
                   <div class="col-md-4">
                     <div class="compose-btn pull-right">
@@ -170,16 +170,18 @@
                   <div class="row">
                     <div class="col-md-8">
                       <img src="img/ui-zac.jpg" alt="">
-                      <strong>작성자 : <c:out value="${ requestScope.notice.writer.name }"/></strong>
+                      <strong class="col-md-8">작성자 : <c:out value="${ requestScope.answer.writer.name }"/></strong>
+                      <div class="col-md-8"><strong>상 태 : <c:out value="${ requestScope.answer.status }"/></strong></div>
+                      <div class="col-md-8"><strong>유 형 : <c:out value="${ requestScope.answer.category.name }"/></strong></div>
                     </div>
                     <div class="col-md-4">
-                      <p class="date"><c:out value="${ requestScope.notice.createdDate }"/></p>
+                      <p class="date"><c:out value="${ requestScope.answer.createdDate }"/></p>
                     </div>
                   </div>
                 </div>
                 <div class="view-mail">
                   <%-- <p><c:out value="${ requestScope.notice.body }"/></p> --%>
-                  <textarea id="core" style="resize:none; width:90%; height:200px;" readonly><c:out value="${ requestScope.notice.body }"/></textarea>
+                  <textarea id="core" style="resize:none; width:90%; height:200px;" readonly><c:out value="${ requestScope.answer.body }"/></textarea>
                 </div>
                 <!-- 첨부파일 부분 -->
                <!--  <div class="attachment-mail">

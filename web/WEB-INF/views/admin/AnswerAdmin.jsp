@@ -155,7 +155,7 @@
 					<td><c:out value="${ answer.writer.name }"/></td>
 					<td><c:out value="${ answer.count }"/></td>
 					<td><c:out value="${ answer.createdDate }"/></td>
-					<td><c:out value="${ answer.type }"/></td>
+					<td><c:out value="${ answer.status }"/></td>
 				</tr>
 				</c:forEach>
 <!--                   <tr>
@@ -188,7 +188,7 @@
 			<input type="search" name="searchValue">
 			<button type="submit">검색하기</button>
 			<c:if test="${ sessionScope.loginMember.status eq 'Y' }">
-				<button id="writeAnswer">작성하기</button>
+				<button id="writeAnswer" type="button">작성하기</button>
 			</c:if>
 		</div>
 		

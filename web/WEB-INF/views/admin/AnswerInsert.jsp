@@ -175,9 +175,8 @@
                     </div>
                     <div class="form-group">
                       <label for="subject" class="">유형 선택</label>
-                      <select name="type">
+                      <select name="status">
           			<option value="문의">문의</option>
-          			<option value="재문의">재문의</option>
         			<option value="완료">완료</option>
       				</select>
       				<select name="category">

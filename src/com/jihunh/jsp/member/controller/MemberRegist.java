@@ -35,6 +35,9 @@ public class MemberRegist extends HttpServlet {
       String phone = request.getParameter("phone01")
             + request.getParameter("phone02")
             + request.getParameter("phone03");
+      String subPhone = request.getParameter("subPhone01")
+    		  + request.getParameter("subPhone02")
+    		  + request.getParameter("subPhone01");
       
       MgDTO requestMember = new MgDTO();
       requestMember.setName(memberName);
@@ -45,15 +48,8 @@ public class MemberRegist extends HttpServlet {
       requestMember.setAddress(address);
       requestMember.setEmail(email);
       requestMember.setPhone(phone);
+      requestMember.setSubPhone(subPhone);
       
-      request.setAttribute("memberName", memberName);
-      request.setAttribute("memberId", memberId);
-      request.setAttribute("memberPwd", memberPwd);
-      request.setAttribute("memberPno", memberPno);
-      request.setAttribute("gender", gender);
-      request.setAttribute("address", address);
-      request.setAttribute("email", email);
-      request.setAttribute("phone", phone);
       System.out.println("memberController requestMember : " + requestMember);
       
       /* 매번 쓰기 번거로워서 필터로 이동하여 한번에 처리했다. */

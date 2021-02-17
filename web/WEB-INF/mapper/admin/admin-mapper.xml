@@ -39,12 +39,12 @@ VALUES
              , A.NOTICE_TITLE
              , A.NOTICE_BODY
              , A.NOTICE_WRITER_MEMBER_NO
-             , B.MEMBER_NAME
+             , B.ADMIN_NAME
              , A.NOTICE_COUNT
              , A.CREATED_DATE
           FROM MG_NOTICE A
-          JOIN MG_MEMBER B ON (A.NOTICE_WRITER_MEMBER_NO = B.MEMBER_NO)
-         WHERE A.NOTICE_STATUS = 'Y'
+          JOIN MG_ADMIN B ON (A.NOTICE_WRITER_MEMBER_NO = B.ADMIN_NO)
+         WHERE A.NOTICE_DISPLAY = 'Y'
          ORDER BY A.NOTICE_NO DESC
 	</entry>
 	<entry key="insertNotice">
@@ -79,19 +79,19 @@ VALUES
              , A.NOTICE_TITLE
              , A.NOTICE_BODY
              , A.NOTICE_WRITER_MEMBER_NO
-             , B.MEMBER_NAME
+             , B.ADMIN_NAME
              , A.NOTICE_COUNT
              , A.CREATED_DATE
           FROM MG_NOTICE A
-          JOIN MG_MEMBER B ON (A.NOTICE_WRITER_MEMBER_NO = B.MEMBER_NO)
-         WHERE A.NOTICE_STATUS = 'Y'
+          JOIN MG_ADMIN B ON (A.NOTICE_WRITER_MEMBER_NO = B.ADMIN_NO)
+         WHERE A.NOTICE_DISPLAY = 'Y'
            AND A.NOTICE_NO = ?
 	</entry>
 	<entry key="selectTotalCount">
 		SELECT /**/
 		       COUNT(*)
 		  FROM MG_NOTICE A
-		 WHERE A.NOTICE_STATUS = 'Y'
+		 WHERE A.NOTICE_DISPLAY = 'Y'
 	</entry>
 	<entry key="selectNoticeList">
 	    SELECT 
@@ -100,7 +100,7 @@ VALUES
              , A.NOTICE_TITLE
              , A.NOTICE_BODY
              , A.NOTICE_WRITER_MEMBER_NO
-             , A.MEMBER_NAME
+             , A.ADMIN_NAME
              , A.NOTICE_COUNT
              , A.CREATED_DATE
         FROM (SELECT ROWNUM RNUM
@@ -108,19 +108,19 @@ VALUES
                    , B.NOTICE_TITLE
                    , B.NOTICE_BODY
                    , B.NOTICE_WRITER_MEMBER_NO
-                   , B.MEMBER_NAME
+                   , B.ADMIN_NAME
                    , B.NOTICE_COUNT
                    , B.CREATED_DATE
               FROM (SELECT A.NOTICE_NO
                          , A.NOTICE_TITLE
                          , A.NOTICE_BODY
                          , A.NOTICE_WRITER_MEMBER_NO
-                         , B.MEMBER_NAME
+                         , B.ADMIN_NAME
                          , A.NOTICE_COUNT
                          , A.CREATED_DATE
                       FROM MG_NOTICE A
-                      JOIN MG_MEMBER B ON (A.NOTICE_WRITER_MEMBER_NO = B.MEMBER_NO)
-                     WHERE A.NOTICE_STATUS = 'Y'
+                      JOIN MG_ADMIN B ON (A.NOTICE_WRITER_MEMBER_NO = B.ADMIN_NO)
+                     WHERE A.NOTICE_DISPLAY = 'Y'
                            ORDER BY A.NOTICE_NO DESC
                           ) B
                     ) A

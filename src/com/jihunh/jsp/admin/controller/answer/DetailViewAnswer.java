@@ -19,14 +19,14 @@ public class DetailViewAnswer extends HttpServlet {
 		int no = Integer.parseInt(request.getParameter("no"));
 		int pageNumNo = no;
 		
-		AnswerDTO noticeDetail = new AnswerService().selectNoticeDetail(no);
+		AnswerDTO answerDTO = new AnswerService().selectAnswerDetail(no);
 		
-		System.out.println(noticeDetail);
+		System.out.println(answerDTO);
 		
 		String path = "";
-		if(noticeDetail != null) {
+		if(answerDTO != null) {
 			path = "/WEB-INF/views/admin/AnswerDetail.jsp";
-			request.setAttribute("notice", noticeDetail);
+			request.setAttribute("answer", answerDTO);
 			request.setAttribute("pageNumNo", pageNumNo);
 		} else {
 			path = "/WEB-INF/views/common/failed.jsp";
