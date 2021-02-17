@@ -30,7 +30,7 @@
 		<!-- 사이드바 -->
 		<div id="sidebar-wrapper">
 			<ul class="sidebar-nav">
-				<li class="sidebar-brand"><a href="#"> CUSTOMER</a></li>
+				<li class="sidebar-brand"><a href="${ pageContext.servletContext.contextPath }/customer/list"> CUSTOMER</a></li>
 				<li><a href="#">공지사항</a></li>
 				<li><a href="#">질문과 답변</a></li>
 				<li><a href="#">상품 후기 </a></li>

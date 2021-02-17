@@ -141,4 +141,11 @@ window.onload = function() {
 		
 	}
 	
+	/*if(document.getElementById("writeNotice")) {
+		const $writeNotice = document.getElementById("writeNotice");
+		$writeNotice.onclick = function() {
+			location.href = "/mg/notice/write";
+		}*/
+		
+	//}
 }
