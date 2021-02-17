@@ -125,4 +125,12 @@ window.onload = function() {
 		}
 	}
 	
+	if(document.getElementById("customer")) {
+		const $main = document.getElementById("customer");
+		$regist.onclick = function() {
+			location.href = "/mg/";
+		}
+		
+	}
+	
 }
