@@ -17,7 +17,7 @@
                 <li><a href="" title="1600-0000"><i class="tel">&nbsp;</i>1600-3413</a></li>
 
               <%--   <li class="fr"><a href="${ pageContext.servletContext.contextPath }" title="고객센터" id="customer">고객센터</a></li> --%>
-                <li class="fr"><a href="${ pageContext.servletContext.contextPath }/customer/list" title="고객센터" id="customer">고객센터</a></li>
+                <li class="fr"><a href=" ${ pageContext.servletContext.contextPath }/customer/list" title="고객센터" id="customer">고객센터</a></li>
                 <li class="fr"><a href="/shop/confirm_login.html?type=myorder" title="주문조회">주문조회</a></li>
                 <li class="fr"><a href="/shop/basket.html" title="장바구니">장바구니 <span><span id="user_basket_quantity"
                                 class="user_basket_quantity">0</span></span></a></li>
