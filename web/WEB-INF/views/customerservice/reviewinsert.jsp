@@ -22,6 +22,7 @@
 <link rel="stylesheet" type="text/css"
 	href="/mg/resources/css/main-common.css">
 </head>
+
 <body>
 
 	<jsp:include page="../common/header.jsp" />
@@ -30,7 +31,7 @@
 		<!-- 사이드바 -->
 		<div id="sidebar-wrapper">
 			<ul class="sidebar-nav">
-				<li class="sidebar-brand"><a href="${ pageContext.servletContext.contextPath }/customer/list"> CUSTOMER</a></li>
+				<li class="sidebar-brand"><a href="#"> 고객센터</a></li>
 				<li><a href="#">공지사항</a></li>
 				<li><a href="#">질문과 답변</a></li>
 				<li><a href="#">상품 후기 </a></li>
@@ -38,44 +39,50 @@
 		</div>
 		<!-- /사이드바 -->
 
-		<!-- 본문시작 -->
-		<div class="notice_header_txt">
-			공지사항
-			<div>
+		<!-- 본문 -->
+		<h1>구매후기</h1>
+		<hr>
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<h2>구매후기 작성</h2>
 				<hr>
-				<div id="page-content-wrapper">
-					<div class="container-fluid">
-						<div class="outer-notice-list">
+				<div class="gongji">
+					<div class="outer-notice-insert">
+						<div class="outer outer-notice-list">
+							<br>
 							<div class="table-area">
-								<table align="center" id="listArea">
-									<tr>
-										<th>글번호</th>
-										<th width="300px">글제목</th>
-										<th width="100px">작성자</th>
-										<th>조회수</th>
-										<th width="100px">작성일</th>
-									</tr>
-									<c:forEach var="notice" items="${ requestScope.noticeList }">
+								<form
+									action="${ pageContext.servletContext.contextPath }/notice/insert"
+									method="post">
+									<table align="center">
 										<tr>
-											<td><c:out value="${ notice.no }" /></td>
-											<td><c:out value="${ notice.title }" /></td>
-											<td><c:out value="${ notice.writer.nickname }" /></td>
-											<td><c:out value="${ notice.count }" /></td>
-											<td><c:out value="${ notice.createdDate }" /></td>
+											<td>제목</td>
+											<td><input type="text" size="105" name="title"></td>
 										</tr>
-									</c:forEach>
-								</table>
-							</div>
-							<div class="search-area" align="center">
-								<select id="searchCondition" name="searchCondition">
-									<option value="writer">작성자</option>
-									<option value="title">제목</option>
-									<option value="body">내용</option>
-								</select> <input type="search" name="searchValue">
-								<button type="submit">검색하기</button>
-								<c:if test="${ sessionScope.loginMember.role eq 'ADMIN' }">
-									<button id="writeNotice">작성하기</button>
-								</c:if>
+										<tr>
+											<td>작성자</td>
+											<td><input type="text"
+												value="${ sessionScope.loginMember.nickname }" name="writer"
+												readonly></td>
+										</tr>
+										<tr>
+											<td>내용</td>
+											<td colspan="2"><textarea name="body" cols="60"
+													rows="15" style="resize: none; width: 800px; height: 450;"
+													required></textarea></td>
+										</tr>
+										<tr>
+											<td>비밀번호</td>
+											<td><input type="text" size="30" name="password"></td>
+										</tr>
+
+									</table>
+									<br>
+									<div align="center">
+										<button type="reset" id="cancelNotice">취소하기</button>
+										<button type="submit">등록하기</button>
+									</div>
+								</form>
 							</div>
 						</div>
 					</div>
@@ -83,6 +90,8 @@
 			</div>
 		</div>
 	</div>
+
 	<jsp:include page="../common/footer.jsp" />
+
 </body>
 </html>

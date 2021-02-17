@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-div#hdWrap {width:100%; position: relative; z-index:2; background-color:#FFF;}
+div#hdWrap {width:100%; position: relative; z-index:3; background-color:#FFF;}
 div#branding { position: relative; z-index:1; /* margin-top: 150px; */ border-top: 1px solid #EEE; border-bottom: 2px solid skyblue; background-color:#FFF; }
 div#branding.flow { position: fixed; left: 0; top: -6px; width: 100%; z-index:99; margin-top: 0;  }
 div#branding:after {content:''; display:block; clear:both;}

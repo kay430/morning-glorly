@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /* BASIC css start */
 /* 슬림쿡 BEST 2단 탭 메뉴*/
-
+.contentWrapper{z-index: 1}
 .new_menu { display:block; width:1100px; margin:70px auto; text-align:center; }
 .new_menu h3 { font-size:36px; font-weight:100; color:#000; border-bottom:3px solid skyblue; text-align:center; margin:0 auto; }
 .new_menu h3.w360 { width:360px; }
