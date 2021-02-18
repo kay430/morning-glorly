@@ -152,9 +152,44 @@
          $(function(){
         	 $("#allCategory").click(function(e){
         		 e.preventDefault();
-        		 var $t = $(".categoryMenus")
         		 
-        		 $t.toggleClass("on");
+        		 var $t = $("#allCategory")
+        		 
+        		 $t.toggleClass("toggle");
+        		 
+        		 console.log($t);
+        	 })
+        	 
+         })
+        </script>
+        
+                <script type="text/javascript">
+         $(function(){
+        	 $("#allCategory").click(function(e){
+        		 e.preventDefault();
+
+        		 var $t = $("#allCategoryArea")
+        		 
+        		 $t.toggleClass("toggle");
+        		 
+        		 console.log($t);
+        	 })
+        	 
+         })
+        </script>
+        
+				<script type="text/javascript">
+				$("#allCategory").click(function(){
+					$(".opacity-1").toggle();
+					
+				});
+         $(function(){
+        	 $("#allCategory").click(function(e){
+        		 e.preventDefault();
+
+        		 var $t = $("opacity-1")
+        		 
+        		 $(".opacity").css("visibility", "hidden");
         		 
         		 console.log($t);
         	 })
