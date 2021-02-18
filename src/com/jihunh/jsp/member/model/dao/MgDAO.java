@@ -140,24 +140,44 @@ public class MgDAO {
 		MgDTO userName = null;
 		
 		String query = prop.getProperty("findId");
+		System.out.println("여기는와??");
 		
 		try {
+			
 			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, requestMember.getName());
 			pstmt.setString(2, requestMember.getPhone());
 			
 			rset = pstmt.executeQuery();
-			
+			System.out.println("?");
 			if(rset.next()) {
-				rset.getString("MEMBER_ID");
+				userName = new MgDTO();
+				userName.setId(rset.getString("MEMBER_ID"));
 				System.out.println("전달되나여??");
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			close(pstmt);
+			close(rset);
 		}
 		
 		return userName;
+	}
+
+	public String selectMemberId(Connection con, MgDTO requestMember) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String memberId = null;
+		
+		String query = prop.getProperty("selectMemberId");
+		
+		
+		
+		
+		return null;
 	}
 
 }
