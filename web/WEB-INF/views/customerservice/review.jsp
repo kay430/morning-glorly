@@ -140,7 +140,7 @@
 						</c:choose>
 
 
-					</div>
+					<%-- </div>
 					<form id="searchForm"action="${ pageContext.servletContext.contextPath }/review/search"method="get">
 						<div class="search-area" align="center">
 							<select id="searchCondition" name="searchCondition">
@@ -157,7 +157,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> --%>
 	<script>
 		if (document.getElementsByTagName("td")) {
 			const $tds = document.getElementsByTagName("td");
