@@ -2,6 +2,7 @@ package com.jihunh.jsp.admin.model.dto;
 
 
 import java.sql.Date;
+import java.util.List;
 
 public class NoticeDTO implements java.io.Serializable {
 	
@@ -16,10 +17,12 @@ public class NoticeDTO implements java.io.Serializable {
 	private String general;
 	private String generalType;
 	
+	private List<AttaNoticeDTO> attaNotiList;
+	
 	public NoticeDTO() {}
 
 	public NoticeDTO(int no, String title, String body, int writerMemberNo, MgAdDTO writer, int count, Date createdDate,
-			String display, String general, String generalType) {
+			String display, String general, String generalType, List<AttaNoticeDTO> attaNotiList) {
 		super();
 		this.no = no;
 		this.title = title;
@@ -31,6 +34,7 @@ public class NoticeDTO implements java.io.Serializable {
 		this.display = display;
 		this.general = general;
 		this.generalType = generalType;
+		this.attaNotiList = attaNotiList;
 	}
 
 	public int getNo() {
@@ -113,11 +117,19 @@ public class NoticeDTO implements java.io.Serializable {
 		this.generalType = generalType;
 	}
 
+	public List<AttaNoticeDTO> getAttaNotiList() {
+		return attaNotiList;
+	}
+
+	public void setAttaNotiList(List<AttaNoticeDTO> attaNotiList) {
+		this.attaNotiList = attaNotiList;
+	}
+
 	@Override
 	public String toString() {
 		return "NoticeDTO [no=" + no + ", title=" + title + ", body=" + body + ", writerMemberNo=" + writerMemberNo
 				+ ", writer=" + writer + ", count=" + count + ", createdDate=" + createdDate + ", display=" + display
-				+ ", general=" + general + ", generalType=" + generalType + "]";
+				+ ", general=" + general + ", generalType=" + generalType + ", attaNotiList=" + attaNotiList + "]";
 	}
 	
 }

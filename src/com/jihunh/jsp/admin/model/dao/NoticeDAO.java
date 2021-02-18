@@ -2,6 +2,7 @@ package com.jihunh.jsp.admin.model.dao;
 
 import static com.jihunh.jsp.common.jdbc.JDBCTemplate.close;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Connection;
@@ -13,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+import com.jihunh.jsp.admin.model.dto.AttaNoticeDTO;
 import com.jihunh.jsp.admin.model.dto.MgAdDTO;
 import com.jihunh.jsp.admin.model.dto.NoticeDTO;
 import com.jihunh.jsp.admin.model.dto.NoticePageInfoDTO;
@@ -98,9 +100,11 @@ public class NoticeDAO {
 			
 			rset = pstmt.executeQuery();
 			
+			List<AttaNoticeDTO> attaNotiList = new ArrayList<>();
 			if(rset.next()) {
 				noticeDetail = new NoticeDTO();
 				noticeDetail.setWriter(new MgAdDTO());
+				AttaNoticeDTO attaNoti = new AttaNoticeDTO();
 				
 				noticeDetail.setNo(rset.getInt("NOTICE_NO"));
 				noticeDetail.setTitle(rset.getString("NOTICE_TITLE"));
@@ -112,8 +116,17 @@ public class NoticeDAO {
 				noticeDetail.setDisplay(rset.getString("NOTICE_DISPLAY"));
 				noticeDetail.setGeneral(rset.getString("NOTICE_GENERAL"));
 				noticeDetail.setGeneralType(rset.getString("NOTICE_GENERAL_TYPE"));
-			
+				attaNoti.setNo(rset.getInt("ATTACHMENT_NO"));
+				attaNoti.setOriginalName(rset.getString("ORIGINAL_NAME"));
+				attaNoti.setSavedName(rset.getString("SAVED_NAME"));
+				attaNoti.setSavePath(rset.getString("SAVE_PATH"));
+				attaNoti.setFileType(rset.getString("FILE_TYPE"));
+				attaNoti.setThumbnailPath(rset.getString("THUMBNAIL_PATH"));
+				
+				attaNotiList.add(attaNoti);
 			}
+			
+			noticeDetail.setAttaNotiList(attaNotiList);
 		
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -225,7 +238,86 @@ public class NoticeDAO {
 		return noticeList;
 	}
 
+	public int selectNoticeSequence(Connection con) {
+		
+		Statement stmt = null;
+		ResultSet rset = null;
+		
+		int lastNoticeNo = 0;
+		
+		String query = prop.getProperty("selectNoticeSequence");
+		
+		try {
+			stmt = con.createStatement();
+			
+			rset = stmt.executeQuery(query);
+			
+			if(rset.next()) {
+				lastNoticeNo = rset.getInt("CURRVAL");
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(stmt);
+		}
+		
+		return lastNoticeNo;
+	}
+
+	public int insertAttaNotice(Connection con, AttaNoticeDTO file) {
+		
+		PreparedStatement pstmt = null;
+		
+		int result = 0;
+		
+		String query = prop.getProperty("insertAttaNotice");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, file.getRefNotiNo());
+			pstmt.setString(2, file.getOriginalName());
+			pstmt.setString(3, file.getSavedName());
+			pstmt.setString(4, file.getSavePath());
+			pstmt.setString(5, file.getFileType());
+			pstmt.setString(6, file.getThumbnailPath());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

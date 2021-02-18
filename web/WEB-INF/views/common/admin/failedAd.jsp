@@ -18,6 +18,9 @@
 			case "failedLogin" :
 				mevoePath = "${ pageContext.servletContext.contextPath }/admin/errorLogin"
 				break;
+			case "message" :
+				mevoePath = "${ pageContext.servletContext.contextPath }/admin/errorLogin"
+				break;
 			}
 			
 			location.href = movePath;

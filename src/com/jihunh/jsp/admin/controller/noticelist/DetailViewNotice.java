@@ -21,7 +21,7 @@ public class DetailViewNotice extends HttpServlet {
 		
 		NoticeDTO noticeDetail = new NoticeService().selectNoticeDetail(no);
 		
-		System.out.println(noticeDetail);
+		System.out.println("주서온 글과 이미지 : " + noticeDetail);
 		
 		String path = "";
 		if(noticeDetail != null) {

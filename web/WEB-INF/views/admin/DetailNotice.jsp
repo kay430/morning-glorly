@@ -182,6 +182,7 @@
                 <div class="view-mail">
                   <%-- <p><c:out value="${ requestScope.notice.body }"/></p> --%>
                   <textarea id="core" style="resize:none; width:90%; height:200px;" readonly><c:out value="${ requestScope.notice.body }"/></textarea>
+                <img src="${ pageContext.servletContext.contextPath }<c:out value="${ requestScope.notice.attaNotiList[0].thumbnailPath }"/>" />
                 </div>
                 <!-- 첨부파일 부분 -->
                <!--  <div class="attachment-mail">
@@ -237,6 +238,7 @@
                   <script src="/mg/resources/js/event.js"></script>
                   <script>
                   window.onload = function() {
+                	  console.log("${ requestScope.notice.attaNotiList[0].thumbnailPath }");
                 	  /* JS파일 불러오는 방법 도전하다 결국 포기.(02/14) */
               /*   	  $.getScript("/mg/resources/js/event.js", function() {
                 			console.log("완료")

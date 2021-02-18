@@ -156,7 +156,7 @@
                   <button class="btn btn-sm">Draft</button>
                 </div>
                 <div class="compose-mail">
-                  <form role="form-horizontal" action="${ pageContext.servletContext.contextPath }/admin/notice/insert" method="post">
+                  <form role="form-horizontal" action="${ pageContext.servletContext.contextPath }/admin/notice/insert" method="post" encType="multipart/form-data">
                     <div class="form-group">
                       <label for="to" class="">제목</label>
                       <input type="text" name="title" tabindex="1" id="to" class="form-control">
@@ -179,7 +179,10 @@
                     </div>
                     <div class="compose-editor">
                       <textarea class="wysihtml5 form-control" rows="9" name="body"></textarea>
-                      <input type="file" class="default">
+                      <input type="file" id="thumbnailImg1" name="thumbnailImg1" class="default" onchange="loadImg(this, 1)">
+                      <div>
+                      	<img id="contentImg1" width="100" height="100">
+                      </div>
                     </div>
                     <div class="compose-btn">
                       <button type="submit" class="btn btn-theme btn-sm"><i class="fa fa-check"></i> Send</button>
@@ -187,6 +190,27 @@
                       <button class="btn btn-sm">Draft</button>
                     </div>
                   </form>
+                  <script>
+                  	function loadImg(value, num) {
+                  		if(value.files && value.files[0]) {
+                  			const reader = new FileReader();
+                  			
+                  			reader.onload = function(e) {
+                  				switch(num) {
+                  				case 1 :
+                  					document.getElementById("contentImg1").src = e.target.result;
+                  					console.log("클릭완료");
+                  					console.log(e.target.result);
+                  					break;
+                  				}
+                  			}
+                  			
+                  			reader.readAsDataURL(value.files[0]);
+                  			console.log(value.files[0]);
+                  			
+                  		}
+                  	}
+                  </script>
                 </div>
               </div>
             </section>
