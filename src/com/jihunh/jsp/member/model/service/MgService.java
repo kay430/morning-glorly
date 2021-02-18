@@ -62,19 +62,25 @@ public class MgService {
 	}
 
 	public MgDTO findId(MgDTO requestMember) {
-		
 		Connection con = getConnection();
-		MgDTO loginMember = null;
 		
-		String memberId = mgDAO.selectMemberId(con,requestMember);
-		 
+		MgDTO memberInfo = null;
 		
-		/*DB에 저장된 회원아이디와 일치하는 회원 이름 조회*/
-		 MgDTO loginMember = mgDAO.findId(con, requestMember);
-		 
-		System.out.println("왓니??");
-		return loginMember;
+//		String memberName = mgDAO.selectMemberName(con,requestMember);
+//		System.out.println("이름가지고 왓니 : " +memberName);
+		System.out.println("리퀘스트멤버 겟넹ㅁ " + requestMember.getName());
+		
+//			if(memberName.equals(requestMember.getName())) {
+			memberInfo = mgDAO.selectMemberInfo(con,requestMember);
+			System.out.println("이름가지고왔니2" + memberInfo);
+//			} else {
+//			System.out.println("일므이다르니?");
+//	    }
+		   close(con);
+		
+		   return memberInfo;
 	}
 
+	
 	
 }

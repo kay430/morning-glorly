@@ -29,6 +29,10 @@
 				successMessage = "회원가입에 성공하셨습니다.";
 				movePath = "${ pageContext.servletContext.contextPath }"
 				break;
+			case "FindId" :
+				successMessage =  " ${ requestScope.loginMember.name } 님의 아이디는 ${ requestScope.loginMember.id } 입니다";
+				movePath = "${ pageContext.servletContext.contextPath }"
+				break;
 			}
 			
 			alert(successMessage);
