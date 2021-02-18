@@ -19,6 +19,8 @@
   <link href="/mg/resources/admin/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!--external css-->
   <link href="/mg/resources/admin/font-awesome/css/font-awesome.css" rel="stylesheet" />
+  <!-- 내가 만든 CSS다 -->
+  <link href="/mg/resources/admin/jihunh.css" rel="stylesheet" />
   <!-- Custom styles for this template -->
   <link href="/mg/resources/css/style.css" rel="stylesheet">
   <link href="/mg/resources/css/style-responsive.css" rel="stylesheet">
@@ -143,7 +145,7 @@
                     공지사항
                     <form action="#" class="pull-right mail-src-position">
                       <div class="input-append">
-                        <input type="text" class="form-control " placeholder="Search Mail">
+                        <!-- <input type="text" class="form-control " placeholder="Search Mail"> -->
                       </div>
                     </form>
                   </h4>
@@ -195,7 +197,7 @@
                       <li><a href="#"><i class="fa fa-trash-o"></i> Delete</a></li>
                     </ul>
                   </div>
-                  <ul class="unstyled inbox-pagination">
+                 <!--  <ul class="unstyled inbox-pagination">
                     <li><span>1-50 of 99</span></li>
                     <li>
                       <a class="np-btn" href="#"><i class="fa fa-angle-left  pagination-left"></i></a>
@@ -203,10 +205,10 @@
                     <li>
                       <a class="np-btn" href="#"><i class="fa fa-angle-right pagination-right"></i></a>
                     </li>
-                  </ul>
+                  </ul> -->
                 </div>
                 <div class="table-inbox-wrap ">
-                  <table class="table table-inbox table-hover">
+                  <table id="noticeTable" class="table table-inbox table-hover">
                     <tbody>
                     <!-- 추후에 활용해볼 css -->
                       <!-- <tr class="unread">
@@ -249,19 +251,33 @@
                         <td class="view-message inbox-small-cells"></td>
                         <td class="view-message text-right">March 13</td>
                       </tr> -->
+<!--                       <style>
+                      #noticeTable th {
+                      text-align: center;
+                      }
+                      #noticeTable td {
+                      text-align: center;
+                      }
+                      </style> -->
                       <tr>
+					<th><input type="checkbox" class=""></th>
 					<th>글번호</th>
-					<th width="300px">글제목</th>
-					<th width="100px">작성자</th>
+					<th>글제목</th>
+					<th>작성자</th>
 					<th>조회수</th>
-					<th width="100px">작성일</th>
+					<th>자주묻는질문</th>
+					<th>질문 유형</th>
+					<th>작성일</th>
 				</tr>
 				<c:forEach var="notice" items="${ requestScope.noticeList }">
 				<tr>
+					<td><input type="checkbox" class=""></td>
 					<td><c:out value="${ notice.no }"/></td>
 					<td><c:out value="${ notice.title }"/></td>
 					<td><c:out value="${ notice.writer.name }"/></td>
 					<td><c:out value="${ notice.count }"/></td>
+					<td><c:out value="${ notice.general }"/></td>
+					<td><c:out value="${ notice.generalType }"/></td>
 					<td><c:out value="${ notice.createdDate }"/></td>
 				</tr>
 				</c:forEach>
@@ -333,7 +349,7 @@
 			for(let i = 0; i < $tds.length; i++) {
 				
 				$tds[i].onmouseenter = function() {
-					this.parentNode.style.backgroundColor = "orangered";
+					this.parentNode.style.backgroundColor = "yellow";
 					this.parentNode.style.cursor = "pointer";
 				}
 				
@@ -342,7 +358,7 @@
 				}
 				
 				$tds[i].onclick = function() {
-					const no = this.parentNode.children[0].innerText;
+					const no = this.parentNode.children[1].innerText;
 					location.href = "${ pageContext.servletContext.contextPath }/admin/notice/detail?no=" + no;
 				}
 			}
