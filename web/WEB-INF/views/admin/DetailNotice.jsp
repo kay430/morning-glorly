@@ -170,7 +170,9 @@
                   <div class="row">
                     <div class="col-md-8">
                       <img src="img/ui-zac.jpg" alt="">
-                      <strong>작성자 : <c:out value="${ requestScope.notice.writer.name }"/></strong>
+                      <strong class="col-md-8">작성자 : <c:out value="${ requestScope.notice.writer.name }"/></strong>
+                      <div class="col-md-8"><strong>자주 하는 질문 : <c:out value="${ requestScope.notice.general }"/></strong></div>
+                      <div class="col-md-8"><strong>유형 : <c:out value="${ requestScope.notice.generalType }"/></strong></div>
                     </div>
                     <div class="col-md-4">
                       <p class="date"><c:out value="${ requestScope.notice.createdDate }"/></p>

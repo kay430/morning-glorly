@@ -31,46 +31,6 @@ public class NoticeDAO {
 			e.printStackTrace();
 		}
 	}
-	
-	public List<NoticeDTO> selectAllNoticeList(Connection con) {
-		
-		Statement stmt = null;
-		ResultSet rset = null;
-		
-		List<NoticeDTO> noticeList = null;
-		
-		String query = prop.getProperty("selectAllNoticeList");
-		
-		try {
-			stmt = con.createStatement();
-			rset = stmt.executeQuery(query);
-			
-			noticeList = new ArrayList<>();
-			
-			while(rset.next()) {
-				NoticeDTO notice = new NoticeDTO();
-				notice.setWriter(new MgAdDTO());
-				
-				notice.setNo(rset.getInt("NOTICE_NO"));
-				notice.setTitle(rset.getString("NOTICE_TITLE"));
-				notice.setBody(rset.getString("NOTICE_BODY"));
-				notice.setWriterMemberNo(rset.getInt("NOTICE_WRITER_MEMBER_NO"));
-				notice.getWriter().setName(rset.getString("MEMBER_NAME"));
-				notice.setCount(rset.getInt("NOTICE_COUNT"));
-				notice.setCreatedDate(rset.getDate("CREATED_DATE"));
-				
-				noticeList.add(notice);
-			}
-		
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close(rset);
-			close(stmt);
-		}
-		
-		return noticeList;
-	}
 
 	public int insertNotice(Connection con, NoticeDTO newNotice) {
 		
@@ -85,6 +45,8 @@ public class NoticeDAO {
 			pstmt.setString(1, newNotice.getTitle());
 			pstmt.setString(2, newNotice.getBody());
 			pstmt.setInt(3, newNotice.getWriterMemberNo());
+			pstmt.setString(4, newNotice.getGeneral());
+			pstmt.setString(5, newNotice.getGeneralType());
 			
 			result = pstmt.executeUpdate();
 		
@@ -144,9 +106,12 @@ public class NoticeDAO {
 				noticeDetail.setTitle(rset.getString("NOTICE_TITLE"));
 				noticeDetail.setBody(rset.getString("NOTICE_BODY"));
 				noticeDetail.setWriterMemberNo(rset.getInt("NOTICE_WRITER_MEMBER_NO"));
-				noticeDetail.getWriter().setName(rset.getString("MEMBER_NAME"));
+				noticeDetail.getWriter().setName(rset.getString("ADMIN_NAME"));
 				noticeDetail.setCount(rset.getInt("NOTICE_COUNT"));
 				noticeDetail.setCreatedDate(rset.getDate("CREATED_DATE"));
+				noticeDetail.setDisplay(rset.getString("NOTICE_DISPLAY"));
+				noticeDetail.setGeneral(rset.getString("NOTICE_GENERAL"));
+				noticeDetail.setGeneralType(rset.getString("NOTICE_GENERAL_TYPE"));
 			
 			}
 		
@@ -213,7 +178,7 @@ public class NoticeDAO {
 		return totalCount;
 	}
 
-	public List<NoticeDTO> selectBoardList(Connection con, NoticePageInfoDTO pageInfo) {
+	public List<NoticeDTO> selectnoticeList(Connection con, NoticePageInfoDTO pageInfo) {
 
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
@@ -242,6 +207,9 @@ public class NoticeDAO {
 				notice.getWriter().setName(rset.getString("ADMIN_NAME"));
 				notice.setCount(rset.getInt("NOTICE_COUNT"));
 				notice.setCreatedDate(rset.getDate("CREATED_DATE"));
+				notice.setDisplay(rset.getString("NOTICE_DISPLAY"));
+				notice.setGeneral(rset.getString("NOTICE_GENERAL"));
+				notice.setGeneralType(rset.getString("NOTICE_GENERAL_TYPE"));
 				
 				noticeList.add(notice);
 			}

@@ -12,12 +12,14 @@ public class NoticeDTO implements java.io.Serializable {
 	private MgAdDTO writer;
 	private int count;
 	private java.sql.Date createdDate;
-	private String status;
+	private String display;
+	private String general;
+	private String generalType;
 	
 	public NoticeDTO() {}
 
-	public NoticeDTO(int no, String title, String body, int writerMemberNo, MgAdDTO writer, int count,
-			Date createdDate, String status) {
+	public NoticeDTO(int no, String title, String body, int writerMemberNo, MgAdDTO writer, int count, Date createdDate,
+			String display, String general, String generalType) {
 		super();
 		this.no = no;
 		this.title = title;
@@ -26,7 +28,9 @@ public class NoticeDTO implements java.io.Serializable {
 		this.writer = writer;
 		this.count = count;
 		this.createdDate = createdDate;
-		this.status = status;
+		this.display = display;
+		this.general = general;
+		this.generalType = generalType;
 	}
 
 	public int getNo() {
@@ -85,19 +89,35 @@ public class NoticeDTO implements java.io.Serializable {
 		this.createdDate = createdDate;
 	}
 
-	public String getStatus() {
-		return status;
+	public String getDisplay() {
+		return display;
 	}
 
-	public void setStatus(String status) {
-		this.status = status;
+	public void setDisplay(String display) {
+		this.display = display;
+	}
+
+	public String getGeneral() {
+		return general;
+	}
+
+	public void setGeneral(String general) {
+		this.general = general;
+	}
+
+	public String getGeneralType() {
+		return generalType;
+	}
+
+	public void setGeneralType(String generalType) {
+		this.generalType = generalType;
 	}
 
 	@Override
 	public String toString() {
 		return "NoticeDTO [no=" + no + ", title=" + title + ", body=" + body + ", writerMemberNo=" + writerMemberNo
-				+ ", writer=" + writer + ", count=" + count + ", createdDate=" + createdDate + ", status=" + status
-				+ "]";
+				+ ", writer=" + writer + ", count=" + count + ", createdDate=" + createdDate + ", display=" + display
+				+ ", general=" + general + ", generalType=" + generalType + "]";
 	}
 	
 }

@@ -1,0 +1,42 @@
+@charset "UTF-8";
+/* 02/18(목) 공지사항 표 정렬 */
+#noticeTable th {
+  text-align: center;
+}
+#noticeTable tr:nth-child(1) th:nth-child(1) {
+  /* text-align: right; */
+}
+#noticeTable th:nth-child(2) {
+  /* text-align: right; */
+  width: 30px;
+}
+#noticeTable th:nth-child(3) {
+  /* text-align: right; */
+  width: 300px;
+}
+#noticeTable th:nth-child(4) {
+  /* text-align: right; */
+  width: 30px;
+}
+#noticeTable th:nth-child(5) {
+  /* text-align: right; */
+  width: 30px;
+}
+#noticeTable th:nth-child(6) {
+  /* text-align: right; */
+  width: 50px;
+}
+#noticeTable th:nth-child(7) {
+  /* text-align: right; */
+  width: 30px;
+}
+#noticeTable th:nth-child(8) {
+  /* text-align: right; */
+  width: 10px;
+}
+#noticeTable td {
+  text-align: center;
+}
+#noticeTable td:nth-child(8) {
+  /* text-align: right; */
+}

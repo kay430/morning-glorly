@@ -19,18 +19,6 @@ public class NoticeService {
 	public NoticeService() {
 		noticeDAO = new NoticeDAO();
 	}
-	
-	/* 공지사항 전체 목록 조회용 메소드 */
-	public List<NoticeDTO> selectAllNoticeList() {
-		
-		Connection con = getConnection();
-		
-		List<NoticeDTO> noticeList = noticeDAO.selectAllNoticeList(con);
-		
-		close(con);
-		
-		return noticeList;
-	}
 
 	public int insertNotice(NoticeDTO newNotice) {
 		
@@ -109,11 +97,11 @@ public class NoticeService {
 		
 		Connection con = getConnection();
 		
-		List<NoticeDTO> boardList = noticeDAO.selectBoardList(con, pageInfo);
+		List<NoticeDTO> noticeList = noticeDAO.selectnoticeList(con, pageInfo);
 		
 		close(con);
 		
-		return boardList;
+		return noticeList;
 	}
 
 }
