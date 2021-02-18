@@ -24,9 +24,10 @@
         <div id="contentWrapper">
 
             <div class="new_menu">
-                <h3 class="w360">다이어트 도시락<strong> BEST</strong></h3>
+            //
+                <h3 class="w360 opacity-1">다이어트 도시락<strong> BEST</strong></h3>
                 <ul>
-                    <li>
+                    <li class="opacity-1">
                         <a href="" title="">
                             <img class="MS_prod_img_s" src="" alt="">
                             <p class="s_price">
@@ -36,7 +37,7 @@
                             <p class="s_subname">간단한 설명</p>
                         </a>
                     </li>
-                    <li>
+                    <li class="opacity-1">
                         <a href="" title="">
                             <img class="MS_prod_img_s" src="" alt="">
                             <p class="s_price">
@@ -46,7 +47,7 @@
                             <p class="s_subname">간단한 설명</p>
                         </a>
                     </li>
-                    <li>
+                    <li class="opacity-1">
                         <a href="" title="">
                             <img class="MS_prod_img_s" src="" alt="">
                             <p class="s_price">
@@ -55,8 +56,8 @@
                             <p class="s_name">메뉴명</p>
                             <p class="s_subname">간단한 설명</p>
                         </a>
-                    </li>
-                    <li class="last">
+                    </li >
+                    <li class="last opacity-1">
                         <a href="" title="">
                             <img class="MS_prod_img_s" src="" alt="">
                             <p class="s_price">
@@ -69,9 +70,9 @@
                 </ul>
 
 
-                <h3 class="w210">유지어터 도시락<strong> BEST</strong></h3>
+                <h3 class="w210 opacity-1">유지어터 도시락<strong> BEST</strong></h3>
                 <ul>
-                    <li>
+                    <li class="opacity-1">
                         <a href="" title="">
                             <img class="MS_prod_img_s" src="" alt="">
                             <p class="s_price">
@@ -83,7 +84,7 @@
                             <p class="s_subname">간단한 설명</p>
                         </a>
                     </li>
-                    <li>
+                    <li class="opacity-1">
                         <a href="" title="">
                             <img class="MS_prod_img_s" src="" alt="">
                             <p class="s_price">
@@ -95,7 +96,7 @@
                             <p class="s_subname">간단한 설명</p>
                         </a>
                     </li>
-                    <li>
+                    <li class="opacity-1">
                         <a href="" title="">
                             <img class="MS_prod_img_s" src="" alt="">
                             <p class="s_price">
@@ -107,7 +108,7 @@
                             <p class="s_subname">간단한 설명</p>
                         </a>
                     </li>
-                    <li class="last">
+                    <li class="last opacity-1">
                         <a href="" title="">
                             <img class="MS_prod_img_s" src="" alt="">
                             <p class="s_price">
@@ -121,7 +122,7 @@
                     </li>
                 </ul>
 
-
+//
 
                 <div class="clobox">
                     <h3>지금 가장 <span>🔥</span><strong>HOT</strong><span>🔥</span> 해요!</h3>

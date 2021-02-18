@@ -167,7 +167,7 @@ div#header_menu div.inner ul.tnb-r li a.push span.push {position:absolute; z-ind
 /* 전체 카테고리   */
 div#allCategoryArea { position:relative; z-index:999999; width:1100px; margin:0 auto; display: none; }
 div#allCategoryArea.toggle { display: block; }
-div#allCategoryArea div.allCategoryView {position:absolute; left:0; top: 0px; width:1057px; padding:20px; border: 2px skyblue solid; background-color: rgba(255,255,255, 1); display: block; box-shadow: 0 0 0 1px rgba(0,0,0,.01),0 1px 5px rgba(0,0,0,.1);}
+div#allCategoryArea div.allCategoryView {position:absolute; left: 21px; top: 0px; width:1057px; padding:20px; border: 2px skyblue solid; background-color: rgba(255,255,255, 1); display: block; box-shadow: 0 0 0 1px rgba(0,0,0,.01),0 1px 5px rgba(0,0,0,.1);}
 div#allCategoryArea div.allCategoryView:after { content:''; display:block; clear:both; }
 div#allCategoryArea div.allCategoryView h2 {float: right; display:block; width:210px; height: 100%; background-color:#555; }
 div#allCategoryArea div.allCategoryView h2 a { display: block; }
