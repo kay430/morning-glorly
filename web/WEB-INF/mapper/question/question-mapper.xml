@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="selectAllQuestionList">
+	SELECT /* com.jihunh.jsp.question.model.QuestionDAO#*/
+			A.QNA_NO
+		,   A.QNA_TITLE
+		,	A.QNA_BODY
+		,	A.QNA_WRITER_MEMBER_NO
+		,	B.MEMBER_ID
+		,	A.QNA_COUNT
+		,	A.CREATED_DATE
+		,	A.MODIFIED_DATE
+		,	A.QNA_DISPLAY
+		FROM MG_QNA A
+		JOIN MG_MEMBER B ON (A.QUESTION_WRITER_MEMBER_NO = B.MEMBER_NO)
+	   WHERE A.QNA_STATUS = 'Y'
+	   ORDER BY A.QNA_NO DESC
+	</entry>
+</properties>
