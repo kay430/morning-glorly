@@ -27,7 +27,7 @@
 				<li class="sidebar-brand"><a href="${ pageContext.servletContext.contextPath }/customer/list"> CUSTOMER</a></li>
 				<li><a href="${ pageContext.servletContext.contextPath }/notice/list">공지사항</a>
 				<li><a href="${ pageContext.servletContext.contextPath }/question/list">질문과 답변~</a></li>
-				<li><a href="${ pageContext.servletContext.contextPath }">상품 후기 </a></li>
+				<li><a href="${ pageContext.servletContext.contextPath }/product/review">상품 후기 </a></li>
 			</ul>
 		</div>
 		<!-- /사이드바 -->
