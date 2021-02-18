@@ -30,6 +30,7 @@
 	<div class="d1">
 	
 	<h2 align="center">아이디 찾기</h2>
+	<form method="post" action="${ pageContext.servletContext.contextPath }/member/findId">
 	<fieldset>
 	<table>
 		<tbody>
@@ -39,7 +40,7 @@
         		</th>
         		<td>
         			<div>
-        				<input type="text" id="name" name="name" class="input" title="이름">
+        				<input type="text" id="name" name="memberName" class="input" title="이름">
         			</div>
         		</td>
 			</tr>
@@ -48,7 +49,7 @@
             <div>핸&nbsp;&nbsp;드&nbsp;&nbsp;폰&nbsp;&nbsp;번&nbsp;&nbsp;호	</div>
             </th>
             <td>
-             <input name="Phone2" type="text" name="phonenumber" class="input" title="핸드폰번호">
+             <input name="Phone2" type="text" class="input" title="핸드폰번호">
             </td>
             </tbody>
 		</table>
@@ -59,8 +60,9 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;<button type="submit" id="fid">아이디 찾기</button>
         </fieldset>
+        </form>
         </div>
-        
+     <!--    
            <script>
        	$(document).ready(function() {
        		var id = document.getElementById('name');
@@ -76,7 +78,7 @@
        			});
        		
        	});
-       </script>
+       </script> -->
 
 	<jsp:include page="../common/footer.jsp" />
 </body>

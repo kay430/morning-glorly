@@ -61,5 +61,20 @@ public class MgService {
 		
 	}
 
+	public MgDTO findId(MgDTO requestMember) {
+		
+		Connection con = getConnection();
+		MgDTO loginMember = null;
+		
+		String memberId = mgDAO.selectMemberId(con,requestMember);
+		 
+		
+		/*DB에 저장된 회원아이디와 일치하는 회원 이름 조회*/
+		 MgDTO loginMember = mgDAO.findId(con, requestMember);
+		 
+		System.out.println("왓니??");
+		return loginMember;
+	}
+
 	
 }
