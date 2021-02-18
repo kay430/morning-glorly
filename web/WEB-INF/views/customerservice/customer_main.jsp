@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
   <script src="//code.jquery.com/jquery.min.js"></script>
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="/mg/resources/css/customer_main.css">
+  <link rel="stylesheet" type="text/css" href="/mg/resources/css/customer/customer_main.css">
   <link rel="stylesheet" type="text/css" href="/mg/resources/css/header.css">
   <link rel="stylesheet" type="text/css" href="/mg/resources/css/footer.css">
   <link rel="stylesheet" type="text/css" href="/mg/resources/css/main-common.css">
