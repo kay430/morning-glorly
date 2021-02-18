@@ -54,12 +54,6 @@
             </ul>
             <div id="allCategoryArea">
                 <div class="allCategoryView">
-                    <h2>
-                        <a href="/shop/shopbrand.html?xcode=007&amp;type=O">
-                            <img src="http://cdn010.negagea.net/slimcook/slim/slimcook/img1911/allcatebanner_01.jpg"
-                                alt="샐러드 정기배송 새벽배송">
-                        </a>
-                    </h2>
                     <div class="categoryMenus">
                         <ul class="subcategory">
                             <li class="first">
@@ -178,24 +172,20 @@
          })
         </script>
         
-				<script type="text/javascript">
-				$("#allCategory").click(function(){
-					$(".opacity-1").toggle();
-					
-				});
+        <script type="text/javascript">
          $(function(){
         	 $("#allCategory").click(function(e){
         		 e.preventDefault();
-
-        		 var $t = $("opacity-1")
+			
+        		 var $t = $(".onnn")
         		 
-        		 $(".opacity").css("visibility", "hidden");
+        		 $t.toggleClass("opacity-1");
         		 
         		 console.log($t);
         	 })
         	 
          })
-        </script>
-        
-</body>
+	</script>
+
+    </body>
 </html>

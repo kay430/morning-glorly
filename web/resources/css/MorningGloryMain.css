@@ -16,7 +16,7 @@
 .new_menu input[type="radio"]:checked + label strong { font-weight:700; }
 .new_menu #mntab1:checked ~ #mntabcon1, div.new_menu #mntab2:checked ~ #mntabcon2, div.new_menu #mntab3:checked ~ #mntabcon3 { display: block; margin-top:10px; }
 
-.opacity-1{}
+.opacity-1{visibility: hidden;}
 
 .new_menu ul { display:inline-block; width: 1040px; margin:40px 30px 0; }
 .new_menu ul li { width:24.2%; float:left; margin-bottom:30px; transition: background-color 250ms ease-out; outline:1px solid #eee; margin-right:1%; }
