@@ -132,54 +132,70 @@ public class MgDAO {
 		return loginMember;
 	}
 
-	public MgDTO findId(Connection con, MgDTO requestMember) {
-		
+//	public String selectMemberName(Connection con, MgDTO requestMember) {
+//
+//		PreparedStatement pstmt = null;
+//		ResultSet rset = null;
+//		
+//		String Name = null;
+//		
+//		String query = prop.getProperty("selectMemberName");
+//		
+//		try {
+//			pstmt = con.prepareStatement(query);
+//			pstmt.setString(1, requestMember.getId());
+//			
+//			rset = pstmt.executeQuery();
+//			
+//			if(rset.next()) {
+//				Name = rset.getString("MEMBER_NAME");
+//			}
+//			System.out.println(Name);
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} finally {
+//			close(pstmt);
+//		}
+//		
+//		return Name;
+//	}
+
+	public MgDTO selectMemberInfo(Connection con, MgDTO requestMember) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
-		MgDTO userName = null;
+		MgDTO memberInfo = null;
 		
-		String query = prop.getProperty("findId");
-		System.out.println("여기는와??");
+		String query = prop.getProperty("selectMemberInfo");
 		
 		try {
-			
 			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, requestMember.getName());
 			pstmt.setString(2, requestMember.getPhone());
 			
 			rset = pstmt.executeQuery();
-			System.out.println("?");
+			System.out.println("안녕");
+			
 			if(rset.next()) {
-				userName = new MgDTO();
-				userName.setId(rset.getString("MEMBER_ID"));
-				System.out.println("전달되나여??");
+				memberInfo = new MgDTO();
+				
+				memberInfo.setId(rset.getString("MEMBER_ID"));
+				memberInfo.setName(rset.getString("MEMBER_NAME"));
+				System.out.println("여기가 최종인데~~" + memberInfo);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		} finally {
 			close(pstmt);
 			close(rset);
 		}
 		
-		return userName;
+		return memberInfo;
 	}
 
-	public String selectMemberId(Connection con, MgDTO requestMember) {
-		PreparedStatement pstmt = null;
-		ResultSet rset = null;
-		
-		String memberId = null;
-		
-		String query = prop.getProperty("selectMemberId");
-		
-		
-		
-		
-		return null;
-	}
-
+	
 }
 
 

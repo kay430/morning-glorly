@@ -36,20 +36,29 @@
 		 WHERE A.MEMBER_STATUS = 'Y'
 		   AND A.MEMBER_ID = ?  
 	</entry>
-	<entry key="selectMemberId">
+	<!-- <entry key="selectMemberId">
 	    SELECT
                A.MEMBER_ID
          FROM MG_MEMBER A
         WHERE A.MEMBER_NAME = ?
           AND A.PHONE = ?   
-	</entry>
-	<entry key="findId">
+	</entry> -->
+	<entry key="selectMemberInfo">
        SELECT
                A.MEMBER_ID
+             , A.MEMBER_NAME
          FROM MG_MEMBER A
         WHERE A.MEMBER_NAME = ?
           AND A.PHONE = ?       
                	
+	</entry>
+	<entry key="selectMemberName">
+	  SELECT
+               A.MEMBER_NAME
+         FROM MG_MEMBER A
+        WHERE A.MEMBER_ID = ?
+          
+	
 	</entry>
 	
 </properties>
