@@ -103,7 +103,7 @@ margin-left: -30px;
 /* 모든 테이블 중앙 배치할 수 있는 설정 */
 .table-area {
 	margin-left:auto;
-	margin-right:auto;
+	margin-right:50px;
 }
 
 /* 테이블 영역 크기 지정 */

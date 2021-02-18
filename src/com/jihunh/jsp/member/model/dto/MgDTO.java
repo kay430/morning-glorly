@@ -20,30 +20,9 @@ public class MgDTO implements java.io.Serializable {
 	private java.sql.Date modifiedDate;
 	private String blackList;
 	private String status;
+	private String nickname;
 	
 	public MgDTO() {}
-
-	public MgDTO(int no, String name, String id, String pwd, String pno, String gender, String email, String address,
-			String phone, String subPhone, String point, String memberPoint, Date enrollDate, Date modifiedDate,
-			String blackList, String status) {
-		super();
-		this.no = no;
-		this.name = name;
-		this.id = id;
-		this.pwd = pwd;
-		this.pno = pno;
-		this.gender = gender;
-		this.email = email;
-		this.address = address;
-		this.phone = phone;
-		this.subPhone = subPhone;
-		this.point = point;
-		this.memberPoint = memberPoint;
-		this.enrollDate = enrollDate;
-		this.modifiedDate = modifiedDate;
-		this.blackList = blackList;
-		this.status = status;
-	}
 
 	public int getNo() {
 		return no;
@@ -173,12 +152,46 @@ public class MgDTO implements java.io.Serializable {
 		this.status = status;
 	}
 
+	public String getNickname() {
+		return nickname;
+	}
+
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+
 	@Override
 	public String toString() {
 		return "MgDTO [no=" + no + ", name=" + name + ", id=" + id + ", pwd=" + pwd + ", pno=" + pno + ", gender="
 				+ gender + ", email=" + email + ", address=" + address + ", phone=" + phone + ", subPhone=" + subPhone
 				+ ", point=" + point + ", memberPoint=" + memberPoint + ", enrollDate=" + enrollDate + ", modifiedDate="
-				+ modifiedDate + ", blackList=" + blackList + ", status=" + status + "]";
+				+ modifiedDate + ", blackList=" + blackList + ", status=" + status + ", nickname=" + nickname + "]";
+	}
+
+	public MgDTO(int no, String name, String id, String pwd, String pno, String gender, String email, String address,
+			String phone, String subPhone, String point, String memberPoint, Date enrollDate, Date modifiedDate,
+			String blackList, String status, String nickname) {
+		super();
+		this.no = no;
+		this.name = name;
+		this.id = id;
+		this.pwd = pwd;
+		this.pno = pno;
+		this.gender = gender;
+		this.email = email;
+		this.address = address;
+		this.phone = phone;
+		this.subPhone = subPhone;
+		this.point = point;
+		this.memberPoint = memberPoint;
+		this.enrollDate = enrollDate;
+		this.modifiedDate = modifiedDate;
+		this.blackList = blackList;
+		this.status = status;
+		this.nickname = nickname;
+	}
+
+	
+		
 	}
 	
-}

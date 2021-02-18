@@ -1,10 +1,11 @@
 package com.jihunh.jsp.common.paging;
 
-import com.jihunh.jsp.admin.model.dto.NoticePageInfoDTO;
+
+import com.jihunh.jsp.customerservice.model.dto.PageInfoDTO;
 
 public class Pagenation {
 
-	public static NoticePageInfoDTO getPageInfo(int pageNo, int totalCount, int limit, int buttonAmount) {
+	public static PageInfoDTO getPageInfo(int pageNo, int totalCount, int limit, int buttonAmount) {
 	
 	int maxPage;
 	int startPage;
@@ -30,7 +31,7 @@ public class Pagenation {
 	startRow = (pageNo - 1) * limit + 1;
 	endRow = startRow + limit -1;
 	
-	return new NoticePageInfoDTO(pageNo, totalCount, limit, buttonAmount, maxPage, startPage, endPage, startRow, endRow);
+	return new PageInfoDTO(pageNo, totalCount, limit, buttonAmount, maxPage, startPage, endPage, startRow, endRow);
 	}
 }
 

@@ -52,7 +52,7 @@
 							<br>
 							<div class="table-area">
 								<form
-									action="${ pageContext.servletContext.contextPath }/notice/insert"
+									action="${ pageContext.servletContext.contextPath }/review/insert"
 									method="post">
 									<table align="center">
 										<tr>
