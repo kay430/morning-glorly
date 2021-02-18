@@ -125,26 +125,26 @@
                     <tr class="phone2">
                         <td class="signup_cate"> 전화번호 </td>
                         <td class="signup_cate_detail">
-                            <select class="phone_num_sel2">
+                            <select name="subPhone01" class="phone_num_sel2">
                                 <option>선택</option>
-                                <option> 02 </option>
-                                <option> 031 </option>
-                                <option> 032 </option>
-                                <option> 033 </option>
-                                <option> 041 </option>
-                                <option> 042 </option>
-                                <option> 043 </option>
-                                <option> 051 </option>
-                                <option> 052 </option>
-                                <option> 053 </option>
-                                <option> 054 </option>
-                                <option> 055 </option>
-                                <option> 061 </option>
-                                <option> 062 </option>
-                                <option> 063 </option>
-                                <option> 064 </option>
+                                <option value="02"> 02 </option>
+                                <option value="031"> 031 </option>
+                                <option value="032"> 032 </option>
+                                <option value="033"> 033 </option>
+                                <option value="041"> 041 </option>
+                                <option value="042"> 042 </option>
+                                <option value="043"> 043 </option>
+                                <option value="051"> 051 </option>
+                                <option value="052"> 052 </option>
+                                <option value="053"> 053 </option>
+                                <option value="054"> 054 </option>
+                                <option value="055"> 055 </option>
+                                <option value="061"> 061 </option>
+                                <option value="062"> 062 </option>
+                                <option value="063"> 063 </option>
+                                <option value="064"> 064 </option>
                             </select>
-                            - <input type="text" size="6"> - <input type="text" size="6">
+                            - <input name="subPhone02" type="text" size="6"> - <input name="subPhone03" type="text" size="6">
                         </td>
                     </tr>
                 </div>

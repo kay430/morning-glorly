@@ -7,8 +7,8 @@ import com.jihunh.jsp.member.model.dto.MgDTO;
 public class AnswerDTO {
 
 	private int no;
-	private String type;
-	private int categoryNo;
+	private String status;
+	private int categoryCode;
 	private AnswerCategoryDTO category;
 	private String title;
 	private String body;
@@ -17,16 +17,16 @@ public class AnswerDTO {
 	private int count;
 	private java.sql.Date createdDate;
 	private java.sql.Date modifiedDate;
-	private String status;
+	private String display;
 	
 	public AnswerDTO() {}
 
-	public AnswerDTO(int no, String type, int categoryNo, AnswerCategoryDTO category, String title, String body,
-			int writerMgNo, MgDTO writer, int count, Date createdDate, Date modifiedDate, String status) {
+	public AnswerDTO(int no, String status, int categoryCode, AnswerCategoryDTO category, String title, String body,
+			int writerMgNo, MgDTO writer, int count, Date createdDate, Date modifiedDate, String display) {
 		super();
 		this.no = no;
-		this.type = type;
-		this.categoryNo = categoryNo;
+		this.status = status;
+		this.categoryCode = categoryCode;
 		this.category = category;
 		this.title = title;
 		this.body = body;
@@ -35,7 +35,7 @@ public class AnswerDTO {
 		this.count = count;
 		this.createdDate = createdDate;
 		this.modifiedDate = modifiedDate;
-		this.status = status;
+		this.display = display;
 	}
 
 	public int getNo() {
@@ -46,20 +46,20 @@ public class AnswerDTO {
 		this.no = no;
 	}
 
-	public String getType() {
-		return type;
+	public String getStatus() {
+		return status;
 	}
 
-	public void setType(String type) {
-		this.type = type;
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
-	public int getCategoryNo() {
-		return categoryNo;
+	public int getCategoryCode() {
+		return categoryCode;
 	}
 
-	public void setCategoryNo(int categoryNo) {
-		this.categoryNo = categoryNo;
+	public void setCategoryCode(int categoryCode) {
+		this.categoryCode = categoryCode;
 	}
 
 	public AnswerCategoryDTO getCategory() {
@@ -126,20 +126,20 @@ public class AnswerDTO {
 		this.modifiedDate = modifiedDate;
 	}
 
-	public String getStatus() {
-		return status;
+	public String getDisplay() {
+		return display;
 	}
 
-	public void setStatus(String status) {
-		this.status = status;
+	public void setDisplay(String display) {
+		this.display = display;
 	}
 
 	@Override
 	public String toString() {
-		return "AnswerDTO [no=" + no + ", type=" + type + ", categoryNo=" + categoryNo + ", category=" + category
-				+ ", title=" + title + ", body=" + body + ", writerMgNo=" + writerMgNo + ", writer=" + writer
-				+ ", count=" + count + ", createdDate=" + createdDate + ", modifiedDate=" + modifiedDate + ", status="
-				+ status + "]";
+		return "AnswerDTO [no=" + no + ", status=" + status + ", categoryCode=" + categoryCode + ", category="
+				+ category + ", title=" + title + ", body=" + body + ", writerMgNo=" + writerMgNo + ", writer=" + writer
+				+ ", count=" + count + ", createdDate=" + createdDate + ", modifiedDate=" + modifiedDate + ", display="
+				+ display + "]";
 	}
 	
 }

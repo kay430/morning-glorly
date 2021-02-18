@@ -1,53 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
-	<entry key="adminIdOverlap">
-        SELECT
-               A.ADMIN_ID
-          FROM MG_ADMIN A     
-         WHERE A.ADMIN_ID = ?      
-	</entry>
-	<entry key="insertAdmin">
-INSERT INTO MG_ADMIN
- (ADMIN_NO, ADMIN_NAME, ADMIN_ID, ADMIN_PWD, ADMIN_PNO, EMAIL)
-VALUES
- (SEQ_ADMIN_NO.NEXTVAL, ?, ?, ?, ?, ?)
-	</entry>
-	<entry key="selectAdminPwd">
-	    SELECT /* com.greedy.jsp.member.model.dao.MemberDAO#selectEncryptPwd() */
-	           A.ADMIN_PWD
-	      FROM MG_ADMIN A
-	     WHERE A.ADMIN_STATUS = 'Y'
-	       AND A.ADMIN_ID = ?
-	</entry>
-	<entry key="selectLoginAdmin">
-		SELECT /* com.greedy.jsp.member.model.dao.MemberDAO#selectLoginMember() */
-		       A.ADMIN_NO
-		     , A.ADMIN_NAME
-		     , A.ADMIN_ID
-		     , A.ADMIN_PNO
-		     , A.EMAIL
-		     , A.ENROLL_DATE
-		     , A.ADMIN_STATUS
-	      FROM MG_ADMIN A
-		 WHERE A.ADMIN_STATUS = 'Y'
-		   AND A.ADMIN_ID = ?  
-	</entry>
-	<entry key="selectAllNoticeList">
-        SELECT	/* com.greedy.jsp.notice.model.dao.NoticeDAO#selectAllNoticeList() */
-               A.NOTICE_NO
-             , A.NOTICE_TITLE
-             , A.NOTICE_BODY
-             , A.NOTICE_WRITER_MEMBER_NO
-             , B.MEMBER_NAME
-             , A.NOTICE_COUNT
-             , A.CREATED_DATE
-          FROM MG_NOTICE A
-          JOIN MG_MEMBER B ON (A.NOTICE_WRITER_MEMBER_NO = B.MEMBER_NO)
-         WHERE A.NOTICE_STATUS = 'Y'
-         ORDER BY A.NOTICE_NO DESC
-	</entry>
-	<entry key="insertNotice">
+	<entry key="insertAnswer">
         INSERT
           INTO MG_QNA A
         (
@@ -55,12 +9,12 @@ VALUES
         , A.QNA_TITLE
         , A.QNA_BODY
         , A.QNA_WRITER_MEMBER_NO
-        , A.QNA_TYPE
+        , A.QNA_STATUS
         , A.CATEGORY_CODE
         )
         VALUES
         (
-          SEQ_NOTICE_NO.NEXTVAL
+          SEQ_QNA_NO.NEXTVAL
         , ?
         , ?
         , ?
@@ -68,7 +22,7 @@ VALUES
         , ?
         )
 	</entry>
-	<entry key="incrementNoticeCount">
+	<entry key="incrementAnswerCount">
         UPDATE
                MG_QNA A
            SET A.QNA_COUNT = (SELECT B.QNA_COUNT
@@ -77,9 +31,11 @@ VALUES
                                 ) + 1
          WHERE A.QNA_NO = ?
 	</entry>
-	<entry key="selectNoticeDetail">
+	<entry key="selectAnswerDetail">
         SELECT
                A.QNA_NO
+             , A.QNA_STATUS
+             , C.CATEGORY_NAME
              , A.QNA_TITLE
              , A.QNA_BODY
              , A.QNA_WRITER_MEMBER_NO
@@ -88,20 +44,21 @@ VALUES
              , A.CREATED_DATE
           FROM MG_QNA A
           JOIN MG_MEMBER B ON (A.QNA_WRITER_MEMBER_NO = B.MEMBER_NO)
-         WHERE A.QNA_STATUS = 'Y'
+          JOIN MG_QNA_CATEGORY C ON (A.CATEGORY_CODE = C.CATEGORY_CODE)
+         WHERE A.QNA_DISPLAY = 'Y'
            AND A.QNA_NO = ?
 	</entry>
 	<entry key="selectTotalCount">
 		SELECT /**/
 		       COUNT(*)
 		  FROM MG_QNA A
-		 WHERE A.QNA_STATUS = 'Y'
+		 WHERE A.QNA_DISPLAY = 'Y'
 	</entry>
-	<entry key="selectNoticeList">
+	<entry key="selectAnswerList">
 	    SELECT 
                A.RNUM
              , A.QNA_NO
-             , A.QNA_TYPE
+             , A.QNA_STATUS
              , A.CATEGORY_CODE
              , A.QNA_TITLE
              , A.QNA_BODY
@@ -110,10 +67,10 @@ VALUES
              , A.QNA_COUNT
              , A.CREATED_DATE
              , A.MODIFIED_DATE
-             , A.QNA_STATUS
+             , A.QNA_DISPLAY
         FROM (SELECT ROWNUM RNUM
                    , B.QNA_NO
-                   , B.QNA_TYPE
+                   , B.QNA_STATUS
                    , B.CATEGORY_CODE
                    , B.QNA_TITLE
                    , B.QNA_BODY
@@ -122,9 +79,9 @@ VALUES
                    , B.QNA_COUNT
                    , B.CREATED_DATE
                    , B.MODIFIED_DATE
-                   , B.QNA_STATUS
+                   , B.QNA_DISPLAY
               FROM (SELECT A.QNA_NO
-                         , A.QNA_TYPE
+                         , A.QNA_STATUS
                          , A.CATEGORY_CODE
                          , A.QNA_TITLE
                          , A.QNA_BODY
@@ -133,16 +90,16 @@ VALUES
                          , A.QNA_COUNT
                          , A.CREATED_DATE
                          , A.MODIFIED_DATE
-                         , A.QNA_STATUS
+                         , A.QNA_DISPLAY
                       FROM MG_QNA A
                       JOIN MG_MEMBER B ON (A.QNA_WRITER_MEMBER_NO = B.MEMBER_NO)
-                     WHERE A.QNA_STATUS = 'Y'
+                     WHERE A.QNA_DISPLAY = 'Y'
                            ORDER BY A.QNA_NO DESC
                           ) B
                     ) A
                     WHERE RNUM BETWEEN ? AND ? 
 	</entry>
-	<entry key="updateNotice">
+	<entry key="updateAnswer">
 	        UPDATE
                MG_QNA A
            SET A.QNA_TITLE = ?

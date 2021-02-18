@@ -44,6 +44,7 @@ public class MgDAO {
 			pstmt.setString(6, requestMember.getEmail());
 			pstmt.setString(7, requestMember.getAddress());
 			pstmt.setString(8, requestMember.getPhone());
+			pstmt.setString(9, requestMember.getSubPhone());
 			
 			result = pstmt.executeUpdate();
 			

@@ -239,7 +239,7 @@ public class NoticeDAO {
 				notice.setTitle(rset.getString("NOTICE_TITLE"));
 				notice.setBody(rset.getString("NOTICE_BODY"));
 				notice.setWriterMemberNo(rset.getInt("NOTICE_WRITER_MEMBER_NO"));
-				notice.getWriter().setName(rset.getString("MEMBER_NAME"));
+				notice.getWriter().setName(rset.getString("ADMIN_NAME"));
 				notice.setCount(rset.getInt("NOTICE_COUNT"));
 				notice.setCreatedDate(rset.getDate("CREATED_DATE"));
 				

@@ -4,10 +4,10 @@
 	<entry key="insertMember">
         INSERT INTO MG_MEMBER 
          (MEMBER_NO, MEMBER_NAME, MEMBER_ID, MEMBER_PWD, MEMBER_PNO, MEMBER_GENDER
-         , EMAIL, ADDRESS, PHONE)
+         , EMAIL, ADDRESS, PHONE, SUB_PHONE)
         VALUES
          (SEQ_MEMBER_NO.NEXTVAL, ?, ?, ?, ?, ?
-         , ?, ?, ?)
+         , ?, ?, ?, ?)
 	</entry>
 	<entry key="selectEncryptPwd">
 	    SELECT /* com.greedy.jsp.member.model.dao.MemberDAO#selectEncryptPwd() */

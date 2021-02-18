@@ -32,23 +32,23 @@ public class AnswerAdmin extends HttpServlet {
 			pageNo = 1;
 		}
 		
-		System.out.println("current페이지 : " + currentPage);
-		System.out.println("pageNo는? : " + pageNo);
-		System.out.println("여기는 Answer");
+//		System.out.println("current페이지 : " + currentPage);
+//		System.out.println("pageNo는? : " + pageNo);
+//		System.out.println("여기는 Answer");
 		
 		AnswerService anSv = new AnswerService();
 		int totalCount = anSv.selectTotalCount();
 		
-		System.out.println("전체 게시물 수 : " + totalCount); 
+//		System.out.println("전체 게시물 수 : " + totalCount); 
 		
 		int limit = 10;
 		int buttonAmount = 5;
 		
 		NoticePageInfoDTO pageInfo = Pagenation.getPageInfo(pageNo, totalCount, limit, buttonAmount);
 		
-		System.out.println("pageInfo : " + pageInfo);
+//		System.out.println("pageInfo : " + pageInfo);
 		
-		List<AnswerDTO> answerList = anSv.selectNoticeList(pageInfo);
+		List<AnswerDTO> answerList = anSv.selectAnswerList(pageInfo);
 		
 		for(AnswerDTO answer : answerList) {
 			System.out.println(answer);
