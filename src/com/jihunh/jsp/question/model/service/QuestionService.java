@@ -28,4 +28,15 @@ public class QuestionService {
 		return questionList;
 	}
 
+	public int selectTotalCount() {
+		
+		Connection con = getConnection();
+		
+		int totalCount = QuestionDAO.selectTotalCount(con);
+		
+		close(con);
+		
+		return totalCount;
+	}
+
 }

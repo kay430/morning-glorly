@@ -48,20 +48,22 @@
 				<div class="outer-notice-list">
 					<div class="table-area">
 						<table align="center" id="listArea">
-							<tr>
-								<th>글번호</th>
+							<tr class="trtrtr">
+								<th width="50px">글번호</th>
 								<th width="300px">글제목</th>
 								<th width="100px">작성자</th>
-								<th>조회수</th>
+								<th width="50px">조회수</th>
 								<th width="100px">작성일</th>
+								<th width="50px">처리상태<th> 
 							</tr>
-							<c:forEach var="notice" items="${ requestScope.noticeList }">
+							<c:forEach var="question" items="${ requestScope.questionList }">		
 								<tr>
-									<td><c:out value="${ notice.no }" /></td>
-									<td><c:out value="${ notice.title }" /></td>
-									<td><c:out value="${ notice.writer.nickname }" /></td>
-									<td><c:out value="${ notice.count }" /></td>
-									<td><c:out value="${ notice.createdDate }" /></td>
+									<td><c:out value="${ question.no }" /></td>
+									<td><c:out value="${ question.title }" /></td>
+									<td><c:out value="${ question.writer.id }" /></td>
+									<td><c:out value="${ question.count }" /></td>
+									<td><c:out value="${ question.createDate }" /></td>
+									<td><c:out value="${ question.status }" /></td>
 								</tr>
 							</c:forEach>
 						</table>
@@ -73,13 +75,14 @@
 							<option value="body">내용</option>
 						</select> <input type="search" name="searchValue">
 						<button type="submit">검색하기</button>
-						<c:if test="${ sessionScope.loginMember.role eq 'ADMIN' }">
-							<button id="writeNotice">작성하기</button>
-						</c:if>
-					</div>
+						<%-- <c:if test="${ sessionScope.loginMember.role eq 'ADMIN' }">
+						</c:if> --%>
+							<button id="questionNotice">작성하기</button>
+					</div>	
 				</div>
 			</div>
 		</div>
+		
 	</div>
 
 	<jsp:include page="../common/footer.jsp" />

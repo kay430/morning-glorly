@@ -1,4 +1,4 @@
-package com.jihunh.jsp.customerservice.controller;
+package com.jihunh.jsp.member.customerservice.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,11 +8,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet("/notice/write")
-public class NoticeDetailServelt extends HttpServlet {
+@WebServlet("/review/insert")
+public class CustomerReviewInsert extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String path = "/WEB-INF/views/common/noticedetail.jsp";
+		String path = "/WEB-INF/views/common/reviewinsert.jsp";
 		request.getRequestDispatcher(path).forward(request, response);
 	}
 

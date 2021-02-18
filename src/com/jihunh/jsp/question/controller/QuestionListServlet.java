@@ -17,11 +17,39 @@ import com.jihunh.jsp.question.model.service.QuestionService;
 public class QuestionListServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String path = "/WEB-INF/views/customerservice/qna.jsp";
+	
+		String currentPage = request.getParameter("currentPage");
+		
+		int pageNo = 1;
+		
+		if(currentPage != null &&"".equals("currentPage")) {
+			pageNo = Integer.parseInt(currentPage);
+		}
+		
+		if(pageNo <= 0) {
+			pageNo = 1;
+		}
+		
+		System.out.println("!!  :" +  currentPage);
+		System.out.println("!@ :" + pageNo );
+		
+		QuestionService questionService = new QuestionService();
+		int totalCount = questionService.selectTotalCount();
+		
+		
 		List<QuestionDTO> questionList = new QuestionService().selectAllNoticeList();
 		
-		System.out.println(questionList);
+		String path = "";
+		if(questionList != null) {
+			path = "/WEB-INF/views/customerservice/qna.jsp";
+			request.setAttribute("questionList", questionList);
+		} else {
+			path = "WEB-INF/views/common/admin/failedAd.jsp";
+			request.setAttribute("message", "질문글 조회 실패!");
+		}
 		
+		System.out.println(questionList);
+		request.getRequestDispatcher(path).forward(request, response);
 	}
 
 	

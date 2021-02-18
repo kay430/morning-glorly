@@ -55,6 +55,7 @@ public class QuestionDAO {
 				question.getWriter().setId(rset.getString("MEMBER_ID"));
 				question.setCount(rset.getInt("QNA_COUNT"));
 				question.setCreateDate(rset.getDate("CREATED_DATE"));
+				question.setStatus(rset.getString("QNA_STATUS"));
 				
 				questionList.add(question);
 				
@@ -67,6 +68,13 @@ public class QuestionDAO {
 			close(stmt);
 		}
 		return questionList;
+	}
+	public static int selectTotalCount(Connection con) {
+		
+		Statement stmt = null;
+		ResultSet rset = null;
+		
+		return 0;
 	}
 
 }
