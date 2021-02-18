@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 public class CustomerReview extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String path = "/WEB-INF/views/common/review.jsp";
+		String path = "/WEB-INF/views/customerservice/review.jsp";
 		request.getRequestDispatcher(path).forward(request, response);
 	}
 

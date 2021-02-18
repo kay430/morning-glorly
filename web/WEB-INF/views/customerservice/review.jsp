@@ -24,7 +24,7 @@
 </head>
 
 <body>
-
+	<form id="ReviewForm" action="${ pageContext.servletContext.contextPath }/notice/review" method="post">
 	<jsp:include page="../common/header.jsp" />
 
 	<div id="page-wrapper">
@@ -140,7 +140,7 @@
 						</c:choose>
 
 
-					<%-- </div>
+					 </div>
 					<form id="searchForm"action="${ pageContext.servletContext.contextPath }/review/search"method="get">
 						<div class="search-area" align="center">
 							<select id="searchCondition" name="searchCondition">
@@ -149,15 +149,15 @@
 								<option value="body">내용</option>
 							</select> <input type="search" name="searchValue">
 							<button type="submit">검색하기</button>
-							<c:if test="${ sessionScope.loginMember.role eq 'MEMBER' }">
+							<%-- <c:if test="${ sessionScope.loginMember.role eq 'MEMBER }"> --%>
 								<button id="writeNotice">작성하기</button>
-							</c:if>
+								
 						</div>
 					</form>
 				</div>
 			</div>
 		</div>
-	</div> --%>
+	</div> 
 	<script>
 		if (document.getElementsByTagName("td")) {
 			const $tds = document.getElementsByTagName("td");
@@ -260,6 +260,6 @@
 		}
 	</script>
 	<jsp:include page="../common/footer.jsp" />
-
+</form>
 </body>
 </html>
