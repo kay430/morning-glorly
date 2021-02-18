@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.util.List;
 
 import com.jihunh.jsp.admin.model.dao.NoticeDAO;
+import com.jihunh.jsp.admin.model.dto.AttaNoticeDTO;
 import com.jihunh.jsp.admin.model.dto.NoticeDTO;
 import com.jihunh.jsp.admin.model.dto.NoticePageInfoDTO;
 
@@ -102,6 +103,37 @@ public class NoticeService {
 		close(con);
 		
 		return noticeList;
+	}
+
+	public int insertThumbnail(NoticeDTO thumbnail) {
+		
+		Connection con = getConnection();
+		
+		int result = 0;
+		
+		int noticeResult = noticeDAO.insertNotice(con, thumbnail);
+		
+		int noticeNo = noticeDAO.selectNoticeSequence(con);
+		
+		List<AttaNoticeDTO> fileList = thumbnail.getAttaNotiList();
+		for(int i = 0; i < fileList.size(); i++) {
+			fileList.get(i).setRefNotiNo(noticeNo);
+		}
+		
+		int attaNotiResult = 0;
+		for(int i = 0; i < fileList.size(); i++) {
+			attaNotiResult += noticeDAO.insertAttaNotice(con, fileList.get(i));
+		}
+		
+		if(noticeResult > 0 && attaNotiResult == fileList.size()) {
+			commit(con);
+			result = 1;
+		} else {
+			rollback(con);
+		}
+		close(con);
+		
+		return result;
 	}
 
 }

@@ -75,8 +75,15 @@ VALUES
              , A.NOTICE_DISPLAY
              , A.NOTICE_GENERAL
              , A.NOTICE_GENERAL_TYPE
+             , C.ATTACHMENT_NO
+             , C.ORIGINAL_NAME
+             , C.SAVED_NAME
+             , C.SAVE_PATH
+             , C.FILE_TYPE
+             , C.THUMBNAIL_PATH
           FROM MG_NOTICE A
           JOIN MG_ADMIN B ON (A.NOTICE_WRITER_MEMBER_NO = B.ADMIN_NO)
+          LEFT JOIN MG_NOTI_ATTACHMENT C ON (A.NOTICE_NO = C.REF_NOTI_NO)
          WHERE A.NOTICE_DISPLAY = 'Y'
            AND A.NOTICE_NO = ?
 	</entry>
@@ -135,5 +142,33 @@ VALUES
              , A.NOTICE_BODY = ?
          WHERE A.NOTICE_NO = ?
            AND A.NOTICE_WRITER_MEMBER_NO = ?
+	</entry>
+	<entry key="selectNoticeSequence">
+        SELECT
+               SEQ_NOTICE_NO.CURRVAL
+          FROM DUAL    
+	</entry>
+	<entry key="insertAttaNotice">
+        INSERT
+          INTO MG_NOTI_ATTACHMENT A
+        (
+          A.ATTACHMENT_NO
+        , A.REF_NOTI_NO
+        , A.ORIGINAL_NAME
+        , A.SAVED_NAME
+        , A.SAVE_PATH
+        , A.FILE_TYPE
+        , A.THUMBNAIL_PATH  
+        )
+        VALUES
+        (
+          SEQ_NOTI_ATTACHMENT_NO.NEXTVAL
+        , ?
+        , ?
+        , ?
+        , ?
+        , ?
+        , ?
+        ) 
 	</entry>
 </properties>
