@@ -132,6 +132,34 @@ public class MgDAO {
 		return loginMember;
 	}
 
+	public MgDTO findId(Connection con, MgDTO requestMember) {
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		MgDTO userName = null;
+		
+		String query = prop.getProperty("findId");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, requestMember.getName());
+			pstmt.setString(2, requestMember.getPhone());
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				rset.getString("MEMBER_ID");
+				System.out.println("전달되나여??");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return userName;
+	}
+
 }
 
 

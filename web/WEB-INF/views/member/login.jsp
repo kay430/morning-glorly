@@ -68,7 +68,7 @@
 					</span> <br> <br> <br> <input type="submit"
 						class="btn btn-or" value="로그인" id="login2"><br>
 					<!-- <button id="login1" title="로그인">로그인</button><br> -->
-					<br> <a href="idFind.jsp" class="find">아이디찾기</a> <a
+					<br> <a href="${ pageContext.servletContext.contextPath }/member/findId" class="find">아이디찾기</a> <a
 						href="pwdFind.jsp" class="find">비밀번호찾기</a> 
 						<input type="button"
 						class="btn btn-yg" value="회원가입" id="regist2">

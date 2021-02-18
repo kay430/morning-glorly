@@ -36,4 +36,12 @@
 		 WHERE A.MEMBER_STATUS = 'Y'
 		   AND A.MEMBER_ID = ?  
 	</entry>
+	<entry key="findId">
+       SELECT
+               A.MEMBER_ID
+         FROM MG_MEMBER A
+        WHERE A.MEMBER_NAME = ?
+          AND A.PHONE = ?       
+               	
+	</entry>
 </properties>
