@@ -30,6 +30,7 @@
 	<div class="d1">
 	
 	<h2 align="center">비밀번호 찾기</h2>
+	<form method="post" action="${ pageContext.servletContext.contextPath }/member/findpwd">
 	<fieldset>
 	<table>
 		<tbody>
@@ -76,6 +77,7 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" id="pwd">확인</button>
         </fieldset>
+        </form>
         </div>
 <!-- <body>
  <h2>비밀번호 찾기</h2>
