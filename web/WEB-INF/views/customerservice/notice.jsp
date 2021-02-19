@@ -47,20 +47,20 @@
 						<div class="outer-notice-list">
 							<div class="table-area">
 								<table align="center" id="noticeTable">
-									<tr>
-										<th>글번호</th>
-										<th width="300px">글제목</th>
-										<th width="100px">작성자</th>
-										<th>조회수</th>
-										<th width="100px">작성일</th>
+									<tr class="board-list-tr">
+										<th class="board-list-th list-header-bd">글번호</th>
+										<th class="board-list-main-td list-header-bd">글제목</th>
+										<th class="board-list-sub-td list-header-bd">작성자</th>
+										<th class="board-list-sub-td list-header-bd">조회수</th>
+										<th class="board-list-wdate">작성일</th>
 									</tr>
 									<c:forEach var="notice" items="${ requestScope.noticeList }">
-										<tr>
-											<td><c:out value="${ notice.no }" /></td>
-											<td><c:out value="${ notice.title }" /></td>
-											<td><c:out value="${ notice.writer.name }" /></td>
-											<td><c:out value="${ notice.count }" /></td>
-											<td><c:out value="${ notice.createdDate }" /></td>
+										<tr class="board-list-tr">
+											<td class="board-list-th"><c:out value="${ notice.no }" /></td>
+											<td class="board-list-main-td"><c:out value="${ notice.title }" /></td>
+											<td class="board-list-sub-td"><c:out value="${ notice.writer.name }" /></td>
+											<td class="board-list-sub-td"><c:out value="${ notice.count }" /></td>
+											<td class="board-list-wdate"><c:out value="${ notice.createdDate }" /></td>
 										</tr>
 									</c:forEach>
 								</table>
