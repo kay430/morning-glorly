@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.jihunh.jsp.common.wrapper.EncodePwd;
 import com.jihunh.jsp.member.model.dto.MgDTO;
 import com.jihunh.jsp.member.model.service.MgService;
 
@@ -38,6 +39,7 @@ public class MemberFindPwd extends HttpServlet {
 		System.out.println("email : " + email);
 		
 		String tempPwd = getEmail("namgyu1020@naver.com");
+		String resultPwd = new EncodePwd().EncodePwd(tempPwd);
 		
 		MgDTO requestMember = new MgDTO();
 		
@@ -45,7 +47,7 @@ public class MemberFindPwd extends HttpServlet {
 		requestMember.setName(memberName);
 		requestMember.setPhone(phone);
 		requestMember.setEmail(email);
-		requestMember.setPwd(tempPwd);
+		requestMember.setPwd(resultPwd);
 		
 //		MgDTO updateInfo = new MgDTO();
 //		 getEmail("namgyu1020@naver.com");
