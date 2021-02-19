@@ -58,17 +58,19 @@ public class ReviewService {
 		
 		return totalCount;
 	}
-
-	public List<ReviewDTO> searchReviewList(String searchCondition, String searchValue, PageInfoDTO pageInfo) {
-
-		Connection con = getConnection();
-		
-		List<ReviewDTO> reviewList = reviewDAO.searchReviewList(con, searchCondition, searchValue, pageInfo);
-		
-		close(con);
-		
-		return reviewList;
-	}
+	/*
+	 * public List<ReviewDTO> searchReviewList(String searchCondition, String
+	 * searchValue, PageInfoDTO pageInfo) {
+	 * 
+	 * Connection con = getConnection();
+	 * 
+	 * List<ReviewDTO> reviewList = reviewDAO.searchReviewList(con, searchCondition,
+	 * searchValue, pageInfo);
+	 * 
+	 * close(con);
+	 * 
+	 * return reviewList; }
+	 */
 
 	
 

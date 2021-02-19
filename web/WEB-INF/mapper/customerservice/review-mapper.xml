@@ -2,7 +2,7 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
 	<entry key="selectAllReviewList">
-	   SELECT /*com.greedy.jsp.board.model.dao.ReviewDAO#selectAllReviewList()*/
+	   SELECT /*com.greedy.jsp.customerservice.model.dao.ReviewDAO#selectAllReviewService()*/
 	   	      A.REVIEW_NO
 	   		, A.REVIEW_TITLE
 	   		, A.REVIEW_BODY
@@ -14,7 +14,13 @@
 	   		, A.REVIEW_ORDER_NO
 	   	FROM MG_REVIEW A
 	   	JOIN MG_MEMBER B ON (A.REVIEW_WRITER_MEMBER_NO = B.MEMBER_NO)
+	   JOIN MG_ORDER C ON (A.REVIEW_ORDER_NO = C.ORDER_NO)
 	  <!--  WHERE A.REVIEW_STATUS ='Y' -->
-	   ORDER BY A.REVIEW_NO DESC		
+	   ORDER BY A.REVIEW_NO DESC	
+	   	
 </entry>
+	<entry key="insertReview">
+        INSERT INTO MG_REVIEW (REVIEW_ORDER_NO, REVIEW_NO, REVIEW_TITLE, REVIEW_BODY, REVIEW_WRITER_MEMBER_NO)
+        VALUES(1, SEQ_REVIEW_NO.NEXTVAL, ?, ?, ?)
+	</entry>
 </properties>
