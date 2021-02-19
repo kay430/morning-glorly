@@ -55,11 +55,11 @@
 								<th>조회수</th>
 								<th width="100px">작성일</th>
 							</tr>
-							<c:forEach var="notice" items="${ requestScope.noticeList }">
+							<c:forEach var="notice" items="${ requestScope.review }">
 								<tr>
 									<td><c:out value="${ review.no }" /></td>
-									<td><c:out value="${ notice.title }" /></td>
-									<td><c:out value="${ notice.writer.nickname }" /></td>
+									<td><c:out value="${ review.title }" /></td>
+									<td><c:out value="${ review.writer.nickname }" /></td>
 									<td><c:out value="${ notice.count }" /></td>
 									<td><c:out value="${ notice.createdDate }" /></td>
 								</tr>
