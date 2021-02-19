@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
+	<entry key="selectTotalCount">
+		SELECT /**/
+		       COUNT(*)
+		  FROM MG_QNA A
+		   WHERE A.QNA_DISPLAY = 'Y'
+	</entry>
 	<entry key="selectAllQuestionList">
-	SELECT 
+	    SELECT 
                A.RNUM
              , A.QNA_NO
              , A.QNA_STATUS
@@ -10,7 +16,7 @@
              , A.QNA_TITLE
              , A.QNA_BODY
              , A.QNA_WRITER_MEMBER_NO
-             , A.MEMBER_NAME
+             , A.MEMBER_ID
              , A.QNA_COUNT
              , A.CREATED_DATE
              , A.MODIFIED_DATE
@@ -22,7 +28,7 @@
                    , B.QNA_TITLE
                    , B.QNA_BODY
                    , B.QNA_WRITER_MEMBER_NO
-                   , B.MEMBER_NAME
+                   , B.MEMBER_ID
                    , B.QNA_COUNT
                    , B.CREATED_DATE
                    , B.MODIFIED_DATE
@@ -33,7 +39,7 @@
                          , A.QNA_TITLE
                          , A.QNA_BODY
                          , A.QNA_WRITER_MEMBER_NO
-                         , B.MEMBER_NAME
+                         , B.MEMBER_ID
                          , A.QNA_COUNT
                          , A.CREATED_DATE
                          , A.MODIFIED_DATE
@@ -44,11 +50,6 @@
                            ORDER BY A.QNA_NO DESC
                           ) B
                     ) A
-                    WHERE RNUM BETWEEN ? AND ?
-	</entry>
-	<entry key="selectTotalCount">
-           SELECT /* com.greedy.jsp.board.model.dao.BoardDAO#selectTotalCount() */
-               COUNT(*)
-          FROM MG_QNA A
+                    WHERE RNUM BETWEEN ? AND ? 
 	</entry>
 </properties>

@@ -34,7 +34,7 @@
 			<li class="sidebar-brand"><a href="${ pageContext.servletContext.contextPath }/customer/list"> CUSTOMER</a></li>
 				<li><a href="${ pageContext.servletContext.contextPath }/notice/list">공지사항</a>
 				<li><a href="${ pageContext.servletContext.contextPath }/question/list">질문과 답변~</a></li>
-				<li><a href="${ pageContext.servletContext.contextPath }">상품 후기 </a></li>
+				<li><a href="${ pageContext.servletContext.contextPath }/product/review">상품 후기 </a></li>
 			</ul>
 		</div>
 		<!-- /사이드바 -->
@@ -56,13 +56,15 @@
 								<th class="board-list-sub-td list-header-bd">처리상태</th>
 							</tr>
 							<c:forEach var="question" items="${ requestScope.questionList }">
+
 								<tr class="board-list-tr">
 									<td class="board-list-th list-header-bd"><c:out value="${ question.no }" /></td>
 									<td class="board-list-main-td list-header-bd"><c:out value="${ question.title }" /></td>
-									<td class="board-list-sub-td list-header-bd"><c:out value="${ question.writer.id }" /></td>
+									<td class="board-list-sub-td list-header-bd"><c:out value="${ question.mgDTO.name }" /></td>
 									<td class="board-list-sub-td list-header-bd"><c:out value="${ question.count }" /></td>
 									<td class="board-list-wdate list-header-bd"><c:out value="${ question.createDate }" /></td>
 									<td class="board-list-sub-td list-header-bd"><c:out value="${ question.status }" /></td>
+
 								</tr>
 							</c:forEach>
 						</table>
@@ -88,7 +90,7 @@
                   <button id="prevPage"><</button>
                </c:if>
                
-               <c:forEach var="p" begin="${ requestScope.questionPageInfo.startPage }" end="${ requestScope.pageInfo.endPage }" step="1">
+               <c:forEach var="p" begin="${ requestScope.questionPageInfo.startPage }" end="${ requestScope.questionPageInfo.endPage }" step="1">
                	<c:if test="${ requestScope.questionPageInfo.pageNo eq P }">
                		<button disabled><c:out value="${ p }"/></button>
                	</c:if>
