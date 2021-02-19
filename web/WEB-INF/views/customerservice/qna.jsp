@@ -21,6 +21,7 @@
 	href="/mg/resources/css/footer.css">
 <link rel="stylesheet" type="text/css"
 	href="/mg/resources/css/main-common.css">
+	     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -176,9 +177,10 @@
  			location.href = link + "?currentPage=" + text;
  		}
  		</script>
-	
+
 	
 	<!--<jsp:include page="../common/footer.jsp" /> -->	
+
 
 </body>
 </html>
