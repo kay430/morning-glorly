@@ -78,14 +78,22 @@ public class MgService {
 		return memberInfo;
 	}
 
-	public MgDTO findPwd(MgDTO requestMember) {
+	public int findPwd(MgDTO requestMember) {
 		Connection con = getConnection();
 		
 		MgDTO memberInfo2 = null;
 		
-		System.out.println("");
+		System.out.println("왓니 서비스");
 		
-		return null;
+		memberInfo2 = mgDAO.findPwd(con, requestMember);
+		
+		int result = mgDAO.updatePwd(con,requestMember);
+		if(memberInfo2 != null && result > 0) {
+			commit(con);
+		}else {
+			rollback(con);
+		}
+		return result;
 	}
 
 

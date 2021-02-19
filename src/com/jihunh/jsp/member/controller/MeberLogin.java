@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import com.jihunh.jsp.member.model.dto.MgDTO;
 import com.jihunh.jsp.member.model.service.MgService;
+import static com.jihunh.jsp.member.controller.SendupdatePwd.getEmail;
 
 @WebServlet("/member/login")
 public class MeberLogin extends HttpServlet {
@@ -21,6 +22,9 @@ public class MeberLogin extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		getEmail("namgyu1020@naver.com");
+		System.out.println("메일 보냄");
+		
 		String memberId = request.getParameter("memberId");
 		String memberPwd = request.getParameter("memberPwd");
 		
