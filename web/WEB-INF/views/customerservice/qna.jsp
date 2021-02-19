@@ -34,7 +34,7 @@
 			<li class="sidebar-brand"><a href="${ pageContext.servletContext.contextPath }/customer/list"> CUSTOMER</a></li>
 				<li><a href="${ pageContext.servletContext.contextPath }/notice/list">공지사항</a>
 				<li><a href="${ pageContext.servletContext.contextPath }/question/list">질문과 답변~</a></li>
-				<li><a href="${ pageContext.servletContext.contextPath }">상품 후기 </a></li>
+				<li><a href="${ pageContext.servletContext.contextPath }/product/review">상품 후기 </a></li>
 			</ul>
 		</div>
 		<!-- /사이드바 -->
@@ -60,7 +60,7 @@
 								<tr>
 									<td><c:out value="${ question.no }" /></td>
 									<td><c:out value="${ question.title }" /></td>
-									<td><c:out value="${ question.writer.id }" /></td>
+									<td><c:out value="${ question.mgDTO.name }" /></td>
 									<td><c:out value="${ question.count }" /></td>
 									<td><c:out value="${ question.createDate }" /></td>
 									<td><c:out value="${ question.status }" /></td>
@@ -89,7 +89,7 @@
                   <button id="prevPage"><</button>
                </c:if>
                
-               <c:forEach var="p" begin="${ requestScope.questionPageInfo.startPage }" end="${ requestScope.pageInfo.endPage }" step="1">
+               <c:forEach var="p" begin="${ requestScope.questionPageInfo.startPage }" end="${ requestScope.questionPageInfo.endPage }" step="1">
                	<c:if test="${ requestScope.questionPageInfo.pageNo eq P }">
                		<button disabled><c:out value="${ p }"/></button>
                	</c:if>

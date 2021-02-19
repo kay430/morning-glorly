@@ -60,7 +60,7 @@ public class QuestionListServlet extends HttpServlet {
 			request.setAttribute("questionList", questionList);
 			request.setAttribute("questionPageInfo", questionPageInfo);
 		} else {
-			path = "WEB-INF/views/common/admin/failedAd.jsp";
+			path = "WEB-INF/views/common/failed.jsp";
 			request.setAttribute("message", "질문글 조회 실패!");
 		}
 		
