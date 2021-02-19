@@ -15,32 +15,32 @@ import com.jihunh.jsp.member.model.dto.MgDTO;
 public class MgService {
 
 	private final MgDAO mgDAO;
-	
+
 	public MgService() {
 		mgDAO = new MgDAO();
 	}
-	
+
 	public int registMember(MgDTO requestMember) {
-		
+
 		Connection con = getConnection();
-		
+
 		int result = mgDAO.insertMember(con, requestMember);
 		if(result > 0) {
 			commit(con);
 		} else {
 			rollback(con);
 		}
-		
+
 		close(con);
-		
+
 		return result;
 	}
 
 	public MgDTO loginCheck(MgDTO requestMember) {
-		
+
 		Connection con = getConnection();
 		MgDTO loginMember = null;
-		
+
 		/* 1. DB에 저장된 회원 아이디와 일치하는 회원ㅇ늬 비밀번호 조회 */
 		System.out.println("비밀번호 조회하러 가즈아");
 		String encPwd = mgDAO.selectEncryptPwd(con, requestMember);
@@ -56,31 +56,38 @@ public class MgService {
 
 		}
 		close(con);
-		
+
 		return loginMember;
-		
+
 	}
 
 	public MgDTO findId(MgDTO requestMember) {
 		Connection con = getConnection();
-		
+
 		MgDTO memberInfo = null;
-		
-//		String memberName = mgDAO.selectMemberName(con,requestMember);
-//		System.out.println("이름가지고 왓니 : " +memberName);
+
+
 		System.out.println("리퀘스트멤버 겟넹ㅁ " + requestMember.getName());
-		
-//			if(memberName.equals(requestMember.getName())) {
-			memberInfo = mgDAO.selectMemberInfo(con,requestMember);
-			System.out.println("이름가지고왔니2" + memberInfo);
-//			} else {
-//			System.out.println("일므이다르니?");
-//	    }
-		   close(con);
-		
-		   return memberInfo;
+
+
+		memberInfo = mgDAO.selectMemberInfo(con,requestMember);
+		System.out.println("이름가지고왔니2" + memberInfo);
+
+		close(con);
+
+		return memberInfo;
 	}
 
-	
-	
+	public MgDTO findPwd(MgDTO requestMember) {
+		Connection con = getConnection();
+		
+		MgDTO memberInfo2 = null;
+		
+		System.out.println("");
+		
+		return null;
+	}
+
+
+
 }

@@ -30,7 +30,9 @@
 	<div class="d1">
 	
 	<h2 align="center">비밀번호 찾기</h2>
+
 	<form  method="post" action="${ pageContext.servletContext.contextPath }/member/findpwd">
+
 	<fieldset>
 	<table>
 		<tbody>
