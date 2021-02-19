@@ -196,3 +196,15 @@
 #noticeTable {
   text-align: center;
 }
+
+.board-list-tr{font-size: 17px; line-height: 50px; border-bottom: 1px solid lightgray;}
+
+.board-list-th{width: 50px; line-height: 50px;}
+
+.board-list-main-td{width: 500px; line-height: 50px;}
+
+.board-list-sub-td{width: 55px; line-height: 50px;}
+
+.board-list-wdate{width: 100px; line-height: 50px;}
+
+.list-header-bd{border-right: 1px solid lightgray;}

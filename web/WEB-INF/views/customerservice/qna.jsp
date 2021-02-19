@@ -14,7 +14,7 @@
 <script
 	src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css"
-	href="/mg/resources/css/customer/customer_main.css">
+	href="/mg/resources/css/customer/customer_qna.css">
 <link rel="stylesheet" type="text/css"
 	href="/mg/resources/css/header.css">
 <link rel="stylesheet" type="text/css"
@@ -40,30 +40,31 @@
 		<!-- /사이드바 -->
 
 		<!-- 본문 -->
-		<h1>질문과 답변</h1>
-		<hr>
+				<div class="notice_header_txt">
+			질문과 답변
 		<div id="page-content-wrapper">
 			<div class="container-fluid">
-				<h1>질문과 답변게시판들어가는곳</h1>
 				<div class="outer-notice-list">
 					<div class="table-area">
 						<table align="center" id="listArea">
-							<tr>
-								<th>글번호</th>
-								<th width="300px">글제목</th>
-								<th width="100px">작성자</th>
-								<th>조회수</th>
-								<th width="100px">작성일</th>
-								<th width="50px">처리상태</th>
+							<tr class="board-list-tr">
+								<th class="board-list-th list-header-bd">글번호</th>
+								<th class="board-list-main-td list-header-bd">글제목</th>
+								<th class="board-list-sub-td list-header-bd">작성자</th>
+								<th class="board-list-sub-td list-header-bd">조회수</th>
+								<th class="board-list-wdate list-header-bd">작성일</th>
+								<th class="board-list-sub-td list-header-bd">처리상태</th>
 							</tr>
 							<c:forEach var="question" items="${ requestScope.questionList }">
-								<tr>
-									<td><c:out value="${ question.no }" /></td>
-									<td><c:out value="${ question.title }" /></td>
-									<td><c:out value="${ question.mgDTO.name }" /></td>
-									<td><c:out value="${ question.count }" /></td>
-									<td><c:out value="${ question.createDate }" /></td>
-									<td><c:out value="${ question.status }" /></td>
+
+								<tr class="board-list-tr">
+									<td class="board-list-th list-header-bd"><c:out value="${ question.no }" /></td>
+									<td class="board-list-main-td list-header-bd"><c:out value="${ question.title }" /></td>
+									<td class="board-list-sub-td list-header-bd"><c:out value="${ question.mgDTO.name }" /></td>
+									<td class="board-list-sub-td list-header-bd"><c:out value="${ question.count }" /></td>
+									<td class="board-list-wdate list-header-bd"><c:out value="${ question.createDate }" /></td>
+									<td class="board-list-sub-td list-header-bd"><c:out value="${ question.status }" /></td>
+
 								</tr>
 							</c:forEach>
 						</table>
@@ -77,7 +78,7 @@
 						<button type="submit">검색하기</button>
 						<button type="writeQuestion">작성하기</button>
 					</div>
-					
+					</div>
 	  <div class="pagingArea" align="center">
          <c:choose>
             <c:when test="${ empty requestScope.searchValue }">
