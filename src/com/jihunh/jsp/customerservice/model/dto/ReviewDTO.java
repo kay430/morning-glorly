@@ -22,13 +22,16 @@ public class ReviewDTO implements java.io.Serializable{
     private int categoryCode;
 	private int type;
     
-    
+	private String Display;
+	private String OrderNo;
+	
+	
     public ReviewDTO() {}
 
 
 	public ReviewDTO(int no, String status, int categoryNum, String title, String body, int writerMemberNo, int count,
 			MgDTO writer, Date createDate, Date modifiedDate, String hideStatus, CategoryDTO category, Date createdDate,
-			int categoryCode, int type) {
+			int categoryCode, int type, String display, String orderNo) {
 		super();
 		this.no = no;
 		this.status = status;
@@ -45,6 +48,8 @@ public class ReviewDTO implements java.io.Serializable{
 		this.createdDate = createdDate;
 		this.categoryCode = categoryCode;
 		this.type = type;
+		Display = display;
+		OrderNo = orderNo;
 	}
 
 
@@ -54,7 +59,7 @@ public class ReviewDTO implements java.io.Serializable{
 				+ ", body=" + body + ", writerMemberNo=" + writerMemberNo + ", count=" + count + ", writer=" + writer
 				+ ", createDate=" + createDate + ", modifiedDate=" + modifiedDate + ", hideStatus=" + hideStatus
 				+ ", category=" + category + ", createdDate=" + createdDate + ", categoryCode=" + categoryCode
-				+ ", type=" + type + "]";
+				+ ", type=" + type + ", Display=" + Display + ", OrderNo=" + OrderNo + "]";
 	}
 
 
@@ -207,9 +212,24 @@ public class ReviewDTO implements java.io.Serializable{
 		this.type = type;
 	}
 
-	
-	
 
-    
+	public String getDisplay() {
+		return Display;
+	}
+
+
+	public void setDisplay(String display) {
+		Display = display;
+	}
+
+
+	public String getOrderNo() {
+		return OrderNo;
+	}
+
+
+	public void setOrderNo(String orderNo) {
+		OrderNo = orderNo;
+	}
 	}
     
