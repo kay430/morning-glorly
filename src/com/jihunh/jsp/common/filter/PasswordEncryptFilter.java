@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import com.jihunh.jsp.common.wrapper.EncryptRequestWrapper;
 
-@WebFilter("/member/regist")
+@WebFilter(urlPatterns = {"/member/regist", "/member/findpwd"})
 public class PasswordEncryptFilter implements Filter {
 
 	public void destroy() {}

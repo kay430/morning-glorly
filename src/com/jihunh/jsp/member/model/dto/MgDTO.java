@@ -49,7 +49,9 @@ public class MgDTO implements java.io.Serializable {
 	}
 
 	public String getPwd() {
+		
 		return pwd;
+		
 	}
 
 	public void setPwd(String pwd) {

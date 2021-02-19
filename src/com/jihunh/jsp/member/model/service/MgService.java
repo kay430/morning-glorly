@@ -4,6 +4,7 @@ import static com.jihunh.jsp.common.jdbc.JDBCTemplate.close;
 import static com.jihunh.jsp.common.jdbc.JDBCTemplate.commit;
 import static com.jihunh.jsp.common.jdbc.JDBCTemplate.getConnection;
 import static com.jihunh.jsp.common.jdbc.JDBCTemplate.rollback;
+import static com.jihunh.jsp.member.controller.SendupdatePwd.getEmail;
 
 import java.sql.Connection;
 
@@ -85,13 +86,17 @@ public class MgService {
 		
 		System.out.println("왓니 서비스");
 		
-		memberInfo2 = mgDAO.findPwd(con, requestMember);
+		/*
+		 * memberInfo2 = mgDAO.findPwd(con, requestMember);
+		 * System.out.println(memberInfo2);
+		 */
 		
 		int result = mgDAO.updatePwd(con,requestMember);
-		if(memberInfo2 != null && result > 0) {
+		
+		if(result > 0) {
 			commit(con);
 		}else {
-			rollback(con);
+		rollback(con);
 		}
 		return result;
 	}

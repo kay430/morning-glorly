@@ -1,6 +1,7 @@
 package com.jihunh.jsp.member.model.dao;
 
 import static com.jihunh.jsp.common.jdbc.JDBCTemplate.close;
+import static com.jihunh.jsp.member.controller.SendupdatePwd.getEmail;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -214,20 +215,40 @@ public class MgDAO {
 			
 			if(rset.next()) {
 				memberInfo2 = new MgDTO();
+				memberInfo2.setNo(rset.getInt("MEMBER_NO"));
 				memberInfo2.setPwd(rset.getString("MEMBER_PWD"));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			
 		}
-				
+			System.out.println(memberInfo2);	
 				
 		return memberInfo2;
 	}
 
 	public int updatePwd(Connection con, MgDTO requestMember) {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		PreparedStatement pstmt = null;
+		int result = 0;
+		
+		String query = prop.getProperty("updatePwd");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, requestMember.getPwd());
+			pstmt.setString(2, requestMember.getPhone());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		return result;
 	}
 
 	
