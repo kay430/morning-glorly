@@ -33,6 +33,10 @@
 				successMessage =  " ${ requestScope.loginMember.name } 님의 아이디는 ${ requestScope.loginMember.id } 입니다";
 				movePath = "${ pageContext.servletContext.contextPath }"
 				break;
+			case "insertNotice"	:
+			successMessage = "등록 성공하셨습니다.";
+			movePath = "${ pageContext.servletContext.contextPath }"
+			break;
 			}
 			
 			alert(successMessage);
