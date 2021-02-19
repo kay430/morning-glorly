@@ -60,11 +60,11 @@
 
 								<tr class="board-list-tr">
 									<td class="board-list-th list-header-bd"><c:out value="${ question.no }" /></td>
-									<td class="board-list-main-td list-header-bd"><c:out value="${ question.title }" /></td>
-									<td class="board-list-sub-td list-header-bd"><c:out value="${ question.mgDTO.name }" /></td>
-									<td class="board-list-sub-td list-header-bd"><c:out value="${ question.count }" /></td>
-									<td class="board-list-wdate list-header-bd"><c:out value="${ question.createDate }" /></td>
-									<td class="board-list-sub-td list-header-bd"><c:out value="${ question.status }" /></td>
+									<td class="board-list-main-td"><c:out value="${ question.title }" /></td>
+									<td class="board-list-sub-td"><c:out value="${ question.mgDTO.name }" /></td>
+									<td class="board-list-sub-td"><c:out value="${ question.count }" /></td>
+									<td class="board-list-wdate"><c:out value="${ question.createDate }" /></td>
+									<td class="board-list-sub-td"><c:out value="${ question.status }" /></td>
 
 								</tr>
 							</c:forEach>
@@ -169,7 +169,7 @@
  			const $maxpage = document.getElementById("maxPage");
  			$maxpage.onclick = function() {
  				location.href = link
- 						+ "?currentPage=${ requestScope.questionPageInfo.maxPage }";
+ 						+ "?currentPage=${ requestScope.QuestionpPageInfo.maxPage }";
  			}
  		}
 
@@ -177,7 +177,10 @@
  			location.href = link + "?currentPage=" + text;
  		}
  		</script>
-	<jsp:include page="../common/footer.jsp" />
+
+	
+	<!--<jsp:include page="../common/footer.jsp" /> -->	
+
 
 </body>
 </html>

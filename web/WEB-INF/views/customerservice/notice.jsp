@@ -56,7 +56,7 @@
 									</tr>
 									<c:forEach var="notice" items="${ requestScope.noticeList }">
 										<tr class="board-list-tr">
-											<td class="board-list-th"><c:out value="${ notice.no }" /></td>
+											<td class="board-list-th list-header-bd"><c:out value="${ notice.no }" /></td>
 											<td class="board-list-main-td"><c:out value="${ notice.title }" /></td>
 											<td class="board-list-sub-td"><c:out value="${ notice.writer.name }" /></td>
 											<td class="board-list-sub-td"><c:out value="${ notice.count }" /></td>
