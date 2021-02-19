@@ -43,7 +43,7 @@ public class CustomerNoticeListSerlvet extends HttpServlet {
 		int limit = 10;
 		int buttonAmount = 5;
 		
-		NoticePageInfoDTO pageInfo = Pagenation.getPageInfo(pageNo, totalCount, limit, buttonAmount);
+		NoticePageInfoDTO pageInfo = Pagenation.getPageInfoNotice(pageNo, totalCount, limit, buttonAmount);
 		
 		System.out.println("pageInfo : " + pageInfo);
 		

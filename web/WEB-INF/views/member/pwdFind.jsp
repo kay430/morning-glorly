@@ -30,13 +30,15 @@
 	<div class="d1">
 	
 	<h2 align="center">비밀번호 찾기</h2>
-	<form method="post" action="${ pageContext.servletContext.contextPath }/member/findpwd">
+
+	<form  method="post" action="${ pageContext.servletContext.contextPath }/member/findpwd">
+
 	<fieldset>
 	<table>
 		<tbody>
         	<tr class="userid" height="58" >
         		<th>
-        		<div>아&nbsp;이&nbsp;디&nbsp;</div>
+        		<div>&nbsp;&nbsp;아&nbsp;이&nbsp;디&nbsp;</div>
         		</th>
         		<td>
         			<div>
