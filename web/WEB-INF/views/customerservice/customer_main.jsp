@@ -33,7 +33,7 @@
 		<!-- /사이드바 -->
 
 		<!-- 본문 -->
-		<div>
+		<div id="main-wrapper">
 			<div class="main-header">
 				<h1>
 					<img src="/image/Logo1.png">

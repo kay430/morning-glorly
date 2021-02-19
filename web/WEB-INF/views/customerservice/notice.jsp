@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -14,7 +15,7 @@
 <script
 	src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css"
-	href="/mg/resources/css/customer/customer_main.css">
+	href="/mg/resources/css/customer/notice.css">
 <link rel="stylesheet" type="text/css"
 	href="/mg/resources/css/header.css">
 <link rel="stylesheet" type="text/css"
@@ -23,11 +24,6 @@
 	href="/mg/resources/css/main-common.css">
 </head>
 <body>
-<style>
-#noticeTable {
-  text-align: center;
-}
-</style>
 	<jsp:include page="../common/header.jsp" />
 
 	<div id="page-wrapper">
@@ -45,8 +41,7 @@
 		<!-- 본문시작 -->
 		<div class="notice_header_txt">
 			공지사항
-			<div>
-				<hr>
+			<div id="main-wrapper">
 				<div id="page-content-wrapper">
 					<div class="container-fluid">
 						<div class="outer-notice-list">
