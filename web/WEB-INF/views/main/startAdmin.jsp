@@ -73,7 +73,7 @@
               <li><a href="grids.html">주문 조회</a></li>
               <li><a href="calendar.html">결제내역</a></li>
               <li><a href="gallery.html">환불 및 반품</a></li>
-              <li><a href="file_upload.html">배송 조회</a></li>
+              <li><a id="adminTransit">배송 조회</a></li>
             </ul>
           </li>
           <li class="sub-menu">
