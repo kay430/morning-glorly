@@ -23,3 +23,5 @@ public class CustomerReview extends HttpServlet {
 	}
 
 }
+
+/*product review 페이지랑 같음*/

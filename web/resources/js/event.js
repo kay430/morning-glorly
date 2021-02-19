@@ -148,4 +148,13 @@ window.onload = function() {
 		}*/
 		
 	//}
+	
+	
+	if(document.getElementById("reviewInsert")) {
+		const $reviewInsert = document.getElementById("reviewInsert");
+		$reviewInsert.onclick = function() {
+			location.href = "/mg/review/insert";
+		}
+		
+	}
 }

@@ -150,7 +150,7 @@
 							</select> <input type="search" name="searchValue">
 							<button type="submit">검색하기</button>
 							<%-- <c:if test="${ sessionScope.loginMember.role eq 'MEMBER }"> --%>
-								<button id="writeNotice">작성하기</button>
+								<button type="button" id="reviewInsert">작성하기</button>
 								
 						</div>
 					</form>

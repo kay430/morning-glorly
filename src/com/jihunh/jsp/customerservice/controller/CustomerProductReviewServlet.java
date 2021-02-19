@@ -29,7 +29,7 @@ public class CustomerProductReviewServlet extends HttpServlet {
 			path = "/WEB-INF/views/customerservice/review.jsp";
 			request.setAttribute("reviewList", reviewList);
 		} else {
-			path = "/WEB-INF/views/common/failed.jsp";
+			path = "/WEB-INF/views/main/failed.jsp";
 			request.setAttribute("message", "공지사항 조회 실패!");
 		}
 		

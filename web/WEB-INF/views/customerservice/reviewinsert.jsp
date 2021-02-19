@@ -62,7 +62,7 @@
 										<tr>
 											<td>작성자</td>
 											<td><input type="text"
-												value="${ sessionScope.loginMember.nickname }" name="writer"
+												value="${ sessionScope.loginMember.name }" name="writer"
 												readonly></td>
 										</tr>
 										<tr>
@@ -71,10 +71,10 @@
 													rows="15" style="resize: none; width: 800px; height: 450;"
 													required></textarea></td>
 										</tr>
-										<tr>
+										<!-- <tr>
 											<td>비밀번호</td>
 											<td><input type="text" size="30" name="password"></td>
-										</tr>
+										</tr> -->
 
 									</table>
 									<br>
