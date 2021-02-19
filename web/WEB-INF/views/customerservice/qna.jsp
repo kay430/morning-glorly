@@ -54,14 +54,16 @@
 								<th width="100px">작성자</th>
 								<th>조회수</th>
 								<th width="100px">작성일</th>
+								<th width="50px">처리상태</th>
 							</tr>
-							<c:forEach var="notice" items="${ requestScope.noticeList }">
+							<c:forEach var="question" items="${ requestScope.questionList }">
 								<tr>
-									<td><c:out value="${ notice.no }" /></td>
-									<td><c:out value="${ notice.title }" /></td>
-									<td><c:out value="${ notice.writer.nickname }" /></td>
-									<td><c:out value="${ notice.count }" /></td>
-									<td><c:out value="${ notice.createdDate }" /></td>
+									<td><c:out value="${ question.no }" /></td>
+									<td><c:out value="${ question.title }" /></td>
+									<td><c:out value="${ question.writer.id }" /></td>
+									<td><c:out value="${ question.count }" /></td>
+									<td><c:out value="${ question.createDate }" /></td>
+									<td><c:out value="${ question.status }" /></td>
 								</tr>
 							</c:forEach>
 						</table>
@@ -73,15 +75,105 @@
 							<option value="body">내용</option>
 						</select> <input type="search" name="searchValue">
 						<button type="submit">검색하기</button>
-						<c:if test="${ sessionScope.loginMember.role eq 'ADMIN' }">
-							<button id="writeNotice">작성하기</button>
-						</c:if>
+						<button type="writeQuestion">작성하기</button>
 					</div>
+					
+	  <div class="pagingArea" align="center">
+         <c:choose>
+            <c:when test="${ empty requestScope.searchValue }">
+               <button id="startPage"><<</button>
+               <c:if test="${ requestScope.questionPageInfo.pageNo <= 1 }">
+                  <button disabled><</button>
+               </c:if>
+               <c:if test="${ requestScope.questionPageInfo.pageNo > 1 }">
+                  <button id="prevPage"><</button>
+               </c:if>
+               
+               <c:forEach var="p" begin="${ requestScope.questionPageInfo.startPage }" end="${ requestScope.pageInfo.endPage }" step="1">
+               	<c:if test="${ requestScope.questionPageInfo.pageNo eq P }">
+               		<button disabled><c:out value="${ p }"/></button>
+               	</c:if>
+               	<c:if test="${ requestScope.questionPageInfo.pageNo ne P }">
+               		<button onclick="pageButtonAction(this.innerText);"><c:out value="${ p }"/></button>
+               	</c:if>
+               </c:forEach>
+               
+               <c:if test="${ requestScope.questionPageInfo.pageNo >= requestScope.questionPageInfo.maxPage }">
+                  <button disabled>></button>
+               </c:if>
+               <c:if test="${ requestScope.questionPageInfo.pageNo < requestScope.questionPageInfo.maxPage }">
+                  <button id="nextPage">></button>
+               </c:if>
+               
+               <button id="maxPage">>></button>
+               
+            </c:when>
+         </c:choose>
+      </div>
 				</div>
 			</div>
 		</div>
+		
 	</div>
+	<script>
+    	if(document.getElementsByTagName("td")) {
+			const $tds = document.getElementsByTagName("td");
+			
+			for(let i = 0; i < $tds.length; i++) {
+				
+				$tds[i].onmouseenter = function() {
+					this.parentNode.style.backgroundColor = "yellow";
+					this.parentNode.style.cursor = "pointer";
+				}
+				
+				$tds[i].onmouseout = function() {
+					this.parentNode.style.background = "white";
+				}
+				
+				$tds[i].onclick = function() {
+					const no = this.parentNode.children[0].innerText;
+					location.href = "${ pageContext.servletContext.contextPath }/question/detail?no=" + no;
+				}
+			}
+		}
+		
+	</script>
+	<script>
+      const link = "${ pageContext.servletContext.contextPath }/question/list";
+      
+      if(document.getElementById("startPage")) {
+          const $startPage = document.getElementById("startPage");
+          $startPage.onclick = function() {
+             location.href = link + "?currentPage=1";
+          }
+       }
+       
+       if(document.getElementById("prevPage")) {
+          const $prevPage = document.getElementById("prevPage");
+          $prevPage.onclick = function() {
+             location.href = link + "?currentPage=${ requestScope.QuestionPageInfo.pageNo - 1}";
+          }
+       }
+       
+       if(document.getElementById("nextPage")) {
+          const $nextPage = document.getElementById("nextPage");
+          $nextPage.onclick = function() {
+             location.href = link + "?currentPage=${ requestScope.QuestionpPageInfo.pageNo + 1}";
+          }
+       }
+       
+   
+ 		if (document.getElementById("maxPage")) {
+ 			const $maxpage = document.getElementById("maxPage");
+ 			$maxpage.onclick = function() {
+ 				location.href = link
+ 						+ "?currentPage=${ requestScope.questionPageInfo.maxPage }";
+ 			}
+ 		}
 
+ 		function pageButtonAction(text) {
+ 			location.href = link + "?currentPage=" + text;
+ 		}
 	<jsp:include page="../common/footer.jsp" />
 
 </body>

@@ -2,19 +2,53 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
 	<entry key="selectAllQuestionList">
-	SELECT /* com.jihunh.jsp.question.model.QuestionDAO#*/
-			A.QNA_NO
-		,   A.QNA_TITLE
-		,	A.QNA_BODY
-		,	A.QNA_WRITER_MEMBER_NO
-		,	B.MEMBER_ID
-		,	A.QNA_COUNT
-		,	A.CREATED_DATE
-		,	A.MODIFIED_DATE
-		,	A.QNA_DISPLAY
-		FROM MG_QNA A
-		JOIN MG_MEMBER B ON (A.QUESTION_WRITER_MEMBER_NO = B.MEMBER_NO)
-	   WHERE A.QNA_STATUS = 'Y'
-	   ORDER BY A.QNA_NO DESC
+	SELECT 
+               A.RNUM
+             , A.QNA_NO
+             , A.QNA_STATUS
+             , A.CATEGORY_CODE
+             , A.QNA_TITLE
+             , A.QNA_BODY
+             , A.QNA_WRITER_MEMBER_NO
+             , A.MEMBER_NAME
+             , A.QNA_COUNT
+             , A.CREATED_DATE
+             , A.MODIFIED_DATE
+             , A.QNA_DISPLAY
+        FROM (SELECT ROWNUM RNUM
+                   , B.QNA_NO
+                   , B.QNA_STATUS
+                   , B.CATEGORY_CODE
+                   , B.QNA_TITLE
+                   , B.QNA_BODY
+                   , B.QNA_WRITER_MEMBER_NO
+                   , B.MEMBER_NAME
+                   , B.QNA_COUNT
+                   , B.CREATED_DATE
+                   , B.MODIFIED_DATE
+                   , B.QNA_DISPLAY
+              FROM (SELECT A.QNA_NO
+                         , A.QNA_STATUS
+                         , A.CATEGORY_CODE
+                         , A.QNA_TITLE
+                         , A.QNA_BODY
+                         , A.QNA_WRITER_MEMBER_NO
+                         , B.MEMBER_NAME
+                         , A.QNA_COUNT
+                         , A.CREATED_DATE
+                         , A.MODIFIED_DATE
+                         , A.QNA_DISPLAY
+                      FROM MG_QNA A
+                      JOIN MG_MEMBER B ON (A.QNA_WRITER_MEMBER_NO = B.MEMBER_NO)
+                     WHERE A.QNA_DISPLAY = 'Y'
+                           ORDER BY A.QNA_NO DESC
+                          ) B
+                    ) A
+                    WHERE RNUM BETWEEN ? AND ?
+	</entry>
+	<entry key="selectTotalCount">
+           SELECT /* com.greedy.jsp.board.model.dao.BoardDAO#selectTotalCount() */
+               COUNT(*)
+          FROM MG_QNA A
 	</entry>
 </properties>

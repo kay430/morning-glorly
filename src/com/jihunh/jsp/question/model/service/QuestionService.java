@@ -8,6 +8,7 @@ import java.util.List;
 
 import com.jihunh.jsp.question.model.dao.QuestionDAO;
 import com.jihunh.jsp.question.model.dto.QuestionDTO;
+import com.jihunh.jsp.question.model.dto.QuestionPageInfoDTO;
 
 public class QuestionService {
 	
@@ -17,15 +18,26 @@ public class QuestionService {
 		questionDAO = new QuestionDAO();
 	}
 	
-	public List<QuestionDTO> selectAllNoticeList() {
+	public List<QuestionDTO> selectAllQuestionList(QuestionPageInfoDTO QuestionPageInfo) {
 		
 		Connection con = getConnection();
 		
-		List<QuestionDTO> questionList = questionDAO.selectAllQuestionService(con);
+		List<QuestionDTO> questionList = questionDAO.selectAllQuestionService(con, QuestionPageInfo);
 		
 		close(con);
 		
 		return questionList;
+	}
+
+	public int selectTotalCount() {
+		
+		Connection con = getConnection();
+		
+		int totalCount = questionDAO.selectTotalCount(con);
+		
+		close(con);
+		
+		return totalCount;
 	}
 
 }
