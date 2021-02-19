@@ -195,6 +195,41 @@ public class MgDAO {
 		return memberInfo;
 	}
 
+	public MgDTO findPwd(Connection con, MgDTO requestMember) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		MgDTO memberInfo2 = null;
+		
+		String query = prop.getProperty("findPwd");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, requestMember.getId());
+			pstmt.setString(2, requestMember.getName());
+			pstmt.setString(3, requestMember.getPhone());
+			pstmt.setString(4, requestMember.getEmail());
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				memberInfo2 = new MgDTO();
+				memberInfo2.setPwd(rset.getString("MEMBER_PWD"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+				
+				
+		return memberInfo2;
+	}
+
+	public int updatePwd(Connection con, MgDTO requestMember) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 	
 }
 

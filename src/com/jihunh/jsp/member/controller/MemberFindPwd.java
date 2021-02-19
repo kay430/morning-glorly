@@ -43,15 +43,13 @@ public class MemberFindPwd extends HttpServlet {
 		requestMember.setEmail(email);
 		
 		MgService memberService = new MgService();
-		MgDTO loginMember = memberService.findPwd(requestMember);
+		int updateInfo = memberService.findPwd(requestMember);
 		
-		System.out.println("내용다가지구왔니???" + loginMember);
+		System.out.println("내용다가지구왔니???" +updateInfo);
 		
 
 
-		String memberId = request.getParameter("id");
-		String memberName = request.getParameter("name");
-		String phone = request.getParameter("phone");
+		
 
 		
 		

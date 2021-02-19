@@ -57,8 +57,15 @@
                A.MEMBER_NAME
          FROM MG_MEMBER A
         WHERE A.MEMBER_ID = ?
-          
-	
+	</entry>
+	<entry key="findPwd">
+	  SELECT 
+             A.MEMBER_PWD
+        FROM MG_MEMBER A
+       WHERE A.MEMBER_ID = ?
+         AND A.MEMBER_NAME= ?
+         AND A.PHONE = ?
+         AND A.EMAIL = ?
 	</entry>
 	
 </properties>
