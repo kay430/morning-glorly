@@ -168,14 +168,17 @@
  			const $maxpage = document.getElementById("maxPage");
  			$maxpage.onclick = function() {
  				location.href = link
- 						+ "?currentPage=${ requestScope.questionPageInfo.maxPage }";
+ 						+ "?currentPage=${ requestScope.QuestionpPageInfo.maxPage }";
  			}
  		}
 
  		function pageButtonAction(text) {
  			location.href = link + "?currentPage=" + text;
  		}
-	<jsp:include page="../common/footer.jsp" />
+ 		</script>
+	
+	
+	<!--<jsp:include page="../common/footer.jsp" /> -->	
 
 </body>
 </html>
