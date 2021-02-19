@@ -90,6 +90,13 @@ window.onload = function() {
 		}
 	}
 	
+	if(document.getElementById("adminTransit")) {
+		const $logout = document.getElementById("adminTransit");
+		$logout.onclick = function() {
+			location.href = "/mg/admin/transit";
+		}
+		
+	}
 	if(document.getElementById("sweetHome2")) {
 		const $writeNotice = document.getElementById("sweetHome2");
 		$writeNotice.onclick = function() {
