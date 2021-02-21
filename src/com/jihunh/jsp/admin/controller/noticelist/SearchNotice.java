@@ -40,9 +40,8 @@ public class SearchNotice extends HttpServlet {
 		searchRd.getPageInfo().setTotalCount((new NoticeService().searchNoticeCount(searchRd)));
 		searchRd.getPageInfo().setLimit(10);
 		searchRd.getPageInfo().setButtonAmount(5);
-		Pagenation.getSearchPage(searchRd);
 
-		List<NoticeDTO> noticeList = new NoticeService().searchNoticeList(searchRd);
+		List<NoticeDTO> noticeList = new NoticeService().searchNoticeList(Pagenation.getSearchPage(searchRd));
 		
 //		for(NoticeDTO notice : noticeList) {
 //			System.out.println("검색 조회 결과 : " + notice);
