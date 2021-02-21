@@ -30,26 +30,19 @@ public class NoticeAdmin extends HttpServlet {
 			pageNo = 1;
 		}
 		
-		System.out.println("current페이지 : " + currentPage);
-		System.out.println("pageNo는? : " + pageNo);
-		
 		NoticeService ntSv = new NoticeService();
 		int totalCount = ntSv.selectTotalCount();
-		
-		System.out.println("전체 게시물 수 : " + totalCount); 
 		
 		int limit = 10;
 		int buttonAmount = 5;
 		
 		NoticePageInfoDTO pageInfo = Pagenation.getPageInfoNotice(pageNo, totalCount, limit, buttonAmount);
 		
-		System.out.println("pageInfo : " + pageInfo);
-		
 		List<NoticeDTO> noticeList = ntSv.selectNoticeList(pageInfo);
 		
-		for(NoticeDTO notice : noticeList) {
-			System.out.println(notice);
-		}
+//		for(NoticeDTO notice : noticeList) {
+//			System.out.println(notice);
+//		}
 		
 		
 		String path = "";
