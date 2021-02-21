@@ -12,6 +12,7 @@ import com.jihunh.jsp.admin.model.dao.NoticeDAO;
 import com.jihunh.jsp.admin.model.dto.AttaNoticeDTO;
 import com.jihunh.jsp.admin.model.dto.NoticeDTO;
 import com.jihunh.jsp.admin.model.dto.NoticePageInfoDTO;
+import com.jihunh.jsp.admin.model.dto.SearchReadyDTO;
 
 public class NoticeService {
 	
@@ -134,6 +135,28 @@ public class NoticeService {
 		close(con);
 		
 		return result;
+	}
+
+	public int searchNoticeCount(SearchReadyDTO searchRd) {
+		
+		Connection con = getConnection();
+		
+		int totalNoticeCount = noticeDAO.searchNoticeCount(con, searchRd); 
+		
+		close(con);
+		
+		return totalNoticeCount;
+	}
+
+	public List<NoticeDTO> searchNoticeList(SearchReadyDTO searchRd) {
+		
+		Connection con = getConnection();
+		
+		List<NoticeDTO> searchNoticeList = noticeDAO.searchNoticeList(con, searchRd);
+		
+		close(con);
+		
+		return searchNoticeList;
 	}
 
 }

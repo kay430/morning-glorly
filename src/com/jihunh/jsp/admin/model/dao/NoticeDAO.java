@@ -2,7 +2,6 @@ package com.jihunh.jsp.admin.model.dao;
 
 import static com.jihunh.jsp.common.jdbc.JDBCTemplate.close;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Connection;
@@ -18,8 +17,8 @@ import com.jihunh.jsp.admin.model.dto.AttaNoticeDTO;
 import com.jihunh.jsp.admin.model.dto.MgAdDTO;
 import com.jihunh.jsp.admin.model.dto.NoticeDTO;
 import com.jihunh.jsp.admin.model.dto.NoticePageInfoDTO;
+import com.jihunh.jsp.admin.model.dto.SearchReadyDTO;
 import com.jihunh.jsp.common.config.ConfigLocation;
-import com.jihunh.jsp.member.model.dto.MgDTO;
 
 public class NoticeDAO {
 	
@@ -292,6 +291,111 @@ public class NoticeDAO {
 		}
 		
 		return result;
+	}
+
+	public int searchNoticeCount(Connection con, SearchReadyDTO searchRd) {
+
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		int totalCount = 0;
+		
+		String query = null;
+		if("writer".equals(searchRd.getSearchCondition())) {
+			query = prop.getProperty("searchTotalWriter");
+		} else if("title".equals(searchRd.getSearchCondition())) {
+			query = prop.getProperty("searchTotalTitle");
+		} else if("body".equals(searchRd.getSearchCondition())) {
+			query = prop.getProperty("searchTotalBody");
+		} else if("general".equals(searchRd.getSearchCondition())) {
+			query = prop.getProperty("searchTotalGeneral");
+		} else if("generalType".equals(searchRd.getSearchCondition())) {
+			query = prop.getProperty("searchTotalGeneralType");
+		}
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, searchRd.getSearchValue());
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				totalCount = rset.getInt("COUNT(*)");
+
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return totalCount;
+	}
+
+	public List<NoticeDTO> searchNoticeList(Connection con, SearchReadyDTO searchRd) {
+		
+		PreparedStatement pstmt = null;
+		
+		ResultSet rset = null;
+		
+		List<NoticeDTO> searchNoticeList = null;
+		
+		String query = null;
+		if("writer".equals(searchRd.getSearchCondition())) {
+			query = prop.getProperty("searchNoticeListWriter");
+		} else if("title".equals(searchRd.getSearchCondition())) {
+			query = prop.getProperty("searchNoticeListTitle");
+		} else if("body".equals(searchRd.getSearchCondition())) {
+			query = prop.getProperty("searchNoticeListBody");
+		} else if("general".equals(searchRd.getSearchCondition())) {
+			query = prop.getProperty("searchNoticeListGeneral");
+		} else if("generalType".equals(searchRd.getSearchCondition())) {
+			query = prop.getProperty("searchNoticeListGeneralType");
+		}
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, searchRd.getSearchValue());
+			pstmt.setInt(2, searchRd.getPageInfo().getStartRow());
+			pstmt.setInt(3, searchRd.getPageInfo().getEndRow());
+			
+			rset = pstmt.executeQuery();
+			searchNoticeList = new ArrayList<>();
+//			List<AttaNoticeDTO> attaList = null;
+			
+			while(rset.next()) {
+				NoticeDTO noti = new NoticeDTO();
+				noti.setWriter(new MgAdDTO());
+				noti.setRefNotiNo(new AttaNoticeDTO());
+				AttaNoticeDTO atta = new AttaNoticeDTO();
+//				attaList = new ArrayList<AttaNoticeDTO>();
+				
+				noti.setNo(rset.getInt("NOTICE_NO"));
+				noti.setTitle(rset.getString("NOTICE_TITLE"));
+				noti.setBody(rset.getString("NOTICE_BODY"));
+				noti.setWriterMemberNo(rset.getInt("NOTICE_WRITER_MEMBER_NO"));
+				noti.getWriter().setName((rset.getString("ADMIN_NAME")));
+				noti.setCount(rset.getInt("NOTICE_COUNT"));
+				noti.setCreatedDate(rset.getDate("CREATED_DATE"));
+				noti.setDisplay(rset.getString("NOTICE_DISPLAY"));
+				noti.setGeneral(rset.getString("NOTICE_GENERAL"));
+				noti.setGeneralType(rset.getString("NOTICE_GENERAL_TYPE"));
+				noti.getRefNotiNo().setRefNotiNo(rset.getInt("REF_NOTI_NO"));
+				
+//				attaList.add(atta);
+//				noti.setAttaNotiList(attaList);
+				searchNoticeList.add(noti);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+			close(rset);
+		}
+		
+		return searchNoticeList;
 	}
 
 }

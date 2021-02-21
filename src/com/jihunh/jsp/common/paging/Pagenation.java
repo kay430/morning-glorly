@@ -2,6 +2,7 @@ package com.jihunh.jsp.common.paging;
 
 
 import com.jihunh.jsp.admin.model.dto.NoticePageInfoDTO;
+import com.jihunh.jsp.admin.model.dto.SearchReadyDTO;
 import com.jihunh.jsp.customerservice.model.dto.PageInfoDTO;
 import com.jihunh.jsp.question.model.dto.QuestionPageInfoDTO;
 
@@ -67,6 +68,43 @@ public class Pagenation {
 		return new NoticePageInfoDTO(pageNo, totalCount, limit, buttonAmount, maxPage, startPage, endPage, startRow, endRow);
 	}
 	
+	/* 지훈쓰 전용 페이징처리 메소드2 */
+	public static SearchReadyDTO getSearchPage(SearchReadyDTO searchRd) {
+		
+		int maxPage;
+		int startPage;
+		int endPage;
+		int startRow;
+		int endRow;
+		
+		maxPage = (int) Math.ceil((double) searchRd.getPageInfo().getTotalCount() / searchRd.getPageInfo().getLimit());
+		
+		startPage = (int) (Math.ceil((double) searchRd.getPageInfo().getPageNo() / searchRd.getPageInfo().getButtonAmount()) -1) * searchRd.getPageInfo().getButtonAmount() + 1;
+		
+		endPage = startPage + searchRd.getPageInfo().getButtonAmount() -1;
+		
+		if(maxPage < endPage) {
+			endPage = maxPage;
+		}
+		
+		if(maxPage == 0 && endPage == 0) {
+			maxPage = startPage;
+			endPage = startPage;
+		}
+		
+		startRow = (searchRd.getPageInfo().getPageNo() - 1) * searchRd.getPageInfo().getLimit() + 1;
+		endRow = startRow + searchRd.getPageInfo().getLimit() -1;
+		
+		searchRd.getPageInfo().setMaxpage(maxPage);
+		searchRd.getPageInfo().setStartPage(startPage);
+		searchRd.getPageInfo().setEndPage(endPage);
+		searchRd.getPageInfo().setStartRow(startRow);
+		searchRd.getPageInfo().setEndRow(endRow);
+		
+		
+		return searchRd;
+	}
+	
 		/*지환쓰 전용 페이징처리 메소드 내꺼임 */
         public static QuestionPageInfoDTO getPageInfoQuestion(int pageNo, int totalCount, int limit, int buttonAmount) {
 		
@@ -96,6 +134,7 @@ public class Pagenation {
 		
 		return new QuestionPageInfoDTO(pageNo, totalCount, limit, buttonAmount, maxPage, startPage, endPage, startRow, endRow);
 	}
+
 }
 
 

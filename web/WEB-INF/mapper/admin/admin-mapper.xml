@@ -171,4 +171,390 @@ VALUES
         , ?
         ) 
 	</entry>
+	<entry key="searchTotalWriter">
+        SELECT
+               COUNT(*)
+          FROM MG_NOTICE A
+          JOIN MG_ADMIN B ON(A.NOTICE_WRITER_MEMBER_NO = B.ADMIN_NO)
+         WHERE A.NOTICE_DISPLAY = 'Y'
+           AND B.ADMIN_NAME LIKE '%' || ? || '%' 
+	</entry>
+	<entry key="searchTotalTitle">
+        SELECT
+               COUNT(*)
+          FROM MG_NOTICE A
+         WHERE A.NOTICE_DISPLAY = 'Y'
+           AND A.NOTICE_TITLE LIKE '%' || ? || '%' 
+	</entry>
+	<entry key="searchTotalBody">
+        SELECT
+               COUNT(*)
+          FROM MG_NOTICE A
+         WHERE A.NOTICE_DISPLAY = 'Y'
+           AND A.NOTICE_BODY LIKE '%' || ? || '%' 
+	</entry>
+	<entry key="searchTotalGeneral">
+        SELECT
+               COUNT(*)
+          FROM MG_NOTICE A
+         WHERE A.NOTICE_DISPLAY = 'Y'
+           AND A.NOTICE_GENERAL LIKE '%' || ? || '%' 
+	</entry>
+	<entry key="searchTotalGeneralType">
+        SELECT
+               COUNT(*)
+          FROM MG_NOTICE A
+         WHERE A.NOTICE_DISPLAY = 'Y'
+           AND A.NOTICE_GENERAL_TYPE LIKE '%' || ? || '%' 
+	</entry>
+	<entry key="searchNoticeListWriter">
+        SELECT 
+               A.RNUM     
+             , A.NOTICE_NO
+             , A.NOTICE_TITLE
+             , A.NOTICE_BODY
+             , A.NOTICE_WRITER_MEMBER_NO
+             , A.ADMIN_NAME
+             , A.NOTICE_COUNT
+             , A.CREATED_DATE
+             , A.NOTICE_DISPLAY
+             , A.NOTICE_GENERAL
+             , A.NOTICE_GENERAL_TYPE
+             , A.REF_NOTI_NO
+        FROM (SELECT ROWNUM RNUM     
+                   , B.NOTICE_NO
+                   , B.NOTICE_TITLE
+                   , B.NOTICE_BODY
+                   , B.NOTICE_WRITER_MEMBER_NO
+                   , B.ADMIN_NAME
+                   , B.NOTICE_COUNT
+                   , B.CREATED_DATE
+                   , B.NOTICE_DISPLAY
+                   , B.NOTICE_GENERAL
+                   , B.NOTICE_GENERAL_TYPE
+                   , B.REF_NOTI_NO
+              FROM (SELECT C.NOTICE_NO
+                         , C.NOTICE_TITLE
+                         , C.NOTICE_BODY
+                         , C.NOTICE_WRITER_MEMBER_NO
+                         , C.ADMIN_NAME
+                         , C.NOTICE_COUNT
+                         , C.CREATED_DATE
+                         , C.NOTICE_DISPLAY
+                         , C.NOTICE_GENERAL
+                         , C.NOTICE_GENERAL_TYPE
+                         , C.REF_NOTI_NO
+                    FROM (SELECT A.NOTICE_NO
+                               , A.NOTICE_TITLE
+                               , A.NOTICE_BODY
+                               , A.NOTICE_WRITER_MEMBER_NO
+                               , B.ADMIN_NAME
+                               , A.NOTICE_COUNT
+                               , A.CREATED_DATE
+                               , A.NOTICE_DISPLAY
+                               , A.NOTICE_GENERAL
+                               , A.NOTICE_GENERAL_TYPE
+                               , C.REF_NOTI_NO
+                          FROM MG_NOTICE A
+                          JOIN MG_ADMIN B ON (A.NOTICE_WRITER_MEMBER_NO = B.ADMIN_NO)
+                          LEFT JOIN MG_NOTI_ATTACHMENT C ON (A.NOTICE_NO = C.REF_NOTI_NO)
+                         WHERE A.NOTICE_DISPLAY = 'Y'
+                           AND B.ADMIN_NAME LIKE '%' || ? || '%'
+                         GROUP BY (A.NOTICE_NO
+                                 , A.NOTICE_TITLE
+                                 , A.NOTICE_BODY
+                                 , A.NOTICE_WRITER_MEMBER_NO
+                                 , B.ADMIN_NAME
+                                 , A.NOTICE_COUNT
+                                 , A.CREATED_DATE
+                                 , A.NOTICE_DISPLAY
+                                 , A.NOTICE_GENERAL
+                                 , A.NOTICE_GENERAL_TYPE
+                                 , C.REF_NOTI_NO)
+                         ) C
+          ORDER BY NOTICE_NO DESC
+                   ) B
+             ) A
+       WHERE RNUM BETWEEN ? AND ?
+	</entry>
+	<entry key="searchNoticeListTitle">
+        SELECT 
+               A.RNUM     
+             , A.NOTICE_NO
+             , A.NOTICE_TITLE
+             , A.NOTICE_BODY
+             , A.NOTICE_WRITER_MEMBER_NO
+             , A.ADMIN_NAME
+             , A.NOTICE_COUNT
+             , A.CREATED_DATE
+             , A.NOTICE_DISPLAY
+             , A.NOTICE_GENERAL
+             , A.NOTICE_GENERAL_TYPE
+             , A.REF_NOTI_NO
+        FROM (SELECT ROWNUM RNUM     
+                   , B.NOTICE_NO
+                   , B.NOTICE_TITLE
+                   , B.NOTICE_BODY
+                   , B.NOTICE_WRITER_MEMBER_NO
+                   , B.ADMIN_NAME
+                   , B.NOTICE_COUNT
+                   , B.CREATED_DATE
+                   , B.NOTICE_DISPLAY
+                   , B.NOTICE_GENERAL
+                   , B.NOTICE_GENERAL_TYPE
+                   , B.REF_NOTI_NO
+              FROM (SELECT C.NOTICE_NO
+                         , C.NOTICE_TITLE
+                         , C.NOTICE_BODY
+                         , C.NOTICE_WRITER_MEMBER_NO
+                         , C.ADMIN_NAME
+                         , C.NOTICE_COUNT
+                         , C.CREATED_DATE
+                         , C.NOTICE_DISPLAY
+                         , C.NOTICE_GENERAL
+                         , C.NOTICE_GENERAL_TYPE
+                         , C.REF_NOTI_NO
+                    FROM (SELECT A.NOTICE_NO
+                               , A.NOTICE_TITLE
+                               , A.NOTICE_BODY
+                               , A.NOTICE_WRITER_MEMBER_NO
+                               , B.ADMIN_NAME
+                               , A.NOTICE_COUNT
+                               , A.CREATED_DATE
+                               , A.NOTICE_DISPLAY
+                               , A.NOTICE_GENERAL
+                               , A.NOTICE_GENERAL_TYPE
+                               , C.REF_NOTI_NO
+                          FROM MG_NOTICE A
+                          JOIN MG_ADMIN B ON (A.NOTICE_WRITER_MEMBER_NO = B.ADMIN_NO)
+                          LEFT JOIN MG_NOTI_ATTACHMENT C ON (A.NOTICE_NO = C.REF_NOTI_NO)
+                         WHERE A.NOTICE_DISPLAY = 'Y'
+                           AND A.NOTICE_TITLE LIKE '%' || ? || '%'
+                         GROUP BY (A.NOTICE_NO
+                                 , A.NOTICE_TITLE
+                                 , A.NOTICE_BODY
+                                 , A.NOTICE_WRITER_MEMBER_NO
+                                 , B.ADMIN_NAME
+                                 , A.NOTICE_COUNT
+                                 , A.CREATED_DATE
+                                 , A.NOTICE_DISPLAY
+                                 , A.NOTICE_GENERAL
+                                 , A.NOTICE_GENERAL_TYPE
+                                 , C.REF_NOTI_NO)
+                         ) C
+          ORDER BY NOTICE_NO DESC
+                   ) B
+             ) A
+       WHERE RNUM BETWEEN ? AND ?
+	</entry>
+	<entry key="searchNoticeListBody">
+        SELECT 
+               A.RNUM     
+             , A.NOTICE_NO
+             , A.NOTICE_TITLE
+             , A.NOTICE_BODY
+             , A.NOTICE_WRITER_MEMBER_NO
+             , A.ADMIN_NAME
+             , A.NOTICE_COUNT
+             , A.CREATED_DATE
+             , A.NOTICE_DISPLAY
+             , A.NOTICE_GENERAL
+             , A.NOTICE_GENERAL_TYPE
+             , A.REF_NOTI_NO
+        FROM (SELECT ROWNUM RNUM     
+                   , B.NOTICE_NO
+                   , B.NOTICE_TITLE
+                   , B.NOTICE_BODY
+                   , B.NOTICE_WRITER_MEMBER_NO
+                   , B.ADMIN_NAME
+                   , B.NOTICE_COUNT
+                   , B.CREATED_DATE
+                   , B.NOTICE_DISPLAY
+                   , B.NOTICE_GENERAL
+                   , B.NOTICE_GENERAL_TYPE
+                   , B.REF_NOTI_NO
+              FROM (SELECT C.NOTICE_NO
+                         , C.NOTICE_TITLE
+                         , C.NOTICE_BODY
+                         , C.NOTICE_WRITER_MEMBER_NO
+                         , C.ADMIN_NAME
+                         , C.NOTICE_COUNT
+                         , C.CREATED_DATE
+                         , C.NOTICE_DISPLAY
+                         , C.NOTICE_GENERAL
+                         , C.NOTICE_GENERAL_TYPE
+                         , C.REF_NOTI_NO
+                    FROM (SELECT A.NOTICE_NO
+                               , A.NOTICE_TITLE
+                               , A.NOTICE_BODY
+                               , A.NOTICE_WRITER_MEMBER_NO
+                               , B.ADMIN_NAME
+                               , A.NOTICE_COUNT
+                               , A.CREATED_DATE
+                               , A.NOTICE_DISPLAY
+                               , A.NOTICE_GENERAL
+                               , A.NOTICE_GENERAL_TYPE
+                               , C.REF_NOTI_NO
+                          FROM MG_NOTICE A
+                          JOIN MG_ADMIN B ON (A.NOTICE_WRITER_MEMBER_NO = B.ADMIN_NO)
+                          LEFT JOIN MG_NOTI_ATTACHMENT C ON (A.NOTICE_NO = C.REF_NOTI_NO)
+                         WHERE A.NOTICE_DISPLAY = 'Y'
+                           AND A.NOTICE_BODY LIKE '%' || ? || '%'
+                         GROUP BY (A.NOTICE_NO
+                                 , A.NOTICE_TITLE
+                                 , A.NOTICE_BODY
+                                 , A.NOTICE_WRITER_MEMBER_NO
+                                 , B.ADMIN_NAME
+                                 , A.NOTICE_COUNT
+                                 , A.CREATED_DATE
+                                 , A.NOTICE_DISPLAY
+                                 , A.NOTICE_GENERAL
+                                 , A.NOTICE_GENERAL_TYPE
+                                 , C.REF_NOTI_NO)
+                         ) C
+          ORDER BY NOTICE_NO DESC
+                   ) B
+             ) A
+       WHERE RNUM BETWEEN ? AND ?
+	</entry>
+	<entry key="searchNoticeListGeneral">
+        SELECT 
+               A.RNUM     
+             , A.NOTICE_NO
+             , A.NOTICE_TITLE
+             , A.NOTICE_BODY
+             , A.NOTICE_WRITER_MEMBER_NO
+             , A.ADMIN_NAME
+             , A.NOTICE_COUNT
+             , A.CREATED_DATE
+             , A.NOTICE_DISPLAY
+             , A.NOTICE_GENERAL
+             , A.NOTICE_GENERAL_TYPE
+             , A.REF_NOTI_NO
+        FROM (SELECT ROWNUM RNUM     
+                   , B.NOTICE_NO
+                   , B.NOTICE_TITLE
+                   , B.NOTICE_BODY
+                   , B.NOTICE_WRITER_MEMBER_NO
+                   , B.ADMIN_NAME
+                   , B.NOTICE_COUNT
+                   , B.CREATED_DATE
+                   , B.NOTICE_DISPLAY
+                   , B.NOTICE_GENERAL
+                   , B.NOTICE_GENERAL_TYPE
+                   , B.REF_NOTI_NO
+              FROM (SELECT C.NOTICE_NO
+                         , C.NOTICE_TITLE
+                         , C.NOTICE_BODY
+                         , C.NOTICE_WRITER_MEMBER_NO
+                         , C.ADMIN_NAME
+                         , C.NOTICE_COUNT
+                         , C.CREATED_DATE
+                         , C.NOTICE_DISPLAY
+                         , C.NOTICE_GENERAL
+                         , C.NOTICE_GENERAL_TYPE
+                         , C.REF_NOTI_NO
+                    FROM (SELECT A.NOTICE_NO
+                               , A.NOTICE_TITLE
+                               , A.NOTICE_BODY
+                               , A.NOTICE_WRITER_MEMBER_NO
+                               , B.ADMIN_NAME
+                               , A.NOTICE_COUNT
+                               , A.CREATED_DATE
+                               , A.NOTICE_DISPLAY
+                               , A.NOTICE_GENERAL
+                               , A.NOTICE_GENERAL_TYPE
+                               , C.REF_NOTI_NO
+                          FROM MG_NOTICE A
+                          JOIN MG_ADMIN B ON (A.NOTICE_WRITER_MEMBER_NO = B.ADMIN_NO)
+                          LEFT JOIN MG_NOTI_ATTACHMENT C ON (A.NOTICE_NO = C.REF_NOTI_NO)
+                         WHERE A.NOTICE_DISPLAY = 'Y'
+                           AND A.NOTICE_GENERAL LIKE '%' || ? || '%'
+                         GROUP BY (A.NOTICE_NO
+                                 , A.NOTICE_TITLE
+                                 , A.NOTICE_BODY
+                                 , A.NOTICE_WRITER_MEMBER_NO
+                                 , B.ADMIN_NAME
+                                 , A.NOTICE_COUNT
+                                 , A.CREATED_DATE
+                                 , A.NOTICE_DISPLAY
+                                 , A.NOTICE_GENERAL
+                                 , A.NOTICE_GENERAL_TYPE
+                                 , C.REF_NOTI_NO)
+                         ) C
+          ORDER BY NOTICE_NO DESC
+                   ) B
+             ) A
+       WHERE RNUM BETWEEN ? AND ?
+	</entry>
+	<entry key="searchNoticeListGeneralType">
+        SELECT 
+               A.RNUM     
+             , A.NOTICE_NO
+             , A.NOTICE_TITLE
+             , A.NOTICE_BODY
+             , A.NOTICE_WRITER_MEMBER_NO
+             , A.ADMIN_NAME
+             , A.NOTICE_COUNT
+             , A.CREATED_DATE
+             , A.NOTICE_DISPLAY
+             , A.NOTICE_GENERAL
+             , A.NOTICE_GENERAL_TYPE
+             , A.REF_NOTI_NO
+        FROM (SELECT ROWNUM RNUM     
+                   , B.NOTICE_NO
+                   , B.NOTICE_TITLE
+                   , B.NOTICE_BODY
+                   , B.NOTICE_WRITER_MEMBER_NO
+                   , B.ADMIN_NAME
+                   , B.NOTICE_COUNT
+                   , B.CREATED_DATE
+                   , B.NOTICE_DISPLAY
+                   , B.NOTICE_GENERAL
+                   , B.NOTICE_GENERAL_TYPE
+                   , B.REF_NOTI_NO
+              FROM (SELECT C.NOTICE_NO
+                         , C.NOTICE_TITLE
+                         , C.NOTICE_BODY
+                         , C.NOTICE_WRITER_MEMBER_NO
+                         , C.ADMIN_NAME
+                         , C.NOTICE_COUNT
+                         , C.CREATED_DATE
+                         , C.NOTICE_DISPLAY
+                         , C.NOTICE_GENERAL
+                         , C.NOTICE_GENERAL_TYPE
+                         , C.REF_NOTI_NO
+                    FROM (SELECT A.NOTICE_NO
+                               , A.NOTICE_TITLE
+                               , A.NOTICE_BODY
+                               , A.NOTICE_WRITER_MEMBER_NO
+                               , B.ADMIN_NAME
+                               , A.NOTICE_COUNT
+                               , A.CREATED_DATE
+                               , A.NOTICE_DISPLAY
+                               , A.NOTICE_GENERAL
+                               , A.NOTICE_GENERAL_TYPE
+                               , C.REF_NOTI_NO
+                          FROM MG_NOTICE A
+                          JOIN MG_ADMIN B ON (A.NOTICE_WRITER_MEMBER_NO = B.ADMIN_NO)
+                          LEFT JOIN MG_NOTI_ATTACHMENT C ON (A.NOTICE_NO = C.REF_NOTI_NO)
+                         WHERE A.NOTICE_DISPLAY = 'Y'
+                           AND A.NOTICE_GENERAL_TYPE LIKE '%' || ? || '%'
+                         GROUP BY (A.NOTICE_NO
+                                 , A.NOTICE_TITLE
+                                 , A.NOTICE_BODY
+                                 , A.NOTICE_WRITER_MEMBER_NO
+                                 , B.ADMIN_NAME
+                                 , A.NOTICE_COUNT
+                                 , A.CREATED_DATE
+                                 , A.NOTICE_DISPLAY
+                                 , A.NOTICE_GENERAL
+                                 , A.NOTICE_GENERAL_TYPE
+                                 , C.REF_NOTI_NO)
+                         ) C
+          ORDER BY NOTICE_NO DESC
+                   ) B
+             ) A
+       WHERE RNUM BETWEEN ? AND ?
+	</entry>
 </properties>
