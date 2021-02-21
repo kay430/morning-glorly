@@ -192,18 +192,23 @@
     <!-- /MAIN CONTENT -->
     <!--main content end-->
 		<br>
-		<div class="search-area" align="center">
-			<select id="" name="">
-				<option value="writer">상품코드</option>
-				<option value="title">상품유형명</option>
-				<option value="body">내용</option>
-			</select>
-			<input type="search" name="">
-			<button type="submit">검색하기</button>
-			<c:if test="">
+			<!-- 검색폼 -->
+    	<form id="searchForm" action="${ pageContext.servletContext.contextPath }/admin/product/search" method="get">
+    		<div class="search-area" align="center">
+    			<select id="searchCondtion" name="searchCondition">
+    				<option value="mdCode">상품코드</option>
+			        <option value="mdType">상품유형명</option>
+				    <option value="mdName">도시락상품명</option>
+			    </select>
+		        	<input type="search" id="searchValue" name="searchValue">
+			        <button type="submit">검색하기</button>
+		     <%-- 	<c:if test="">
 				<button id="">작성하기</button>
-			</c:if>
-		</div>
+			</c:if> --%>
+    		</div>
+    	
+    	</form> 
+		
 		<br>
 		
 						 <!-- 페이징 버튼 -->
@@ -243,8 +248,8 @@
          </c:choose>
       </div>
 		
-     
-
+	
+	
     	<script>
 		if(document.getElementsByTagName("td")) {
 			const $tds = document.getElementsByTagName("td");
@@ -267,6 +272,7 @@
 			}
 		}
 		
+		
 		/* $(function() {
 			$("#listArea td").hover(function() {
 				$(this).parent().css({"background":"orangered", "cursor":"pointer"});
@@ -279,6 +285,7 @@
 		}); */
 		
 	</script>
+	
 	<script>
       const link = "${ pageContext.servletContext.contextPath }/admin/SelectProduct";
       

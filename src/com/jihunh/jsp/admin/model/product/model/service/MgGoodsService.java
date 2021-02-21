@@ -49,4 +49,16 @@ public class MgGoodsService {
 		return goodsList1;
 	}
 
+	//검색결과의 조회용
+	public int searchProductCount(String searchCondition, String searchValue) {
+		
+		Connection con = getConnection();
+		
+		int searchProductCount = mgGoodsDAO.searchProductCount(con, searchCondition, searchValue);
+		
+		close(con);
+		
+		return searchProductCount;
+	}
+
 }
