@@ -16,13 +16,14 @@ public class NoticeDTO implements java.io.Serializable {
 	private String display;
 	private String general;
 	private String generalType;
-	
+	private AttaNoticeDTO refNotiNo;
 	private List<AttaNoticeDTO> attaNotiList;
 	
 	public NoticeDTO() {}
 
 	public NoticeDTO(int no, String title, String body, int writerMemberNo, MgAdDTO writer, int count, Date createdDate,
-			String display, String general, String generalType, List<AttaNoticeDTO> attaNotiList) {
+			String display, String general, String generalType, AttaNoticeDTO refNotiNo,
+			List<AttaNoticeDTO> attaNotiList) {
 		super();
 		this.no = no;
 		this.title = title;
@@ -34,6 +35,7 @@ public class NoticeDTO implements java.io.Serializable {
 		this.display = display;
 		this.general = general;
 		this.generalType = generalType;
+		this.refNotiNo = refNotiNo;
 		this.attaNotiList = attaNotiList;
 	}
 
@@ -117,6 +119,14 @@ public class NoticeDTO implements java.io.Serializable {
 		this.generalType = generalType;
 	}
 
+	public AttaNoticeDTO getRefNotiNo() {
+		return refNotiNo;
+	}
+
+	public void setRefNotiNo(AttaNoticeDTO refNotiNo) {
+		this.refNotiNo = refNotiNo;
+	}
+
 	public List<AttaNoticeDTO> getAttaNotiList() {
 		return attaNotiList;
 	}
@@ -129,7 +139,8 @@ public class NoticeDTO implements java.io.Serializable {
 	public String toString() {
 		return "NoticeDTO [no=" + no + ", title=" + title + ", body=" + body + ", writerMemberNo=" + writerMemberNo
 				+ ", writer=" + writer + ", count=" + count + ", createdDate=" + createdDate + ", display=" + display
-				+ ", general=" + general + ", generalType=" + generalType + ", attaNotiList=" + attaNotiList + "]";
+				+ ", general=" + general + ", generalType=" + generalType + ", refNotiNo=" + refNotiNo
+				+ ", attaNotiList=" + attaNotiList + "]";
 	}
 	
 }

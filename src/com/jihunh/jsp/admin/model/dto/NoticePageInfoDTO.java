@@ -13,6 +13,16 @@ public class NoticePageInfoDTO implements java.io.Serializable {
 	private int endRow;
 	
 	public NoticePageInfoDTO() {}
+	
+	public NoticePageInfoDTO(int maxpage, int startPage,
+			int endPage, int startRow, int endRow) {
+		super();
+		this.maxpage = maxpage;
+		this.startPage = startPage;
+		this.endPage = endPage;
+		this.startRow = startRow;
+		this.endRow = endRow;
+	}
 
 	public NoticePageInfoDTO(int pageNo, int totalCount, int limit, int buttonAmount, int maxpage, int startPage,
 			int endPage, int startRow, int endRow) {
