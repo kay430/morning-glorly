@@ -208,13 +208,11 @@
 				<c:forEach var="notice" items="${ requestScope.noticeList }">
 				<tr>
 					<td><input type="checkbox" class=""></td>
-					<td><c:out value="${ notice.no }"/></td>
-					<td><c:out value="${ notice.title }"/></td>
-					<td><c:out value="${ notice.writer.name }"/></td>
-					<td><c:out value="${ notice.count }"/></td>
-					<td><c:out value="${ notice.general }"/></td>
-					<td><c:out value="${ notice.generalType }"/></td>
-					<td><c:out value="${ notice.createdDate }"/></td>
+					<td><c:out value="${ delivery.no }"/></td>
+					<td><c:out value="${ delivery.status }"/></td>
+					<td><c:out value="${ transit.no }"/></td>
+					<td><c:out value="${ delivery.date }"/></td>
+					<td><c:out value="${ order.no }"/></td>
 				</tr>
 				</c:forEach>
                     </tbody>
@@ -230,9 +228,6 @@
 			</select>
 			<input type="search" name="searchValue">
 			<button type="submit">검색하기</button>
-			<c:if test="${ sessionScope.loginMember.status eq 'Y' }">
-				<button id="writeNotice">작성하기</button>
-			</c:if>
 		</div>
 		<br>
 					 <!-- 페이징 버튼 -->
