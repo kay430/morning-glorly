@@ -22,7 +22,7 @@
 <link rel="stylesheet" type="text/css"
 	href="/mg/resources/css/main-common.css">
 </head>
-
+												<!--  리뷰 메인  페이지  -->
 <body>
 	<form id="ReviewForm" action="${ pageContext.servletContext.contextPath }/product/review" method="post">
 	<jsp:include page="../common/header.jsp" />
@@ -59,11 +59,10 @@
 								<tr>
 									<td><c:out value="${ review.no }" /></td>
 									<td><c:out value="${ review.title }" /></td>
-									<td><c:out value="${ review.body }" /></td>
-									<td><c:out value="${ review.writerMemberNo }" /></td>
-									<td><c:out value="${ review.MgDTO.name }" /></td>
+									<td><c:out value="${ review.mgDTO.name }" /></td>
+
 									<td><c:out value="${ review.count }" /></td>
-									<td><c:out value="${ review.createdDate }" /></td>
+									<td><c:out value="${ review.createDate }" /></td>
 								</tr>
 							</c:forEach>
 						</table>
@@ -74,7 +73,7 @@
 							<c:when test="${ empty requestScope.searchValue }">
 								<button id="startPage"><<</button>
 								<c:if test="${ requestScope.pageInfo.pageNo <= 1 }">
-									<button disabled><</button>
+									<button disabled>></button>
 								</c:if>
 								<c:if test="${ requestScope.pageInfo.pageNo > 1 }">
 									<button id="prevPage"><</button>
@@ -144,7 +143,7 @@
 
 					 </div>
 					 	<div class="search-area" align="center">
-					 	<form id="searchForm"action="${ pageContext.servletContext.contextPath }/review/search"method="get">
+					 	<form id="searchForm" action="${ pageContext.servletContext.contextPath }/review/search" method="get">
 							<select id="searchCondition" name="searchCondition">
 								<option value="writer">작성자</option>
 								<option value="title">제목</option>
@@ -161,29 +160,7 @@
 			</div>
 		</div>
 	</div> 
-	<script>
-		if (document.getElementsByTagName("td")) {
-			const $tds = document.getElementsByTagName("td");
 
-			for (let i = 0; i < $tds.length; i++) {
-
-				$tds[i].onmouseenter = function() {
-					this.parentNode.style.backgroundColor = "orangered";
-					this.parentNode.style.cursor = "pointer";
-				}
-
-				$tds[i].onmouseout = function() {
-					this.parentNode.style.background = "black";
-				}
-
-				$tds[i].onclick = function() {
-					const no = this.parentNode.children[0].innerText;
-					location.href = "${ pageContext.servletContext.contextPath }/review/insert?no="
-							+ no;
-				}
-			}
-		}
-	</script>
 	<script>
 		const link = "${ pageContext.servletContext.contextPath }/review/list";
 		const searchLink = "${ pageContext.servletContext.contextPath}/review/search";

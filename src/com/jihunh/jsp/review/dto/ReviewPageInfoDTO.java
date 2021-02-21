@@ -1,5 +1,7 @@
 package com.jihunh.jsp.review.dto;
 
+import java.util.List;
+
 public class ReviewPageInfoDTO implements java.io.Serializable {
 	
 	private int pageNo;			//요청한 페이지 번호
@@ -106,5 +108,7 @@ public class ReviewPageInfoDTO implements java.io.Serializable {
 		this.startRow = startRow;
 		this.endRow = endRow;
 	}
+
+	
 
 }

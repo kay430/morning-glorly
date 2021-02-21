@@ -43,7 +43,7 @@ public class CustomerReviewInsert extends HttpServlet {
 		String path = "";
 		if(result > 0) {
 			path = "/WEB-INF/views/main/success.jsp";
-			request.setAttribute("successCode", "insertNotice");
+			request.setAttribute("successCode", "insertReviewNotice");
 		} else {
 			path = "/WEB-INF/views/main/failed.jsp";
 			request.setAttribute("message", "리뷰등록에 실패하셨습니다.");

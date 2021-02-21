@@ -54,8 +54,8 @@ public class CustomerProductReviewServlet extends HttpServlet {
 		
 		System.out.println("reviewList : " + reviewList);
 		
-		for(ReviewDTO review : reviewList) {
-			System.out.println(review);
+		for(ReviewDTO reviewBoard : reviewList) {
+			System.out.println(reviewBoard);
 		}
 
 		

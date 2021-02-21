@@ -178,6 +178,7 @@ window.onload = function() {
 		
 	}
 	
+
 	if(document.getElementById("writeQuestion")) {
 		const $writeQuestion = document.getElementById("writeQuestion");
 		$writeQuestion.onclick = function() {
@@ -185,5 +186,17 @@ window.onload = function() {
 		}
 		
 	}
+
+
+	if(document.getElementById("submitReview")) {
+		const $submitReview = document.getElementById("submitReview");
+		$submitReview.onclick = function() {
+			location.href = "/mg/product/review";
+		}
+		
+	}
+	
+	
+	
 
 }

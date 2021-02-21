@@ -63,7 +63,7 @@ public class ReviewDAO {
 				review.setTitle(rset.getString("REVIEW_TITLE"));
 				review.setBody(rset.getString("REVIEW_BODY"));
 				review.setWriterMemberNo(rset.getInt("REVIEW_WRITER_MEMBER_NO"));
-				review.getName().setName(rset.getString("MEMBER_NAME"));
+				review.getMgDTO().setName(rset.getString("MEMBER_NAME"));
 				review.setCount(rset.getInt("REVIEW_COUNT"));
 				review.setCreateDate(rset.getDate("CREATED_DATE"));
 				review.setModifiedDate(rset.getDate("MODIFIED_DATE"));
@@ -71,6 +71,8 @@ public class ReviewDAO {
 				review.setOrderNo(rset.getInt("REVIEW_ORDER_NO"));
 
 				reviewList.add(review);
+				
+
 
 
 			}
@@ -140,20 +142,12 @@ public class ReviewDAO {
 
 		List<ReviewDTO> reviewList = null;
 
-		String query = null;
+		String query = prop.getProperty("selelctAllReviewList");
 
-		if("category".equals(searchCondition)) { query =
-				prop.getProperty("searchCategoryReviewList");
-		} else if("writer".equals(searchCondition)) { query =
-				prop.getProperty("searchWriterReviewList"); 
-		} else if("title".equals(searchCondition)) { query =
-				prop.getProperty("searchTitleReviewList"); 
-		} else if("content".equals(searchCondition)) { query =
-				prop.getProperty("searchContentReviewList"); }
-
-		try { pstmt = con.prepareStatement(query); pstmt.setString(1, searchValue);
-		pstmt.setInt(2, pageInfo.getStartRow()); pstmt.setInt(3,
-				pageInfo.getEndRow());
+		try { 
+			pstmt = con.prepareStatement(query); 
+			pstmt.setInt(1, pageInfo.getStartRow());
+			pstmt.setInt(2, pageInfo.getEndRow());
 
 		rset = pstmt.executeQuery();
 
@@ -161,8 +155,10 @@ public class ReviewDAO {
 
 		while(rset.next()) {
 			ReviewDTO review = new ReviewDTO();
+//			review.setMgDTO(new MgDTO());
 			review.setMgDTO(new MgDTO());
-
+			
+			
 			review.setNo(rset.getInt("REVIEW_NO"));
 			review.setBody(rset.getString("REVIEW_BODY"));
 			review.setWriterMemberNo(rset.getInt("REVIEW_WRITER_MEMBER_NO"));
@@ -237,15 +233,17 @@ public class ReviewDAO {
 
 			while(rset.next()) {
 				ReviewDTO review = new ReviewDTO();
-				review.setName(new MgDTO());
+				review.setMgDTO(new MgDTO());
 
 
 				review.setNo(rset.getInt("REVIEW_NO"));
 				review.setTitle(rset.getString("REVIEW_TITLE"));
 				review.setBody(rset.getString("REVIEW_BODY"));
-				review.getName().setName(rset.getString("MEMBER_NAME"));
+				review.getMgDTO().setName(rset.getString("MEMBER_NAME"));
 				review.setWriterMemberNo(rset.getInt("REVIEW_WRITER_MEMBER_NO"));
 				review.setCount(rset.getInt("REVIEW_COUNT"));
+				review.setCreateDate(rset.getDate("CREATED_DATE"));
+				review.setModifiedDate(rset.getDate("MODIFIED_DATE"));
 
 				reviewList.add(review);
 			}
@@ -258,6 +256,33 @@ public class ReviewDAO {
 		}
 
 		return reviewList;
+	}
+
+
+
+	public int searchTotalCount(Connection con) {
+		Statement stmt = null;
+		ResultSet rset = null;
+		
+		int totalCount = 0;
+		
+		String query = prop.getProperty("selectTotalCount");
+		
+		try {
+			stmt = con.createStatement();
+			rset = stmt.executeQuery(query);
+			
+			if(rset.next()) {
+				totalCount = rset.getInt("COUNT(*)");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(stmt);
+		}
+		
+		return totalCount;
 	}
 }
 

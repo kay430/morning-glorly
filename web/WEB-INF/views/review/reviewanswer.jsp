@@ -46,17 +46,17 @@
 			<div class="container-fluid">
 				<h2>질문 답변</h2>
 				<div class="gongji">
-					<div class="outer-notice-insert">
-						<div class="outer outer-notice-list">
+					<div class="outer-review-insert">
+						<div class="outer outer-review-list">
 							<br>
 							<div class="table-area">
 								<form
-									action="${ pageContext.servletContext.contextPath }/notice/insert"
+									action="${ pageContext.servletContext.contextPath }/review/insert"
 									method="post">
 									<table align="center">
 										<tr>
 											<td>제목</td>
-											<td><input type="text" size="105" name="title" readonly></td>
+											<td><input type="text" size="105" name="title"></td>
 										</tr>
 										<tr>
 											<td>작성자</td>
