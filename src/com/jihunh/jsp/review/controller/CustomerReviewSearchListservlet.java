@@ -11,7 +11,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.jihunh.jsp.common.paging.Pagenation;
 import com.jihunh.jsp.customerservice.model.dto.PageInfoDTO;
+import com.jihunh.jsp.question.model.dto.QuestionDTO;
+import com.jihunh.jsp.question.model.dto.QuestionPageInfoDTO;
+import com.jihunh.jsp.question.model.service.QuestionService;
 import com.jihunh.jsp.review.dto.ReviewDTO;
+import com.jihunh.jsp.review.dto.ReviewPageInfoDTO;
 import com.jihunh.jsp.review.service.ReviewService;
 
 /**
@@ -22,49 +26,46 @@ public class CustomerReviewSearchListservlet extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		String searchCondition = request.getParameter("searchCondition");
-		String searchValue = request.getParameter("searchValue");
-
-		System.out.println("searchCondition : " + searchCondition);
-		System.out.println("searchValue : " + searchValue);
-//sql익셉션
+		
 		String currentPage = request.getParameter("currentPage");
+		
 		int pageNo = 1;
-
+		
 		if(currentPage != null && !"".equals(currentPage)) {
+			
 			pageNo = Integer.parseInt(currentPage);
 		}
-
+		
 		if(pageNo <= 0) {
 			pageNo = 1;
 		}
-
+		
+		System.out.println("currentPage : " + currentPage);
+		System.out.println("pageNo : " + pageNo);
+		
 		ReviewService reviewService = new ReviewService();
-//여기까지 
-		int totalCount = reviewService.searchReviewCount(searchCondition, searchValue);
-		System.out.println("totalCount : " + totalCount);
-
+		int totalCount = reviewService.selectTotalCount();
+		
+		System.out.println("전체 게시물 수 : " + totalCount);
+		
 		int limit = 10;
 		int buttonAmount = 5;
-
-		PageInfoDTO pageInfo = Pagenation.getPageInfo(pageNo, totalCount, limit, buttonAmount);
-
-		System.out.println(pageInfo);
-
-		List<ReviewDTO> reviewList = reviewService.searchReviewList(searchCondition, searchValue, pageInfo);
-
-		for(ReviewDTO review : reviewList) {
-			System.out.println(review);
+		
+		ReviewPageInfoDTO reviewPageInfo = Pagenation.getPageInfoReview(pageNo, totalCount, limit, buttonAmount);
+		
+		System.out.println("pageInfo : " + reviewPageInfo );
+		
+		List<ReviewDTO> reviewList = reviewService.selectAllReviewList(reviewPageInfo);
+		
+		for(ReviewDTO reviewBoard : reviewList) {
+			System.out.println(reviewBoard);
 		}
-
 		String path = "";
 		if(reviewList != null) {
 			path = "/WEB-INF/views/review/review.jsp";
 			request.setAttribute("reviewList", reviewList);
-			request.setAttribute("pageInfo", pageInfo);
-			request.setAttribute("searchCondition", searchCondition);
-			request.setAttribute("searchValue", searchValue);
+			request.setAttribute("pageInfo", reviewPageInfo);
+			
 		} else {
 			path = "/WEB-INF/views/common/failed.jsp";
 			request.setAttribute("message", "게시물 검색 실패!");
