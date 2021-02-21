@@ -51,11 +51,10 @@ public class ReviewService {
 	}
 
 	
-	  public int searchReviewCount(String searchCondition, String searchValue) {
+	  public int searchTotalCount() {
 	  Connection con = getConnection();
 	  
-	  int totalCount = reviewDAO.searchReviewCount(con, searchCondition,
-	  searchValue);
+	  int totalCount = reviewDAO.searchTotalCount(con);
 	  
 	  close(con);
 	  

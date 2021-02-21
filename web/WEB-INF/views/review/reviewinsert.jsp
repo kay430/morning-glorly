@@ -38,7 +38,7 @@
 			</ul>
 		</div>
 		<!-- /사이드바 -->
-
+  																				<!--구매하기 작성 하는곳  -->
 		<!-- 본문 -->
 		<h1>구매후기</h1>
 		<hr>
@@ -62,7 +62,7 @@
 										<tr>
 											<td>작성자</td>
 											<td><input type="text"
-												value="${ sessionScope.loginMember.nickname }" name="writer"
+												value="${ sessionScope.mgDTO.name }" name="writer"
 												readonly></td>
 										</tr>
 										<tr>
@@ -80,7 +80,7 @@
 									<br>
 									<div align="center">
 										<button type="reset" id="cancelNotice">취소하기</button>
-										<button type="submit">등록하기</button>
+										<button type="submit"id="submitReview">등록하기</button>
 									</div>
 								</form>
 							</div>
