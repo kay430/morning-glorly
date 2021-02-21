@@ -52,4 +52,35 @@
                     ) A
                     WHERE RNUM BETWEEN ? AND ? 
 	</entry>
+		<entry key="incrementQuestionCount">
+        UPDATE
+               MG_QNA A
+           SET A.QNA_COUNT = (SELECT B.QNA_COUNT
+                                   FROM MG_QNA B
+                                  WHERE B.QNA_NO = ?
+                                ) + 1
+         WHERE A.QNA_NO = ?
+	</entry>
+	<entry key="selectQuestionDetail">
+        SELECT
+               A.QNA_NO
+             , A.QNA_TITLE
+             , A.QNA_BODY
+             , A.QNA_WRITER_MEMBER_NO
+             , B.MEMBER_ID
+             , A.QNA_COUNT
+             , A.CREATED_DATE
+             , A.QNA_DISPLAY
+             , C.ATTACHMENT_NO
+             , C.ORIGINAL_NAME
+             , C.SAVED_NAME
+             , C.SAVE_PATH
+             , C.FILE_TYPE
+             , C.THUMBNAIL_PATH
+          FROM MG_QNA A
+          JOIN MG_MEMBER B ON (A.QNA_WRITER_MEMBER_NO = B.MEMBER_NO)
+          LEFT JOIN MG_QNA_ATTACHMENT C ON (A.QNA_NO = C.REF_QNA_NO)
+         WHERE A.QNA_DISPLAY = 'Y'
+           AND A.QNA_NO = ?
+	</entry>
 </properties>

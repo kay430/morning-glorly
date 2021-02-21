@@ -1,9 +1,12 @@
+
 package com.jihunh.jsp.common.paging;
 
 
 import com.jihunh.jsp.admin.model.dto.NoticePageInfoDTO;
+import com.jihunh.jsp.admin.model.dto.SearchReadyDTO;
 import com.jihunh.jsp.customerservice.model.dto.PageInfoDTO;
 import com.jihunh.jsp.question.model.dto.QuestionPageInfoDTO;
+import com.jihunh.jsp.review.dto.ReviewPageInfoDTO;
 
 public class Pagenation {
 
@@ -18,24 +21,14 @@ public class Pagenation {
 	
 	maxPage = (int) Math.ceil((double) totalCount / limit);
 	
-	//maxPage 잘 맞게나오는지 한번 확인합시다~-
-	System.out.println("maxPage : " + maxPage);
-	
-	
 	startPage = (int) (Math.ceil((double) pageNo / buttonAmount) -1) * buttonAmount + 1;
-	
-	System.out.println("startPage : " + startPage);
 	
 	endPage = startPage + buttonAmount -1;
 	
-	System.out.println("endPage : " + endPage);
-	
-	//maxPage가 더 작은경우 마지막 페이지가 maxPage가 된다
 	if(maxPage < endPage) {
 		endPage = maxPage;
 	}
 	
-	/*마지막 페이지는 0이 될수 없기때문에 게시물이 아무것도 존재하지않으면 maxpage와 endPage를 1로 바꿔준다*/
 	if(maxPage == 0 && endPage == 0) {
 		maxPage = startPage;
 		endPage = startPage;
@@ -43,8 +36,7 @@ public class Pagenation {
 	
 	startRow = (pageNo - 1) * limit + 1;
 	endRow = startRow + limit -1;
-	System.out.println("startRow : " + startRow);
-	System.out.println("endRow : " + endRow);
+	
 	return new PageInfoDTO(pageNo, totalCount, limit, buttonAmount, maxPage, startPage, endPage, startRow, endRow);
 	}
 	
@@ -78,6 +70,43 @@ public class Pagenation {
 		return new NoticePageInfoDTO(pageNo, totalCount, limit, buttonAmount, maxPage, startPage, endPage, startRow, endRow);
 	}
 	
+	/* 지훈쓰 전용 페이징처리 메소드2 */
+	public static SearchReadyDTO getSearchPage(SearchReadyDTO searchRd) {
+		
+		int maxPage;
+		int startPage;
+		int endPage;
+		int startRow;
+		int endRow;
+		
+		maxPage = (int) Math.ceil((double) searchRd.getPageInfo().getTotalCount() / searchRd.getPageInfo().getLimit());
+		
+		startPage = (int) (Math.ceil((double) searchRd.getPageInfo().getPageNo() / searchRd.getPageInfo().getButtonAmount()) -1) * searchRd.getPageInfo().getButtonAmount() + 1;
+		
+		endPage = startPage + searchRd.getPageInfo().getButtonAmount() -1;
+		
+		if(maxPage < endPage) {
+			endPage = maxPage;
+		}
+		
+		if(maxPage == 0 && endPage == 0) {
+			maxPage = startPage;
+			endPage = startPage;
+		}
+		
+		startRow = (searchRd.getPageInfo().getPageNo() - 1) * searchRd.getPageInfo().getLimit() + 1;
+		endRow = startRow + searchRd.getPageInfo().getLimit() -1;
+		
+		searchRd.getPageInfo().setMaxpage(maxPage);
+		searchRd.getPageInfo().setStartPage(startPage);
+		searchRd.getPageInfo().setEndPage(endPage);
+		searchRd.getPageInfo().setStartRow(startRow);
+		searchRd.getPageInfo().setEndRow(endRow);
+		
+		
+		return searchRd;
+	}
+	
 		/*지환쓰 전용 페이징처리 메소드 내꺼임 */
         public static QuestionPageInfoDTO getPageInfoQuestion(int pageNo, int totalCount, int limit, int buttonAmount) {
 		
@@ -107,9 +136,38 @@ public class Pagenation {
 		
 		return new QuestionPageInfoDTO(pageNo, totalCount, limit, buttonAmount, maxPage, startPage, endPage, startRow, endRow);
 	}
+
+        public static ReviewPageInfoDTO getPageInfoReview(int pageNo, int totalCount, int limit, int buttonAmount) {
+    		
+    		int maxPage;
+    		int startPage;
+    		int endPage;
+    		int startRow;
+    		int endRow;
+    		
+    		maxPage = (int) Math.ceil((double) totalCount / limit);
+    		
+    		startPage = (int) (Math.ceil((double) pageNo / buttonAmount) -1) * buttonAmount + 1;
+    		
+    		endPage = startPage + buttonAmount -1;
+    		
+    		if(maxPage < endPage) {
+    			endPage = maxPage;
+    		}
+    		
+    		if(maxPage == 0 && endPage == 0) {
+    			maxPage = startPage;
+    			endPage = startPage;
+    		}
+    		
+    		startRow = (pageNo - 1) * limit + 1;
+    		endRow = startRow + limit -1;
+    		
+    		return new ReviewPageInfoDTO(pageNo, totalCount, limit, buttonAmount, maxPage, startPage, endPage, startRow, endRow);
+    	}
+
+
 }
-
-
 
 
 

@@ -1,7 +1,9 @@
 package com.jihunh.jsp.question.model.service;
 
 import static com.jihunh.jsp.common.jdbc.JDBCTemplate.close;
+import static com.jihunh.jsp.common.jdbc.JDBCTemplate.commit;
 import static com.jihunh.jsp.common.jdbc.JDBCTemplate.getConnection;
+import static com.jihunh.jsp.common.jdbc.JDBCTemplate.rollback;
 
 import java.sql.Connection;
 import java.util.List;
@@ -38,6 +40,31 @@ public class QuestionService {
 		close(con);
 		
 		return totalCount;
+	}
+
+	public QuestionDTO selectQuestionDetail(int no) {
+		
+		Connection con = getConnection();
+		QuestionDTO questionDetail = null;
+		
+		int result = questionDAO.incrementQuestionCount(con, no);
+		
+		if(result > 0) {
+			questionDetail = questionDAO.selectQuestionDetail(con, no);
+			
+			if(questionDetail != null) {
+				commit(con);
+			} else {
+				rollback(con);
+			}
+			
+		} else {
+			rollback(con);
+		}
+		
+		close(con);
+		
+		return questionDetail;
 	}
 
 }
