@@ -178,6 +178,32 @@ public class QuestionDAO {
 		
 		return questionDetail;
 	}
+	public int insertQuestion(Connection con, QuestionDTO newQuestion) {
+		
+		PreparedStatement pstmt = null;
+		
+		int result = 0;
+		
+		String query = prop.getProperty("insertQuestion");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, newQuestion.getTitle());
+			pstmt.setString(2, newQuestion.getBody());
+			pstmt.setInt(3, newQuestion.getWriterMemberNo());
+		
+			result = pstmt.executeUpdate();
+			
+			System.out.println(result);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}	finally {
+			close(pstmt);
+		}
+		
+		
+		return result;
+	}
 
 
 }

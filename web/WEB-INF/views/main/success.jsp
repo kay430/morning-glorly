@@ -41,9 +41,16 @@
 				successMessage =  "성공입니다";
 				movePath = "${ pageContext.servletContext.contextPath }"
 				break;
-			case "insertReviewNotice"	:
+
+			case "insertQuestion" :
+				successMessage = "등록 성공하셨습니다.";
+				movePath = "${ pageContext.servletContext.contextPath}";
+        break;
+          
+			  case "insertReviewNotice"	:
 				successMessage = "상품리뷰 등록 성공하셨습니다.";
 				movePath = "${ pageContext.servletContext.contextPath }/product/review";
+
 				break;
 			}
 			

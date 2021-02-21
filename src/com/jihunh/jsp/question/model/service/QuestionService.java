@@ -67,4 +67,21 @@ public class QuestionService {
 		return questionDetail;
 	}
 
+	public int insertQuestion(QuestionDTO newQuestion) {
+		
+		Connection con = getConnection();
+		
+		int result = questionDAO.insertQuestion(con, newQuestion);
+		
+		if(result > 0) {
+			commit(con);
+		} else {
+			rollback(con);
+		}
+		
+		close(con);
+		
+		return result;
+	}
+
 }

@@ -178,6 +178,16 @@ window.onload = function() {
 		
 	}
 	
+
+	if(document.getElementById("writeQuestion")) {
+		const $writeQuestion = document.getElementById("writeQuestion");
+		$writeQuestion.onclick = function() {
+			location.href = "/mg/question/insert";
+		}
+		
+	}
+
+
 	if(document.getElementById("submitReview")) {
 		const $submitReview = document.getElementById("submitReview");
 		$submitReview.onclick = function() {
@@ -188,4 +198,5 @@ window.onload = function() {
 	
 	
 	
+
 }

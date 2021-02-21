@@ -83,4 +83,21 @@
          WHERE A.QNA_DISPLAY = 'Y'
            AND A.QNA_NO = ?
 	</entry>
+		<entry key="insertQuestion">
+        INSERT
+          INTO MG_QNA A
+        (
+          A.QNA_NO
+        , A.QNA_TITLE
+        , A.QNA_BODY
+        , A.QNA_WRITER_MEMBER_NO
+        )
+        VALUES
+        (
+          SEQ_QNA_NO.NEXTVAL
+        , ?
+        , ?
+        , ?
+        ) 
+	</entry>
 </properties>
