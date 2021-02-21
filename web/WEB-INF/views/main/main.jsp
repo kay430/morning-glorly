@@ -122,8 +122,6 @@
                     </li>
                 </ul>
 
-//
-
                 <div class="clobox">
                     <h3>지금 가장 <span>🔥</span><strong>HOT</strong><span>🔥</span> 해요!</h3>
                     <div class="item_best1">

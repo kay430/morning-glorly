@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+	<entry key="incrementTransitCount">
+
+	</entry>
+	<entry key="selectTransitDetail">
+
+	</entry>
+	<entry key="selectTotalCount">
+		SELECT /**/
+		       COUNT(*)
+		  FROM MG_ORDER_DELIVERY A
+		 WHERE A.DELEVERY_NO = 'Y'
+	</entry>
+	<entry key="selectNoticeList">
+	    SELECT 
+               A.RNUM
+             , A.NOTICE_NO
+             , A.NOTICE_TITLE
+             , A.NOTICE_BODY
+             , A.NOTICE_WRITER_MEMBER_NO
+             , A.ADMIN_NAME
+             , A.NOTICE_COUNT
+             , A.CREATED_DATE
+             , A.NOTICE_DISPLAY
+             , A.NOTICE_GENERAL
+             , A.NOTICE_GENERAL_TYPE
+        FROM (SELECT ROWNUM RNUM
+                   , B.NOTICE_NO
+                   , B.NOTICE_TITLE
+                   , B.NOTICE_BODY
+                   , B.NOTICE_WRITER_MEMBER_NO
+                   , B.ADMIN_NAME
+                   , B.NOTICE_COUNT
+                   , B.CREATED_DATE
+                   , B.NOTICE_DISPLAY
+                   , B.NOTICE_GENERAL
+                   , B.NOTICE_GENERAL_TYPE
+              FROM (SELECT A.NOTICE_NO
+                         , A.NOTICE_TITLE
+                         , A.NOTICE_BODY
+                         , A.NOTICE_WRITER_MEMBER_NO
+                         , B.ADMIN_NAME
+                         , A.NOTICE_COUNT
+                         , A.CREATED_DATE
+                         , A.NOTICE_DISPLAY
+                         , A.NOTICE_GENERAL
+                         , A.NOTICE_GENERAL_TYPE
+                      FROM MG_NOTICE A
+                      JOIN MG_ADMIN B ON (A.NOTICE_WRITER_MEMBER_NO = B.ADMIN_NO)
+                     WHERE A.NOTICE_DISPLAY = 'Y'
+                           ORDER BY A.NOTICE_NO DESC
+                          ) B
+                    ) A
+                    WHERE RNUM BETWEEN ? AND ? 
+	</entry>
+	<entry key="updateNotice">
+	        UPDATE
+               MG_NOTICE A
+           SET A.NOTICE_TITLE = ?
+             , A.NOTICE_BODY = ?
+         WHERE A.NOTICE_NO = ?
+           AND A.NOTICE_WRITER_MEMBER_NO = ?
+	</entry>
+	<entry key="selectNoticeSequence">
+        SELECT
+               SEQ_NOTICE_NO.CURRVAL
+          FROM DUAL    
+	</entry>
+	<entry key="insertAttaNotice">
+        INSERT
+          INTO MG_NOTI_ATTACHMENT A
+        (
+          A.ATTACHMENT_NO
+        , A.REF_NOTI_NO
+        , A.ORIGINAL_NAME
+        , A.SAVED_NAME
+        , A.SAVE_PATH
+        , A.FILE_TYPE
+        , A.THUMBNAIL_PATH  
+        )
+        VALUES
+        (
+          SEQ_NOTI_ATTACHMENT_NO.NEXTVAL
+        , ?
+        , ?
+        , ?
+        , ?
+        , ?
+        , ?
+        ) 
+	</entry>
+</properties>
