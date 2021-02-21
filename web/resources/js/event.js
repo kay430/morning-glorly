@@ -131,7 +131,12 @@ window.onload = function() {
 			location.href = "/mg/admin/test";
 		}
 	}
-	
+	if(document.getElementById("registMd")) {
+		const $registMd = document.getElementById("registMd");
+		$registMd.onclick = function() {
+			location.href = "/mg/admin/registProduct";
+		}
+	}
 	/*if(document.getElementById("customer")) {
 		const $main = document.getElementById("customer");
 		$regist.onclick = function() {
@@ -164,6 +169,7 @@ window.onload = function() {
 		}
 		
 	}
+
 	if(document.getElementById("search")) {
 		const $search = document.getElementById("search");
 		$search.onclick = function() {
@@ -171,4 +177,5 @@ window.onload = function() {
 		}
 		
 	}
+
 }
