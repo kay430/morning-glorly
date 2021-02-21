@@ -79,7 +79,7 @@
 						<button type="submit">검색하기</button>
 						<button type="writeQuestion">작성하기</button>
 					</div>
-					</div>
+					
 	  <div class="pagingArea" align="center">
          <c:choose>
             <c:when test="${ empty requestScope.searchValue }">
@@ -153,14 +153,14 @@
        if(document.getElementById("prevPage")) {
           const $prevPage = document.getElementById("prevPage");
           $prevPage.onclick = function() {
-             location.href = link + "?currentPage=${ requestScope.QuestionPageInfo.pageNo - 1}";
+             location.href = link + "?currentPage=${ requestScope.questionPageInfo.pageNo - 1}";
           }
        }
        
        if(document.getElementById("nextPage")) {
           const $nextPage = document.getElementById("nextPage");
           $nextPage.onclick = function() {
-             location.href = link + "?currentPage=${ requestScope.QuestionpPageInfo.pageNo + 1}";
+             location.href = link + "?currentPage=${ requestScope.questionPageInfo.pageNo + 1}";
           }
        }
        
@@ -169,7 +169,7 @@
  			const $maxpage = document.getElementById("maxPage");
  			$maxpage.onclick = function() {
  				location.href = link
- 						+ "?currentPage=${ requestScope.QuestionpPageInfo.maxPage }";
+ 						+ "?currentPage=${ requestScope.questionPageInfo.maxPage }";
  			}
  		}
 

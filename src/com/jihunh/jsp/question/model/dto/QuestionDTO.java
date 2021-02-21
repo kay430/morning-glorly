@@ -1,7 +1,9 @@
 package com.jihunh.jsp.question.model.dto;
 
 import java.sql.Date;
+import java.util.List;
 
+import com.jihunh.jsp.admin.model.dto.AttaNoticeDTO;
 import com.jihunh.jsp.member.model.dto.MgDTO;
 
 public class QuestionDTO implements java.io.Serializable{
@@ -17,6 +19,8 @@ public class QuestionDTO implements java.io.Serializable{
 	private java.sql.Date modifiedDate;
     private String display;
     private MgDTO mgDTO;
+    
+    private List<AttaQuestionDTO> attaQueList;
 
     public QuestionDTO() {}
 
@@ -100,15 +104,9 @@ public class QuestionDTO implements java.io.Serializable{
 		this.display = display;
 	}
 
-	@Override
-	public String toString() {
-		return "QuestionDTO [no=" + no + ", status=" + status + ", categoryCode=" + categoryCode + ", title=" + title
-				+ ", body=" + body + ", writerMemberNo=" + writerMemberNo + ", count=" + count + ", createDate="
-				+ createDate + ", modifiedDate=" + modifiedDate + ", display=" + display + ", mgDTO=" + mgDTO + "]";
-	}
-
 	public QuestionDTO(int no, String status, int categoryCode, String title, String body, int writerMemberNo,
-			int count, Date createDate, Date modifiedDate, String display, MgDTO mgDTO) {
+			int count, Date createDate, Date modifiedDate, String display, MgDTO mgDTO,
+			List<AttaQuestionDTO> attaQueList) {
 		super();
 		this.no = no;
 		this.status = status;
@@ -121,6 +119,15 @@ public class QuestionDTO implements java.io.Serializable{
 		this.modifiedDate = modifiedDate;
 		this.display = display;
 		this.mgDTO = mgDTO;
+		this.attaQueList = attaQueList;
+	}
+
+	@Override
+	public String toString() {
+		return "QuestionDTO [no=" + no + ", status=" + status + ", categoryCode=" + categoryCode + ", title=" + title
+				+ ", body=" + body + ", writerMemberNo=" + writerMemberNo + ", count=" + count + ", createDate="
+				+ createDate + ", modifiedDate=" + modifiedDate + ", display=" + display + ", mgDTO=" + mgDTO
+				+ ", attaQueList=" + attaQueList + "]";
 	}
 
 	public MgDTO getMgDTO() {
@@ -130,8 +137,15 @@ public class QuestionDTO implements java.io.Serializable{
 	public void setMgDTO(MgDTO mgDTO) {
 		this.mgDTO = mgDTO;
 	}
-    
-    
+
+	public List<AttaQuestionDTO> getAttaQueList() {
+		return attaQueList;
+	}
+
+	public void setAttaQueList(List<AttaQuestionDTO> attaQueList) {
+		this.attaQueList = attaQueList;
+	}
+
 	
 	
 	
