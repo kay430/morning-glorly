@@ -146,4 +146,40 @@ public class MgGoodsDAO {
 		return goodsList1;
 	}
 
+	public int searchProductCount(Connection con, String searchCondition, String searchValue) {
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		int searchProductCount = 0;
+		
+		String query = null;
+		if("mdCode".equals(searchCondition)) {
+			query = prop.getProperty("searchMdCodeCount");
+		}else if("mdType".equals(searchCondition)){
+			query = prop.getProperty("searchMdTypeCount");
+		}else if("mdName".equals(searchCondition)) {
+			query = prop.getProperty("searchMdNameCount");
+		}
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, searchValue);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				searchProductCount = rset.getInt("COUNT(*)");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			close(rset);
+			close(pstmt);
+			
+		}
+		return searchProductCount;
+	}
+
 }

@@ -66,4 +66,29 @@ SELECT
         WHERE A.GOODS_STATUS = 'Y'     
        
  </entry>
+ 
+ <entry key="searchMdCodeCount">
+        SELECT
+              COUNT(*)
+          FROM MG_GOODS A
+          JOIN MG_GOODS_TYPE C ON (A.GOODS_TYPE_NO = C.GOODS_TYPE_NO)
+         WHERE A.GOODS_STATUS = 'Y'
+           AND C.GOODS_TYPE_NO LIKE '%' || ? || '%'     
+ </entry>
+ <entry key="searchMdTypeCount">
+        SELECT
+              COUNT(*)
+          FROM MG_GOODS A
+          JOIN MG_GOODS_TYPE C ON (A.GOODS_TYPE_NO = C.GOODS_TYPE_NO)
+         WHERE A.GOODS_STATUS = 'Y'
+           AND C.GOODS_TYPE_NAME LIKE '%' || ? || '%'
+ </entry>
+ <entry key="searchMdNameCount">
+       SELECT
+              COUNT(*)
+          FROM MG_GOODS A
+          JOIN MG_GOODS_TYPE C ON (A.GOODS_TYPE_NO = C.GOODS_TYPE_NO)
+         WHERE A.GOODS_STATUS = 'Y'
+           AND A.GOODS_NAME LIKE '%' || ? || '%'     
+ </entry>
 </properties>
