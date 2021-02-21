@@ -177,5 +177,13 @@ window.onload = function() {
 		}
 		
 	}
+	
+	if(document.getElementById("writeQuestion")) {
+		const $writeQuestion = document.getElementById("writeQuestion");
+		$writeQuestion.onclick = function() {
+			location.href = "/mg/question/insert";
+		}
+		
+	}
 
 }

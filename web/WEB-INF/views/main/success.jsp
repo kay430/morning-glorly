@@ -41,6 +41,10 @@
 				successMessage =  "성공입니다";
 				movePath = "${ pageContext.servletContext.contextPath }"
 				break;
+			casew "insertQuestion" :
+				successMessage = "등록 성공하셨습니다.";
+				movePath = "${ pageContext.servletContext.contextPath}";
+				break;
 			}
 			
 			alert(successMessage);

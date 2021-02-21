@@ -52,17 +52,17 @@
 							<br>
 							<div class="table-area">
 								<form
-									action="${ pageContext.servletContext.contextPath }/notice/insert"
+									action="${ pageContext.servletContext.contextPath }/question/insert"
 									method="post">
 									<table align="center">
 										<tr>
 											<td>제목</td>
-											<td><input type="text" size="105" name="title" readonly></td>
+											<td><input type="text" size="105" name="title"></td>
 										</tr>
 										<tr>
 											<td>작성자</td>
 											<td><input type="text"
-												value="${ sessionScope.loginMember.nickname }" name="writer"
+												value="${ sessionScope.loginMember.name }" name="writer"
 												readonly></td>
 										</tr>
 
@@ -76,7 +76,7 @@
 									</table>
 									<br>
 									<div align="center">
-										<button type="reset" id="cancelNotice">취소하기</button>
+										<button type="reset" id="cancelQuestion">취소하기</button>
 										<button type="submit">등록하기</button>
 									</div>
 								</form>

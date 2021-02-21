@@ -77,7 +77,7 @@
 							<option value="body">내용</option>
 						</select> <input type="search" name="searchValue">
 						<button type="submit">검색하기</button>
-						<button type="writeQuestion">작성하기</button>
+						<button id="writeQuestion">작성하기</button>
 					</div>
 					
 	  <div class="pagingArea" align="center">
