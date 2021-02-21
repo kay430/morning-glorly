@@ -1,4 +1,4 @@
-package com.jihunh.jsp.customerservice.controller;
+package com.jihunh.jsp.review.controller;
 
 import java.io.IOException;
 import java.util.List;
@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.jihunh.jsp.common.paging.Pagenation;
 import com.jihunh.jsp.customerservice.model.dto.PageInfoDTO;
-import com.jihunh.jsp.customerservice.model.dto.ReviewDTO;
-import com.jihunh.jsp.customerservice.model.service.ReviewService;
+import com.jihunh.jsp.review.dto.ReviewDTO;
+import com.jihunh.jsp.review.service.ReviewService;
 
 /**
  * Servlet implementation class CustomerReviewSearchListservlet
@@ -28,7 +28,7 @@ public class CustomerReviewSearchListservlet extends HttpServlet {
 
 		System.out.println("searchCondition : " + searchCondition);
 		System.out.println("searchValue : " + searchValue);
-
+//sql익셉션
 		String currentPage = request.getParameter("currentPage");
 		int pageNo = 1;
 
@@ -41,8 +41,8 @@ public class CustomerReviewSearchListservlet extends HttpServlet {
 		}
 
 		ReviewService reviewService = new ReviewService();
+//여기까지 
 		int totalCount = reviewService.searchReviewCount(searchCondition, searchValue);
-
 		System.out.println("totalCount : " + totalCount);
 
 		int limit = 10;
@@ -60,7 +60,7 @@ public class CustomerReviewSearchListservlet extends HttpServlet {
 
 		String path = "";
 		if(reviewList != null) {
-			path = "/WEB-INF/views/customerservice/review.jsp";
+			path = "/WEB-INF/views/review/review.jsp";
 			request.setAttribute("reviewList", reviewList);
 			request.setAttribute("pageInfo", pageInfo);
 			request.setAttribute("searchCondition", searchCondition);

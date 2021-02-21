@@ -1,4 +1,4 @@
-package com.jihunh.jsp.customerservice.controller;
+package com.jihunh.jsp.review.controller;
 
 import java.io.IOException;
 
@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.jihunh.jsp.customerservice.model.dto.ReviewDTO;
-import com.jihunh.jsp.customerservice.model.service.ReviewService;
 import com.jihunh.jsp.member.model.dto.MgDTO;
+import com.jihunh.jsp.review.dto.ReviewDTO;
+import com.jihunh.jsp.review.service.ReviewService;
 
 
 @WebServlet("/review/insert")
 public class CustomerReviewInsert extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String path = "/WEB-INF/views/customerservice/reviewinsert.jsp";
+		String path = "/WEB-INF/views/review/reviewinsert.jsp";
 		request.getRequestDispatcher(path).forward(request, response);
 	}
 
@@ -46,7 +46,7 @@ public class CustomerReviewInsert extends HttpServlet {
 			request.setAttribute("successCode", "insertNotice");
 		} else {
 			path = "/WEB-INF/views/main/failed.jsp";
-			request.setAttribute("message", "공지사항 등록에 실패하셨습니다.");
+			request.setAttribute("message", "리뷰등록에 실패하셨습니다.");
 		}
 		
 		request.getRequestDispatcher(path).forward(request, response);

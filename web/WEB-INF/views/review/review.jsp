@@ -24,7 +24,7 @@
 </head>
 
 <body>
-	<form id="ReviewForm" action="${ pageContext.servletContext.contextPath }/notice/review" method="post">
+	<form id="ReviewForm" action="${ pageContext.servletContext.contextPath }/product/review" method="post">
 	<jsp:include page="../common/header.jsp" />
 
 	<div id="page-wrapper">
@@ -55,13 +55,15 @@
 								<th>조회수</th>
 								<th width="100px">작성일</th>
 							</tr>
-							<c:forEach var="notice" items="${ requestScope.review }">
+							<c:forEach var="review" items="${ requestScope.reviewList }">
 								<tr>
 									<td><c:out value="${ review.no }" /></td>
 									<td><c:out value="${ review.title }" /></td>
-									<td><c:out value="${ review.writer.nickname }" /></td>
-									<td><c:out value="${ notice.count }" /></td>
-									<td><c:out value="${ notice.createdDate }" /></td>
+									<td><c:out value="${ review.body }" /></td>
+									<td><c:out value="${ review.writerMemberNo }" /></td>
+									<td><c:out value="${ review.MgDTO.name }" /></td>
+									<td><c:out value="${ review.count }" /></td>
+									<td><c:out value="${ review.createdDate }" /></td>
 								</tr>
 							</c:forEach>
 						</table>
@@ -141,20 +143,21 @@
 
 
 					 </div>
-					<form id="searchForm"action="${ pageContext.servletContext.contextPath }/review/search"method="get">
-						<div class="search-area" align="center">
+					 	<div class="search-area" align="center">
+					 	<form id="searchForm"action="${ pageContext.servletContext.contextPath }/review/search"method="get">
 							<select id="searchCondition" name="searchCondition">
 								<option value="writer">작성자</option>
 								<option value="title">제목</option>
 								<option value="body">내용</option>
 							</select> <input type="search" name="searchValue">
-							<button type="submit">검색하기</button>
+							<button id="search" type="submit">검색하기</button>
+						</form>
+					<form id="searchForm"action="${ pageContext.servletContext.contextPath }/review/insert"method="get">
 							<%-- <c:if test="${ sessionScope.loginMember.role eq 'MEMBER }"> --%>
-								<button id="writeNotice">작성하기</button>
-								
+								<button  id="writeReview">작성하기</button>
+				 	</form>								
 						</div>
-					</form>
-				</div>
+				 </div>
 			</div>
 		</div>
 	</div> 
@@ -175,15 +178,15 @@
 
 				$tds[i].onclick = function() {
 					const no = this.parentNode.children[0].innerText;
-					location.href = "${ pageContext.servletContext.contextPath }/notice/detail?no="
+					location.href = "${ pageContext.servletContext.contextPath }/review/insert?no="
 							+ no;
 				}
 			}
 		}
 	</script>
 	<script>
-		const link = "${ pageContext.servletContext.contextPath }/notice/list";
-		const searchLink = "${ pageContext.servletContext.contextPath}/notice/search";
+		const link = "${ pageContext.servletContext.contextPath }/review/list";
+		const searchLink = "${ pageContext.servletContext.contextPath}/review/search";
 
 		if (document.getElementById("startPage")) {
 			const $startPage = document.getElementById("startPage");

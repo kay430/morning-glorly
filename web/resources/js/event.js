@@ -157,10 +157,17 @@ window.onload = function() {
 	//}
 	
 	
-	if(document.getElementById("reviewInsert")) {
-		const $reviewInsert = document.getElementById("reviewInsert");
-		$reviewInsert.onclick = function() {
+	if(document.getElementById("writeReview")) {
+		const $writeReview = document.getElementById("writeReview");
+		$writeReview.onclick = function() {
 			location.href = "/mg/review/insert";
+		}
+		
+	}
+	if(document.getElementById("search")) {
+		const $search = document.getElementById("search");
+		$search.onclick = function() {
+			location.href = "/mg/review/search";
 		}
 		
 	}
