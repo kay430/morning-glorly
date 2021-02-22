@@ -91,4 +91,132 @@ SELECT
          WHERE A.GOODS_STATUS = 'Y'
            AND A.GOODS_NAME LIKE '%' || ? || '%'     
  </entry>
+ <entry key="searchMdCodeList">
+        SELECT 
+               D.RNUM 
+             , D.GOODS_NO
+             , D.GOODS_NAME
+             , D.GOODS_PRICE
+             , D.GOODS_WRITER_MEMBER_NO
+             , D.GOODS_TYPE_NO
+             , D.GOODS_TYPE_NAME
+             , D.CREATED_DATE
+             , D.GOODS_STATUS
+             , D.MODIFIED_DATE
+          FROM(SELECT
+                      ROWNUM RNUM
+                    , C.GOODS_NO
+                    , C.GOODS_NAME
+                    , C.GOODS_PRICE
+                    , C.GOODS_WRITER_MEMBER_NO
+                    , C.GOODS_TYPE_NO
+                    , C.GOODS_TYPE_NAME
+                    , C.CREATED_DATE
+                    , C.GOODS_STATUS
+                    , C.MODIFIED_DATE
+     
+                 FROM( SELECT A.GOODS_NO
+                            , A.GOODS_NAME
+                            , A.GOODS_PRICE
+                            , A.GOODS_WRITER_MEMBER_NO
+                            , A.GOODS_TYPE_NO
+                            , B.GOODS_TYPE_NAME
+                            , A.CREATED_DATE
+                            , A.GOODS_STATUS
+                            , A.MODIFIED_DATE
+                        FROM MG_GOODS A
+                        JOIN MG_GOODS_TYPE B ON (B.GOODS_TYPE_NO = A.GOODS_TYPE_NO)
+                       WHERE A.GOODS_STATUS = 'Y'
+                         AND A.GOODS_TYPE_NO LIKE '%' || ? || '%'
+                       ORDER BY A.GOODS_NO DESC
+                    ) C
+                 )D
+          WHERE D.RNUM BETWEEN ? AND ?
+ </entry>
+ 
+  <entry key="searchMdTypeList">
+        SELECT 
+               D.RNUM 
+             , D.GOODS_NO
+             , D.GOODS_NAME
+             , D.GOODS_PRICE
+             , D.GOODS_WRITER_MEMBER_NO
+             , D.GOODS_TYPE_NO
+             , D.GOODS_TYPE_NAME
+             , D.CREATED_DATE
+             , D.GOODS_STATUS
+             , D.MODIFIED_DATE
+          FROM(SELECT
+                      ROWNUM RNUM
+                    , C.GOODS_NO
+                    , C.GOODS_NAME
+                    , C.GOODS_PRICE
+                    , C.GOODS_WRITER_MEMBER_NO
+                    , C.GOODS_TYPE_NO
+                    , C.GOODS_TYPE_NAME
+                    , C.CREATED_DATE
+                    , C.GOODS_STATUS
+                    , C.MODIFIED_DATE
+     
+                 FROM( SELECT A.GOODS_NO
+                            , A.GOODS_NAME
+                            , A.GOODS_PRICE
+                            , A.GOODS_WRITER_MEMBER_NO
+                            , A.GOODS_TYPE_NO
+                            , B.GOODS_TYPE_NAME
+                            , A.CREATED_DATE
+                            , A.GOODS_STATUS
+                            , A.MODIFIED_DATE
+                        FROM MG_GOODS A
+                        JOIN MG_GOODS_TYPE B ON (B.GOODS_TYPE_NO = A.GOODS_TYPE_NO)
+                       WHERE A.GOODS_STATUS = 'Y'
+                         AND B.GOODS_TYPE_NAME LIKE '%' || ? || '%'
+                       ORDER BY A.GOODS_NO DESC
+                    ) C
+                 )D
+          WHERE D.RNUM BETWEEN ? AND ?
+ </entry>
+ 
+  <entry key="searchMdNameList">
+        SELECT 
+               D.RNUM 
+             , D.GOODS_NO
+             , D.GOODS_NAME
+             , D.GOODS_PRICE
+             , D.GOODS_WRITER_MEMBER_NO
+             , D.GOODS_TYPE_NO
+             , D.GOODS_TYPE_NAME
+             , D.CREATED_DATE
+             , D.GOODS_STATUS
+             , D.MODIFIED_DATE
+          FROM(SELECT
+                      ROWNUM RNUM
+                    , C.GOODS_NO
+                    , C.GOODS_NAME
+                    , C.GOODS_PRICE
+                    , C.GOODS_WRITER_MEMBER_NO
+                    , C.GOODS_TYPE_NO
+                    , C.GOODS_TYPE_NAME
+                    , C.CREATED_DATE
+                    , C.GOODS_STATUS
+                    , C.MODIFIED_DATE
+     
+                 FROM( SELECT A.GOODS_NO
+                            , A.GOODS_NAME
+                            , A.GOODS_PRICE
+                            , A.GOODS_WRITER_MEMBER_NO
+                            , A.GOODS_TYPE_NO
+                            , B.GOODS_TYPE_NAME
+                            , A.CREATED_DATE
+                            , A.GOODS_STATUS
+                            , A.MODIFIED_DATE
+                        FROM MG_GOODS A
+                        JOIN MG_GOODS_TYPE B ON (B.GOODS_TYPE_NO = A.GOODS_TYPE_NO)
+                       WHERE A.GOODS_STATUS = 'Y'
+                         AND A.GOODS_NAME LIKE '%' || ? || '%'
+                       ORDER BY A.GOODS_NO DESC
+                    ) C
+                 )D
+          WHERE D.RNUM BETWEEN ? AND ?
+ </entry>
 </properties>

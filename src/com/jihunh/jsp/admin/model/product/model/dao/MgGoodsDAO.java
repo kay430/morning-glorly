@@ -181,5 +181,61 @@ public class MgGoodsDAO {
 		}
 		return searchProductCount;
 	}
+	//서치 조회용 ~
+	public List<MgGoodsDTO> searchProductList(Connection con, String searchCondition, String searchValue,
+			PageInfoDTO pageInfo) {
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		List<MgGoodsDTO> searchProductList = null;
+		
+		String query = null;
+		
+		if("mdCode".equals(searchCondition)) {
+			query = prop.getProperty("searchMdCodeList");
+		}else if("mdType".equals(searchCondition)){
+			query = prop.getProperty("searchMdTypeList");
+		}else if("mdName".equals(searchCondition)) {
+			query = prop.getProperty("searchMdNameList");
+		}
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, searchValue);
+			pstmt.setInt(2, pageInfo.getStartRow());
+			pstmt.setInt(3, pageInfo.getEndRow());
+			
+			rset = pstmt.executeQuery();
+			
+			searchProductList = new ArrayList<>();
+			
+			while(rset.next()) {
+				MgGoodsDTO goods = new MgGoodsDTO();
+				goods.setGoodsTypeNo(new MgGoodsTypeDTO());
+				
+				goods.setNo(rset.getInt("GOODS_NO"));
+				goods.setName(rset.getString("GOODS_NAME"));
+				goods.setPrice(rset.getInt("GOODS_PRICE"));
+				goods.setWriterMemberNo(rset.getInt("GOODS_WRITER_MEMBER_NO"));
+				goods.setTypeNo(rset.getInt("GOODS_TYPE_NO"));
+				goods.getGoodsTypeNo().setName(rset.getString("GOODS_TYPE_NAME"));
+				goods.setCreatedDate(rset.getDate("CREATED_DATE"));
+				goods.setStatus(rset.getString("GOODS_STATUS"));
+				goods.setModifiedDate(rset.getDate("MODIFIED_DATE"));
+				
+				searchProductList.add(goods);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+			close(rset);
+		}
+		
+		return searchProductList;
+	}
 
 }

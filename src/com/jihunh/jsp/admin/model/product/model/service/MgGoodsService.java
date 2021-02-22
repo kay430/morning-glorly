@@ -8,7 +8,6 @@ import java.util.List;
 
 import com.jihunh.jsp.admin.model.product.model.dao.MgGoodsDAO;
 import com.jihunh.jsp.admin.model.product.model.dto.MgGoodsDTO;
-import com.jihunh.jsp.admin.model.product.model.dto.MgGoodsTypeDTO;
 import com.jihunh.jsp.customerservice.model.dto.PageInfoDTO;
 public class MgGoodsService {
 
@@ -59,6 +58,17 @@ public class MgGoodsService {
 		close(con);
 		
 		return searchProductCount;
+	}
+
+	//게시판 검색결과 조회용 메소드
+	public List<MgGoodsDTO> searchProductList(String searchCondition, String searchValue, PageInfoDTO pageInfo) {
+		Connection con = getConnection();
+		
+		List<MgGoodsDTO> productList = mgGoodsDAO.searchProductList(con, searchCondition, searchValue, pageInfo);
+		
+		close(con);
+		
+		return productList;
 	}
 
 }
