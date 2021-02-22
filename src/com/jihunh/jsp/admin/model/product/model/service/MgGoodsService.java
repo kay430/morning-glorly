@@ -71,4 +71,16 @@ public class MgGoodsService {
 		return productList;
 	}
 
+//	public int insertThumbnail(MgGoodsDTO thumbnail) {
+//		
+//		Connection con = getConnection();
+//		
+//		int MgGoodsresult = mgGoodsDAO.insertThumbnail(con, thumbnail);
+//		
+//		
+//		
+//		
+//		return MgGoodsresult;
+//	}
+
 }
