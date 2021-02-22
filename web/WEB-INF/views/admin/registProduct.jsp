@@ -157,10 +157,10 @@
                   <div class="col-md-3 col-xs-11">
                     <div> 
                       <select id="productCode" name="productCode">
-			                	<option value="bulkup">10</option>
-			                  	<option value="ujiater">20</option>
-				                <option value="diet">30</option>
-				                <option value="hyeja">777</option>
+			                	<option value="10">단백질 도시락</option>
+			                  	<option value="20">다이어트 도시락</option>
+				                <option value="30">유지어터 도시락</option>
+				                <option value="777">직원용 도시락</option>
 			         </select>
                     </div>
                   </div>
