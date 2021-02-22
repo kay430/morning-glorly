@@ -70,4 +70,30 @@
         INSERT INTO MG_REVIEW (REVIEW_ORDER_NO, REVIEW_NO, REVIEW_TITLE, REVIEW_BODY, REVIEW_WRITER_MEMBER_NO)
         VALUES(1, SEQ_REVIEW_NO.NEXTVAL, ?, ?, ?)
 	</entry>
+	<entry key="incrementReviewCount"> 
+	      UPDATE
+	            MG_REVIEW A 
+	         SET A.REVIEW_COUNT = (SELECT B.REVIEW_COUNT
+	         						  FROM MG_REVIEW B
+	         						 WHERE B.REVIEW_NO = ?
+	         						 ) +1
+	     WHERE A.REVIEW_NO = ?	     
+	</entry>
+	<entry key="selectReviewDetail"> 
+		  SELECT
+           A.REVIEW_NO
+            , A.REVIEW_TITLE
+            , A.REVIEW_BODY
+            , B.MEMBER_NAME
+            , A.REVIEW_WRITER_MEMBER_NO
+            , A.REVIEW_COUNT
+            , A.CREATED_DATE
+            , A.MODIFIED_DATE
+            , A.REVIEW_DISPLAY
+            , A.REVIEW_ORDER_NO
+        FROM MG_REVIEW A
+        JOIN MG_MEMBER B ON(A.REVIEW_WRITER_MEMBER_NO = B.MEMBER_NO)
+       WHERE A.REVIEW_DISPLAY ='Y'
+         AND A.REVIEW_NO = ?     		
+	</entry>
 </properties>
