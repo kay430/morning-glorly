@@ -58,7 +58,7 @@
             </ul>
           </li>
           <li class="sub-menu">
-            <a href="javascript:;">
+            <a class="active" href="javascript:;">
               <i class="fa fa-cogs"></i>
               <span>주문관리</span>
               </a>
@@ -66,7 +66,7 @@
               <li><a href="grids.html">주문 조회</a></li>
               <li><a href="calendar.html">결제내역</a></li>
               <li><a href="gallery.html">환불 및 반품</a></li>
-              <li><a href="file_upload.html">배송 조회</a></li>
+              <li class="active"><a href="file_upload.html">배송 조회</a></li>
             </ul>
           </li>
           <li class="sub-menu">
@@ -81,12 +81,12 @@
             </ul>
           </li>
           <li class="sub-menu">
-            <a class="active" href="javascript:;">
+            <a href="javascript:;">
               <i class="fa fa-tasks"></i>
               <span>고객센터</span>
               </a>
             <ul class="sub">
-              <li class="active"><a id="adminNotice">공지사항</a></li>
+              <li><a id="adminNotice">공지사항</a></li>
               <li><a id="answer">Q&A</a></li>
               <li><a id="review">상품후기</a></li>
               <li><a id="generalQna">자주 묻는 질문</a></li>
@@ -205,14 +205,14 @@
 					<th>배송일자</th>
 					<th>주문번호</th>
 				</tr>
-				<c:forEach var="notice" items="${ requestScope.noticeList }">
+				<c:forEach var="transit" items="${ requestScope.transitList }">
 				<tr>
 					<td><input type="checkbox" class=""></td>
-					<td><c:out value="${ delivery.no }"/></td>
-					<td><c:out value="${ delivery.status }"/></td>
-					<td><c:out value="${ transit.no }"/></td>
-					<td><c:out value="${ delivery.date }"/></td>
-					<td><c:out value="${ order.no }"/></td>
+					<td><c:out value="${ transit.dNo }"/></td>
+					<td><c:out value="${ transit.dType }"/></td>
+					<td><c:out value="${ transit.tNo }"/></td>
+					<td><c:out value="${ transit.tDate }"/></td>
+					<td><c:out value="${ transit.oNo }"/></td>
 				</tr>
 				</c:forEach>
                     </tbody>
@@ -231,7 +231,7 @@
 		</div>
 		<br>
 					 <!-- 페이징 버튼 -->
-      <div class="pagingArea" align="center">
+<div class="pagingArea" align="center">
          <c:choose>
             <c:when test="${ empty requestScope.searchValue }">
                <button id="startPage"><<</button>
@@ -251,14 +251,14 @@
                	</c:if>
                </c:forEach>
                
-               <c:if test="${ requestScope.pageInfo.pageNo >= requestScope.pageInfo.maxpage }">
+               <c:if test="${ requestScope.pageInfo.pageNo >= requestScope.pageInfo.maxPage }">
                   <button disabled>></button>
                </c:if>
-               <c:if test="${ requestScope.pageInfo.pageNo < requestScope.pageInfo.maxpage }">
+               <c:if test="${ requestScope.pageInfo.pageNo < requestScope.pageInfo.maxPage }">
                   <button id="nextPage">></button>
                </c:if>
                
-               <button id="maxpage">>></button>
+               <button id="maxPage">>></button>
                
             </c:when>
             <c:otherwise>
@@ -290,7 +290,7 @@
 				
 				$tds[i].onclick = function() {
 					const no = this.parentNode.children[1].innerText;
-					location.href = "${ pageContext.servletContext.contextPath }/admin/notice/detail?no=" + no;
+					location.href = "${ pageContext.servletContext.contextPath }/admin/transit/detail?no=" + no;
 				}
 			}
 		}
@@ -309,7 +309,7 @@
 	</script>
 
 	<script>
-      const link = "${ pageContext.servletContext.contextPath }/admin/notice";
+      const link = "${ pageContext.servletContext.contextPath }/admin/transit";
       
       if(document.getElementById("startPage")) {
          const $startPage = document.getElementById("startPage");
@@ -333,11 +333,11 @@
       }
       
   
-		if (document.getElementById("maxpage")) {
-			const $maxpage = document.getElementById("maxpage");
-			$maxpage.onclick = function() {
+		if (document.getElementById("maxPage")) {
+			const $maxPage = document.getElementById("maxPage");
+			$maxPage.onclick = function() {
 				location.href = link
-						+ "?currentPage=${ requestScope.pageInfo.maxpage }";
+						+ "?currentPage=${ requestScope.pageInfo.maxPage }";
 			}
 		}
 

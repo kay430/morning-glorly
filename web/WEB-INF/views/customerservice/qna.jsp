@@ -70,15 +70,21 @@
 							</c:forEach>
 						</table>
 					</div>
-					<div class="search-area" align="center">
-						<select id="searchCondition" name="searchCondition">
-							<option value="writer">작성자</option>
-							<option value="title">제목</option>
-							<option value="body">내용</option>
-						</select> <input type="search" name="searchValue">
-						<button type="submit">검색하기</button>
-						<button id="writeQuestion">작성하기</button>
-					</div>
+					
+						
+		<form id="searchForm" action="${ pageContext.servletContext.contextPath }/question/search" method="get">
+    		<div class="search-area" align="center">
+    			<select id="searchCondtion" name="searchCondition">
+    				<option value="QueName" <c:if test="${ requestScope.searchCondition eq 'QueName' }">selected</c:if>>작성자</option>
+			        <option value="QueTitle" <c:if test="${ requestScope.searchCondition eq 'QueTitle' }">selected</c:if>>제목</option>
+				    <option value="QueBody" <c:if test="${ requestScope.searchCondition eq 'QueBody' }">selected</c:if>>내용</option>
+			    </select>
+		        	<input type="search" id="searchValue" name="searchValue" value="${ requestScope.searchValue }">
+		        	<button type="submit">검색하기</button>
+    	  		</div>
+    	         	</form> 
+    	         	  <button id="writeQuestion">작성하기</button>
+	           		
 					
 	  <div class="pagingArea" align="center">
          <c:choose>
@@ -110,13 +116,42 @@
                <button id="maxPage">>></button>
                
             </c:when>
+             <c:otherwise>
+               <button id="searchStartPage"><<</button>
+               
+               <c:if test="${ requestScope.questionPageInfo.pageNo <= 1 }">
+                  <button disabled><</button>
+               </c:if>
+               <c:if test="${ requestScope.questionPageInfo.pageNo > 1 }">
+                  <button id="searchPrevPage"><</button>
+               </c:if>
+              
+               <c:forEach var="p" begin="${ requestScope.questionPageInfo.startPage }" end="${ requestScope.questionPageInfo.endPage }" step="1">
+               		<c:if test="${ requestScope.questionPageInfo.pageNo eq p }">
+               			<button disabled><c:out value="${ p }"/></button>
+               		</c:if>
+               		
+               		<c:if test="${ requestScope.questionPageInfo.pageNo ne p }">
+               			<button onclick="searchPageButtonAction(this.innerText);"><c:out value="${ p }"/></button>
+               		</c:if>
+               </c:forEach>
+              
+               <c:if test="${ requestScope.questionPageInfo.pageNo >= requestScope.questionPageInfo.maxPage }">
+               		<button disabled>></button>
+               </c:if>
+               
+               <c:if test="${ requestScope.questionPageInfo.pageNo < requestScope.questionPageInfo.maxPage }">
+               		<button id="searchNextPage">></button>
+               </c:if>
+               <button id="searchMaxPage">>></button>
+            </c:otherwise>
          </c:choose>
       </div>
 				</div>
 			</div>
 		</div>
-		
 	</div>
+	
 	<script>
     	if(document.getElementsByTagName("td")) {
 			const $tds = document.getElementsByTagName("td");
@@ -142,6 +177,7 @@
 	</script>
 	<script>
       const link = "${ pageContext.servletContext.contextPath }/question/list";
+      const searchLink = "${ pageContext.servletContext.contextPath}/question/search";
       
       if(document.getElementById("startPage")) {
           const $startPage = document.getElementById("startPage");
@@ -172,10 +208,42 @@
  						+ "?currentPage=${ requestScope.questionPageInfo.maxPage }";
  			}
  		}
+ 		
+ 		if(document.getElementById("searchStartPage")) {
+			const $searchStartPage = document.getElementById("searchStartPage");
+			$searchStartPage.onclick = function() {
+				location.href = searchLink + "?currentPage=1&searchCondition=${ requestScope.searchCondition }&searchValue=${ requestScope.searchValue }";
+			}
+		}
+		
+		if(document.getElementById("searchPrevPage")) {
+			const $searchPrevPage = document.getElementById("searchPrevPage");
+			$searchPrevPage.onclick = function() {
+				location.href = searchLink + "?currentPage=${ requestScope.questionPageInfo.pageNo - 1 }&searchCondition=${ requestScope.searchCondition }&searchValue=${ requestScope.searchValue }";
+			}
+		}
+		
+		if(document.getElementById("searchNextPage")) {
+			const $searchNextPage = document.getElementById("searchNextPage");
+			$searchNextPage.onclick = function() {
+				location.href = searchLink + "?currentPage=${ requestScope.questionPageInfo.pageNo + 1 }&searchCondition=${ requestScope.searchCondition }&searchValue=${ requestScope.searchValue }";
+			}
+		}
+		
+		if(document.getElementById("searchMaxPage")) {
+			const $searchMaxPage = document.getElementById("searchMaxPage");
+			$searchMaxPage.onclick = function() {
+				location.href = searchLink + "?currentPage=${ requestScope.questionPageInfo.maxPage }&searchCondition=${ requestScope.searchCondition }&searchValue=${ requestScope.searchValue }";
+			}
+		}
 
  		function pageButtonAction(text) {
  			location.href = link + "?currentPage=" + text;
  		}
+ 		
+ 		function searchPageButtonAction(text) {
+			location.href = searchLink + "?currentPage=" + text + "&searchCondition=${ requestScope.searchCondition }&searchValue=${ requestScope.searchValue }";
+		}
  		</script>
 
 	

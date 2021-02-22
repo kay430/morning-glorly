@@ -21,6 +21,17 @@ public class ReviewService {
 	public ReviewService() {
 		reviewDAO = new ReviewDAO();
 	}
+		//페이징처리 위한  전체게시물수 조회용 메소드 
+	public int selectTotalCount() {
+		
+		Connection con = getConnection();
+		
+		int totalCount = reviewDAO.selectTotalCount(con);
+		
+		close(con);
+		
+		return totalCount;
+	}
 	
 	public List<ReviewDTO> selectAllReviewList(ReviewPageInfoDTO ReviewPageInfo) {
 		
@@ -73,18 +84,30 @@ public class ReviewService {
 	  
 	  return reviewList; 
 	  }
-	 
-	  
-	  public int selectTotalCount() {
+	public ReviewDTO selectReviewDetail(int no) {
+		Connection con = getConnection();
+		ReviewDTO reviewDetail = null;
+		System.out.println("진입");
+		int result = reviewDAO.incrementReviewCount(con, no);
+		
+		if(result > 0) {
+			reviewDetail = reviewDAO.selectReviewDetail(con, no);
 			
-			Connection con = getConnection();
+			if(reviewDetail != null) {
+				commit(con);
+			} else {
+				rollback(con);
+			}
 			
-			int totalCount = reviewDAO.selectTotalCount(con);
-			
-			close(con);
-			
-			return totalCount;
+		} else {
+			rollback(con);
 		}
+		
+		close(con);
+		
+		return reviewDetail;
+	}
+	 
 
 	  
 

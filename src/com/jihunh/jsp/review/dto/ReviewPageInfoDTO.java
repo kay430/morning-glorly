@@ -1,6 +1,6 @@
 package com.jihunh.jsp.review.dto;
 
-import java.util.List;
+
 
 public class ReviewPageInfoDTO implements java.io.Serializable {
 	

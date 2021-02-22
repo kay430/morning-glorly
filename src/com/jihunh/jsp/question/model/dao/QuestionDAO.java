@@ -16,6 +16,7 @@ import java.util.Properties;
 import com.jihunh.jsp.common.config.ConfigLocation;
 import com.jihunh.jsp.member.model.dto.MgDTO;
 import com.jihunh.jsp.question.model.dto.AttaQuestionDTO;
+import com.jihunh.jsp.question.model.dto.CategoryDTO;
 import com.jihunh.jsp.question.model.dto.QuestionDTO;
 import com.jihunh.jsp.question.model.dto.QuestionPageInfoDTO;
 
@@ -53,6 +54,7 @@ public class QuestionDAO {
 			while(rset.next()) {
 				QuestionDTO question = new QuestionDTO();			
 				question.setMgDTO(new MgDTO());
+				
 				
 				question.setNo(rset.getInt("QNA_NO"));
 				question.setTitle(rset.getString("QNA_TITLE"));
@@ -203,6 +205,96 @@ public class QuestionDAO {
 		
 		
 		return result;
+	}
+	public int searchQuestionCount(Connection con, String searchCondition, String searchValue) {
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		int searchQuestionCount = 0;
+		
+		String query = null;
+		if("QueName".equals(searchCondition)) {
+			query = prop.getProperty("searchQueNameCount");
+		} else if("QueTitle".equals(searchCondition)) {
+			query = prop.getProperty("searchQueTitleCount");
+		} else if("QueBody".equals(searchCondition)) {
+			query = prop.getProperty("searchQueBodyCount");
+		}
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, searchValue);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				searchQuestionCount = rset.getInt("COUNT(*)");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return searchQuestionCount;
+	}
+	public List<QuestionDTO> searchQuestionList(Connection con, String searchCondition, String searchValue,
+			QuestionPageInfoDTO questionInfo) {
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		List<QuestionDTO> searchQuestionList = null;
+		
+		String query = null;
+		
+		if("QueName".equals(searchCondition)) {
+			query = prop.getProperty("searchQueNameList");
+		} else if("QueTitle".equals(searchCondition)) {
+			query = prop.getProperty("searchQueTitleList");
+		} else if("QueBody".equals(searchCondition)) {
+			query = prop.getProperty("searchQueBodyList");
+		}
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, searchValue);
+			pstmt.setInt(2, questionInfo.getStartRow());
+			pstmt.setInt(3, questionInfo.getEndRow());
+			
+			rset = pstmt.executeQuery();
+			
+			searchQuestionList = new ArrayList<>();
+			
+			while(rset.next()) {
+				QuestionDTO questions = new QuestionDTO();
+				questions.setCategory(new CategoryDTO());
+				questions.setMgDTO(new MgDTO());
+				
+				questions.setNo(rset.getInt("QNA_NO"));
+				questions.setTitle(rset.getString("QNA_TITLE"));
+				questions.setBody(rset.getString("QNA_BODY"));
+				questions.setWriterMemberNo(rset.getInt("QNA_WRITER_MEMBER_NO"));
+				questions.getMgDTO().setName(rset.getString("MEMBER_ID"));
+				questions.setCount(rset.getInt("QNA_COUNT"));
+				questions.setCreateDate(rset.getDate("CREATED_DATE"));
+				questions.setDisplay(rset.getString("QNA_DISPLAY"));
+				questions.setStatus(rset.getString("QNA_STATUS"));
+				
+				searchQuestionList.add(questions);
+				
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+			close(rset);
+		}
+		
+		
+		return searchQuestionList;
 	}
 
 
