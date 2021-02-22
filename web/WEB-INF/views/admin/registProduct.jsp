@@ -144,12 +144,12 @@
           <div class="col-lg-12">
             <div class="form-panel">
             
-              <form action="#" class="form-horizontal style-form">
+              <form action="${ pageContext.servletContext.contextPath }/admin/registProduct" class="form-horizontal style-form" method="post" encType="multipart/form-data">
               
                 <div class="form-group">
                   <label class="control-label col-md-3">*상품명(상품유형명)</label>
                   <div class="col-md-3 col-xs-11">
-                    <input class="form-control form-control-inline input-medium default-date-picker" name="productType" id="productType2" size="32" type="text" value="" required>
+                    <input class="form-control form-control-inline input-medium default-date-picker" name="productType" id="productType2" size="32" type="text" required>
                   </div>
                 </div>
                 <div class="form-group">
@@ -202,25 +202,14 @@
                     </div>
                   </div>
                 </div>
-              </form>
-            </div>
-            <!-- /form-panel -->
-          </div>
-          <!-- /col-lg-12 -->
-        </div>
-        <!-- /row -->
-        <!-- DATE TIME PICKERS -->
-        
-        <!-- row -->
-        <!--ADVANCED FILE INPUT-->
-        <div class="row mt">
+                 <div class="row mt">
           <div class="col-lg-12">
             <div class="form-panel">
-              <form action="#" class="form-horizontal style-form">
+             <!--  <form action="#" class="form-horizontal style-form"> -->
                 <div class="form-group">
-                  <label class="control-label col-md-3">Default</label>
+                  <label class="control-label col-md-3">도시락사진첨부</label>
                   <div class="col-md-4">
-                    <input type="file" class="default" />
+                    <input type="file" class="default" name="thumbnailImg1"  id="thumbnailImg1"  onchange="loadImg(this, 1)"/>
                   </div>
                 </div>
                 <div class="form-group">
@@ -238,21 +227,16 @@
                   </div>
                 </div>
                 <div class="form-group last">
-                  <label class="control-label col-md-3">Image Upload</label>
+                  <label class="control-label col-md-3">도시락사진보여지게하기</label>
                   <div class="col-md-9">
                     <div class="fileupload fileupload-new" data-provides="fileupload">
-                      <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
-                        <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image" alt="" />
+                      <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;" id="titleImgArea">
+                        <img id="titleImg" width="350" height="300"/>
                       </div>
+                      
+                      
                       <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
-                      <div>
-                        <span class="btn btn-theme02 btn-file">
-                          <span class="fileupload-new"><i class="fa fa-paperclip"></i> Select image</span>
-                        <span class="fileupload-exists"><i class="fa fa-undo"></i> Change</span>
-                        <input type="file" class="default" />
-                        </span>
-                        <a href="advanced_form_components.html#" class="btn btn-theme04 fileupload-exists" data-dismiss="fileupload"><i class="fa fa-trash-o"></i> Remove</a>
-                      </div>
+                      
                     </div>
                     <span class="label label-info">NOTE!</span>
                     <span>
@@ -261,13 +245,25 @@
                       Safari and Internet Explorer 10 only
                       </span>
                    <div>
+              <!-- </form> -->
+            </div>
+            <!-- /form-panel -->
+          </div>
+          <!-- /col-lg-12 -->
+        </div>
+        <!-- /row -->
+        <!-- DATE TIME PICKERS -->
+        
+        <!-- row -->
+        <!--ADVANCED FILE INPUT-->
+       
                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                     <input type="button" value="상품등록" id="registDosirak">
+                     <input type="submit" value="상품등록" id="registDosirak">
                   </div>
                   </div>
                 </div>
@@ -296,9 +292,37 @@
 				<button id="">작성하기</button>
 			</c:if>
 		</div>
-		<br>
-					 <!-- 페이징 버튼 -->
+		<br> 
+		
+					 <!-- 페이징 버튼 -->	
     
+    
+    <script>
+    	const $titleImgArea = document.getElementById("titleImgArea");
+    	
+    	$titleImgArea.onclick = function(){
+    		document.getElementById("thumbnailImg1").click(); 
+    	}
+    	
+    	/*업로드된 사진 이미지 불러오기*/
+    	
+    	function loadImg(value, num) {
+			if(value.files && value.files[0]) {
+				const reader = new FileReader();
+				
+				reader.onload = function(e) {
+					switch(num) {
+					case 1 :
+						document.getElementById("titleImg").src = e.target.result;
+						break;
+					
+					}
+				}
+				
+				reader.readAsDataURL(value.files[0]);
+    		}
+    	}
+    </script>
     <!-- /MAIN CONTENT -->
      <!--main content end-->
     <!--footer start-->

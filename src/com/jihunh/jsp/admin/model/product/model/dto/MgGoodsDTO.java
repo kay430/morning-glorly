@@ -1,8 +1,7 @@
 package com.jihunh.jsp.admin.model.product.model.dto;
 
 import java.sql.Date;
-
-import com.jihunh.jsp.member.model.dto.MgDTO;
+import java.util.List;
 
 public class MgGoodsDTO {
 
@@ -17,12 +16,14 @@ public class MgGoodsDTO {
 	private String status;
 	private java.sql.Date modifiedDate;
 
+	private List<AttachmentDTO> attachmentList;
+	
 	public MgGoodsDTO() {
 		
 	}
 
 	public MgGoodsDTO(int no, String name, int price, int writerMemberNo, int typeNo, MgGoodsTypeDTO goodsTypeNo,
-			Date createdDate, String status, Date modifiedDate) {
+			Date createdDate, String status, Date modifiedDate, List<AttachmentDTO> attachmentList) {
 		super();
 		this.no = no;
 		this.name = name;
@@ -33,6 +34,7 @@ public class MgGoodsDTO {
 		this.createdDate = createdDate;
 		this.status = status;
 		this.modifiedDate = modifiedDate;
+		this.attachmentList = attachmentList;
 	}
 
 	public int getNo() {
@@ -107,13 +109,27 @@ public class MgGoodsDTO {
 		this.modifiedDate = modifiedDate;
 	}
 
+	public List<AttachmentDTO> getAttachmentList() {
+		return attachmentList;
+	}
+
+	public void setAttachmentList(List<AttachmentDTO> attachmentList) {
+		this.attachmentList = attachmentList;
+	}
+
 	@Override
 	public String toString() {
 		return "MgGoodsDTO [no=" + no + ", name=" + name + ", price=" + price + ", writerMemberNo=" + writerMemberNo
 				+ ", typeNo=" + typeNo + ", goodsTypeNo=" + goodsTypeNo + ", createdDate=" + createdDate + ", status="
-				+ status + ", modifiedDate=" + modifiedDate + "]";
+				+ status + ", modifiedDate=" + modifiedDate + ", attachmentList=" + attachmentList + ", getNo()="
+				+ getNo() + ", getName()=" + getName() + ", getPrice()=" + getPrice() + ", getWriterMemberNo()="
+				+ getWriterMemberNo() + ", getTypeNo()=" + getTypeNo() + ", getGoodsTypeNo()=" + getGoodsTypeNo()
+				+ ", getCreatedDate()=" + getCreatedDate() + ", getStatus()=" + getStatus() + ", getModifiedDate()="
+				+ getModifiedDate() + ", getAttachmentList()=" + getAttachmentList() + ", getClass()=" + getClass()
+				+ ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
 	}
 
+	
 	
 	
 }
