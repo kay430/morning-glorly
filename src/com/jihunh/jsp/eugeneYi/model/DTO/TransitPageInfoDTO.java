@@ -107,5 +107,4 @@ public class TransitPageInfoDTO implements java.io.Serializable {
 				+ endPage + ", startRow=" + startRow + ", endRow=" + endRow + "]";
 	}
 
-
 }

@@ -12,64 +12,60 @@
 		SELECT /**/
 		       COUNT(*)
 		  FROM MG_ORDER_DELIVERY A
-		 WHERE A.DELEVERY_NO = 'Y'
+		 WHERE A.ORDER_NO = 1
 	</entry>
-	<entry key="selectNoticeList">
-	    SELECT 
-               A.RNUM
-             , A.NOTICE_NO
-             , A.NOTICE_TITLE
-             , A.NOTICE_BODY
-             , A.NOTICE_WRITER_MEMBER_NO
-             , A.ADMIN_NAME
-             , A.NOTICE_COUNT
-             , A.CREATED_DATE
-             , A.NOTICE_DISPLAY
-             , A.NOTICE_GENERAL
-             , A.NOTICE_GENERAL_TYPE
-        FROM (SELECT ROWNUM RNUM
-                   , B.NOTICE_NO
-                   , B.NOTICE_TITLE
-                   , B.NOTICE_BODY
-                   , B.NOTICE_WRITER_MEMBER_NO
-                   , B.ADMIN_NAME
-                   , B.NOTICE_COUNT
-                   , B.CREATED_DATE
-                   , B.NOTICE_DISPLAY
-                   , B.NOTICE_GENERAL
-                   , B.NOTICE_GENERAL_TYPE
-              FROM (SELECT A.NOTICE_NO
-                         , A.NOTICE_TITLE
-                         , A.NOTICE_BODY
-                         , A.NOTICE_WRITER_MEMBER_NO
-                         , B.ADMIN_NAME
-                         , A.NOTICE_COUNT
-                         , A.CREATED_DATE
-                         , A.NOTICE_DISPLAY
-                         , A.NOTICE_GENERAL
-                         , A.NOTICE_GENERAL_TYPE
-                      FROM MG_NOTICE A
-                      JOIN MG_ADMIN B ON (A.NOTICE_WRITER_MEMBER_NO = B.ADMIN_NO)
-                     WHERE A.NOTICE_DISPLAY = 'Y'
-                           ORDER BY A.NOTICE_NO DESC
-                          ) B
-                    ) A
-                    WHERE RNUM BETWEEN ? AND ? 
+	<entry key="selectTransitList">
+       SELECT
+             A.RNUM
+           , A.DELIVERY_NO
+           , A.DELIVERY_TYPE
+           , A.TRANSIT_NO
+           , A.TRANSIT_DATE
+           , A.ORDER_NO
+           , A.ORDER_MEMBER_NO
+           , A.ORDER_DATE
+           , A.ORDER_TITLE
+           , A.AMOUNT_PRICE
+      FROM (SELECT ROWNUM RNUM
+                 , B.DELIVERY_NO
+                 , B.DELIVERY_TYPE
+                 , B.TRANSIT_NO
+                 , B.TRANSIT_DATE
+                 , B.ORDER_NO
+                 , B.ORDER_MEMBER_NO
+                 , B.ORDER_DATE
+                 , B.ORDER_TITLE
+                 , B.AMOUNT_PRICE
+            FROM (SELECT A.DELIVERY_NO
+                       , A.DELIVERY_TYPE
+                       , A.TRANSIT_NO
+                       , A.TRANSIT_DATE
+                       , B.ORDER_NO
+                       , B.ORDER_MEMBER_NO
+                       , B.ORDER_DATE
+                       , B.ORDER_TITLE
+                       , B.AMOUNT_PRICE
+                    FROM MG_ORDER_DELIVERY A
+                    JOIN MG_ORDER B ON (A.ORDER_NO = B.ORDER_NO)
+                ORDER BY A.DELIVERY_NO DESC
+                 ) B
+            ) A
+            WHERE RNUM BETWEEN ? AND ?
 	</entry>
-	<entry key="updateNotice">
+	<entry key="updateTransit">
 	        UPDATE
-               MG_NOTICE A
-           SET A.NOTICE_TITLE = ?
-             , A.NOTICE_BODY = ?
-         WHERE A.NOTICE_NO = ?
-           AND A.NOTICE_WRITER_MEMBER_NO = ?
+               MG_ORDER_DELIVERY A
+           SET A.TRANSIT_DATE = ?
+             , A.DELIVERY_TYPE = ?
+         WHERE A.DELIVERY_NO = ?
+           AND A.TRANSIT_NO = ?
 	</entry>
-	<entry key="selectNoticeSequence">
+<!--	<entry key="selectTransitSequence">
         SELECT
                SEQ_NOTICE_NO.CURRVAL
           FROM DUAL    
-	</entry>
-	<entry key="insertAttaNotice">
+	</entry>  -->
+<!-- 	<entry key="insertAttaNotice">
         INSERT
           INTO MG_NOTI_ATTACHMENT A
         (
@@ -182,4 +178,5 @@
             ) A
             WHERE RNUM BETWEEN ? AND ?
 	</entry>
+
 </properties>
