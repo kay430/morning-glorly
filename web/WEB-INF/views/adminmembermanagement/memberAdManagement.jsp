@@ -169,7 +169,7 @@
                     </div>
                   </div>
                   <div class="btn-group">
-                    <a  id="adminMemberListButton" data-original-title="관리자회원을 조회할수 있습니다" data-placement="top" data-toggle="" class="btn mini tooltips">
+                    <a  id="adminMemberListButton" data-original-title="사용자 회원을 조회 합니다." data-placement="top" data-toggle="" class="btn mini tooltips">
                       <!-- <i class=" fa fa-refresh"></i> -->
                      	 회원 조회
                       </a>

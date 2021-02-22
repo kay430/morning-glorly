@@ -89,49 +89,51 @@ public class MgDAO {
       return encPwd;
    }
 
-   public MgDTO selectLoginMember(Connection con, MgDTO requestMember) {
-      System.out.println("멤버 조회 DAO 들어왔나?");
-      PreparedStatement pstmt = null;
-      
-      ResultSet rset = null;
-      
-      MgDTO loginMember = null;
-      
-      String query = prop.getProperty("selectLoginMember");
-      
-      try {
-         pstmt = con.prepareStatement(query);
-         pstmt.setString(1, requestMember.getId());
-         
-         rset = pstmt.executeQuery();
-         
-         if(rset.next()) {
-            loginMember = new MgDTO();
-            loginMember.setNo(rset.getInt("MEMBER_NO"));
-            loginMember.setName(rset.getString("MEMBER_NAME"));
-            loginMember.setId(rset.getString("MEMBER_ID"));
-            loginMember.setPno(rset.getString("MEMBER_PNO"));
-            loginMember.setGender(rset.getString("MEMBER_GENDER"));
-            loginMember.setEmail(rset.getString("EMAIL"));
-            loginMember.setAddress(rset.getString("ADDRESS"));
-            loginMember.setPhone(rset.getString("PHONE"));
-            loginMember.setSubPhone(rset.getString("SUB_PHONE"));
-            loginMember.setPoint(rset.getInt("MEMBER_POINT"));
-            loginMember.setEnrollDate(rset.getDate("ENROLL_DATE"));
-            loginMember.setModifiedDate(rset.getDate("MODIFIED_DATE"));
-            loginMember.setBlackList(rset.getString("CHECK_BLACKLIST"));
-            loginMember.setStatus(rset.getString("MEMBER_STATUS"));
-         }
-         
-      } catch (SQLException e) {
-         e.printStackTrace();
-      } finally {
-         close(rset);
-         close(pstmt);
-      }
-      
-      return loginMember;
-   }
+
+	public MgDTO selectLoginMember(Connection con, MgDTO requestMember) {
+		System.out.println("멤버 조회 DAO 들어왔나?");
+		PreparedStatement pstmt = null;
+		
+		ResultSet rset = null;
+		
+		MgDTO loginMember = null;
+		
+		String query = prop.getProperty("selectLoginMember");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, requestMember.getId());
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				loginMember = new MgDTO();
+				loginMember.setNo(rset.getInt("MEMBER_NO"));
+				loginMember.setName(rset.getString("MEMBER_NAME"));
+				loginMember.setId(rset.getString("MEMBER_ID"));
+				loginMember.setPno(rset.getString("MEMBER_PNO"));
+				loginMember.setGender(rset.getString("MEMBER_GENDER"));
+				loginMember.setEmail(rset.getString("EMAIL"));
+				loginMember.setAddress(rset.getString("ADDRESS"));
+				loginMember.setPhone(rset.getString("PHONE"));
+				loginMember.setSubPhone(rset.getString("SUB_PHONE"));
+				loginMember.setPoint(rset.getInt("MEMBER_POINT"));
+				loginMember.setEnrollDate(rset.getDate("ENROLL_DATE"));
+				loginMember.setModifiedDate(rset.getDate("MODIFIED_DATE"));
+				loginMember.setBlackList(rset.getString("CHECK_BLACKLIST"));
+				loginMember.setStatus(rset.getString("MEMBER_STATUS"));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return loginMember;
+	}
+
 
 //   public String selectMemberName(Connection con, MgDTO requestMember) {
 //

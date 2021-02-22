@@ -393,9 +393,9 @@ public class MemberDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
-		MgDTO noticeDetail = null;
+		MgDTO mgDTO = null;
 		
-		String query = prop.getProperty("selectNoticeDetail");
+		String query = prop.getProperty("viewMemberDetailInfo");
 		
 		try {
 			pstmt = con.prepareStatement(query);
@@ -403,33 +403,26 @@ public class MemberDAO {
 			
 			rset = pstmt.executeQuery();
 			
-//			List<AttaNoticeDTO> attaNotiList = new ArrayList<>();
-//			if(rset.next()) {
-//				noticeDetail = new NoticeDTO();
-//				noticeDetail.setWriter(new MgAdDTO());
-//				AttaNoticeDTO attaNoti = new AttaNoticeDTO();
-//				
-//				noticeDetail.setNo(rset.getInt("NOTICE_NO"));
-//				noticeDetail.setTitle(rset.getString("NOTICE_TITLE"));
-//				noticeDetail.setBody(rset.getString("NOTICE_BODY"));
-//				noticeDetail.setWriterMemberNo(rset.getInt("NOTICE_WRITER_MEMBER_NO"));
-//				noticeDetail.getWriter().setName(rset.getString("ADMIN_NAME"));
-//				noticeDetail.setCount(rset.getInt("NOTICE_COUNT"));
-//				noticeDetail.setCreatedDate(rset.getDate("CREATED_DATE"));
-//				noticeDetail.setDisplay(rset.getString("NOTICE_DISPLAY"));
-//				noticeDetail.setGeneral(rset.getString("NOTICE_GENERAL"));
-//				noticeDetail.setGeneralType(rset.getString("NOTICE_GENERAL_TYPE"));
-//				attaNoti.setNo(rset.getInt("ATTACHMENT_NO"));
-//				attaNoti.setOriginalName(rset.getString("ORIGINAL_NAME"));
-//				attaNoti.setSavedName(rset.getString("SAVED_NAME"));
-//				attaNoti.setSavePath(rset.getString("SAVE_PATH"));
-//				attaNoti.setFileType(rset.getString("FILE_TYPE"));
-//				attaNoti.setThumbnailPath(rset.getString("THUMBNAIL_PATH"));
-//				
-//				attaNotiList.add(attaNoti);
-//			}
-//			
-//			noticeDetail.setAttaNotiList(attaNotiList);
+			if(rset.next()) {
+				mgDTO = new MgDTO();
+				
+				mgDTO.setNo(rset.getInt("MEMBER_NO"));
+				mgDTO.setName(rset.getString("MEMBER_NAME"));
+				mgDTO.setId(rset.getString("MEMBER_ID"));
+				mgDTO.setPno(rset.getString("MEMBER_PNO"));
+				mgDTO.setGender(rset.getString("MEMBER_GENDER"));
+				mgDTO.setEmail(rset.getString("EMAIL"));
+				mgDTO.setAddress(rset.getString("ADDRESS"));
+				mgDTO.setPhone(rset.getString("PHONE"));
+				mgDTO.setSubPhone(rset.getString("SUB_PHONE"));
+				mgDTO.setPoint(rset.getInt("MEMBER_POINT"));
+				mgDTO.setEnrollDate(rset.getDate("ENROLL_DATE"));
+				mgDTO.setModifiedDate(rset.getDate("MODIFIED_DATE"));
+				mgDTO.setBlackList(rset.getString("CHECK_BLACKLIST"));
+				mgDTO.setStatus(rset.getString("MEMBER_STATUS"));
+				
+			}
+			
 		
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -438,7 +431,7 @@ public class MemberDAO {
 			close(pstmt);
 		}
 		
-		return noticeDetail;
+		return mgDTO;
 	}
 
 }
