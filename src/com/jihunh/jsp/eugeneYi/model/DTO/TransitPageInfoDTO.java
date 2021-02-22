@@ -1,7 +1,7 @@
 package com.jihunh.jsp.eugeneYi.model.DTO;
 
 public class TransitPageInfoDTO implements java.io.Serializable {
-	
+
 	private int pageNo;
 	private int totalCount;
 	private int limit;
@@ -11,7 +11,7 @@ public class TransitPageInfoDTO implements java.io.Serializable {
 	private int endPage;
 	private int startRow;
 	private int endRow;
-	
+
 	public TransitPageInfoDTO() {}
 
 	public TransitPageInfoDTO(int pageNo, int totalCount, int limit, int buttonAmount, int maxPage, int startPage,
@@ -106,6 +106,5 @@ public class TransitPageInfoDTO implements java.io.Serializable {
 				+ ", buttonAmount=" + buttonAmount + ", maxPage=" + maxPage + ", startPage=" + startPage + ", endPage="
 				+ endPage + ", startRow=" + startRow + ", endRow=" + endRow + "]";
 	}
-	
 
 }

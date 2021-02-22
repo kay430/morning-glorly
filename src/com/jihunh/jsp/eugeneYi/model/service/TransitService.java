@@ -8,6 +8,7 @@ import static com.jihunh.jsp.common.jdbc.JDBCTemplate.rollback;
 import java.sql.Connection;
 import java.util.List;
 
+import com.jihunh.jsp.admin.model.dto.SearchReadyDTO;
 import com.jihunh.jsp.eugeneYi.model.DAO.TransitDAO;
 import com.jihunh.jsp.eugeneYi.model.DTO.TransitDTO;
 import com.jihunh.jsp.eugeneYi.model.DTO.TransitPageInfoDTO;
@@ -85,6 +86,28 @@ public class TransitService {
 		close(con);
 		
 		return transitList;
+	}
+	
+	public int searchTransitCount(SearchReadyDTO searchRd) {
+		
+		Connection con = getConnection();
+		
+		int totalNoticeCount = transitDAO.searchTransitCount(con, searchRd); 
+		
+		close(con);
+		
+		return totalNoticeCount;
+	}
+
+	public List<NoticeDTO> searchNoticeList(SearchReadyDTO searchRd) {
+		
+		Connection con = getConnection();
+		
+		List<NoticeDTO> searchNoticeList = transitDAO.searchTransitList(con, searchRd);
+		
+		close(con);
+		
+		return searchNoticeList;
 	}
 
 }
