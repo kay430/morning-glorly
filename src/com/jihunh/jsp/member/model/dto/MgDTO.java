@@ -2,6 +2,12 @@ package com.jihunh.jsp.member.model.dto;
 
 import java.sql.Date;
 
+import com.jihunh.jsp.admin.model.dto.MemberAddress;
+import com.jihunh.jsp.admin.model.dto.MemberBlackListDTO;
+import com.jihunh.jsp.admin.model.dto.MemberModifyDTO;
+import com.jihunh.jsp.admin.model.dto.MemberPointDTO;
+import com.jihunh.jsp.payment.model.dto.PaymentDTO;
+
 public class MgDTO implements java.io.Serializable {
 	
 	private int no;
@@ -19,13 +25,21 @@ public class MgDTO implements java.io.Serializable {
 	private java.sql.Date modifiedDate;
 	private String blackList;
 	private String status;
-	private String nickname;
+	private String nickname;			//- 이거 닉넹미 쓰는분 있습니까? 02/22(월) 지훈 -
+	
+	private MemberModifyDTO mgModify;
+	private MemberBlackListDTO mgBlack;
+	private MemberAddress mgAddress;
+	private MemberPointDTO mgPoint;
+	private PaymentDTO payInfo;
+	/* 장바구니 추가되야함 */
 	
 	public MgDTO() {}
 
 	public MgDTO(int no, String name, String id, String pwd, String pno, String gender, String email, String address,
 			String phone, String subPhone, int point, Date enrollDate, Date modifiedDate, String blackList,
-			String status, String nickname) {
+			String status, String nickname, MemberModifyDTO mgModify, MemberBlackListDTO mgBlack,
+			MemberAddress mgAddress, MemberPointDTO mgPoint, PaymentDTO payInfo) {
 		super();
 		this.no = no;
 		this.name = name;
@@ -43,6 +57,11 @@ public class MgDTO implements java.io.Serializable {
 		this.blackList = blackList;
 		this.status = status;
 		this.nickname = nickname;
+		this.mgModify = mgModify;
+		this.mgBlack = mgBlack;
+		this.mgAddress = mgAddress;
+		this.mgPoint = mgPoint;
+		this.payInfo = payInfo;
 	}
 
 	public int getNo() {
@@ -173,13 +192,54 @@ public class MgDTO implements java.io.Serializable {
 		this.nickname = nickname;
 	}
 
+	public MemberModifyDTO getMgModify() {
+		return mgModify;
+	}
+
+	public void setMgModify(MemberModifyDTO mgModify) {
+		this.mgModify = mgModify;
+	}
+
+	public MemberBlackListDTO getMgBlack() {
+		return mgBlack;
+	}
+
+	public void setMgBlack(MemberBlackListDTO mgBlack) {
+		this.mgBlack = mgBlack;
+	}
+
+	public MemberAddress getMgAddress() {
+		return mgAddress;
+	}
+
+	public void setMgAddress(MemberAddress mgAddress) {
+		this.mgAddress = mgAddress;
+	}
+
+	public MemberPointDTO getMgPoint() {
+		return mgPoint;
+	}
+
+	public void setMgPoint(MemberPointDTO mgPoint) {
+		this.mgPoint = mgPoint;
+	}
+
+	public PaymentDTO getPayInfo() {
+		return payInfo;
+	}
+
+	public void setPayInfo(PaymentDTO payInfo) {
+		this.payInfo = payInfo;
+	}
+
 	@Override
 	public String toString() {
 		return "MgDTO [no=" + no + ", name=" + name + ", id=" + id + ", pwd=" + pwd + ", pno=" + pno + ", gender="
 				+ gender + ", email=" + email + ", address=" + address + ", phone=" + phone + ", subPhone=" + subPhone
 				+ ", point=" + point + ", enrollDate=" + enrollDate + ", modifiedDate=" + modifiedDate + ", blackList="
-				+ blackList + ", status=" + status + ", nickname=" + nickname + "]";
+				+ blackList + ", status=" + status + ", nickname=" + nickname + ", mgModify=" + mgModify + ", mgBlack="
+				+ mgBlack + ", mgAddress=" + mgAddress + ", mgPoint=" + mgPoint + ", payInfo=" + payInfo + "]";
 	}
-		
-	}
+
+}
 	

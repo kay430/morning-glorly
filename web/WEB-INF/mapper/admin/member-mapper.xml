@@ -750,4 +750,23 @@
              ) A           
        WHERE RNUM BETWEEN ? AND ? 
 	</entry>
+	<entry key="viewMemberDetailInfo">
+        SELECT 
+               A.MEMBER_NO
+             , A.MEMBER_NAME
+             , A.MEMBER_ID
+             , A.MEMBER_PNO
+             , A.MEMBER_GENDER
+             , A.EMAIL
+             , A.ADDRESS
+             , A.PHONE
+             , A.SUB_PHONE
+             , A.MEMBER_POINT
+             , A.ENROLL_DATE
+             , A.MODIFIED_DATE
+             , A.CHECK_BLACKLIST
+             , A.MEMBER_STATUS
+        FROM MG_MEMBER A
+       WHERE A.MEMBER_NO = ?
+	</entry>
 </properties>

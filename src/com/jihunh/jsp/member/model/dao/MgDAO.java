@@ -116,7 +116,7 @@ public class MgDAO {
 				loginMember.setAddress(rset.getString("ADDRESS"));
 				loginMember.setPhone(rset.getString("PHONE"));
 				loginMember.setSubPhone(rset.getString("SUB_PHONE"));
-				loginMember.setPoint(rset.getString("MEMBER_POINT"));
+				loginMember.setPoint(rset.getInt("MEMBER_POINT"));
 				loginMember.setEnrollDate(rset.getDate("ENROLL_DATE"));
 				loginMember.setModifiedDate(rset.getDate("MODIFIED_DATE"));
 				loginMember.setBlackList(rset.getString("CHECK_BLACKLIST"));
