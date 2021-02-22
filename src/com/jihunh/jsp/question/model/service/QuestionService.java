@@ -84,4 +84,31 @@ public class QuestionService {
 		return result;
 	}
 
+	//검색결과 조회용
+	public int searchQuestionCount(String searchCondition, String searchValue) {
+		
+		Connection con = getConnection();
+		
+		int searchQuestionCount = questionDAO.searchQuestionCount(con, searchCondition, searchValue);
+		
+		close(con);
+		
+		return searchQuestionCount;
+	}
+
+	//게시판 검색결과 조회용 메소드
+	public List<QuestionDTO> searchQuestionList(String searchCondition, String searchValue,
+			QuestionPageInfoDTO questionInfo) {
+		
+			Connection con = getConnection();
+			
+			List<QuestionDTO> questionList = questionDAO.searchQuestionList(con, searchCondition, searchValue, questionInfo);
+			
+			close(con);
+			
+			return questionList;
+	}
+
+
+
 }

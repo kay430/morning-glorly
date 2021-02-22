@@ -19,6 +19,7 @@ public class QuestionDTO implements java.io.Serializable{
 	private java.sql.Date modifiedDate;
     private String display;
     private MgDTO mgDTO;
+    private CategoryDTO category;
     
     private List<AttaQuestionDTO> attaQueList;
 
@@ -104,8 +105,16 @@ public class QuestionDTO implements java.io.Serializable{
 		this.display = display;
 	}
 
+	public MgDTO getMgDTO() {
+		return mgDTO;
+	}
+
+	public void setMgDTO(MgDTO mgDTO) {
+		this.mgDTO = mgDTO;
+	}
+
 	public QuestionDTO(int no, String status, int categoryCode, String title, String body, int writerMemberNo,
-			int count, Date createDate, Date modifiedDate, String display, MgDTO mgDTO,
+			int count, Date createDate, Date modifiedDate, String display, MgDTO mgDTO, CategoryDTO category,
 			List<AttaQuestionDTO> attaQueList) {
 		super();
 		this.no = no;
@@ -119,6 +128,7 @@ public class QuestionDTO implements java.io.Serializable{
 		this.modifiedDate = modifiedDate;
 		this.display = display;
 		this.mgDTO = mgDTO;
+		this.category = category;
 		this.attaQueList = attaQueList;
 	}
 
@@ -127,15 +137,15 @@ public class QuestionDTO implements java.io.Serializable{
 		return "QuestionDTO [no=" + no + ", status=" + status + ", categoryCode=" + categoryCode + ", title=" + title
 				+ ", body=" + body + ", writerMemberNo=" + writerMemberNo + ", count=" + count + ", createDate="
 				+ createDate + ", modifiedDate=" + modifiedDate + ", display=" + display + ", mgDTO=" + mgDTO
-				+ ", attaQueList=" + attaQueList + "]";
+				+ ", category=" + category + ", attaQueList=" + attaQueList + "]";
 	}
 
-	public MgDTO getMgDTO() {
-		return mgDTO;
+	public CategoryDTO getCategory() {
+		return category;
 	}
 
-	public void setMgDTO(MgDTO mgDTO) {
-		this.mgDTO = mgDTO;
+	public void setCategory(CategoryDTO category) {
+		this.category = category;
 	}
 
 	public List<AttaQuestionDTO> getAttaQueList() {
@@ -146,7 +156,6 @@ public class QuestionDTO implements java.io.Serializable{
 		this.attaQueList = attaQueList;
 	}
 
-	
 	
 	
 }

@@ -100,4 +100,175 @@
         , ?
         ) 
 	</entry>
+	<entry key="searchQueNameCount">
+		SELECT
+			COUNT(*)
+		 FROM MG_QNA A	
+		 JOIN MG_MEMBER C ON (A.QNA_WRITER_MEMBER_NO = C.MEMBER_NO)
+		WHERE A.QNA_DISPLAY = 'Y'
+		  AND C.MEMBER_ID LIKE '%' || ? || '%'
+	</entry>
+	<entry key="searchQueTitleCount">
+		SELECT
+			COUNT(*)
+		FROM MG_QNA A
+		JOIN MG_MEMBER C ON (A.QNA_WRITER_MEMBER_NO = C.MEMBER_NO)
+		WHERE A.QNA_DISPLAY = 'Y'
+		 AND A.QNA_TITLE LIKE '%' || ? || '%'
+	</entry>
+	<entry key="searchQueBodyCount">
+		SELECT
+			COUNT(*)
+		FROM MG_QNA A
+		JOIN MG_MEMBER C ON (A.QNA_WRITER_MEMBER_NO = C.MEMBER_NO)
+		WHERE A.QNA_DISPLAY = 'Y'
+		 AND A.QNA_BODY LIKE '%' || ? || '%'
+	</entry>
+	<entry key="searchQueNameList">
+        SELECT 
+               D.RNUM 
+             , D.QNA_NO
+             , D.QNA_STATUS
+             , D.CATEGORY_CODE
+             , D.QNA_TITLE
+             , D.QNA_BODY
+             , D.QNA_WRITER_MEMBER_NO
+             , D.MEMBER_ID
+             , D.QNA_COUNT
+             , D.CREATED_DATE
+             , D.MODIFIED_DATE
+             , D.QNA_DISPLAY
+             
+          FROM(SELECT
+                      ROWNUM RNUM
+                    , C.QNA_NO
+             		, C.QNA_STATUS
+             		, C.CATEGORY_CODE
+	          	    , C.QNA_TITLE
+	          	    , C.QNA_BODY
+             		, C.QNA_WRITER_MEMBER_NO
+             		, C.MEMBER_ID
+            	    , C.QNA_COUNT
+	            	, C.CREATED_DATE
+	                , C.MODIFIED_DATE
+           	        , C.QNA_DISPLAY
+           	        
+                 FROM( SELECT  A.QNA_NO
+            				 , A.QNA_STATUS
+            				 , A.CATEGORY_CODE
+           				     , A.QNA_TITLE
+            			     , A.QNA_BODY
+            			     , A.QNA_WRITER_MEMBER_NO
+           				     , B.MEMBER_ID
+            			     , A.QNA_COUNT
+          				     , A.CREATED_DATE
+            				 , A.MODIFIED_DATE
+          			         , A.QNA_DISPLAY
+                        FROM MG_QNA A
+                        JOIN MG_MEMBER B ON (B.MEMBER_NO = A.QNA_WRITER_MEMBER_NO)
+                       WHERE A.QNA_DISPLAY = 'Y'
+                         AND B.MEMBER_ID LIKE '%' || ? || '%'
+                       ORDER BY A.QNA_NO DESC
+                    ) C
+                 )D
+          WHERE D.RNUM BETWEEN ? AND ?
+ </entry>
+ <entry key="searchQueTitleList">
+         SELECT 
+               D.RNUM 
+             , D.QNA_NO
+             , D.QNA_STATUS
+             , D.CATEGORY_CODE
+             , D.QNA_TITLE
+             , D.QNA_BODY
+             , D.QNA_WRITER_MEMBER_NO
+             , D.MEMBER_ID
+             , D.QNA_COUNT
+             , D.CREATED_DATE
+             , D.MODIFIED_DATE
+             , D.QNA_DISPLAY
+             
+          FROM(SELECT
+                      ROWNUM RNUM
+                    , C.QNA_NO
+             		, C.QNA_STATUS
+             		, C.CATEGORY_CODE
+	          	    , C.QNA_TITLE
+	          	    , C.QNA_BODY
+             		, C.QNA_WRITER_MEMBER_NO
+             		, C.MEMBER_ID
+            	    , C.QNA_COUNT
+	            	, C.CREATED_DATE
+	                , C.MODIFIED_DATE
+           	        , C.QNA_DISPLAY
+           	        
+                 FROM( SELECT  A.QNA_NO
+            				 , A.QNA_STATUS
+            				 , A.CATEGORY_CODE
+           				     , A.QNA_TITLE
+            			     , A.QNA_BODY
+            			     , A.QNA_WRITER_MEMBER_NO
+           				     , B.MEMBER_ID
+            			     , A.QNA_COUNT
+          				     , A.CREATED_DATE
+            				 , A.MODIFIED_DATE
+          			         , A.QNA_DISPLAY
+                        FROM MG_QNA A
+                        JOIN MG_MEMBER B ON (B.MEMBER_NO = A.QNA_WRITER_MEMBER_NO)
+                       WHERE A.QNA_DISPLAY = 'Y'
+                         AND A.QNA_TITLE LIKE '%' || ? || '%'
+                       ORDER BY A.QNA_NO DESC
+                    ) C
+                 )D
+          WHERE D.RNUM BETWEEN ? AND ?
+ </entry>
+ <entry key="searchQueBodyList">
+         SELECT 
+               D.RNUM 
+             , D.QNA_NO
+             , D.QNA_STATUS
+             , D.CATEGORY_CODE
+             , D.QNA_TITLE
+             , D.QNA_BODY
+             , D.QNA_WRITER_MEMBER_NO
+             , D.MEMBER_ID
+             , D.QNA_COUNT
+             , D.CREATED_DATE
+             , D.MODIFIED_DATE
+             , D.QNA_DISPLAY
+             
+          FROM(SELECT
+                      ROWNUM RNUM
+                    , C.QNA_NO
+             		, C.QNA_STATUS
+             		, C.CATEGORY_CODE
+	          	    , C.QNA_TITLE
+	          	    , C.QNA_BODY
+             		, C.QNA_WRITER_MEMBER_NO
+             		, C.MEMBER_ID
+            	    , C.QNA_COUNT
+	            	, C.CREATED_DATE
+	                , C.MODIFIED_DATE
+           	        , C.QNA_DISPLAY
+           	        
+                 FROM( SELECT  A.QNA_NO
+            				 , A.QNA_STATUS
+            				 , A.CATEGORY_CODE
+           				     , A.QNA_TITLE
+            			     , A.QNA_BODY
+            			     , A.QNA_WRITER_MEMBER_NO
+           				     , B.MEMBER_ID
+            			     , A.QNA_COUNT
+          				     , A.CREATED_DATE
+            				 , A.MODIFIED_DATE
+          			         , A.QNA_DISPLAY
+                        FROM MG_QNA A
+                        JOIN MG_MEMBER B ON (B.MEMBER_NO = A.QNA_WRITER_MEMBER_NO)
+                       WHERE A.QNA_DISPLAY = 'Y'
+                         AND A.QNA_BODY	LIKE '%' || ? || '%'
+                       ORDER BY A.QNA_NO DESC
+                    ) C
+                 )D
+          WHERE D.RNUM BETWEEN ? AND ?
+ </entry>
 </properties>

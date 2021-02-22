@@ -69,7 +69,7 @@
 										<tr>
 											<td>내용</td>
 											<td colspan="2"><textarea name="body" cols="60"
-													rows="15" style="resize: none; width: 800px;" required></textarea>
+													rows="15" style="resize: none; width: 600px; height: 550px;" required></textarea>
 											</td>
 										</tr>
 
