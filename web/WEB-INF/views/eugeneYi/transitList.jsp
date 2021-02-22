@@ -58,7 +58,7 @@
             </ul>
           </li>
           <li class="sub-menu">
-            <a href="javascript:;">
+            <a class="active" href="javascript:;">
               <i class="fa fa-cogs"></i>
               <span>주문관리</span>
               </a>
@@ -66,7 +66,7 @@
               <li><a href="grids.html">주문 조회</a></li>
               <li><a href="calendar.html">결제내역</a></li>
               <li><a href="gallery.html">환불 및 반품</a></li>
-              <li><a href="file_upload.html">배송 조회</a></li>
+              <li class="active"><a href="file_upload.html">배송 조회</a></li>
             </ul>
           </li>
           <li class="sub-menu">
@@ -81,12 +81,12 @@
             </ul>
           </li>
           <li class="sub-menu">
-            <a class="active" href="javascript:;">
+            <a href="javascript:;">
               <i class="fa fa-tasks"></i>
               <span>고객센터</span>
               </a>
             <ul class="sub">
-              <li class="active"><a id="adminNotice">공지사항</a></li>
+              <li><a id="adminNotice">공지사항</a></li>
               <li><a id="answer">Q&A</a></li>
               <li><a id="review">상품후기</a></li>
               <li><a id="generalQna">자주 묻는 질문</a></li>
