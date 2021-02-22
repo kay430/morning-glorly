@@ -61,6 +61,30 @@ window.onload = function() {
 
 	}
 	
+	if(document.getElementById("adminMemberList")) {
+		const $adminMemberList = document.getElementById("adminMemberList");
+		$adminMemberList.onclick = function() {
+			location.href = "/mg/admin/member/manage";
+		}
+		
+	}
+	
+	if(document.getElementById("adminMemberListButton")) {
+		const $adminMemberList = document.getElementById("adminMemberListButton");
+		$adminMemberList.onclick = function() {
+			location.href = "/mg/admin/member/manage";
+		}
+		
+	}
+	
+	if(document.getElementById("adminMemberAdList")) {
+		const $adminMemberAdList = document.getElementById("adminMemberAdList");
+		$adminMemberAdList.onclick = function() {
+			location.href = "/mg/admin/member/manageAd";
+		}
+	}
+	
+	
 	if(document.getElementById("adminNotice")) {
 		const $logout = document.getElementById("adminNotice");
 		$logout.onclick = function() {
@@ -195,6 +219,7 @@ window.onload = function() {
 		}
 		
 	}
+
 	//이거 오늘 캔슬버튼 추가했습니다 건들지마라 다엎을라니까 최지환
 	if(document.getElementById("cancelQuestion")) {
 		const $cancelQuestion = document.getElementById("cancelQuestion");
@@ -203,8 +228,6 @@ window.onload = function() {
 		}
 		
 	}
-	a
-	
 	
 
 }

@@ -40,3 +40,64 @@
 #noticeTable td:nth-child(8) {
   /* text-align: right; */
 }
+
+#memberManagement th {
+	text-align: center;
+}
+#memberManagement tr:nth-child(1) th:nth-child(1) {
+  /* text-align: right; */
+}
+#memberManagement th:nth-child(2) {
+  /* text-align: right; */
+  width: 45px;
+}
+#memberManagement th:nth-child(3) {
+  /* text-align: right; */
+  width: 65px;
+}
+#memberManagement th:nth-child(4) {
+  /* text-align: right; */
+  width: 30px;
+}
+#memberManagement th:nth-child(5) {
+  /* text-align: right; */
+  width: 40px;
+}
+#memberManagement th:nth-child(6) {
+  /* text-align: right; */
+  width: 45px;
+}
+#memberManagement th:nth-child(7) {
+  /* text-align: right; */
+  width: 30px;
+}
+#memberManagement th:nth-child(8) {
+  /* text-align: right; */
+  width: 200px;
+}
+#memberManagement th:nth-child(9) {
+  /* text-align: right; */
+  width: 10px;
+}
+#memberManagement th:nth-child(10) {
+  /* text-align: right; */
+  width: 55px;
+}
+#memberManagement th:nth-child(11) {
+  /* text-align: right; */
+  width: 80px;
+}
+#memberManagement th:nth-child(12) {
+  /* text-align: right; */
+  width: 35px;
+}
+#memberManagement th:nth-child(13) {
+  /* text-align: right; */
+  width: 40px;
+}
+#memberManagement td {
+  text-align: center;
+}
+#memberManagement td:nth-child(8) {
+  /* text-align: right; */
+}

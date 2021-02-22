@@ -104,7 +104,6 @@ public class Pagenation {
 		searchRd.getPageInfo().setStartRow(startRow);
 		searchRd.getPageInfo().setEndRow(endRow);
 		
-		
 		return searchRd;
 	}
 	
