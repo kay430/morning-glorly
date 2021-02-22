@@ -20,11 +20,11 @@
   <!--external css-->
   <link href="/mg/resources/admin/font-awesome/css/font-awesome.css" rel="stylesheet" />
   <!-- 내가 만든 CSS다 -->
-  <link href="/mg/resources/admin/jihunh.css" rel="stylesheet" />
+<!--   <link href="/mg/resources/admin/jihunh.css" rel="stylesheet" /> -->
   <!-- Custom styles for this template -->
   <link href="/mg/resources/css/style.css" rel="stylesheet">
   <link href="/mg/resources/css/style-responsive.css" rel="stylesheet">
-    <script src="/mg/resources/js/event.js"></script>
+    <script src="/mg/resources/js/adminjihun.js"></script>
 
   <!-- =======================================================
     Template Name: Dashio
@@ -53,12 +53,12 @@
               </a>
           </li>
           <li class="sub-menu">
-            <a href="javascript:;">
+            <a class="active" href="javascript:;">
               <i class="fa fa-desktop"></i>
               <span>회원관리</span>
               </a>
-             <ul class="sub">
-              <li><a id="adminMemberList">회원조회</a></li>
+            <ul class="sub">
+             <li class="active"><a id="adminMemberList">회원조회</a></li>
               <li><a href="buttons.html">블랙리스트</a></li>
               <li><a href="panels.html">적립금 조회 </a></li>
             </ul>
@@ -87,12 +87,12 @@
             </ul>
           </li>
           <li class="sub-menu">
-            <a class="active" href="javascript:;">
+            <a href="javascript:;">
               <i class="fa fa-tasks"></i>
               <span>고객센터</span>
               </a>
             <ul class="sub">
-              <li class="active"><a id="adminNotice">공지사항</a></li>
+              <li><a id="adminNotice">공지사항</a></li>
               <li><a id="answer">Q&A</a></li>
               <li><a id="review">상품후기</a></li>
               <li><a id="generalQna">자주 묻는 질문</a></li>
@@ -169,8 +169,9 @@
                     </div>
                   </div>
                   <div class="btn-group">
-                    <a data-original-title="Refresh" data-placement="top" data-toggle="dropdown" href="#" class="btn mini tooltips">
-                      <i class=" fa fa-refresh"></i>
+                    <a  id="adminMemberListButton" data-original-title="관리자회원을 조회할수 있습니다" data-placement="top" data-toggle="" class="btn mini tooltips">
+                      <!-- <i class=" fa fa-refresh"></i> -->
+                     	 회원 조회
                       </a>
                   </div>
                   <div class="btn-group hidden-phone">
@@ -185,7 +186,7 @@
                       <li><a href="#"><i class="fa fa-trash-o"></i> Delete</a></li>
                     </ul>
                   </div>
-                  <div class="btn-group">
+<!--                   <div class="btn-group">
                     <a data-toggle="dropdown" href="#" class="btn mini blue">
                       Move to
                       <i class="fa fa-angle-down "></i>
@@ -196,7 +197,7 @@
                       <li class="divider"></li>
                       <li><a href="#"><i class="fa fa-trash-o"></i> Delete</a></li>
                     </ul>
-                  </div>
+                  </div> -->
                  <!--  <ul class="unstyled inbox-pagination">
                     <li><span>1-50 of 99</span></li>
                     <li>
@@ -208,7 +209,7 @@
                   </ul> -->
                 </div>
                 <div class="table-inbox-wrap ">
-                  <table id="noticeTable" class="table table-inbox table-hover">
+                  <table id="memberManagement" class="table table-inbox table-hover">
                     <tbody>
                     <!-- 추후에 활용해볼 css -->
                       <!-- <tr class="unread">
@@ -251,34 +252,34 @@
                         <td class="view-message inbox-small-cells"></td>
                         <td class="view-message text-right">March 13</td>
                       </tr> -->
-<!--                       <style>
-                      #noticeTable th {
-                      text-align: center;
+                     <style>
+                      /* #memberManagement th:nth-child(2) {
+                      background-color: red;
                       }
-                      #noticeTable td {
+                      #memberManagement td {
                       text-align: center;
-                      }
-                      </style> -->
+                      } */
+                      </style>
                       <tr>
 					<th><input type="checkbox" class=""></th>
-					<th>글번호</th>
-					<th>글제목</th>
-					<th>작성자</th>
-					<th>조회수</th>
-					<th>자주묻는질문</th>
-					<th>질문 유형</th>
-					<th>작성일</th>
+					<th>번호</th>
+					<th>이름</th>
+					<th>아이디</th>
+					<th>생년월일</th>
+					<th>이메일</th>
+					<th>가입일</th>
+					<th>상태</th>
 				</tr>
-				<c:forEach var="notice" items="${ requestScope.noticeList }">
+				<c:forEach var="mgAdView" items="${ requestScope.mgAdList }">
 				<tr>
 					<td><input type="checkbox" class=""></td>
-					<td><c:out value="${ notice.no }"/></td>
-					<td><c:out value="${ notice.title }"/></td>
-					<td><c:out value="${ notice.writer.name }"/></td>
-					<td><c:out value="${ notice.count }"/></td>
-					<td><c:out value="${ notice.general }"/></td>
-					<td><c:out value="${ notice.generalType }"/></td>
-					<td><c:out value="${ notice.createdDate }"/></td>
+					<td><c:out value="${ mgAdView.no }"/></td>
+					<td><c:out value="${ mgAdView.name }"/></td>
+					<td><c:out value="${ mgAdView.id }"/></td>
+					<td><c:out value="${ mgAdView.pno }"/></td>
+					<td><c:out value="${ mgAdView.email }"/></td>
+					<td><c:out value="${ mgAdView.enrollDate }"/></td>
+					<td><c:out value="${ mgAdView.status }"/></td>
 				</tr>
 				</c:forEach>
                     </tbody>
@@ -286,14 +287,15 @@
                 </div>
                 </div>
                 <hr>
-             <form id="searchForm" action="${ pageContext.servletContext.contextPath}/admin/notice/search" method="get">
+        <form id="searchForm" action="${ pageContext.servletContext.contextPath}/admin/member/manageAd/search" method="get">
                 <div class="search-area" align="center">
 			<select id="searchCondition" name="searchCondition">
-				<option value="writer" <c:if test="${ requestScope.searchCondition eq 'writer' }">selected</c:if>>작성자</option>
-				<option value="title" <c:if test="${ requestScope.searchCondition eq 'title' }">selected</c:if>>제목</option>
-				<option value="body" <c:if test="${ requestScope.searchCondition eq 'body' }">selected</c:if>>내용</option>
-				<option value="general" <c:if test="${ requestScope.searchCondition eq 'general' }">selected</c:if>>자주묻는질문</option>
-				<option value="generalType" <c:if test="${ requestScope.searchCondition eq 'generalType' }">selected</c:if>>질문유형</option>
+				<option value="mgAdName" <c:if test="${ requestScope.searchCondition eq 'mgAdName' }">selected</c:if>>이름</option>
+				<option value="mgAdId" <c:if test="${ requestScope.searchCondition eq 'mgAdId' }">selected</c:if>>아이디</option>
+				<option value="mgAdPno" <c:if test="${ requestScope.searchCondition eq 'mgAdPno' }">selected</c:if>>생년월일</option>
+				<option value="mgAdEmail" <c:if test="${ requestScope.searchCondition eq 'mgAdEmail' }">selected</c:if>>이메일</option>
+				<option value="mgAdEnrollDate" <c:if test="${ requestScope.searchCondition eq 'mgAdEnrollDate' }">selected</c:if>>입사일</option>
+				<option value="mgAdStatus" <c:if test="${ requestScope.searchCondition eq 'mgAdStatus' }">selected</c:if>>상태</option>
 			</select>
 			<input type="search" name="searchValue" value="${ requestScope.searchValue }">
 			<button type="submit">검색하기</button>
@@ -388,14 +390,14 @@
 				
 				$tds[i].onclick = function() {
 					const no = this.parentNode.children[1].innerText;
-					location.href = "${ pageContext.servletContext.contextPath }/admin/notice/detail?no=" + no;
+					location.href = "${ pageContext.servletContext.contextPath }/admin/member/manageAd/detail?no=" + no;
 				}
 			}
 		}
 	</script>
 	<script>
-      const link = "${ pageContext.servletContext.contextPath }/admin/notice";
-      const searchLink = "${ pageContext.servletContext.contextPath }/admin/notice/search"
+      const link = "${ pageContext.servletContext.contextPath }/admin/member/manageAd";
+      const searchLink = "${ pageContext.servletContext.contextPath }/admin/member/manageAd/search"
       
       if(document.getElementById("startPage")) {
          const $startPage = document.getElementById("startPage");

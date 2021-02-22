@@ -61,6 +61,30 @@ window.onload = function() {
 
 	}
 	
+	if(document.getElementById("adminMemberList")) {
+		const $adminMemberList = document.getElementById("adminMemberList");
+		$adminMemberList.onclick = function() {
+			location.href = "/mg/admin/member/manage";
+		}
+		
+	}
+	
+	if(document.getElementById("adminMemberListButton")) {
+		const $adminMemberList = document.getElementById("adminMemberListButton");
+		$adminMemberList.onclick = function() {
+			location.href = "/mg/admin/member/manage";
+		}
+		
+	}
+	
+	if(document.getElementById("adminMemberAdList")) {
+		const $adminMemberAdList = document.getElementById("adminMemberAdList");
+		$adminMemberAdList.onclick = function() {
+			location.href = "/mg/admin/member/manageAd";
+		}
+	}
+	
+	
 	if(document.getElementById("adminNotice")) {
 		const $logout = document.getElementById("adminNotice");
 		$logout.onclick = function() {
@@ -196,7 +220,6 @@ window.onload = function() {
 		
 	}
 	
-	
-	
+
 
 }

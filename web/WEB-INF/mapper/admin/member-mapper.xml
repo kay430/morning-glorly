@@ -1,0 +1,753 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="totalMemberList">
+		SELECT 
+		       COUNT(*)
+		  FROM MG_MEMBER
+	</entry>
+	<entry key="mainMemberList">
+        SELECT 
+               A.RNUM
+		     , A.MEMBER_NO
+		     , A.MEMBER_NAME
+		     , A.MEMBER_ID
+		     , A.MEMBER_PNO
+             , A.MEMBER_GENDER
+		     , A.EMAIL
+             , A.ADDRESS
+             , A.PHONE
+             , A.SUB_PHONE
+             , A.MEMBER_POINT
+		     , A.ENROLL_DATE
+             , A.MODIFIED_DATE
+             , A.CHECK_BLACKLIST
+		     , A.MEMBER_STATUS
+	    FROM (SELECT ROWNUM RNUM
+		           , B.MEMBER_NO
+		           , B.MEMBER_NAME
+      		       , B.MEMBER_ID
+		           , B.MEMBER_PNO
+                   , B.MEMBER_GENDER
+		           , B.EMAIL
+                   , B.ADDRESS
+                   , B.PHONE
+                   , B.SUB_PHONE
+                   , B.MEMBER_POINT
+		           , B.ENROLL_DATE
+                   , B.MODIFIED_DATE
+                   , B.CHECK_BLACKLIST
+		           , B.MEMBER_STATUS
+	          FROM (SELECT 
+                           A.MEMBER_NO
+                         , A.MEMBER_NAME
+                         , A.MEMBER_ID
+                         , A.MEMBER_PNO
+                         , A.MEMBER_GENDER
+                         , A.EMAIL
+                         , A.ADDRESS
+                         , A.PHONE
+                         , A.SUB_PHONE
+                         , A.MEMBER_POINT
+                         , A.ENROLL_DATE
+                         , A.MODIFIED_DATE
+                         , A.CHECK_BLACKLIST
+                         , A.MEMBER_STATUS
+                    FROM MG_MEMBER A
+                   ORDER BY A.MEMBER_NO
+                   ) B
+             ) A           
+       WHERE RNUM BETWEEN ? AND ? 
+	</entry>
+	<entry key="totalMemberAdList">
+		SELECT 
+		       COUNT(*)
+		  FROM MG_ADMIN
+	</entry>
+	<entry key="mainMemberAdList">
+        SELECT 
+               A.RNUM
+		     , A.ADMIN_NO
+		     , A.ADMIN_NAME
+		     , A.ADMIN_ID
+		     , A.ADMIN_PNO
+             , A.EMAIL
+		     , A.ENROLL_DATE
+             , A.ADMIN_STATUS
+	    FROM (SELECT ROWNUM RNUM
+		           , B.ADMIN_NO
+		           , B.ADMIN_NAME
+      		       , B.ADMIN_ID
+		           , B.ADMIN_PNO
+                   , B.EMAIL
+		           , B.ENROLL_DATE
+		           , B.ADMIN_STATUS
+	          FROM (SELECT 
+                           A.ADMIN_NO
+                         , A.ADMIN_NAME
+                         , A.ADMIN_ID
+                         , A.ADMIN_PNO
+                         , A.EMAIL
+                         , A.ENROLL_DATE
+                         , A.ADMIN_STATUS
+                    FROM MG_ADMIN A
+                   ORDER BY A.ADMIN_NO
+                   ) B
+             ) A           
+       WHERE RNUM BETWEEN ? AND ? 
+	</entry>
+	<entry key="searchMgNameCount">
+        SELECT
+               COUNT(*)
+          FROM MG_MEMBER A
+         WHERE A.MEMBER_NAME LIKE '%' || ? || '%' 
+	</entry>
+	<entry key="searchMgIdCount">
+        SELECT
+               COUNT(*)
+          FROM MG_MEMBER A
+         WHERE A.MEMBER_ID LIKE '%' || ? || '%'
+	</entry>
+	<entry key="searchMgPnoCount">
+        SELECT
+               COUNT(*)
+          FROM MG_MEMBER A
+         WHERE A.MEMBER_PNO LIKE '%' || ? || '%'
+	</entry>
+	<entry key="searchMgGenderCount">
+        SELECT
+               COUNT(*)
+          FROM MG_MEMBER A
+         WHERE A.MEMBER_GENDER LIKE '%' || ? || '%'
+	</entry>
+	<entry key="searchMgAddCount">
+        SELECT
+               COUNT(*)
+          FROM MG_MEMBER A
+         WHERE A.ADDRESS LIKE '%' || ? || '%'
+	</entry>
+	<entry key="searchMgBlackCount">
+        SELECT
+               COUNT(*)
+          FROM MG_MEMBER A
+         WHERE A.CHECK_BLACKLIST LIKE '%' || ? || '%'
+	</entry>
+	<entry key="searchMgStatusCount">
+        SELECT
+               COUNT(*)
+          FROM MG_MEMBER A
+         WHERE A.MEMBER_STATUS LIKE '%' || ? || '%'
+	</entry>
+	<entry key="searchMgNameList">
+        SELECT 
+               A.RNUM
+		     , A.MEMBER_NO
+		     , A.MEMBER_NAME
+		     , A.MEMBER_ID
+		     , A.MEMBER_PNO
+             , A.MEMBER_GENDER
+		     , A.EMAIL
+             , A.ADDRESS
+             , A.PHONE
+             , A.SUB_PHONE
+             , A.MEMBER_POINT
+		     , A.ENROLL_DATE
+             , A.MODIFIED_DATE
+             , A.CHECK_BLACKLIST
+		     , A.MEMBER_STATUS
+	    FROM (SELECT ROWNUM RNUM
+		           , B.MEMBER_NO
+		           , B.MEMBER_NAME
+      		       , B.MEMBER_ID
+		           , B.MEMBER_PNO
+                   , B.MEMBER_GENDER
+		           , B.EMAIL
+                   , B.ADDRESS
+                   , B.PHONE
+                   , B.SUB_PHONE
+                   , B.MEMBER_POINT
+		           , B.ENROLL_DATE
+                   , B.MODIFIED_DATE
+                   , B.CHECK_BLACKLIST
+		           , B.MEMBER_STATUS
+	          FROM (SELECT 
+                           A.MEMBER_NO
+                         , A.MEMBER_NAME
+                         , A.MEMBER_ID
+                         , A.MEMBER_PNO
+                         , A.MEMBER_GENDER
+                         , A.EMAIL
+                         , A.ADDRESS
+                         , A.PHONE
+                         , A.SUB_PHONE
+                         , A.MEMBER_POINT
+                         , A.ENROLL_DATE
+                         , A.MODIFIED_DATE
+                         , A.CHECK_BLACKLIST
+                         , A.MEMBER_STATUS
+                    FROM MG_MEMBER A
+                   WHERE A.MEMBER_NAME LIKE '%' || ? || '%'  
+                   ORDER BY A.MEMBER_NO
+                   ) B
+             ) A           
+       WHERE RNUM BETWEEN ? AND ?
+	</entry>
+	<entry key="searchMgIdList">
+        SELECT 
+               A.RNUM
+		     , A.MEMBER_NO
+		     , A.MEMBER_NAME
+		     , A.MEMBER_ID
+		     , A.MEMBER_PNO
+             , A.MEMBER_GENDER
+		     , A.EMAIL
+             , A.ADDRESS
+             , A.PHONE
+             , A.SUB_PHONE
+             , A.MEMBER_POINT
+		     , A.ENROLL_DATE
+             , A.MODIFIED_DATE
+             , A.CHECK_BLACKLIST
+		     , A.MEMBER_STATUS
+	    FROM (SELECT ROWNUM RNUM
+		           , B.MEMBER_NO
+		           , B.MEMBER_NAME
+      		       , B.MEMBER_ID
+		           , B.MEMBER_PNO
+                   , B.MEMBER_GENDER
+		           , B.EMAIL
+                   , B.ADDRESS
+                   , B.PHONE
+                   , B.SUB_PHONE
+                   , B.MEMBER_POINT
+		           , B.ENROLL_DATE
+                   , B.MODIFIED_DATE
+                   , B.CHECK_BLACKLIST
+		           , B.MEMBER_STATUS
+	          FROM (SELECT 
+                           A.MEMBER_NO
+                         , A.MEMBER_NAME
+                         , A.MEMBER_ID
+                         , A.MEMBER_PNO
+                         , A.MEMBER_GENDER
+                         , A.EMAIL
+                         , A.ADDRESS
+                         , A.PHONE
+                         , A.SUB_PHONE
+                         , A.MEMBER_POINT
+                         , A.ENROLL_DATE
+                         , A.MODIFIED_DATE
+                         , A.CHECK_BLACKLIST
+                         , A.MEMBER_STATUS
+                    FROM MG_MEMBER A
+                   WHERE A.MEMBER_ID LIKE '%' || ? || '%'  
+                   ORDER BY A.MEMBER_NO
+                   ) B
+             ) A           
+       WHERE RNUM BETWEEN ? AND ?
+	</entry>
+	<entry key="searchMgPnoList">
+        SELECT 
+               A.RNUM
+		     , A.MEMBER_NO
+		     , A.MEMBER_NAME
+		     , A.MEMBER_ID
+		     , A.MEMBER_PNO
+             , A.MEMBER_GENDER
+		     , A.EMAIL
+             , A.ADDRESS
+             , A.PHONE
+             , A.SUB_PHONE
+             , A.MEMBER_POINT
+		     , A.ENROLL_DATE
+             , A.MODIFIED_DATE
+             , A.CHECK_BLACKLIST
+		     , A.MEMBER_STATUS
+	    FROM (SELECT ROWNUM RNUM
+		           , B.MEMBER_NO
+		           , B.MEMBER_NAME
+      		       , B.MEMBER_ID
+		           , B.MEMBER_PNO
+                   , B.MEMBER_GENDER
+		           , B.EMAIL
+                   , B.ADDRESS
+                   , B.PHONE
+                   , B.SUB_PHONE
+                   , B.MEMBER_POINT
+		           , B.ENROLL_DATE
+                   , B.MODIFIED_DATE
+                   , B.CHECK_BLACKLIST
+		           , B.MEMBER_STATUS
+	          FROM (SELECT 
+                           A.MEMBER_NO
+                         , A.MEMBER_NAME
+                         , A.MEMBER_ID
+                         , A.MEMBER_PNO
+                         , A.MEMBER_GENDER
+                         , A.EMAIL
+                         , A.ADDRESS
+                         , A.PHONE
+                         , A.SUB_PHONE
+                         , A.MEMBER_POINT
+                         , A.ENROLL_DATE
+                         , A.MODIFIED_DATE
+                         , A.CHECK_BLACKLIST
+                         , A.MEMBER_STATUS
+                    FROM MG_MEMBER A
+                   WHERE A.MEMBER_PNO LIKE '%' || ? || '%'  
+                   ORDER BY A.MEMBER_NO
+                   ) B
+             ) A           
+       WHERE RNUM BETWEEN ? AND ?
+	</entry>
+	<entry key="searchMgGenderList">
+        SELECT 
+               A.RNUM
+		     , A.MEMBER_NO
+		     , A.MEMBER_NAME
+		     , A.MEMBER_ID
+		     , A.MEMBER_PNO
+             , A.MEMBER_GENDER
+		     , A.EMAIL
+             , A.ADDRESS
+             , A.PHONE
+             , A.SUB_PHONE
+             , A.MEMBER_POINT
+		     , A.ENROLL_DATE
+             , A.MODIFIED_DATE
+             , A.CHECK_BLACKLIST
+		     , A.MEMBER_STATUS
+	    FROM (SELECT ROWNUM RNUM
+		           , B.MEMBER_NO
+		           , B.MEMBER_NAME
+      		       , B.MEMBER_ID
+		           , B.MEMBER_PNO
+                   , B.MEMBER_GENDER
+		           , B.EMAIL
+                   , B.ADDRESS
+                   , B.PHONE
+                   , B.SUB_PHONE
+                   , B.MEMBER_POINT
+		           , B.ENROLL_DATE
+                   , B.MODIFIED_DATE
+                   , B.CHECK_BLACKLIST
+		           , B.MEMBER_STATUS
+	          FROM (SELECT 
+                           A.MEMBER_NO
+                         , A.MEMBER_NAME
+                         , A.MEMBER_ID
+                         , A.MEMBER_PNO
+                         , A.MEMBER_GENDER
+                         , A.EMAIL
+                         , A.ADDRESS
+                         , A.PHONE
+                         , A.SUB_PHONE
+                         , A.MEMBER_POINT
+                         , A.ENROLL_DATE
+                         , A.MODIFIED_DATE
+                         , A.CHECK_BLACKLIST
+                         , A.MEMBER_STATUS
+                    FROM MG_MEMBER A
+                   WHERE A.MEMBER_GENDER LIKE '%' || ? || '%'  
+                   ORDER BY A.MEMBER_NO
+                   ) B
+             ) A           
+       WHERE RNUM BETWEEN ? AND ?
+	</entry>
+	<entry key="searchMgAddList">
+        SELECT 
+               A.RNUM
+		     , A.MEMBER_NO
+		     , A.MEMBER_NAME
+		     , A.MEMBER_ID
+		     , A.MEMBER_PNO
+             , A.MEMBER_GENDER
+		     , A.EMAIL
+             , A.ADDRESS
+             , A.PHONE
+             , A.SUB_PHONE
+             , A.MEMBER_POINT
+		     , A.ENROLL_DATE
+             , A.MODIFIED_DATE
+             , A.CHECK_BLACKLIST
+		     , A.MEMBER_STATUS
+	    FROM (SELECT ROWNUM RNUM
+		           , B.MEMBER_NO
+		           , B.MEMBER_NAME
+      		       , B.MEMBER_ID
+		           , B.MEMBER_PNO
+                   , B.MEMBER_GENDER
+		           , B.EMAIL
+                   , B.ADDRESS
+                   , B.PHONE
+                   , B.SUB_PHONE
+                   , B.MEMBER_POINT
+		           , B.ENROLL_DATE
+                   , B.MODIFIED_DATE
+                   , B.CHECK_BLACKLIST
+		           , B.MEMBER_STATUS
+	          FROM (SELECT 
+                           A.MEMBER_NO
+                         , A.MEMBER_NAME
+                         , A.MEMBER_ID
+                         , A.MEMBER_PNO
+                         , A.MEMBER_GENDER
+                         , A.EMAIL
+                         , A.ADDRESS
+                         , A.PHONE
+                         , A.SUB_PHONE
+                         , A.MEMBER_POINT
+                         , A.ENROLL_DATE
+                         , A.MODIFIED_DATE
+                         , A.CHECK_BLACKLIST
+                         , A.MEMBER_STATUS
+                    FROM MG_MEMBER A
+                   WHERE A.ADDRESS LIKE '%' || ? || '%'  
+                   ORDER BY A.MEMBER_NO
+                   ) B
+             ) A           
+       WHERE RNUM BETWEEN ? AND ?
+	</entry>
+	<entry key="searchMgBlackList">
+        SELECT 
+               A.RNUM
+		     , A.MEMBER_NO
+		     , A.MEMBER_NAME
+		     , A.MEMBER_ID
+		     , A.MEMBER_PNO
+             , A.MEMBER_GENDER
+		     , A.EMAIL
+             , A.ADDRESS
+             , A.PHONE
+             , A.SUB_PHONE
+             , A.MEMBER_POINT
+		     , A.ENROLL_DATE
+             , A.MODIFIED_DATE
+             , A.CHECK_BLACKLIST
+		     , A.MEMBER_STATUS
+	    FROM (SELECT ROWNUM RNUM
+		           , B.MEMBER_NO
+		           , B.MEMBER_NAME
+      		       , B.MEMBER_ID
+		           , B.MEMBER_PNO
+                   , B.MEMBER_GENDER
+		           , B.EMAIL
+                   , B.ADDRESS
+                   , B.PHONE
+                   , B.SUB_PHONE
+                   , B.MEMBER_POINT
+		           , B.ENROLL_DATE
+                   , B.MODIFIED_DATE
+                   , B.CHECK_BLACKLIST
+		           , B.MEMBER_STATUS
+	          FROM (SELECT 
+                           A.MEMBER_NO
+                         , A.MEMBER_NAME
+                         , A.MEMBER_ID
+                         , A.MEMBER_PNO
+                         , A.MEMBER_GENDER
+                         , A.EMAIL
+                         , A.ADDRESS
+                         , A.PHONE
+                         , A.SUB_PHONE
+                         , A.MEMBER_POINT
+                         , A.ENROLL_DATE
+                         , A.MODIFIED_DATE
+                         , A.CHECK_BLACKLIST
+                         , A.MEMBER_STATUS
+                    FROM MG_MEMBER A
+                   WHERE A.CHECK_BLACKLIST LIKE '%' || ? || '%'  
+                   ORDER BY A.MEMBER_NO
+                   ) B
+             ) A           
+       WHERE RNUM BETWEEN ? AND ?
+	</entry>
+	<entry key="searchMgStatusList">
+        SELECT 
+               A.RNUM
+		     , A.MEMBER_NO
+		     , A.MEMBER_NAME
+		     , A.MEMBER_ID
+		     , A.MEMBER_PNO
+             , A.MEMBER_GENDER
+		     , A.EMAIL
+             , A.ADDRESS
+             , A.PHONE
+             , A.SUB_PHONE
+             , A.MEMBER_POINT
+		     , A.ENROLL_DATE
+             , A.MODIFIED_DATE
+             , A.CHECK_BLACKLIST
+		     , A.MEMBER_STATUS
+	    FROM (SELECT ROWNUM RNUM
+		           , B.MEMBER_NO
+		           , B.MEMBER_NAME
+      		       , B.MEMBER_ID
+		           , B.MEMBER_PNO
+                   , B.MEMBER_GENDER
+		           , B.EMAIL
+                   , B.ADDRESS
+                   , B.PHONE
+                   , B.SUB_PHONE
+                   , B.MEMBER_POINT
+		           , B.ENROLL_DATE
+                   , B.MODIFIED_DATE
+                   , B.CHECK_BLACKLIST
+		           , B.MEMBER_STATUS
+	          FROM (SELECT 
+                           A.MEMBER_NO
+                         , A.MEMBER_NAME
+                         , A.MEMBER_ID
+                         , A.MEMBER_PNO
+                         , A.MEMBER_GENDER
+                         , A.EMAIL
+                         , A.ADDRESS
+                         , A.PHONE
+                         , A.SUB_PHONE
+                         , A.MEMBER_POINT
+                         , A.ENROLL_DATE
+                         , A.MODIFIED_DATE
+                         , A.CHECK_BLACKLIST
+                         , A.MEMBER_STATUS
+                    FROM MG_MEMBER A
+                   WHERE A.MEMBER_STATUS LIKE '%' || ? || '%'  
+                   ORDER BY A.MEMBER_NO
+                   ) B
+             ) A           
+       WHERE RNUM BETWEEN ? AND ?
+	</entry>
+	<entry key="searchMgAdNameCount">
+        SELECT
+               COUNT(*)
+          FROM MG_ADMIN A
+         WHERE A.ADMIN_NAME LIKE '%' || ? || '%'
+	</entry>
+	<entry key="searchMgAdIdCount">
+        SELECT
+               COUNT(*)
+          FROM MG_ADMIN A
+         WHERE A.ADMIN_ID LIKE '%' || ? || '%'
+	</entry>
+	<entry key="searchMgAdPnoCount">
+        SELECT
+               COUNT(*)
+          FROM MG_ADMIN A
+         WHERE A.ADMIN_PNO LIKE '%' || ? || '%'
+	</entry>
+	<entry key="searchMgAdEmailCount">
+        SELECT
+               COUNT(*)
+          FROM MG_ADMIN A
+         WHERE A.EMAIL LIKE '%' || ? || '%'
+	</entry>
+	<entry key="searchMgAdEnrollDateCount">
+        SELECT
+               COUNT(*)
+          FROM MG_ADMIN A
+         WHERE A.ENROLL_DATE LIKE '%' || ? || '%'
+	</entry>
+	<entry key="searchMgAdStatusCount">
+        SELECT
+               COUNT(*)
+          FROM MG_ADMIN A
+         WHERE A.ADMIN_STATUS LIKE '%' || ? || '%'
+	</entry>
+	<entry key="searchMgAdNameList">
+        SELECT 
+               A.RNUM
+		     , A.ADMIN_NO
+		     , A.ADMIN_NAME
+		     , A.ADMIN_ID
+		     , A.ADMIN_PNO
+             , A.EMAIL
+		     , A.ENROLL_DATE
+             , A.ADMIN_STATUS
+	    FROM (SELECT ROWNUM RNUM
+		           , B.ADMIN_NO
+		           , B.ADMIN_NAME
+      		       , B.ADMIN_ID
+		           , B.ADMIN_PNO
+                   , B.EMAIL
+		           , B.ENROLL_DATE
+		           , B.ADMIN_STATUS
+	          FROM (SELECT 
+                           A.ADMIN_NO
+                         , A.ADMIN_NAME
+                         , A.ADMIN_ID
+                         , A.ADMIN_PNO
+                         , A.EMAIL
+                         , A.ENROLL_DATE
+                         , A.ADMIN_STATUS
+                    FROM MG_ADMIN A
+                   WHERE A.ADMIN_NAME LIKE '%' || ? || '%' 
+                   ORDER BY A.ADMIN_NO
+                   ) B
+             ) A           
+       WHERE RNUM BETWEEN ? AND ? 
+	</entry>
+	<entry key="searchMgAdIdList">
+        SELECT 
+               A.RNUM
+		     , A.ADMIN_NO
+		     , A.ADMIN_NAME
+		     , A.ADMIN_ID
+		     , A.ADMIN_PNO
+             , A.EMAIL
+		     , A.ENROLL_DATE
+             , A.ADMIN_STATUS
+	    FROM (SELECT ROWNUM RNUM
+		           , B.ADMIN_NO
+		           , B.ADMIN_NAME
+      		       , B.ADMIN_ID
+		           , B.ADMIN_PNO
+                   , B.EMAIL
+		           , B.ENROLL_DATE
+		           , B.ADMIN_STATUS
+	          FROM (SELECT 
+                           A.ADMIN_NO
+                         , A.ADMIN_NAME
+                         , A.ADMIN_ID
+                         , A.ADMIN_PNO
+                         , A.EMAIL
+                         , A.ENROLL_DATE
+                         , A.ADMIN_STATUS
+                    FROM MG_ADMIN A
+                   WHERE A.ADMIN_ID LIKE '%' || ? || '%' 
+                   ORDER BY A.ADMIN_NO
+                   ) B
+             ) A           
+       WHERE RNUM BETWEEN ? AND ? 
+	</entry>
+	<entry key="searchMgAdPnoList">
+        SELECT 
+               A.RNUM
+		     , A.ADMIN_NO
+		     , A.ADMIN_NAME
+		     , A.ADMIN_ID
+		     , A.ADMIN_PNO
+             , A.EMAIL
+		     , A.ENROLL_DATE
+             , A.ADMIN_STATUS
+	    FROM (SELECT ROWNUM RNUM
+		           , B.ADMIN_NO
+		           , B.ADMIN_NAME
+      		       , B.ADMIN_ID
+		           , B.ADMIN_PNO
+                   , B.EMAIL
+		           , B.ENROLL_DATE
+		           , B.ADMIN_STATUS
+	          FROM (SELECT 
+                           A.ADMIN_NO
+                         , A.ADMIN_NAME
+                         , A.ADMIN_ID
+                         , A.ADMIN_PNO
+                         , A.EMAIL
+                         , A.ENROLL_DATE
+                         , A.ADMIN_STATUS
+                    FROM MG_ADMIN A
+                   WHERE A.ADMIN_PNO LIKE '%' || ? || '%' 
+                   ORDER BY A.ADMIN_NO
+                   ) B
+             ) A           
+       WHERE RNUM BETWEEN ? AND ? 
+	</entry>
+	<entry key="searchMgAdEmailList">
+        SELECT 
+               A.RNUM
+		     , A.ADMIN_NO
+		     , A.ADMIN_NAME
+		     , A.ADMIN_ID
+		     , A.ADMIN_PNO
+             , A.EMAIL
+		     , A.ENROLL_DATE
+             , A.ADMIN_STATUS
+	    FROM (SELECT ROWNUM RNUM
+		           , B.ADMIN_NO
+		           , B.ADMIN_NAME
+      		       , B.ADMIN_ID
+		           , B.ADMIN_PNO
+                   , B.EMAIL
+		           , B.ENROLL_DATE
+		           , B.ADMIN_STATUS
+	          FROM (SELECT 
+                           A.ADMIN_NO
+                         , A.ADMIN_NAME
+                         , A.ADMIN_ID
+                         , A.ADMIN_PNO
+                         , A.EMAIL
+                         , A.ENROLL_DATE
+                         , A.ADMIN_STATUS
+                    FROM MG_ADMIN A
+                   WHERE A.EMAIL LIKE '%' || ? || '%' 
+                   ORDER BY A.ADMIN_NO
+                   ) B
+             ) A           
+       WHERE RNUM BETWEEN ? AND ? 
+	</entry>
+	<entry key="searchMgAdEnrollDateList">
+        SELECT 
+               A.RNUM
+		     , A.ADMIN_NO
+		     , A.ADMIN_NAME
+		     , A.ADMIN_ID
+		     , A.ADMIN_PNO
+             , A.EMAIL
+		     , A.ENROLL_DATE
+             , A.ADMIN_STATUS
+	    FROM (SELECT ROWNUM RNUM
+		           , B.ADMIN_NO
+		           , B.ADMIN_NAME
+      		       , B.ADMIN_ID
+		           , B.ADMIN_PNO
+                   , B.EMAIL
+		           , B.ENROLL_DATE
+		           , B.ADMIN_STATUS
+	          FROM (SELECT 
+                           A.ADMIN_NO
+                         , A.ADMIN_NAME
+                         , A.ADMIN_ID
+                         , A.ADMIN_PNO
+                         , A.EMAIL
+                         , A.ENROLL_DATE
+                         , A.ADMIN_STATUS
+                    FROM MG_ADMIN A
+                   WHERE A.ENROLL_DATE LIKE '%' || ? || '%' 
+                   ORDER BY A.ADMIN_NO
+                   ) B
+             ) A           
+       WHERE RNUM BETWEEN ? AND ? 
+	</entry>
+	<entry key="searchMgAdStatusList">
+        SELECT 
+               A.RNUM
+		     , A.ADMIN_NO
+		     , A.ADMIN_NAME
+		     , A.ADMIN_ID
+		     , A.ADMIN_PNO
+             , A.EMAIL
+		     , A.ENROLL_DATE
+             , A.ADMIN_STATUS
+	    FROM (SELECT ROWNUM RNUM
+		           , B.ADMIN_NO
+		           , B.ADMIN_NAME
+      		       , B.ADMIN_ID
+		           , B.ADMIN_PNO
+                   , B.EMAIL
+		           , B.ENROLL_DATE
+		           , B.ADMIN_STATUS
+	          FROM (SELECT 
+                           A.ADMIN_NO
+                         , A.ADMIN_NAME
+                         , A.ADMIN_ID
+                         , A.ADMIN_PNO
+                         , A.EMAIL
+                         , A.ENROLL_DATE
+                         , A.ADMIN_STATUS
+                    FROM MG_ADMIN A
+                   WHERE A.ADMIN_STATUS LIKE '%' || ? || '%' 
+                   ORDER BY A.ADMIN_NO
+                   ) B
+             ) A           
+       WHERE RNUM BETWEEN ? AND ? 
+	</entry>
+</properties>

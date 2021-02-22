@@ -52,7 +52,7 @@
               <span>회원관리</span>
               </a>
             <ul class="sub">
-              <li><a href="general.html">회원조회</a></li>
+              <li><a id="adminMemberList">회원조회</a></li>
               <li><a href="buttons.html">블랙리스트</a></li>
               <li><a href="panels.html">적립금 조회 </a></li>
             </ul>
