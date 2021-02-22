@@ -92,4 +92,94 @@
         , ?
         ) 
 	</entry>
+	<entry key="searchTypeCount">
+        SELECT
+               COUNT(*)
+          FROM MG_ORDER_DELIVERY A
+         WHERE A.DELIVERY_TYPE LIKE '%' || ? || '%'
+	</entry>
+	<entry key="searchTransitNoCount">
+        SELECT
+               COUNT(*)
+          FROM MG_ORDER_DELIVERY A
+         WHERE A.TRANSIT_NO LIKE '%' || ? || '%' 
+	</entry>
+	<entry key="searchTransitListByType">
+       SELECT
+             A.RNUM
+           , A.DELIVERY_NO
+           , A.DELIVERY_TYPE
+           , A.TRANSIT_NO
+           , A.TRANSIT_DATE
+           , A.ORDER_NO
+           , A.ORDER_MEMBER_NO
+           , A.ORDER_DATE
+           , A.ORDER_TITLE
+           , A.AMOUNT_PRICE
+      FROM (SELECT ROWNUM RNUM
+                 , B.DELIVERY_NO
+                 , B.DELIVERY_TYPE
+                 , B.TRANSIT_NO
+                 , B.TRANSIT_DATE
+                 , B.ORDER_NO
+                 , B.ORDER_MEMBER_NO
+                 , B.ORDER_DATE
+                 , B.ORDER_TITLE
+                 , B.AMOUNT_PRICE
+            FROM (SELECT A.DELIVERY_NO
+                       , A.DELIVERY_TYPE
+                       , A.TRANSIT_NO
+                       , A.TRANSIT_DATE
+                       , B.ORDER_NO
+                       , B.ORDER_MEMBER_NO
+                       , B.ORDER_DATE
+                       , B.ORDER_TITLE
+                       , B.AMOUNT_PRICE
+                    FROM MG_ORDER_DELIVERY A
+                          JOIN MG_ORDER B ON (A.ORDER_NO = B.ORDER_NO)
+                         WHERE A.DELIVERY_TYPE LIKE '%' || ? || '%'
+                ORDER BY A.DELIVERY_NO DESC
+                 ) B
+            ) A
+            WHERE RNUM BETWEEN ? AND ?
+	</entry>
+	<entry key="searchTransitListByTransitNo">
+       SELECT
+             A.RNUM
+           , A.DELIVERY_NO
+           , A.DELIVERY_TYPE
+           , A.TRANSIT_NO
+           , A.TRANSIT_DATE
+           , A.ORDER_NO
+           , A.ORDER_MEMBER_NO
+           , A.ORDER_DATE
+           , A.ORDER_TITLE
+           , A.AMOUNT_PRICE
+      FROM (SELECT ROWNUM RNUM
+                 , B.DELIVERY_NO
+                 , B.DELIVERY_TYPE
+                 , B.TRANSIT_NO
+                 , B.TRANSIT_DATE
+                 , B.ORDER_NO
+                 , B.ORDER_MEMBER_NO
+                 , B.ORDER_DATE
+                 , B.ORDER_TITLE
+                 , B.AMOUNT_PRICE
+            FROM (SELECT A.DELIVERY_NO
+                       , A.DELIVERY_TYPE
+                       , A.TRANSIT_NO
+                       , A.TRANSIT_DATE
+                       , B.ORDER_NO
+                       , B.ORDER_MEMBER_NO
+                       , B.ORDER_DATE
+                       , B.ORDER_TITLE
+                       , B.AMOUNT_PRICE
+                    FROM MG_ORDER_DELIVERY A
+                          JOIN MG_ORDER B ON (A.ORDER_NO = B.ORDER_NO)
+                         WHERE A.TRANSIT_NO LIKE '%' || ? || '%'
+                ORDER BY A.DELIVERY_NO DESC
+                 ) B
+            ) A
+            WHERE RNUM BETWEEN ? AND ?
+	</entry>
 </properties>

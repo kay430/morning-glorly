@@ -11,6 +11,7 @@ import java.util.List;
 import com.jihunh.jsp.admin.model.dto.AttaNoticeDTO;
 import com.jihunh.jsp.admin.model.dto.NoticeDTO;
 import com.jihunh.jsp.admin.model.dto.NoticePageInfoDTO;
+import com.jihunh.jsp.admin.model.dto.SearchReadyDTO;
 import com.jihunh.jsp.eugeneYi.model.DAO.TransitDAO;
 import com.jihunh.jsp.eugeneYi.model.DTO.TransitDTO;
 
@@ -118,6 +119,28 @@ public class TransitService {
 		close(con);
 		
 		return result;
+	}
+	
+	public int searchTransitCount(SearchReadyDTO searchRd) {
+		
+		Connection con = getConnection();
+		
+		int totalNoticeCount = transitDAO.searchTransitCount(con, searchRd); 
+		
+		close(con);
+		
+		return totalNoticeCount;
+	}
+
+	public List<NoticeDTO> searchNoticeList(SearchReadyDTO searchRd) {
+		
+		Connection con = getConnection();
+		
+		List<NoticeDTO> searchNoticeList = transitDAO.searchTransitList(con, searchRd);
+		
+		close(con);
+		
+		return searchNoticeList;
 	}
 
 }
