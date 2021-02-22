@@ -10,10 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.jihunh.jsp.common.paging.Pagenation;
-import com.jihunh.jsp.customerservice.model.dto.PageInfoDTO;
-import com.jihunh.jsp.question.model.dto.QuestionDTO;
-import com.jihunh.jsp.question.model.dto.QuestionPageInfoDTO;
-import com.jihunh.jsp.question.model.service.QuestionService;
+
 import com.jihunh.jsp.review.dto.ReviewDTO;
 import com.jihunh.jsp.review.dto.ReviewPageInfoDTO;
 import com.jihunh.jsp.review.service.ReviewService;
@@ -23,12 +20,17 @@ import com.jihunh.jsp.review.service.ReviewService;
  */
 @WebServlet("/review/search")
 public class CustomerReviewSearchListservlet extends HttpServlet {
-
+//써치 용
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String currentPage = request.getParameter("currentPage");
+		String searchCondition = request.getParameter("searchCondition");
+		String searchValue = request.getParameter("searchValue");
 		
+		System.out.println("searchCondition : " + searchCondition);
+		System.out.println("searchValue : " + searchValue);
+
+		String currentPage = request.getParameter("currentPage");
 		int pageNo = 1;
 		
 		if(currentPage != null && !"".equals(currentPage)) {
@@ -42,7 +44,7 @@ public class CustomerReviewSearchListservlet extends HttpServlet {
 		
 		System.out.println("currentPage : " + currentPage);
 		System.out.println("pageNo : " + pageNo);
-		
+		//페이징 처리 위해 전체 게시물스 필요 
 		ReviewService reviewService = new ReviewService();
 		int totalCount = reviewService.selectTotalCount();
 		
@@ -58,7 +60,7 @@ public class CustomerReviewSearchListservlet extends HttpServlet {
 		List<ReviewDTO> reviewList = reviewService.selectAllReviewList(reviewPageInfo);
 		
 		for(ReviewDTO reviewBoard : reviewList) {
-			System.out.println(reviewBoard);
+			System.out.println(reviewBoard); 
 		}
 		String path = "";
 		if(reviewList != null) {

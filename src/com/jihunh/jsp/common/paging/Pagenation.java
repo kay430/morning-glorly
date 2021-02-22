@@ -148,11 +148,11 @@ public class Pagenation {
     		maxPage = (int) Math.ceil((double) totalCount / limit);
     		
     		startPage = (int) (Math.ceil((double) pageNo / buttonAmount) -1) * buttonAmount + 1;
-    		
+    		System.out.println("startPage = " + startPage);    		
     		endPage = startPage + buttonAmount -1;
-    		
     		if(maxPage < endPage) {
     			endPage = maxPage;
+    			System.out.println("endPage = " + endPage);
     		}
     		
     		if(maxPage == 0 && endPage == 0) {
@@ -162,6 +162,10 @@ public class Pagenation {
     		
     		startRow = (pageNo - 1) * limit + 1;
     		endRow = startRow + limit -1;
+    		
+    		
+    		
+    		
     		
     		return new ReviewPageInfoDTO(pageNo, totalCount, limit, buttonAmount, maxPage, startPage, endPage, startRow, endRow);
     	}

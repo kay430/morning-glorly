@@ -22,6 +22,7 @@ import com.jihunh.jsp.review.dto.CategoryDTO;
 import com.jihunh.jsp.review.dto.ReviewDTO;
 
 
+
 public class ReviewDAO {
 
 	private final Properties prop;
@@ -36,6 +37,31 @@ public class ReviewDAO {
 		}
 	}
 
+	public int selectTotalCount(Connection con) {
+		
+		Statement stmt = null;
+		ResultSet rset = null;
+		
+		int totalCount = 0;
+		
+		String query = prop.getProperty("selectTotalCount");
+		
+		try {
+			stmt = con.createStatement();
+			rset = stmt.executeQuery(query);
+			
+			if(rset.next()) {
+				totalCount = rset.getInt("COUNT(*)");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(stmt);
+		}
+		
+		return totalCount;
+	}
 
 	public List<ReviewDTO> selectAllReviewService(Connection con , ReviewPageInfoDTO ReviewPageInfo) {
 
@@ -109,31 +135,6 @@ public class ReviewDAO {
 		return result;
 	}
 
-	public int selectTotalCount(Connection con) {
-
-		Statement stmt = null;
-		ResultSet rset = null;
-
-		int totalCount = 0;
-
-		String query = prop.getProperty("selectTotalCount");
-
-		try {
-			stmt = con.createStatement();
-			rset = stmt.executeQuery(query);
-
-			if(rset.next()) {
-				totalCount = rset.getInt("COUNT(*)");
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close(rset);
-			close(stmt);
-		}
-
-		return totalCount;
-	}
 
 
 	public List<ReviewDTO> searchReviewList(Connection con, String
@@ -283,6 +284,69 @@ public class ReviewDAO {
 		}
 		
 		return totalCount;
+	}
+
+	public int incrementReviewCount(Connection con, int no) {
+		PreparedStatement pstmt = null;
+		
+		int result = 0;
+		
+		String query = prop.getProperty("incrementReviewCount");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, no);
+			pstmt.setInt(2, no);
+			
+			result = pstmt.executeUpdate();
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+	public ReviewDTO selectReviewDetail(Connection con, int no) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		ReviewDTO reviewDetail = null;
+		System.out.println("진입" + no);
+		String query = prop.getProperty("selectReviewDetail");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, no);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				reviewDetail = new ReviewDTO();
+				reviewDetail.setMgDTO(new MgDTO());
+				
+				reviewDetail.setNo(rset.getInt("REVIEW_NO"));
+				reviewDetail.setTitle(rset.getString("REVIEW_TITLE"));
+				reviewDetail.setBody(rset.getString("REVIEW_BODY"));
+				reviewDetail.getMgDTO().setName(rset.getString("MEMBER_NAME"));
+				reviewDetail.setWriterMemberNo(rset.getInt("REVIEW_WRITER_MEMBER_NO"));
+				reviewDetail.setCount(rset.getInt("REVIEW_COUNT"));	
+				reviewDetail.setCreateDate(rset.getDate("CREATED_DATE"));
+				reviewDetail.setModifiedDate(rset.getDate("MODIFIED_DATE"));
+				System.out.println(reviewDetail);
+				
+					}
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return reviewDetail;
 	}
 }
 
