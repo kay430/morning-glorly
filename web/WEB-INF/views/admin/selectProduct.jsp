@@ -147,7 +147,7 @@
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               
               <input type="button" value="상품등록하기" id="registMd">
-              <section id="unseen">
+             <!-- <section id="unseen"> -->
                 <table class="table table-bordered table-striped table-condensed">
                   <thead>
                     <tr>
@@ -178,7 +178,7 @@
 				</c:forEach>
                   </tbody>
                 </table>
-              </section>
+              <!-- </section> -->
             </div>
             <!-- /content-panel -->
           </div>
@@ -191,25 +191,8 @@
     </section>
     <!-- /MAIN CONTENT -->
     <!--main content end-->
-		<br>
-			<!-- 검색폼 -->
-    	<form id="searchForm" action="${ pageContext.servletContext.contextPath }/admin/product/search" method="get">
-    		<div class="search-area" align="center">
-    			<select id="searchCondtion" name="searchCondition">
-    				<option value="mdCode">상품코드</option>
-			        <option value="mdType">상품유형명</option>
-				    <option value="mdName">도시락상품명</option>
-			    </select>
-		        	<input type="search" id="searchValue" name="searchValue">
-			        <button type="submit">검색하기</button>
-		     <%-- 	<c:if test="">
-				<button id="">작성하기</button>
-			</c:if> --%>
-    		</div>
-    	
-    	</form> 
+	
 		
-		<br>
 		
 						 <!-- 페이징 버튼 -->
       <div class="pagingArea" align="center">
@@ -243,11 +226,52 @@
                
             </c:when>
             <c:otherwise>
+               <button id="searchStartPage"><<</button>
                
+               <c:if test="${ requestScope.pageInfo.pageNo <= 1 }">
+                  <button disabled><</button>
+               </c:if>
+               <c:if test="${ requestScope.pageInfo.pageNo > 1 }">
+                  <button id="searchPrevPage"><</button>
+               </c:if>
+              
+               <c:forEach var="p" begin="${ requestScope.pageInfo.startPage }" end="${ requestScope.pageInfo.endPage }" step="1">
+               		<c:if test="${ requestScope.pageInfo.pageNo eq p }">
+               			<button disabled><c:out value="${ p }"/></button>
+               		</c:if>
+               		
+               		<c:if test="${ requestScope.pageInfo.pageNo ne p }">
+               			<button onclick="searchPageButtonAction(this.innerText);"><c:out value="${ p }"/></button>
+               		</c:if>
+               </c:forEach>
+              
+               <c:if test="${ requestScope.pageInfo.pageNo >= requestScope.pageInfo.maxPage }">
+               		<button disabled>></button>
+               </c:if>
+               
+               <c:if test="${ requestScope.pageInfo.pageNo < requestScope.pageInfo.maxPage }">
+               		<button id="searchNextPage">></button>
+               </c:if>
+               <button id="searchMaxPage">>></button>
             </c:otherwise>
          </c:choose>
       </div>
-		
+		<!-- 검색폼 -->
+			<form id="searchForm" action="${ pageContext.servletContext.contextPath }/admin/product/search" method="get">
+    		<div class="search-area" align="center">
+    			<select id="searchCondtion" name="searchCondition">
+    				<option value="mdCode" <c:if test="${ requestScope.searchCondition eq 'mdCode' }">selected</c:if>>상품코드</option>
+			        <option value="mdType" <c:if test="${ requestScope.searchCondition eq 'mdType' }">selected</c:if>>상품유형명</option>
+				    <option value="mdName" <c:if test="${ requestScope.searchCondition eq 'mdName' }">selected</c:if>>도시락상품명</option>
+			    </select>
+		        	<input type="search" id="searchValue" name="searchValue">
+			        <button type="submit">검색하기</button>
+		     <%-- 	<c:if test="">
+				<button id="">작성하기</button>
+			</c:if> --%>
+    		</div>
+    	
+    	</form> 
 	
 	
     	<script>
