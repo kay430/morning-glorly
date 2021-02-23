@@ -348,13 +348,15 @@ public class ReviewDAO {
 		
 		if("Name".equals(searchCondition)) {
 			query = prop.getProperty("searchWriterReviewList");
-		} else if("title".equals(searchCondition)) {
+		} else if("Title".equals(searchCondition)) {
 			query = prop.getProperty("searchTitleReviewList");
-		} else if("content".equals(searchCondition)) {
+		} else if("Body".equals(searchCondition)) {
 			query = prop.getProperty("searchContentReviewList");
 		}
 		try {
+			System.out.println("외않도ㅔ[");
 			pstmt = con.prepareStatement(query);
+			System.out.println("dkdkdkdkdkdk");
 			pstmt.setString(1, searchValue);
 			pstmt.setInt(2, reviewPageInfo.getStartRow());
 			pstmt.setInt(3, reviewPageInfo.getEndRow());
@@ -366,11 +368,12 @@ public class ReviewDAO {
 			while(rset.next()) {
 				ReviewDTO review = new ReviewDTO();
 				review.setMgDTO(new MgDTO());
+				
 				review.setNo(rset.getInt("REVIEW_NO"));
 				review.setTitle(rset.getString("REVIEW_TITLE"));
 				review.setBody(rset.getString("REVIEW_BODY"));
-				review.getMgDTO().setName(rset.getString("MEMBER_NAME"));
 				review.setWriterMemberNo(rset.getInt("REVIEW_WRITER_MEMBER_NO"));
+				review.getMgDTO().setName(rset.getString("MEMBER_NAME"));
 				review.setCount(rset.getInt("REVIEW_COUNT"));	
 				review.setCreateDate(rset.getDate("CREATED_DATE"));
 				review.setModifiedDate(rset.getDate("MODIFIED_DATE"));

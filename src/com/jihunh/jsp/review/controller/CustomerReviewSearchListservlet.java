@@ -59,8 +59,8 @@ public class CustomerReviewSearchListservlet extends HttpServlet {
 		
 		List<ReviewDTO> reviewList = reviewService.selectSearchReviewList(searchCondition, searchValue,reviewPageInfo);
 		
-		for(ReviewDTO review : reviewList) {
-			System.out.println(review); 
+		for(ReviewDTO reviewBoard : reviewList) {
+			System.out.println(reviewBoard); 
 		}
 		String path = "";
 		if(reviewList != null) {
