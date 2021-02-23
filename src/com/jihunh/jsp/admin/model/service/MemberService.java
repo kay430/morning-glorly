@@ -9,6 +9,8 @@ import static com.jihunh.jsp.common.jdbc.JDBCTemplate.getConnection;
 import static com.jihunh.jsp.common.jdbc.JDBCTemplate.rollback;
 
 import com.jihunh.jsp.admin.model.dao.MemberDAO;
+import com.jihunh.jsp.admin.model.dto.MemberBlackListDTO;
+import com.jihunh.jsp.admin.model.dto.MemberModifyDTO;
 import com.jihunh.jsp.admin.model.dto.MgAdDTO;
 import com.jihunh.jsp.admin.model.dto.NoticeDTO;
 import com.jihunh.jsp.admin.model.dto.NoticePageInfoDTO;
@@ -143,6 +145,68 @@ public class MemberService {
 		close(con);
 
 		return mgDetail;
+	}
+
+	public String selectMgOriginalInfo(int pageNo) {
+		
+		Connection con = getConnection();
+		
+		String selectMgOriginalInfo = memDAO.selectMgOriginalInfo(con, pageNo); 
+		
+		close(con);
+
+		return selectMgOriginalInfo;
+	}
+
+	public int InsertBlackList(MemberBlackListDTO mgBlack) {
+		
+		Connection con = getConnection();
+		
+		int InsertBlackList = memDAO.InsertBlackList(con, mgBlack); 
+		
+		if(InsertBlackList > 0) {
+			commit(con);
+		} else {
+			rollback(con);
+		}
+		
+		close(con);
+
+		return InsertBlackList;
+	}
+
+	public int insertMgModify(MemberModifyDTO mgModi) {
+		
+		Connection con = getConnection();
+		
+		int updateMgModify = memDAO.insertMgModify(con, mgModi); 
+		
+		if(updateMgModify > 0) {
+			commit(con);
+		} else {
+			rollback(con);
+		}
+		
+		close(con);
+
+		return updateMgModify;
+	}
+
+	public int updateMgBlackColumn(MemberBlackListDTO mgBlack, String modifyInfo) {
+		
+		Connection con = getConnection();
+		
+		int updateMgBlackColumn = memDAO.updateMgBlackColumn(con, mgBlack, modifyInfo); 
+		
+		if(updateMgBlackColumn > 0) {
+			commit(con);
+		} else {
+			rollback(con);
+		}
+		
+		close(con);
+
+		return updateMgBlackColumn;
 	}
 	
 }

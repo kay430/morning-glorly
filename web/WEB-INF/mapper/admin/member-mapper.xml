@@ -800,4 +800,53 @@
                    ) A
               WHERE RNUM BETWEEN ? AND ?     
 	</entry>
+	<entry key="selectMgOriginalInfo">
+        SELECT
+               A.CHECK_BLACKLIST
+          FROM MG_MEMBER A
+         WHERE A.MEMBER_NO = ?
+	</entry>
+	<entry key="InsertBlackList">
+        INSERT
+          INTO MG_MEMBER_BLACKLIST A
+        (
+          A.BLACKLIST_NO
+        , A.REASON_INFO
+        , A.MEMBER_NO
+        , A.BLACKLIST_STATUS
+        )
+        VALUES
+        (
+          SEQ_MEM_BLACKLIST_NO.NEXTVAL
+        , ?
+        , ?
+        , ?
+        )
+	</entry>
+	<entry key="insertMgModify">
+        INSERT
+          INTO MG_MEMBER_MODIFY A
+        (
+          A.MODIFY_NO
+        , A.ORIGIN_COLUMN
+        , A.ORIGIN_INFO
+        , A.MODIFY_INFO
+        , A.MEMBER_NO
+        )
+        VALUES
+        (
+          SEQ_MEM_MODIFY_NO.NEXTVAL
+        , ?
+        , ?
+        , ?
+        , ?
+        )
+	</entry>
+	<entry key="updateMgBlackColumn">
+        UPDATE
+               MG_MEMBER M
+           SET M.CHECK_BLACKLIST = ?
+             , M.MODIFIED_DATE = SYSDATE 
+         WHERE M.MEMBER_NO = ?
+	</entry>
 </properties>

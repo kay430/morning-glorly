@@ -24,7 +24,8 @@
   <!-- Custom styles for this template -->
   <link href="/mg/resources/css/style.css" rel="stylesheet">
   <link href="/mg/resources/css/style-responsive.css" rel="stylesheet">
-    <script src="/mg/resources/js/adminjihun.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+         <script src="/mg/resources/js/adminjihun.js"></script>
 
   <!-- =======================================================
     Template Name: Dashio
@@ -153,7 +154,7 @@
                 		<th><h4>: <c:out value="${ mgList.email }"/></h4></th>
                 	</tr>
                 	<tr>
-                		<th><h4 align="center">포인트</h4></th>
+                		<th><h4 align="center"><i class="fa fa-money"></i>포인트</h4></th>
                 		<th><h4 >: <c:out value="${ mgList.point }"/></h4></th>
                 	</tr>
                 </table>
@@ -300,10 +301,6 @@
             </c:otherwise>
          </c:choose>
       </div>
-
-
-
-                          
                           <div class="recent-activity">
                             <div class="activity-icon bg-theme"><i class="fa fa-check"></i></div>
                             <div class="activity-panel">
@@ -325,26 +322,78 @@
                         </div>
                         <!-- /detailed -->
                       </div>
+            <!-- 우측 부분 -->
                       <!-- /col-md-6 -->
                       <div class="col-md-6 detailed">
-                        <h4>User Stats</h4>
-                        <div class="row centered mt mb">
-                          <div class="col-sm-4">
-                            <h1><i class="fa fa-money"></i></h1>
-                            <h3>$22,980</h3>
-                            <h6>LIFETIME EARNINGS</h6>
-                          </div>
-                          <div class="col-sm-4">
-                            <h1><i class="fa fa-trophy"></i></h1>
-                            <h3>37</h3>
-                            <h6>COMPLETED TASKS</h6>
-                          </div>
-                          <div class="col-sm-4">
-                            <h1><i class="fa fa-shopping-cart"></i></h1>
-                            <h3>1980</h3>
-                            <h6>ITEMS SOLD</h6>
-                          </div>
+                        <h4>블랙리스트 변경하기</h4>
+                        <div class="row centered mt mb" style=";">
+                        <textarea id="mgBlackReason"rows="3" class="form-control" placeholder="수정하기를 누르면 블랙리스트 상태 변경이 가능합니다." readonly></textarea>
+                        <div id="holdUp" style="float: left;">
+               		   <button id="modifyButton" class="btn btn-sm">
+       		           <i class="fa fa-arrow-right"></i> 수정하기
+                  		</button>
+		                  </div>
+		                  <div id="mgBlackFinish" style="float: left;">
+		                  <select id="ajaxStatus" name="status">
+		                  	<option value="Y">블랙리스트 적용</option>
+		                  	<option value="N">블랙리스트 해제</option>
+		                  </select>
+               		   <button id="finallyFinish" class="btn btn-sm">
+       		           <i class="fa fa-arrow-right"></i> 완료하기
+                  		</button>
+		                  </div>
                         </div>
+						<script>
+/* 							window.onload = function() {
+								console.log("숨김완료");
+								console.log('${ pageNumNo }');
+								$("#mgBlackFinish").css("display","none");
+								
+							} */
+							
+							$("#modifyButton").click(function() {
+								$("#modifyButton").css("display","none");
+								$("#mgBlackFinish").css("display","block");
+								$("#mgBlackReason").attr('readonly', false);
+								alert("변경을 진행합니다");
+								
+								$("#finallyFinish").click(function() {
+									
+									if(confirm("블랙리스트 변경을 완료하시겠습니까?")) {
+										const reason = document.getElementById("mgBlackReason").value;
+										const status = document.getElementById("ajaxStatus").value;
+										const pageNo = '${ pageNumNo }';
+										const loginNo = '${ sessionScope.loginMember.no }';
+										
+										$.ajax({
+											url: "${ pageContext.servletContext.contextPath }/admin/member/manage/updateBlackList",
+											type: "post",
+											data: {reason : reason, status : status, pageNo : pageNo, loginNo : loginNo },
+											success: function(data, textStatus, xhr) {
+												document.getElementById("mgBlackReason").innerHTML = data;
+									/* 			$("#mgBlackFinish").css("display", "none");
+												$("#mgBlackReason").attr('readonly', true);
+												$("#modifyButton").css("display", "block"); */
+												console.log("변경 완료");
+												console.log(data);
+												location.href = "${ pageContext.servletContext.contextPath }/admin/member/manage/detail?no=" + pageNo;
+											},
+											error: function(xhr, status, error) {
+												console.log(error);
+												console.log("에러에러에러");
+											}
+										});
+										
+										
+										
+										alert("변경 완료");
+									} else {
+										alert("변경 취소");
+									}
+									
+								});
+							});
+						</script>
                         <!-- /row -->
                         <h4>My Friends</h4>
                         <!-- /row -->

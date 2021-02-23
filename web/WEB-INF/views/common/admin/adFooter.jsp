@@ -24,7 +24,6 @@
   <link href="/mg/resources/css/style-responsive.css" rel="stylesheet">
   <script src="/mg/resources/admin/chart-master/Chart.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="/mg/resources/js/event.js"></script>
 
   <!-- =======================================================
     Template Name: Dashio
