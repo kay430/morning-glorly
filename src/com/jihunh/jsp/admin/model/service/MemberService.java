@@ -11,7 +11,9 @@ import static com.jihunh.jsp.common.jdbc.JDBCTemplate.rollback;
 import com.jihunh.jsp.admin.model.dao.MemberDAO;
 import com.jihunh.jsp.admin.model.dto.MgAdDTO;
 import com.jihunh.jsp.admin.model.dto.NoticeDTO;
+import com.jihunh.jsp.admin.model.dto.NoticePageInfoDTO;
 import com.jihunh.jsp.admin.model.dto.SearchReadyDTO;
+import com.jihunh.jsp.common.paging.Pagenation;
 import com.jihunh.jsp.member.model.dto.MgDTO;
 
 public class MemberService {
@@ -116,7 +118,19 @@ public class MemberService {
 		MgDTO mgDetail = null;
 
 		mgDetail = memDAO.viewMemberDetailInfo(con, no);
-
+		
+		SearchReadyDTO mgBlackCount = new SearchReadyDTO();
+		mgBlackCount.setPageInfo(new NoticePageInfoDTO());
+		mgBlackCount.getPageInfo().setPageNo(1);
+		mgBlackCount.getPageInfo().setTotalCount((memDAO.searchMgBlackCount(con, no)));
+		mgBlackCount.getPageInfo().setLimit(10);
+		mgBlackCount.getPageInfo().setButtonAmount(5);
+		Pagenation.getSearchPage(mgBlackCount);
+		
+		mgDetail = memDAO.viewMgBlackListlInfo(con, no, mgDetail, mgBlackCount);
+		
+		System.out.println("이건 짬뽕 맛? : " + mgDetail);
+		
 		if(mgDetail != null) {
 			commit(con);
 		} else {

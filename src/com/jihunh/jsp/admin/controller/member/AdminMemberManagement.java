@@ -36,11 +36,10 @@ public class AdminMemberManagement extends HttpServlet {
 		SearchReadyDTO memberAdList = new SearchReadyDTO();
 		memberAdList.setPageInfo(new NoticePageInfoDTO());
 		memberAdList.getPageInfo().setPageNo(pageNo);
-		memberAdList.getPageInfo().setTotalCount((new MemberService().totalMemberList()));
+		memberAdList.getPageInfo().setTotalCount((new MemberService().totalMemberAdList()));
 		memberAdList.getPageInfo().setLimit(10);
 		memberAdList.getPageInfo().setButtonAmount(5);
-		
-		System.out.println(memberAdList);
+		System.out.println("페이지 정보  : " + memberAdList);
 		
 		List<MgAdDTO> mgAdList = new MemberService().mainMemberAdList(Pagenation.getSearchPage(memberAdList));
 		
