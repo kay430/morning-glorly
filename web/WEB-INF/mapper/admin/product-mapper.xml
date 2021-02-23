@@ -219,4 +219,24 @@ SELECT
                  )D
           WHERE D.RNUM BETWEEN ? AND ?
  </entry>
+ 
+ <entry key="insertThumbnailContent">
+         INSERT 
+        INTO MG_GOODS A
+        (
+          A.GOODS_NO
+        , A.GOODS_NAME
+        , A.GOODS_PRICE
+        , A.GOODS_WRITER_MEMBER_NO
+        , A.GOODS_TYPE_NO
+        )
+        VALUES
+        (
+         SEQ_GOODS_NO.NEXTVAL
+       , ?
+       , ?
+       , ?
+       , ?
+        )
+ </entry>
 </properties>

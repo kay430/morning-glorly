@@ -21,6 +21,7 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import com.jihunh.jsp.admin.model.dto.MgAdDTO;
 import com.jihunh.jsp.admin.model.product.model.dto.AttachmentDTO;
 import com.jihunh.jsp.admin.model.product.model.dto.MgGoodsDTO;
+import com.jihunh.jsp.admin.model.product.model.dto.MgGoodsTypeDTO;
 import com.jihunh.jsp.admin.model.product.model.service.MgGoodsService;
 
 import net.coobird.thumbnailator.Thumbnails;
@@ -125,48 +126,53 @@ public class RegistProductServlet extends HttpServlet {
 
 							}
 							Thumbnails.of(fileUploadDirectory + randomFileName)
-							          .size(width, height)
-							          .toFile(thumbnailDirectory + "thumbnail_" + randomFileName);
-								
+							.size(width, height)
+							.toFile(thumbnailDirectory + "thumbnail_" + randomFileName);
+
 							fileMap.put("thumbnailPath", "/resource/upload/thumbnail/thumbnail_" + randomFileName);
-							
+
 							fileList.add(fileMap);
-                                 
+
 
 						} 
-	} else {
-						
+					} else {
+
 						parameter.put(item.getFieldName(), new String(item.getString().getBytes("ISO-8859-1"), "UTF-8"));
-						
+
 					}
-					
+
 				}
-				
+
 				System.out.println("parameter : " + parameter);
 				System.out.println("fileList : " + fileList);
-				
+
 				MgGoodsDTO thumbnail = new MgGoodsDTO();
 				thumbnail.setName(parameter.get("productType"));
-				
-				thumbnail.setWriterMemberNo(((MgAdDTO) request.getSession().getAttribute("loginMember")).getNo());
-				
-//				thumbnail.setAttachmentList(new ArrayList<AttachmentDTO>());
+				thumbnail.setGoodsTypeNo(new MgGoodsTypeDTO());
+	            thumbnail.getGoodsTypeNo().setNo(Integer.parseInt(parameter.get("productCode")));
+				thumbnail.setName(parameter.get("productName"));
+				thumbnail.setPrice(Integer.parseInt(parameter.get("price")));
+				thumbnail.setCreatedDate(java.sql.Date.valueOf(parameter.get("registDate")));
+				thumbnail.setStatus(parameter.get("status"));
+	            thumbnail.setWriterMemberNo(((MgAdDTO) request.getSession().getAttribute("loginMember")).getNo());
+
+				//				thumbnail.setAttachmentList(new ArrayList<AttachmentDTO>());
 				List<AttachmentDTO> list = thumbnail.getAttachmentList();
 				for(int i = 0; i < fileList.size(); i++) {
 					Map<String, String> file = fileList.get(i);
-					
+
 					AttachmentDTO tempFileInfo = new AttachmentDTO();
 					tempFileInfo.setOriginalName(file.get("originFileName"));
 					tempFileInfo.setSavedName(file.get("savedFileName"));
 					tempFileInfo.setSavePath(file.get("savePath"));
 					tempFileInfo.setFileType(file.get("fileType"));
 					tempFileInfo.setThumbnailPath(file.get("thumbnailPath"));
-					
+
 					list.add(tempFileInfo);
 				}
-				
+
 				int result = new MgGoodsService().insertThumbnail(thumbnail);
-				
+
 				String path = "";
 				if(result > 0) {
 					path = "/WEB-INF/views/common/success.jsp";
@@ -175,53 +181,53 @@ public class RegistProductServlet extends HttpServlet {
 					path = "/WEB-INF/views/common/failed.jsp";
 					request.setAttribute("message", "썸네일 게시판 등록 실패!");
 				}
-				
+
 				request.getRequestDispatcher(path).forward(request, response);
-				
+
 			} catch (Exception e) {
 				e.printStackTrace();
-				
+
 				int cnt = 0;
 				for(int i = 0; i < fileList.size(); i++) {
 					Map<String, String> file = fileList.get(i);
-					
+
 					File deletedFile = new File(fileUploadDirectory + file.get("savedFileName"));
 					boolean isDeleted = deletedFile.delete();
-					
+
 					if(isDeleted) {
 						cnt++;
 					}
 				}
-				
+
 				if(cnt == fileList.size()) {
 					System.out.println("업로드에 실패한 사진 모두 삭제 완료!");
 				} else {
 					System.out.println("사진 삭제 실패!");
 				}
 			}
-			
-			
+
+
 		}
-		
+
 	}
 
 }
-					/*	else {
+/*	else {
 							//parameter값이 getFieldName의 키값이된다
 							parameter.put(item.getFieldName(), new String(item.getString().getBytes("ISO-8859-1"), "UTF-8"));
 						}
 					}
 					System.out.println("parameter : " + parameter);
 					System.out.println("fileList : " +  fileList);
-					
+
 					MgGoodsDTO thumbnail = new MgGoodsDTO();
 					thumbnail.setWriterMemberNo(((MgAdDTO) request.getSession().getAttribute("loginMember")).getNo());
-					
+
 					for(int i =0 ; i < fileList.size(); i++) {
 						Map
-					
-				
-				
+
+
+
 				} catch (FileUploadException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -243,6 +249,6 @@ public class RegistProductServlet extends HttpServlet {
 
 			doGet(request, response);
 	}
-	*/
+ */
 
-	
+
