@@ -74,6 +74,7 @@ public class MgGoodsService {
       return productList;
    }
 
+
    public int insertThumbnail(MgGoodsDTO thumbnail) {
       
       Connection con = getConnection();
@@ -107,3 +108,4 @@ public class MgGoodsService {
    }
 
 }
+

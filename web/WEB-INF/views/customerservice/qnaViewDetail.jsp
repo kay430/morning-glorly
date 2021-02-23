@@ -74,6 +74,7 @@
                   <i class="fa fa-arrow-right"></i> 수정하기
                   <!-- </a> -->
                   </button>
+                  <button id="deleteQuestion">삭제하기</button>
                   </div>
                   <div id="holdUp4">
                   <button id="rewriteNoCommit" class="btn btn-sm">

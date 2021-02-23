@@ -38,6 +38,7 @@ public class RegistProductServlet extends HttpServlet {
 
    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+
       if(ServletFileUpload.isMultipartContent(request)) {
 
          //web으로 root위치를 잡음

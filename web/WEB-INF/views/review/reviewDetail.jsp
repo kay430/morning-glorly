@@ -34,27 +34,27 @@
 			<table align="center">
 				<tr>
 					<td>제목 </td>
-					<td colspan="3"><p><c:out value="${ requestScope.review.title }"/></p></td>
+					<td colspan="3"><p><c:out value="${ requestScope.reviewBoard.title }"/></p></td>
 				</tr>
 				<tr>
 					<td>작성자 </td>
-					<td><p><c:out value="${ requestScope.review.mgDTO.name }"/></p></td>
+					<td><p><c:out value="${ requestScope.mgDTO.name }"/></p></td>
 					<td>작성일</td>
-					<td><p><c:out value="${ requestScope.review.createdDate }"/></p></td>
+					<td><p><c:out value="${ requestScope.reviewBoard.createDate }"/></p></td>
 				</tr>
 				<tr>
 					<td>내용 </td>
 					<td colspan="3">
-						<textarea style="resize:none; width:90%; height:200px;" readonly><c:out value="${ requestScope.review.body }"/></textarea>
+						<textarea style="resize:none; width:90%; height:200px;" readonly><c:out value="${ requestScope.reviewBoard.body }"/></textarea>
 					</td>
 				</tr>
 			</table>
 			<br>
 			<div align="center">
 				<button onclick="location.href='${ pageContext.servletContext.contextPath }/product/review'">메뉴로 돌아가기</button>
-				<%-- <c:if test="${ sessionScope.loginMember.role eq 'ADMIN' }">
+				<%-- <c:if test="${ sessionScope.loginMember.role eq 'ADMIN' }">--%>
 					<button onclick="location.href='${ pageContext.servletContext.contextPath }/review/update?no=${ requestScope.review.no }'">수정하기</button>
-				</c:if> --%>
+				<%-- </c:if> --%>
 			</div>
 		</div>
 	</div>

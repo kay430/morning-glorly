@@ -295,6 +295,7 @@ public class MgGoodsDAO {
 			close(stmt);
 		}
 		
+
 		return lastNoticeNo;
 	}
 
@@ -326,5 +327,9 @@ public class MgGoodsDAO {
       
       return result;
    }
+
+	
+	
+
 
 }
