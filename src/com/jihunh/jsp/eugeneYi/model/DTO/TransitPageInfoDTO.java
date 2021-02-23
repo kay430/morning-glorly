@@ -15,7 +15,7 @@ public class TransitPageInfoDTO implements java.io.Serializable {
 	public TransitPageInfoDTO() {}
 
 	public TransitPageInfoDTO(int pageNo, int totalCount, int limit, int buttonAmount, int maxPage, int startPage,
-			int endPage, int startRow, int endRow) {
+			int endPage, int startRow, int endRow) { 
 		super();
 		this.pageNo = pageNo;
 		this.totalCount = totalCount;

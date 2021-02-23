@@ -41,7 +41,7 @@ public class TransitAdmin extends HttpServlet {
 		List<TransitDTO> transitList = tSv.selectTransitList(pageInfo);
 		
 		for(TransitDTO transit : transitList) {
-			System.out.println(transit);
+			System.out.println(transit); 
 		}
 		
 		

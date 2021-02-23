@@ -319,7 +319,7 @@ public class TransitDAO {
 
 //	public int insertAttaNotice(Connection con, AttaNoticeDTO file) {
 //		
-//		PreparedStatement pstmt = null;
+//		PreparedStatement pstmt = null; 
 //		
 //		int result = 0;
 //		

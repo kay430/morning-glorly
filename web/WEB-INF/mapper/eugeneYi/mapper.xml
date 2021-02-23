@@ -100,7 +100,7 @@
           FROM MG_ORDER_DELIVERY A
          WHERE A.TRANSIT_NO LIKE '%' || ? || '%' 
 	</entry>
-	<entry key="searchOdNoCount">
+	<entry key="searchOdNoCount"> 
         SELECT
                COUNT(*)
           FROM MG_ORDER A

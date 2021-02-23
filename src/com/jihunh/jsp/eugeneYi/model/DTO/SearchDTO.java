@@ -26,7 +26,7 @@ public class SearchDTO {
 	}
 
 	public String getSearchValue() {
-		return searchValue;
+		return searchValue; 
 	}
 
 	public void setSearchValue(String searchValue) {

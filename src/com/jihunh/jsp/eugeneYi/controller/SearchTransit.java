@@ -39,7 +39,7 @@ public class SearchTransit extends HttpServlet {
 		searchTransit.getPageInfo().setPageNo(pageNo);
 		searchTransit.getPageInfo().setTotalCount((new TransitService().searchTransitCount(searchTransit)));
 		searchTransit.getPageInfo().setLimit(10);
-		searchTransit.getPageInfo().setButtonAmount(5);
+		searchTransit.getPageInfo().setButtonAmount(5);  
 
 		List<TransitDTO> transitList = new TransitService().searchTransitList(Pagenation.getTransitPage(searchTransit));
 		

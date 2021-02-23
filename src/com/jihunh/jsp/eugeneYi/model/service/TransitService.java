@@ -17,7 +17,7 @@ public class TransitService {
 	
 	private final TransitDAO transitDAO;
 	
-	public TransitService() {
+	public TransitService() { 
 		transitDAO = new TransitDAO();
 	}
 

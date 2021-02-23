@@ -217,7 +217,7 @@
 									번호</option>
 								<option value="orderNo" <c:if test="${ requestScope.searchCondition eq 'orderNo' }">selected</c:if>>주문번호</option>
 							</select> <input type="search" name="searchValue"
-								value="${ requestScope.searchValue }">
+								value="${ requestScope.searchValue }"> 
 							<button type="submit">검색하기</button>
 						</div>
 					</form>

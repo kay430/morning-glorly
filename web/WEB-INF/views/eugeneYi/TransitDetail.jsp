@@ -25,7 +25,7 @@
   <link href="/mg/resources/css/style-responsive.css" rel="stylesheet">
     <script src="/mg/resources/js/event.js"></script>
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
+ 
   <!-- =======================================================
     Template Name: Dashio
     Template URL: https://templatemag.com/dashio-bootstrap-admin-template/

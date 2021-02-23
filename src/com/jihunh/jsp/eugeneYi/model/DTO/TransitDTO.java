@@ -23,7 +23,7 @@ public class TransitDTO implements java.io.Serializable {
 			int price) {
 		super();
 		this.dNo = dNo;
-		this.dType = dType;
+		this.dType = dType; 
 		this.tNo = tNo;
 		this.tDate = tDate;
 		this.oNo = oNo;
