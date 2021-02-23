@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 public class MypageMain extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String path = "/WEB-INF/views/common/mypage.jsp";
+		String path = "/WEB-INF/views/mypage/myPage.jsp";
 		request.getRequestDispatcher(path).forward(request, response);
 	}
 

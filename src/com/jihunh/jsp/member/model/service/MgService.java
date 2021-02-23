@@ -4,7 +4,6 @@ import static com.jihunh.jsp.common.jdbc.JDBCTemplate.close;
 import static com.jihunh.jsp.common.jdbc.JDBCTemplate.commit;
 import static com.jihunh.jsp.common.jdbc.JDBCTemplate.getConnection;
 import static com.jihunh.jsp.common.jdbc.JDBCTemplate.rollback;
-import static com.jihunh.jsp.member.controller.SendupdatePwd.getEmail;
 
 import java.sql.Connection;
 
@@ -101,6 +100,35 @@ public class MgService {
 		return result;
 	}
 
-
+	public int deleteMember(MgDTO requestMember) {
+		
+		Connection con = getConnection();
+		
+		int result = 0;
+		
+		/* 1. DB에 저장된 회원 아이디와 일치하는 회원의 비밀번호 조회 */
+		String encPwd = mgDAO.selectEncryptPwd(con, requestMember);
+		
+		/* 2. 파라미터로 전달받은 비밀번호와 DB에 저장된 비밀번호가 일치하는지 확인 */
+		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+		if(passwordEncoder.matches(requestMember.getPwd(), encPwd)) {
+			
+			/* 3. 비밀번호가 일치하면 회원 정보 삭제 */
+			result = mgDAO.deleteMember(con, requestMember);
+		}
+		
+		/* 4. 트랜젝션 제어 */
+		if(result > 0) {
+			commit(con);
+		} else {
+			rollback(con);
+		}
+		
+		close(con);
+		
+		return result;
+	}
 
 }
+
+

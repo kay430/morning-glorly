@@ -40,7 +40,7 @@
             <li><a href="#">최근 본 상품</a></li>
             <li><a href="#">관심 상품</a></li>
             <li><a href="#">회원정보변경</a></li>
-            <li><a href="#">회원탈퇴신청</a></li>
+            <li><a href="${ pageContext.servletContext.contextPath }/mypage/quitMember">회원탈퇴신청</a></li>
           </ul>
         </div>
         <!-- /사이드바 -->

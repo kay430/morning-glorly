@@ -8,7 +8,6 @@ import static com.jihunh.jsp.common.jdbc.JDBCTemplate.rollback;
 import java.sql.Connection;
 import java.util.List;
 
-import com.jihunh.jsp.admin.model.dto.NoticeDTO;
 import com.jihunh.jsp.question.model.dao.QuestionDAO;
 import com.jihunh.jsp.question.model.dto.QuestionDTO;
 import com.jihunh.jsp.question.model.dto.QuestionPageInfoDTO;
@@ -128,6 +127,25 @@ public class QuestionService {
 		close(con);
 
 		return updateQuestion;
+	}
+
+	public int deleteQuestion(QuestionDTO requestQuestion) {
+		
+		Connection con = getConnection();
+		
+		int result = 0;
+		
+		result = questionDAO.deleteQuestion(con, requestQuestion);
+		
+		if(result > 0) {
+			commit(con);
+		} else {
+			rollback(con);
+		}
+		
+		close(con);
+		
+		return result;
 	}
 
 
