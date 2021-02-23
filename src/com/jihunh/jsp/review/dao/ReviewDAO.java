@@ -176,42 +176,30 @@ public class ReviewDAO {
 
 		return reviewList; }
 
-	public int searchReviewCount(Connection con, String searchCondition, String searchValue) {
-		PreparedStatement pstmt = null;
-		ResultSet rset = null;
-
-		int totalCount = 0;
-
-		String query = null;
-		if("category".equals(searchCondition)) {
-			query = prop.getProperty("searchCategoryReviewCount");
-		} else if("writer".equals(searchCondition)) {
-			query = prop.getProperty("searchWriterReviewCount");
-		} else if("title".equals(searchCondition)) {
-			query = prop.getProperty("searchTitleReviewCount");
-		} else if("content".equals(searchCondition)) {
-			query = prop.getProperty("searchContentReviewCount");
-		}
-
-		try {
-			pstmt = con.prepareStatement(query);
-			pstmt.setString(1, searchValue);
-
-			rset = pstmt.executeQuery();
-
-			if(rset.next()) {
-				totalCount = rset.getInt("COUNT(*)");
-			}
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close(rset);
-			close(pstmt);
-		}
-
-		return totalCount;
-	}
+	/*
+	 * public int searchReviewCount(Connection con, String searchCondition, String
+	 * searchValue) { PreparedStatement pstmt = null; ResultSet rset = null;
+	 * 
+	 * int totalCount = 0;
+	 * 
+	 * String query = null; if("writer".equals(searchCondition)) { query =
+	 * prop.getProperty("searchWriterReviewCount"); } else
+	 * if("title".equals(searchCondition)) { query =
+	 * prop.getProperty("searchTitleReviewCount"); } else
+	 * if("content".equals(searchCondition)) { query =
+	 * prop.getProperty("searchContentReviewCount"); }
+	 * 
+	 * try { pstmt = con.prepareStatement(query); pstmt.setString(1, searchValue);
+	 * 
+	 * rset = pstmt.executeQuery();
+	 * 
+	 * if(rset.next()) { totalCount = rset.getInt("COUNT(*)"); }
+	 * 
+	 * } catch (SQLException e) { e.printStackTrace(); } finally { close(rset);
+	 * close(pstmt); }
+	 * 
+	 * return totalCount; }
+	 */
 
 
 	public List<ReviewDTO> selectAllReviewList(Connection con, ReviewPageInfoDTO ReviewPageInfo) {
@@ -348,7 +336,59 @@ public class ReviewDAO {
 		
 		return reviewDetail;
 	}
+
+	public List<ReviewDTO> selectSearchReviewList(Connection con, String searchCondition, String searchValue,
+			ReviewPageInfoDTO reviewPageInfo) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		List<ReviewDTO> reviewList = null;
+		
+		String query = null;
+		
+		if("Name".equals(searchCondition)) {
+			query = prop.getProperty("searchWriterReviewList");
+		} else if("title".equals(searchCondition)) {
+			query = prop.getProperty("searchTitleReviewList");
+		} else if("content".equals(searchCondition)) {
+			query = prop.getProperty("searchContentReviewList");
+		}
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, searchValue);
+			pstmt.setInt(2, reviewPageInfo.getStartRow());
+			pstmt.setInt(3, reviewPageInfo.getEndRow());
+			
+			rset = pstmt.executeQuery();
+			
+			reviewList = new ArrayList<>();
+			
+			while(rset.next()) {
+				ReviewDTO review = new ReviewDTO();
+				review.setMgDTO(new MgDTO());
+				review.setNo(rset.getInt("REVIEW_NO"));
+				review.setTitle(rset.getString("REVIEW_TITLE"));
+				review.setBody(rset.getString("REVIEW_BODY"));
+				review.getMgDTO().setName(rset.getString("MEMBER_NAME"));
+				review.setWriterMemberNo(rset.getInt("REVIEW_WRITER_MEMBER_NO"));
+				review.setCount(rset.getInt("REVIEW_COUNT"));	
+				review.setCreateDate(rset.getDate("CREATED_DATE"));
+				review.setModifiedDate(rset.getDate("MODIFIED_DATE"));
+				
+				
+				reviewList.add(review);
+				System.out.println(review);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return reviewList;
+	}
+
 }
-
-
 
