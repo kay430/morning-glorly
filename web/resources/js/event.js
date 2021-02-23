@@ -245,4 +245,15 @@ window.onload = function() {
 		
 	}
 
+	
+	if(document.getElementById("goBack")) {
+		const $goBack = document.getElementById("goBack");
+		$goBack.onclick = function() {
+			location.href = "/mg/admin/SelectProduct";
+		}
+		
+	}
+	
+
+
 }

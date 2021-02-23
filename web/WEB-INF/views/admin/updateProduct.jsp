@@ -132,38 +132,38 @@
                           <div class="form-group" >
                             <label class="col-lg-2 control-label">*상품명(상품유형코드)</label>
                             <div class="col-lg-4" >
-                              <input type="text" placeholder=" " id="c-name" class="form-control" name="updateProduct" id="updateProduct">
+                              <input type="text" placeholder=" " id="c-name" class="form-control" name="updateProduct" id="updateProduct" c:out value="${ requestScope.detailInfo.goodsTypeNo.name }"/>
                             </div>
                           </div>
                           <div class="form-group">
                             <label class="col-lg-2 control-label">*판매도시락 상품코드</label>
                             <div class="col-lg-4">
-                             <select id="updateCode" name="updateCode">
-			                	<option value="bulkup">10</option>
-			                  	<option value="ujiater">20</option>
-				                <option value="diet">30</option>
-				                <option value="hyeja">777</option>
+                             <select id="updateCode" name="updateCode" c:out value="${ requestScope.detailInfo.typeNo }">
+			                	<option value="10"<c:if test="${ requestScope.detailInfo.typeNo eq '10' }">selected</c:if>>10</option>
+			                  	<option value="20" <c:if test="${ requestScope.detailInfo.typeNo eq '20' }">selected</c:if>>20</option>
+				                <option value="30" <c:if test="${ requestScope.detailInfo.typeNo eq '30' }">selected</c:if>>30</option>
+				                <option value="777" <c:if test="${ requestScope.detailInfo.typeNo eq '777' }">selected</c:if>>777</option>
 			         </select>
                             </div>
                           </div>
                           <div class="form-group">
                             <label class="col-lg-2 control-label">*도시락상품명</label>
                             <div class="col-lg-4">
-                              <input class="form-control form-control-inline input-medium default-date-picker" name="updateName" id="updateName" size="32" type="text" value="" required>
+                              <input class="form-control form-control-inline input-medium default-date-picker" name="updateName" id="updateName" size="32" type="text" c:out value="${ requestScope.detailInfo.name }" required>
                             </div>
                           </div>
                           
                           <div class="form-group">
                             <label class="col-lg-2 control-label">가격</label>
                             <div class="col-lg-4">
-                               <input type="text" class="form-control dpd1" name="price">
+                               <input type="text" class="form-control dpd1" name="price" c:out value="${ requestScope.detailInfo.price }">
                             </div>
                           </div>
                           <div class="form-group">
                   <label class="control-label col-md-3">수정날짜</label>
                   <div class="col-md-3 col-xs-11">
                     <div>
-                       <input type='date' name="updateDate"/>
+                       <input type='date' name="updateDate" c:out value="${ requestScope.detailInfo.createdDate }"/>
                     </div>
                  
                   </div>
@@ -173,43 +173,103 @@
                   <div class="col-md-3 col-xs-11">
                     <div> 
                       <select id="status" name="updatestatus">
-			                	<option value="yes">Y</option>
-			                  	<option value="no">N</option>
+			                	<option value="Y"<c:if test="${ requestScope.detailInfo.status eq 'Y' }">selected</c:if>>Y</option>
+			                  	<option value="N"<c:if test="${ requestScope.detailInfo.status eq 'N' }">selected</c:if>>N</option>
 				                
 			         </select>
                     </div>
                   </div>
                 </div>
                           
-                          <div class="form-group last">
-                  <label class="control-label col-md-3">사진첨부</label>
+               
+             <!--  <form action="#" class="form-horizontal style-form"> -->
+                <div class="form-group">
+                  <label class="control-label col-md-3">도시락사진첨부</label>
+                  <div class="col-md-4">
+                    <input type="file" class="default" name="thumbnailImg1"  id="thumbnailImg1"  onchange="loadImg(this, 1)"/>
+                  </div>
+                </div>
+                <div class="form-group">
+                  
+                </div>
+                <div class="form-group last">
+                  <label class="control-label col-md-3">도시락사진보여지게하기</label>
                   <div class="col-md-9">
                     <div class="fileupload fileupload-new" data-provides="fileupload">
-                      <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
-                        <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image" alt="" />
+                      <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;" id="titleImgArea">
+                        <img id="titleImg" width="350" height="300"/>
+                       
+                        	
                       </div>
+                      <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;" id="titleImgArea">
+                      <%-- <c:forEach var="detailInfo"  items="${ requestScope.detailInfo }"> --%>
+                     <img src="${ pageContext.servletContext.contextPath }<c:out value="${ requestScope.detailInfo.attachmentList[0].thumbnailPath }"/>" />
+                   <%--    </c:forEach> --%>
+                      </div>
+                      
                       <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
-                      <div>
-                        <span class="btn btn-theme02 btn-file">
-                          <span class="fileupload-new"><i class="fa fa-paperclip"></i> Select image</span>
-                        <span class="fileupload-exists"><i class="fa fa-undo"></i> Change</span>
-                        <input type="file" class="default" />
-                        </span>
-                        <a href="advanced_form_components.html#" class="btn btn-theme04 fileupload-exists" data-dismiss="fileupload"><i class="fa fa-trash-o"></i> Remove</a>
-                      </div>
-                    
-                        </form>
-                    
-                      </div>
-                      <!-- /col-lg-8 -->
+                      
                     </div>
-                    <!-- /row -->
+                   
+                   <div>
+              <!-- </form> -->
+            </div>
+            <!-- /form-panel -->
+          </div>
+          <!-- /col-lg-12 -->
+        </div>
+        </form>
+        </div>
+        </div>
+        <!-- /row -->
+        <!-- DATE TIME PICKERS -->
+        
+        <!-- row -->
+        <!--ADVANCED FILE INPUT-->
+       
+                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                     <input type="submit" value="상품등록" id="registDosirak">
+                     <input type="submit" value="뒤로가기" id="goBack">
+                     
                   </div>
                   <!-- /tab-pane -->
      <!-- **********************************************************************************************************************************************************
         MAIN CONTENT
         *********************************************************************************************************************************************************** -->
-   
+    <script>
+    	const $titleImgArea = document.getElementById("titleImgArea");
+    	
+    	$titleImgArea.onclick = function(){
+    		document.getElementById("thumbnailImg1").click(); 
+    	}
+    	
+    	/*업로드된 사진 이미지 불러오기*/
+    	
+    	function loadImg(value, num) {
+			if(value.files && value.files[0]) {
+				const reader = new FileReader();
+				
+				reader.onload = function(e) {
+					switch(num) {
+					case 1 :
+						document.getElementById("titleImg").src = e.target.result;
+						break;
+					
+					}
+				}
+				
+				reader.readAsDataURL(value.files[0]);
+    		}
+    	}
+    </script>
 	
     <!-- /MAIN CONTENT -->
      <!--main content end-->
