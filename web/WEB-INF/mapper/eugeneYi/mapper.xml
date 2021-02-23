@@ -60,12 +60,12 @@
          WHERE A.DELIVERY_NO = ?
            AND A.TRANSIT_NO = ?
 	</entry>
-<!--	<entry key="selectTransitSequence">
+	<entry key="selectTransitSequence">
         SELECT
-               SEQ_NOTICE_NO.CURRVAL
+               SEQ_DELIVERY_NO.CURRVAL
           FROM DUAL    
-	</entry>  -->
-<!-- 	<entry key="insertAttaNotice">
+	</entry>  
+	<entry key="insertAttaNotice">
         INSERT
           INTO MG_NOTI_ATTACHMENT A
         (
@@ -99,6 +99,12 @@
                COUNT(*)
           FROM MG_ORDER_DELIVERY A
          WHERE A.TRANSIT_NO LIKE '%' || ? || '%' 
+	</entry>
+	<entry key="searchOdNoCount"> 
+        SELECT
+               COUNT(*)
+          FROM MG_ORDER A
+         WHERE A.ORDER_NO LIKE '%' || ? || '%'
 	</entry>
 	<entry key="searchTransitListByType">
        SELECT
@@ -173,6 +179,45 @@
                     FROM MG_ORDER_DELIVERY A
                           JOIN MG_ORDER B ON (A.ORDER_NO = B.ORDER_NO)
                          WHERE A.TRANSIT_NO LIKE '%' || ? || '%'
+                ORDER BY A.DELIVERY_NO DESC
+                 ) B
+            ) A
+            WHERE RNUM BETWEEN ? AND ?
+	</entry>
+		<entry key="searchTransitListByOrderNo">
+       SELECT
+             A.RNUM
+           , A.DELIVERY_NO
+           , A.DELIVERY_TYPE
+           , A.TRANSIT_NO
+           , A.TRANSIT_DATE
+           , A.ORDER_NO
+           , A.ORDER_MEMBER_NO
+           , A.ORDER_DATE
+           , A.ORDER_TITLE
+           , A.AMOUNT_PRICE
+      FROM (SELECT ROWNUM RNUM
+                 , B.DELIVERY_NO
+                 , B.DELIVERY_TYPE
+                 , B.TRANSIT_NO
+                 , B.TRANSIT_DATE
+                 , B.ORDER_NO
+                 , B.ORDER_MEMBER_NO
+                 , B.ORDER_DATE
+                 , B.ORDER_TITLE
+                 , B.AMOUNT_PRICE
+            FROM (SELECT A.DELIVERY_NO
+                       , A.DELIVERY_TYPE
+                       , A.TRANSIT_NO
+                       , A.TRANSIT_DATE
+                       , B.ORDER_NO
+                       , B.ORDER_MEMBER_NO
+                       , B.ORDER_DATE
+                       , B.ORDER_TITLE
+                       , B.AMOUNT_PRICE
+                    FROM MG_ORDER_DELIVERY A
+                          JOIN MG_ORDER B ON (A.ORDER_NO = B.ORDER_NO)
+                         WHERE A.ORDER_NO LIKE '%' || ? || '%'
                 ORDER BY A.DELIVERY_NO DESC
                  ) B
             ) A

@@ -5,6 +5,7 @@ package com.jihunh.jsp.common.paging;
 import com.jihunh.jsp.admin.model.dto.NoticePageInfoDTO;
 import com.jihunh.jsp.admin.model.dto.SearchReadyDTO;
 import com.jihunh.jsp.customerservice.model.dto.PageInfoDTO;
+import com.jihunh.jsp.eugeneYi.model.DTO.SearchDTO;
 import com.jihunh.jsp.eugeneYi.model.DTO.TransitPageInfoDTO;
 import com.jihunh.jsp.question.model.dto.QuestionPageInfoDTO;
 import com.jihunh.jsp.review.dto.ReviewPageInfoDTO;
@@ -198,6 +199,41 @@ public class Pagenation {
 			
 			return new TransitPageInfoDTO(pageNo, totalCount, limit, buttonAmount, maxPage, startPage, endPage, startRow, endRow);
 			}
+
+		public static SearchDTO getTransitPage(SearchDTO searchTransit) {
+			
+			int maxPage;
+			int startPage;
+			int endPage;
+			int startRow;
+			int endRow;
+			
+			maxPage = (int) Math.ceil((double) searchTransit.getPageInfo().getTotalCount() / searchTransit.getPageInfo().getLimit());
+			
+			startPage = (int) (Math.ceil((double) searchTransit.getPageInfo().getPageNo() / searchTransit.getPageInfo().getButtonAmount()) -1) * searchTransit.getPageInfo().getButtonAmount() + 1;
+			
+			endPage = startPage + searchTransit.getPageInfo().getButtonAmount() -1;
+			
+			if(maxPage < endPage) {
+				endPage = maxPage;
+			}
+			
+			if(maxPage == 0 && endPage == 0) {
+				maxPage = startPage;
+				endPage = startPage;
+			}
+			
+			startRow = (searchTransit.getPageInfo().getPageNo() - 1) * searchTransit.getPageInfo().getLimit() + 1;
+			endRow = startRow + searchTransit.getPageInfo().getLimit() -1;
+			
+			searchTransit.getPageInfo().setMaxPage(maxPage);
+			searchTransit.getPageInfo().setStartPage(startPage);
+			searchTransit.getPageInfo().setEndPage(endPage);
+			searchTransit.getPageInfo().setStartRow(startRow);
+			searchTransit.getPageInfo().setEndRow(endRow);
+			
+			return searchTransit;
+		}
 
 }
 

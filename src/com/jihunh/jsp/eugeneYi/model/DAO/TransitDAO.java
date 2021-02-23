@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Properties;
 
 import com.jihunh.jsp.common.config.ConfigLocation;
-import com.jihunh.jsp.eugeneYi.model.DTO.AttaTransitDTO;
+import com.jihunh.jsp.eugeneYi.model.DTO.SearchDTO;
 import com.jihunh.jsp.eugeneYi.model.DTO.TransitDTO;
 import com.jihunh.jsp.eugeneYi.model.DTO.TransitPageInfoDTO;
 
@@ -201,9 +201,9 @@ public class TransitDAO {
 		Statement stmt = null;
 		ResultSet rset = null;
 		
-		int lastNoticeNo = 0;
+		int lastTransitNo = 0;
 		
-		String query = prop.getProperty("selectNoticeSequence");
+		String query = prop.getProperty("selectTransitSequence");
 		
 		try {
 			stmt = con.createStatement();
@@ -211,7 +211,7 @@ public class TransitDAO {
 			rset = stmt.executeQuery(query);
 			
 			if(rset.next()) {
-				lastNoticeNo = rset.getInt("CURRVAL");
+				lastTransitNo = rset.getInt("CURRVAL");
 			}
 			
 		} catch (SQLException e) {
@@ -221,12 +221,105 @@ public class TransitDAO {
 			close(stmt);
 		}
 		
-		return lastNoticeNo;
+		return lastTransitNo;
 	}
+
+
+	public List<TransitDTO> searchTransitList(Connection con, SearchDTO searchTransit) {
+		
+		PreparedStatement pstmt = null;
+		
+		ResultSet rset = null;
+		
+		List<TransitDTO> searchTransitList = null;
+		
+		String query = null;
+		if("type".equals(searchTransit.getSearchCondition())) {
+			query = prop.getProperty("searchTransitListByType");
+		} else if("tranum".equals(searchTransit.getSearchCondition())) {
+			query = prop.getProperty("searchTransitListByTransitNo");
+		} else if("orderNo".equals(searchTransit.getSearchCondition())) {
+			query = prop.getProperty("searchTransitListByOrderNo");
+		}
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, searchTransit.getSearchValue());
+			pstmt.setInt(2, searchTransit.getPageInfo().getStartRow());
+			pstmt.setInt(3, searchTransit.getPageInfo().getEndRow());
+			
+			rset = pstmt.executeQuery();
+			searchTransitList = new ArrayList<>();
+			
+			while(rset.next()) {
+				TransitDTO transit = new TransitDTO();
+				
+				transit.setdNo(rset.getInt("DELIVERY_NO"));
+				transit.setdType(rset.getString("DELIVERY_TYPE"));
+				transit.settNo(rset.getInt("TRANSIT_NO"));
+				transit.settDate(rset.getDate("TRANSIT_DATE"));
+				transit.setoNo(rset.getInt("ORDER_NO"));
+				transit.setMemberNo(rset.getInt("ORDER_MEMBER_NO"));
+				transit.setoDate(rset.getDate("ORDER_DATE"));
+				transit.setoTitle(rset.getString("ORDER_TITLE"));
+				transit.setPrice(rset.getInt("AMOUNT_PRICE"));
+				
+				searchTransitList.add(transit);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+			close(rset);
+		}
+		
+		return searchTransitList;
+	  
+	}
+
+
+		public int searchTransitCount(Connection con, SearchDTO searchTransit) {
+
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		int totalCount = 0;
+		
+		String query = null;
+		if("type".equals(searchTransit.getSearchCondition())) {
+			query = prop.getProperty("searchTypeCount");
+		} else if("tranum".equals(searchTransit.getSearchCondition())) {
+			query = prop.getProperty("searchTransitNoCount");
+		} else if("orderNo".equals(searchTransit.getSearchCondition())) {
+			query = prop.getProperty("searchOdNoCount");
+		}
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, searchTransit.getSearchValue());
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				totalCount = rset.getInt("COUNT(*)");
+
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return totalCount;
+	}
+
+
 
 //	public int insertAttaNotice(Connection con, AttaNoticeDTO file) {
 //		
-//		PreparedStatement pstmt = null;
+//		PreparedStatement pstmt = null; 
 //		
 //		int result = 0;
 //		
