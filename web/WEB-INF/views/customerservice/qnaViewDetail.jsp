@@ -74,7 +74,12 @@
                   <i class="fa fa-arrow-right"></i> 수정하기
                   <!-- </a> -->
                   </button>
-                  <button id="deleteQuestion">삭제하기</button>
+                  <button id="deleteNo" class="btn btn-sm">
+                  <!-- <a href='javascript:test("/mg/resources/js/event")'> -->
+                  <i class="fa fa-arrow-right"></i> 삭제하기
+                  <!-- </a> -->
+                  </button>
+     
                   </div>
                   <div id="holdUp4">
                   <button id="rewriteNoCommit" class="btn btn-sm">
@@ -84,6 +89,7 @@
                   <script>
                   window.onload = function() {
                 	  
+                
                 	  $("#rewriteNoCommit").css("display","none");
                 	  console.log('${ pageNumNo }')
                   		$("#holdUp2").css("float","left").css("display","inline");
@@ -137,6 +143,52 @@
 
                   		});
                   		alert("게시물 수정을 진행해주세요.");
+                  	});
+                  	
+                  	
+                  	
+                 	$("#deleteNo").click(function() {
+                  		$("#deleteNo").css("display","none");
+                  		$("#headCore").attr('readonly', false);
+                  		$("#core").attr('readonly', false);
+                  		
+                  		$("#deleteNoCommit").click(function() {
+                  			
+                  			if(confirm("게시물을 삭제하시겠습니까?")) {
+                      			const headCore = document.getElementById("headCore").value;
+                          		const body = document.getElementById("core").value;
+                          		const pageNumNo = '${ pageNumNo }';
+                          		const adminNo = '${ sessionScope.questionList.no }';
+                          		console.log(headCore);
+                          		console.log(body);
+                          		
+                          		$.ajax({
+                          			url: "${ pageContext.servletContext.contextPath }/question/delete",
+                          			type: "post",
+                          			data: {headCore : headCore, body : body, pageNumNo : pageNumNo, adminNo: adminNo },
+                          			success: function(data, textStatus, xhr) {
+                          				document.getElementById("headCore").innerHTML = data["title"];
+                          				document.getElementById("core").innerHTML = data["body"];
+                          				
+                          				console.log(data["title"]);
+                          				console.table(data["body"]);
+                                  	  $("#rewriteNoCommit").css("display","none");
+                                  	$("#rewriteNo").css("display","block");
+                              		$("#headCore").attr('readonly', true);
+                              		$("#core").attr('readonly', true);
+                          			},
+                          			error: function(xhr, status, error) {
+                          				console.log(error);
+                          			}
+                          		});
+                  				alert("삭제 완료!")
+                  			} else {
+                  				alert("삭제 취소~")
+                  				location.href = '${ pageContext.servletContext.contextPath }/question/detail?no=' + '${ pageNumNo }';
+                  			}
+
+                  		});
+                  		alert("게시물을 삭제를 진행해주세요");
                   	});
                   </script>
                   </c:if>

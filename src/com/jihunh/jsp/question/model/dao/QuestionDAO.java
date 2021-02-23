@@ -321,6 +321,29 @@ public class QuestionDAO {
 		
 		return result;
 	}
+	public int deleteQuestion(Connection con, QuestionDTO requestQuestion) {
+		
+		PreparedStatement pstmt = null;
+		
+		int result = 0;
+		
+		String query = prop.getProperty("deleteQuestion");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, requestQuestion.getNo());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+
+		
+		return result;
+	}
 
 
 }

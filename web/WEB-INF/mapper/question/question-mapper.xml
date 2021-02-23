@@ -279,4 +279,10 @@
          WHERE A.QNA_NO = ?
            AND A.QNA_WRITER_MEMBER_NO = ?
    </entry>
+   <entry key="deleteQuestion">
+        UPDATE 
+               MG_QNA A
+           SET A.QNA_DISPLAY = 'N'
+         WHERE A.QNA_NO = ?
+   </entry>
 </properties>
