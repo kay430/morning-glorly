@@ -8,8 +8,8 @@ import static com.jihunh.jsp.common.jdbc.JDBCTemplate.rollback;
 import java.sql.Connection;
 import java.util.List;
 
-import com.jihunh.jsp.admin.model.dto.SearchReadyDTO;
 import com.jihunh.jsp.eugeneYi.model.DAO.TransitDAO;
+import com.jihunh.jsp.eugeneYi.model.DTO.SearchDTO;
 import com.jihunh.jsp.eugeneYi.model.DTO.TransitDTO;
 import com.jihunh.jsp.eugeneYi.model.DTO.TransitPageInfoDTO;
 
@@ -88,26 +88,36 @@ public class TransitService {
 		return transitList;
 	}
 	
-	public int searchTransitCount(SearchReadyDTO searchRd) {
+	public int searchTransitCount(SearchDTO searchTransit) {
 		
 		Connection con = getConnection();
 		
-		int totalNoticeCount = transitDAO.searchTransitCount(con, searchRd); 
+		int totalTransitCount = transitDAO.searchTransitCount(con, searchTransit); 
 		
 		close(con);
 		
-		return totalNoticeCount;
+		return totalTransitCount;
 	}
 
-	public List<NoticeDTO> searchNoticeList(SearchReadyDTO searchRd) {
+	public List<TransitDTO> searchNoticeList(SearchDTO searchTransit) {
 		
 		Connection con = getConnection();
 		
-		List<NoticeDTO> searchNoticeList = transitDAO.searchTransitList(con, searchRd);
+		List<TransitDTO> searchTransitList = transitDAO.searchTransitList(con, searchTransit);
 		
 		close(con);
 		
-		return searchNoticeList;
+		return searchTransitList;
+	}
+
+	public List<TransitDTO> searchTransitList(SearchDTO searchTransit) {
+		Connection con = getConnection();
+		
+		List<TransitDTO> searchTransitList = transitDAO.searchTransitList(con, searchTransit);
+		
+		close(con);
+		
+		return searchTransitList;
 	}
 
 }

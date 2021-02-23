@@ -2,15 +2,15 @@ package com.jihunh.jsp.eugeneYi.model.DTO;
 
 import com.jihunh.jsp.eugeneYi.model.DTO.TransitPageInfoDTO;
 
-public class SearchReadyDTO {
+public class SearchDTO {
 	
 	private String searchCondition;
 	private String searchValue;
 	private TransitPageInfoDTO pageInfo;
 	
-	public SearchReadyDTO() {}
+	public SearchDTO() {}
 
-	public SearchReadyDTO(String searchCondition, String searchValue, TransitPageInfoDTO pageInfo) {
+	public SearchDTO(String searchCondition, String searchValue, TransitPageInfoDTO pageInfo) {
 		super();
 		this.searchCondition = searchCondition;
 		this.searchValue = searchValue;

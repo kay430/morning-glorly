@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.jihunh.jsp.common.paging.Pagenation;
-import com.jihunh.jsp.eugeneYi.model.DTO.SearchReadyDTO;
+import com.jihunh.jsp.eugeneYi.model.DTO.SearchDTO;
 import com.jihunh.jsp.eugeneYi.model.DTO.TransitDTO;
 import com.jihunh.jsp.eugeneYi.model.DTO.TransitPageInfoDTO;
 import com.jihunh.jsp.eugeneYi.model.service.TransitService;
@@ -32,25 +32,25 @@ public class SearchTransit extends HttpServlet {
 			pageNo = 1;
 		}
 		
-		SearchReadyDTO searchRd = new SearchReadyDTO();
-		searchRd.setPageInfo(new TransitPageInfoDTO());
-		searchRd.setSearchCondition(request.getParameter("searchCondition"));
-		searchRd.setSearchValue(request.getParameter("searchValue"));
-		searchRd.getPageInfo().setPageNo(pageNo);
-		searchRd.getPageInfo().setTotalCount((new TransitService().searchTransitCount(searchRd)));
-		searchRd.getPageInfo().setLimit(10);
-		searchRd.getPageInfo().setButtonAmount(5);
+		SearchDTO searchTransit = new SearchDTO();
+		searchTransit.setPageInfo(new TransitPageInfoDTO());
+		searchTransit.setSearchCondition(request.getParameter("searchCondition"));
+		searchTransit.setSearchValue(request.getParameter("searchValue"));
+		searchTransit.getPageInfo().setPageNo(pageNo);
+		searchTransit.getPageInfo().setTotalCount((new TransitService().searchTransitCount(searchTransit)));
+		searchTransit.getPageInfo().setLimit(10);
+		searchTransit.getPageInfo().setButtonAmount(5);
 
-		List<TransitDTO> transitList = new TransitService().searchTransitList(Pagenation.getSearchPage(searchRd));
+		List<TransitDTO> transitList = new TransitService().searchTransitList(Pagenation.getTransitPage(searchTransit));
 		
 		String path = "";
 		
 		if(transitList != null) {
-			path = "/WEB-INF/views/admin/transitList.jsp";
+			path = "/WEB-INF/views/eugeneYi/transitList.jsp";
 			request.setAttribute("transitList", transitList);
-			request.setAttribute("pageInfo", searchRd.getPageInfo());
-			request.setAttribute("searchCondition", searchRd.getSearchCondition());
-			request.setAttribute("searchValue", searchRd.getSearchValue());
+			request.setAttribute("pageInfo", searchTransit.getPageInfo());
+			request.setAttribute("searchCondition", searchTransit.getSearchCondition());
+			request.setAttribute("searchValue", searchTransit.getSearchValue());
 		} else {
 			path = "/WEB-INF/views/common/error404.jsp";
 			request.setAttribute("messeage", "실패");
