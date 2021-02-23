@@ -16,7 +16,6 @@ import java.util.Properties;
 import com.jihunh.jsp.common.config.ConfigLocation;
 import com.jihunh.jsp.customerservice.model.dto.PageInfoDTO;
 import com.jihunh.jsp.review.dto.ReviewPageInfoDTO;
-
 import com.jihunh.jsp.member.model.dto.MgDTO;
 import com.jihunh.jsp.review.dto.CategoryDTO;
 import com.jihunh.jsp.review.dto.ReviewDTO;
@@ -393,5 +392,55 @@ public class ReviewDAO {
 		return reviewList;
 	}
 
-}
+	public String selectMemberId(Connection con, ReviewDTO changeInfo) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
 
+		String memberId = null;
+		
+		String query = prop.getProperty("selectMemberNo");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, changeInfo.getWriterMemberNo());
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				memberId = rset.getString("MEMBER_NAME");
+			}
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return memberId;
+	}
+
+	public int changeReview(Connection con, ReviewDTO changeInfo) {
+		PreparedStatement pstmt = null;
+		
+		int result = 0;
+		
+		String query = prop.getProperty("updateReview");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, changeInfo.getBody());
+			
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+}

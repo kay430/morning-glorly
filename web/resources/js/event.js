@@ -245,6 +245,14 @@ window.onload = function() {
 		
 	}
 
+	if(document.getElementById("updateReview")) {
+		const $updateReview = document.getElementById("updateReview");
+		$updateReview.onclick = function() {
+			location.href = "/mg/product/review";
+		}	
+}
+
+
 	
 	if(document.getElementById("goBack")) {
 		const $goBack = document.getElementById("goBack");
@@ -254,6 +262,7 @@ window.onload = function() {
 		
 	}
 	
+
 
 
 }
