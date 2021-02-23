@@ -29,7 +29,7 @@
     <section class="panel">
               <header class="panel-heading wht-bg">
                 <h4 class="gen-case">
-                    공지사항 확인
+                 질문게시판
                   </h4>
               </header>
               <div class="panel-body ">
@@ -65,11 +65,11 @@
                
                
                 <div id="holdUp2" class="compose-btn pull-left">
-                  <a id="rewriteNoList" class="btn btn-sm btn-theme" onclick="location.href='${ pageContext.servletContext.contextPath }/admin/notice'">
+                  <a id="rewriteNoList" class="btn btn-sm btn-theme" onclick="location.href='${ pageContext.servletContext.contextPath }/question/list'">
                   <i class="fa fa-reply"></i> 목록으로</a>
                   <c:if test="${ sessionScope.loginMember.status eq 'Y' }">
                   <div id="holdUp">
-                  <button id="rewriteNo" class="btn btn-sm">
+                 <button id="rewriteNo" class="btn btn-sm">
                   <!-- <a href='javascript:test("/mg/resources/js/event")'> -->
                   <i class="fa fa-arrow-right"></i> 수정하기
                   <!-- </a> -->
@@ -82,45 +82,6 @@
                   <script src="/mg/resources/js/event.js"></script>
                   <script>
                   window.onload = function() {
-                	  console.log("${ requestScope.notice.attaNotiList[0].thumbnailPath }");
-                	  /* JS파일 불러오는 방법 도전하다 결국 포기.(02/14) */
-              /*   	  $.getScript("/mg/resources/js/event.js", function() {
-                			console.log("완료")
-                		}); */
-                	  
-                		if(document.getElementById("logoutAdmin")) {
-                			const $logout = document.getElementById("logoutAdmin");
-                			$logout.onclick = function() {
-                				location.href = "/mg/admin/logout";}}
-                		if(document.getElementById("adminNotice")) {
-                			const $logout = document.getElementById("adminNotice");
-                			$logout.onclick = function() {
-                				location.href = "/mg/admin/notice";}}
-                		if(document.getElementById("writeNotice")) {
-                			const $writeNotice = document.getElementById("writeNotice");
-                			$writeNotice.onclick = function() {
-                				location.href = "/mg/admin/notice/insert";}}
-                		if(document.getElementById("sweetHome")) {
-                			const $writeNotice = document.getElementById("sweetHome");
-                			$writeNotice.onclick = function() {
-                				location.href = "/mg/admin/mainIndex";}}
-                		if(document.getElementById("sweetHome2")) {
-                			const $writeNotice = document.getElementById("sweetHome2");
-                			$writeNotice.onclick = function() {
-                				location.href = "/mg/admin/mainIndex";}}
-                		if(document.getElementById("answer")) {
-                			const $answer = document.getElementById("answer");
-                			$answer.onclick = function() {
-                				location.href = "/mg/admin/answer";}}
-                		if(document.getElementById("review")) {
-                			const $review = document.getElementById("review");
-                			$review.onclick = function() {
-                				location.href = "/mg/admin/review";}}
-                		if(document.getElementById("generalQna")) {
-                			const $generalQna = document.getElementById("generalQna");
-                			$generalQna.onclick = function() {
-                				location.href = "/mg/admin/generalQna";}}
-                	  
                 	  
                 	  $("#rewriteNoCommit").css("display","none");
                 	  console.log('${ pageNumNo }')
@@ -140,7 +101,7 @@
                   		
                   		$("#rewriteNoCommit").click(function() {
                   			
-                  			if(confirm("공지사항을 수정하시겠습니까?")) {
+                  			if(confirm("게시물을 수정하시겠습니까?")) {
                       			const headCore = document.getElementById("headCore").value;
                           		const body = document.getElementById("core").value;
                           		const pageNumNo = '${ pageNumNo }';
@@ -149,7 +110,7 @@
                           		console.log(body);
                           		
                           		$.ajax({
-                          			url: "${ pageContext.servletContext.contextPath }/admin/notice/update",
+                          			url: "${ pageContext.servletContext.contextPath }/question/update",
                           			type: "post",
                           			data: {headCore : headCore, body : body, pageNumNo : pageNumNo, adminNo: adminNo },
                           			success: function(data, textStatus, xhr) {
@@ -170,11 +131,11 @@
                   				alert("수정 완료!")
                   			} else {
                   				alert("수정 취소~")
-                  				location.href = '${ pageContext.servletContext.contextPath }/admin/notice/detail?no=' + '${ pageNumNo }';
+                  				location.href = '${ pageContext.servletContext.contextPath }/question/detail?no=' + '${ pageNumNo }';
                   			}
 
                   		});
-                  		alert("공지사항 수정을 진행해주세요.");
+                  		alert("게시물 수정을 진행해주세요.");
                   	});
                   </script>
                   </c:if>

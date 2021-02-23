@@ -8,6 +8,7 @@ import static com.jihunh.jsp.common.jdbc.JDBCTemplate.rollback;
 import java.sql.Connection;
 import java.util.List;
 
+import com.jihunh.jsp.admin.model.dto.NoticeDTO;
 import com.jihunh.jsp.question.model.dao.QuestionDAO;
 import com.jihunh.jsp.question.model.dto.QuestionDTO;
 import com.jihunh.jsp.question.model.dto.QuestionPageInfoDTO;
@@ -107,6 +108,26 @@ public class QuestionService {
 			close(con);
 			
 			return questionList;
+	}
+
+	public QuestionDTO updateQuestion(QuestionDTO newQuestion) {
+		
+		Connection con = getConnection();
+
+		int result = questionDAO.updateQuestion(con, newQuestion);
+
+		QuestionDTO updateQuestion  = questionDAO.selectQuestionDetail(con, newQuestion.getNo());
+
+		System.out.println("result 값 : " + result);
+		if(result > 0) {
+			commit(con);
+		} else {
+			rollback(con);
+		}
+
+		close(con);
+
+		return updateQuestion;
 	}
 
 
