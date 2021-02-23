@@ -75,4 +75,10 @@
             SET A.MEMBER_PWD = ?
           WHERE A.PHONE = ?
 	</entry>
+	<entry key="deleteMember">
+        UPDATE 
+               MG_MEMBER A
+           SET A.MEMBER_STATUS = 'N'
+         WHERE A.MEMBER_NO = ?
+	</entry>
 </properties>

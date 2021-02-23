@@ -52,10 +52,22 @@
 				successMessage = "상품리뷰 등록 성공하셨습니다.";
 				movePath = "${ pageContext.servletContext.contextPath }/product/review";
 				break;
+
 	          case "insertThumbnail":
 	              successMessage = "도시락상품등록에 성공하였습니다!";
 	              movePath ="${ pageContext.servletContext.contextPath }/admin/SelectProduct";
 	              break;
+
+	        case "insertThumbnail":
+	            successMessage = "썸네일 게시판 등록 성공";
+	            movePath ="${ pageContext.servletContext.contextPath }/admin/SelectProduct";
+	            break;
+	            
+	        case "deleteMember":
+	            successMessage = "회원탈퇴 성공";
+	            movePath ="${ pageContext.servletContext.contextPath }/mypage/quitM	ember";
+	            break;    
+
 			}
 			
 			alert(successMessage);

@@ -39,6 +39,8 @@ public class MemberRegist extends HttpServlet {
     		  + request.getParameter("subPhone02")
     		  + request.getParameter("subPhone01");
       
+      System.out.println(memberName);
+      
       MgDTO requestMember = new MgDTO();
       requestMember.setName(memberName);
       requestMember.setId(memberId);

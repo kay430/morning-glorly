@@ -229,12 +229,22 @@ window.onload = function() {
 	}
 	
 	if(document.getElementById("deleteQuestion")) {
-		const $cancelQuestion = document.getElementById("deleteQuestion");
-		$cancelQuestion.onclick = function() {
+		const $deleteQuestion = document.getElementById("deleteQuestion");
+		$deleteQuestion.onclick = function() {
+			location.href = "/mg/question/delete";
+			alert("돼라");
+			console.log($deleteQuestion);
+		}
+		
+	}
+	if(document.getElementById("deleteQuestion")) {
+		const $deleteQuestion = document.getElementById("deleteQuestion");
+		$deleteQuestion.onclick = function() {
 			location.href = "/mg/question/delete";
 		}
 		
 	}
+
 	
 	if(document.getElementById("goBack")) {
 		const $goBack = document.getElementById("goBack");
@@ -244,5 +254,6 @@ window.onload = function() {
 		
 	}
 	
+
 
 }
