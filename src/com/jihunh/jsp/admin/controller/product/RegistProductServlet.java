@@ -47,119 +47,213 @@ public class RegistProductServlet extends HttpServlet {
 
          String encodingType = "UTF-8";
 
-         //file 경로설정
-         String fileUploadDirectory = rootLocation + "/resources/upload/original/";
-         String thumbnailDirectory = rootLocation + "/resources/upload/thumbnail/";
 
-         //위에 있는 파일경로가 현재 존재하지않으므로 아래 객체를 생성
-         File directory1 = new File(fileUploadDirectory);
-         File directory2 = new File(thumbnailDirectory);
+			//file 경로설정
+			String fileUploadDirectory = rootLocation + "/resources/upload/original/";
+			String thumbnailDirectory = rootLocation + "/resources/upload/thumbnail/";
 
-         if(!directory1.exists() || !directory2.exists()) {
-            //폴더생성
-            System.out.println("원본저장폴더 생성 : "  + directory1.mkdirs());
-            System.out.println("썸네일저장폴더 생성  : " + directory2.mkdirs());
-         }
+			//위에 있는 파일경로가 현재 존재하지않으므로 아래 객체를 생성
+			File directory1 = new File(fileUploadDirectory);
+			File directory2 = new File(thumbnailDirectory);
 
-         //파일외에 다른걸 담기위해 MAP을 사용
+			if(!directory1.exists() || !directory2.exists()) {
+				//폴더생성
+				System.out.println("원본저장폴더 생성 : "  + directory1.mkdirs());
+				System.out.println("썸네일저장폴더 생성  : " + directory2.mkdirs());
+			}
 
-         //body라는 키로 parameter로 전달받은 값을 넣어둘거다
-         Map<String, String> parameter = new HashMap<>();
-         //파일에대한 정보저장하고 아래는 key value방식으로 저장할거다 . 파일이여러개면 List방식으로 저장
-         List<Map<String, String>> fileList = new ArrayList<>();
+			//파일외에 다른걸 담기위해 MAP을 사용
 
-         //실제저장을 할수 있는 그 설정을 위한 인스턴스 생성
-         DiskFileItemFactory   fileItemFactory = new DiskFileItemFactory();
-         fileItemFactory.setRepository(new File(fileUploadDirectory));
-         fileItemFactory.setSizeThreshold(maxFileSize);
+			//body라는 키로 parameter로 전달받은 값을 넣어둘거다
+			Map<String, String> parameter = new HashMap<>();
+			//파일에대한 정보저장하고 아래는 key value방식으로 저장할거다 . 파일이여러개면 List방식으로 저장
+			List<Map<String, String>> fileList = new ArrayList<>();
 
-         //위에걸 근거로 서블릿 파일 업로드라는 인스턴스르 생성
-         ServletFileUpload fileUpload = new ServletFileUpload(fileItemFactory);
+			//실제저장을 할수 있는 그 설정을 위한 인스턴스 생성
+			DiskFileItemFactory	fileItemFactory = new DiskFileItemFactory();
+			fileItemFactory.setRepository(new File(fileUploadDirectory));
+			fileItemFactory.setSizeThreshold(maxFileSize);
 
-         try {
-            List<FileItem> fileItems = fileUpload.parseRequest(request);
+			//위에걸 근거로 서블릿 파일 업로드라는 인스턴스르 생성
+			ServletFileUpload fileUpload = new ServletFileUpload(fileItemFactory);
 
-            for(FileItem item : fileItems) {
-               System.out.println("item : " + item);
-            }
-            for(int i = 0; i<fileItems.size(); i++) {
+			try {
+				List<FileItem> fileItems = fileUpload.parseRequest(request);
 
-               FileItem item = fileItems.get(i);
+				for(FileItem item : fileItems) {
+					System.out.println("item : " + item);
+				}
+				for(int i = 0; i<fileItems.size(); i++) {
 
-               if(!item.isFormField()) {
+					FileItem item = fileItems.get(i);
 
-                  //파일이 들어오면 0보다 크기떄문에 파일이들어올떄만 처리
-                  if(item.getSize() > 0 ) {
-                     String fieldName = item.getFieldName();
-                     String originFileName = item.getName();
+					if(!item.isFormField()) {
 
-                     //파일원본이름을 그대로저장하지않고 파일이름을 변환해야한다. 
-                     // 확장자를 뗴고 변환하고 다시확장자를 붙여준다 즉 확장자 분리를 먼저하자
+						//파일이 들어오면 0보다 크기떄문에 파일이들어올떄만 처리
+						if(item.getSize() > 0 ) {
+							String fieldName = item.getFieldName();
+							String originFileName = item.getName();
 
-                     int dot = originFileName.lastIndexOf(".");
-                     String ext = originFileName.substring(dot);
+							//파일원본이름을 그대로저장하지않고 파일이름을 변환해야한다. 
+							// 확장자를 뗴고 변환하고 다시확장자를 붙여준다 즉 확장자 분리를 먼저하자
 
-                     String randomFileName = UUID.randomUUID().toString().replace("-", "") + ext ;
+							int dot = originFileName.lastIndexOf(".");
+							String ext = originFileName.substring(dot);
 
-                     File storeFile = new File(fileUploadDirectory + randomFileName);
+							String randomFileName = UUID.randomUUID().toString().replace("-", "") + ext ;
 
-                     item.write(storeFile);
+							File storeFile = new File(fileUploadDirectory + randomFileName);
 
-                     Map<String, String> fileMap = new HashMap<>();
-                     fileMap.put("fieldName", fieldName);
-                     fileMap.put("originFileName", originFileName);
-                     fileMap.put("savedFileName", randomFileName);
-                     fileMap.put("savePath" , fileUploadDirectory);
+							item.write(storeFile);
 
-                     int width = 0;
-                     int height = 0;
-                     if("thumbnailImg1".equals(fieldName)) {
-                        fileMap.put("fileType", "TITLE");
+							Map<String, String> fileMap = new HashMap<>();
+							fileMap.put("fieldName", fieldName);
+							fileMap.put("originFileName", originFileName);
+							fileMap.put("savedFileName", randomFileName);
+							fileMap.put("savePath" , fileUploadDirectory);
 
-                        width = 350;
-                        height = 200;
-                     }else {
-                        fileMap.put("fileType", "BODY");
+							int width = 0;
+							int height = 0;
+							if("thumbnailImg1".equals(fieldName)) {
+								fileMap.put("fileType", "TITLE");
 
-                        width = 120;
-                        height = 100;
+								width = 350;
+								height = 200;
+							}else {
+								fileMap.put("fileType", "BODY");
 
-                     }
-                     Thumbnails.of(fileUploadDirectory + randomFileName)
-                     .size(width, height)
-                     .toFile(thumbnailDirectory + "thumbnail_" + randomFileName);
+								width = 120;
+								height = 100;
 
-                     fileMap.put("thumbnailPath", "/resource/upload/thumbnail/thumbnail_" + randomFileName);
+							}
+							Thumbnails.of(fileUploadDirectory + randomFileName)
+							.size(width, height)
+							.toFile(thumbnailDirectory + "thumbnail_" + randomFileName);
 
-                     fileList.add(fileMap);
+							fileMap.put("thumbnailPath", "/resource/upload/thumbnail/thumbnail_" + randomFileName);
+
+							fileList.add(fileMap);
 
 
-                  } 
-               } else {
+						} 
+					} else {
 
-                  parameter.put(item.getFieldName(), new String(item.getString().getBytes("ISO-8859-1"), "UTF-8"));
+						parameter.put(item.getFieldName(), new String(item.getString().getBytes("ISO-8859-1"), "UTF-8"));
 
-               }
+					}
 
-            }
+				}
 
-            System.out.println("parameter : " + parameter);
-            System.out.println("fileList : " + fileList);
-            System.out.println(parameter.get("productCode"));
-            
-            MgGoodsDTO thumbnail = new MgGoodsDTO();
-            thumbnail.setGoodsTypeNo(new MgGoodsTypeDTO());
-            thumbnail.setName(parameter.get("productType"));
-            thumbnail.getGoodsTypeNo().setNo(Integer.parseInt(parameter.get("productCode")));
-            thumbnail.setWriterMemberNo(((MgAdDTO) request.getSession().getAttribute("loginMember")).getNo());
-            System.out.println(thumbnail);
-            
-          } catch (Exception e) {
-          e.printStackTrace();
-         }
-      }
-   }
-}
+				System.out.println("parameter : " + parameter);
+				System.out.println("fileList : " + fileList);
+
+				MgGoodsDTO thumbnail = new MgGoodsDTO();
+				thumbnail.setName(parameter.get("productType"));
+				thumbnail.setGoodsTypeNo(new MgGoodsTypeDTO());
+	            thumbnail.getGoodsTypeNo().setNo(Integer.parseInt(parameter.get("productCode")));
+				thumbnail.setName(parameter.get("productName"));
+				thumbnail.setPrice(Integer.parseInt(parameter.get("price")));
+				thumbnail.setCreatedDate(java.sql.Date.valueOf(parameter.get("registDate")));
+				thumbnail.setStatus(parameter.get("status"));
+	            thumbnail.setWriterMemberNo(((MgAdDTO) request.getSession().getAttribute("loginMember")).getNo());
+
+				//				thumbnail.setAttachmentList(new ArrayList<AttachmentDTO>());
+				List<AttachmentDTO> list = thumbnail.getAttachmentList();
+				for(int i = 0; i < fileList.size(); i++) {
+					Map<String, String> file = fileList.get(i);
+
+					AttachmentDTO tempFileInfo = new AttachmentDTO();
+					tempFileInfo.setOriginalName(file.get("originFileName"));
+					tempFileInfo.setSavedName(file.get("savedFileName"));
+					tempFileInfo.setSavePath(file.get("savePath"));
+					tempFileInfo.setFileType(file.get("fileType"));
+					tempFileInfo.setThumbnailPath(file.get("thumbnailPath"));
+
+					list.add(tempFileInfo);
+				}
+
+				int result = new MgGoodsService().insertThumbnail(thumbnail);
+
+				String path = "";
+				if(result > 0) {
+					path = "/WEB-INF/views/common/success.jsp";
+					request.setAttribute("successCode", "insertThumbnail");
+				} else {
+					path = "/WEB-INF/views/common/failed.jsp";
+					request.setAttribute("message", "썸네일 게시판 등록 실패!");
+				}
+
+				request.getRequestDispatcher(path).forward(request, response);
+
+			} catch (Exception e) {
+				e.printStackTrace();
+
+				int cnt = 0;
+				for(int i = 0; i < fileList.size(); i++) {
+					Map<String, String> file = fileList.get(i);
+
+					File deletedFile = new File(fileUploadDirectory + file.get("savedFileName"));
+					boolean isDeleted = deletedFile.delete();
+
+					if(isDeleted) {
+						cnt++;
+					}
+				}
+
+				if(cnt == fileList.size()) {
+					System.out.println("업로드에 실패한 사진 모두 삭제 완료!");
+				} else {
+					System.out.println("사진 삭제 실패!");
+				}
+			}
+
+
+		}
+
+	}
+
+   
+
+/*	else {
+							//parameter값이 getFieldName의 키값이된다
+							parameter.put(item.getFieldName(), new String(item.getString().getBytes("ISO-8859-1"), "UTF-8"));
+						}
+					}
+					System.out.println("parameter : " + parameter);
+					System.out.println("fileList : " +  fileList);
+
+					MgGoodsDTO thumbnail = new MgGoodsDTO();
+					thumbnail.setWriterMemberNo(((MgAdDTO) request.getSession().getAttribute("loginMember")).getNo());
+
+					for(int i =0 ; i < fileList.size(); i++) {
+						Map
+
+
+
+				} catch (FileUploadException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+
+
+			}
+			//		String producyType = request.getParameter("productType");
+			//		String productCode = request.getParameter("productCode");
+			//		String productName = request.getParameter("productName");
+			//		int price = Integer.parseInt(request.getParameter("price"));
+			//	    Date registDate = java.sql.Date.valueOf(request.getParameter("registDate"));
+			//	    String status = request.getParameter("status");
+
+
+			doGet(request, response);
+	}
+ */
+
+
             //            thumbnail.setAttachmentList(new ArrayList<AttachmentDTO>());
 //            List<AttachmentDTO> list = thumbnail.getAttachmentList();
 //            for(int i = 0; i < fileList.size(); i++) {
@@ -254,4 +348,5 @@ public class RegistProductServlet extends HttpServlet {
          doGet(request, response);
    }
  */
+
 

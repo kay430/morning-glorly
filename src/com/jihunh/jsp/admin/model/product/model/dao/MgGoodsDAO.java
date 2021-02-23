@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+import com.jihunh.jsp.admin.model.product.model.dto.AttachmentDTO;
 import com.jihunh.jsp.admin.model.product.model.dto.MgGoodsDTO;
 import com.jihunh.jsp.admin.model.product.model.dto.MgGoodsTypeDTO;
 import com.jihunh.jsp.common.config.ConfigLocation;
@@ -236,6 +237,37 @@ public class MgGoodsDAO {
 		}
 		
 		return searchProductList;
+	}
+
+	
+	//썸네일..	제목하고 내용
+	public int insertThumbnailContent(Connection con, MgGoodsDTO thumbnail) {
+		
+		PreparedStatement pstmt = null;
+		
+		int result = 0;
+		
+		String query = prop.getProperty("insertThumbnailContent");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+
+	public int selectThumbnailSequence(Connection con) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public int insertAttachment(Connection con, AttachmentDTO attachmentDTO) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

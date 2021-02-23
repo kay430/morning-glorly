@@ -157,10 +157,12 @@
                   <div class="col-md-3 col-xs-11">
                     <div> 
                       <select id="productCode" name="productCode">
-			                	<option value="10">단백질 도시락</option>
-			                  	<option value="20">다이어트 도시락</option>
-				                <option value="30">유지어터 도시락</option>
-				                <option value="777">직원용 도시락</option>
+
+			                	<option value="10">벌크업식단</option>
+			                  	<option value="20">유지어터식단</option>
+				                <option value="30">다이어트식단</option>
+				                <option value="777">숨겨둔혜자식단</option>
+
 			         </select>
                     </div>
                   </div>
