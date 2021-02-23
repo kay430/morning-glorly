@@ -132,8 +132,8 @@
              , D.CATEGORY_CODE
              , D.QNA_TITLE
              , D.QNA_BODY
+             , D.MEMBER_NAME
              , D.QNA_WRITER_MEMBER_NO
-             , D.MEMBER_ID
              , D.QNA_COUNT
              , D.CREATED_DATE
              , D.MODIFIED_DATE
@@ -147,7 +147,7 @@
 	          	    , C.QNA_TITLE
 	          	    , C.QNA_BODY
              		, C.QNA_WRITER_MEMBER_NO
-             		, C.MEMBER_ID
+             		, C.MEMBER_NAME
             	    , C.QNA_COUNT
 	            	, C.CREATED_DATE
 	                , C.MODIFIED_DATE
@@ -159,7 +159,7 @@
            				     , A.QNA_TITLE
             			     , A.QNA_BODY
             			     , A.QNA_WRITER_MEMBER_NO
-           				     , B.MEMBER_ID
+           				     , B.MEMBER_NAME
             			     , A.QNA_COUNT
           				     , A.CREATED_DATE
             				 , A.MODIFIED_DATE
