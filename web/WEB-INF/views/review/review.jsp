@@ -42,10 +42,10 @@
 
       <!-- 본문 -->
             <div class="notice_header_txt">
-         질문과 답변
+         상품후기
       <div id="page-content-wrapper">
          <div class="container-fluid">
-            <div class="outer-notice-list">
+            <div class="outer-review-list">
                <div class="table-area">
                   <table align="center" id="listArea">
                      <tr class="board-list-tr">
@@ -70,15 +70,18 @@
                      </c:forEach>
                   </table>
                </div>
+			<form id="searchForm" action="${ pageContext.servletContext.contextPath }/review/search" method="get">
                <div class="search-area" align="center">
                   <select id="searchCondition" name="searchCondition">
-                     <option value="writer">작성자</option>
-                     <option value="title">제목</option>
-                     <option value="body">내용</option>
-                  </select> <input type="search" name="searchValue">
+                    <option value="Name" <c:if test="${ requestScope.searchCondition eq 'Name' }">selected</c:if>>작성자</option>
+			        <option value="Title" <c:if test="${ requestScope.searchCondition eq 'Title' }">selected</c:if>>제목</option>
+				    <option value="Body" <c:if test="${ requestScope.searchCondition eq 'Body' }">selected</c:if>>내용</option>
+			    </select> 
+                  <input type="search" id="searchValue" name="searchValue" value="${requestScope.searchValue }">
                   <button type="submit">검색하기</button>
-                  <button id="writeReview">작성하기</button>
+                  <button type="button" id="writeReview">작성하기</button>
                </div>
+               </form>
                
      <div class="pagingArea" align="center">
          <c:choose>
@@ -90,6 +93,7 @@
                <c:if test="${ requestScope.reviewPageInfo.pageNo > 1 }">
                   <button id="prevPage"><</button>
                </c:if>
+               
                
                <c:forEach var="p" begin="${ requestScope.reviewPageInfo.startPage }" end="${ requestScope.reviewPageInfo.endPage }" step="1">
                   <c:if test="${ requestScope.reviewPageInfo.pageNo eq p }">
@@ -142,7 +146,7 @@
    </script>
    <script>
       const link = "${ pageContext.servletContext.contextPath }/product/review";
-      
+      const searchLink = "${ pageContext.servletContext.contextPath}/review/search";
       if(document.getElementById("startPage")) {
           const $startPage = document.getElementById("startPage");
           $startPage.onclick = function() {

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
-	<entry key="selectTotalCount">
-		SELECT /**/
-		       COUNT(*)
-		  FROM MG_QNA A
-		   WHERE A.QNA_DISPLAY = 'Y'
-	</entry>
-	<entry key="selectAllQuestionList">
-	    SELECT 
+   <entry key="selectTotalCount">
+      SELECT /**/
+             COUNT(*)
+        FROM MG_QNA A
+         WHERE A.QNA_DISPLAY = 'Y'
+   </entry>
+   <entry key="selectAllQuestionList">
+       SELECT 
                A.RNUM
              , A.QNA_NO
              , A.QNA_STATUS
@@ -51,8 +51,8 @@
                           ) B
                     ) A
                     WHERE RNUM BETWEEN ? AND ? 
-	</entry>
-		<entry key="incrementQuestionCount">
+   </entry>
+      <entry key="incrementQuestionCount">
         UPDATE
                MG_QNA A
            SET A.QNA_COUNT = (SELECT B.QNA_COUNT
@@ -60,8 +60,8 @@
                                   WHERE B.QNA_NO = ?
                                 ) + 1
          WHERE A.QNA_NO = ?
-	</entry>
-	<entry key="selectQuestionDetail">
+   </entry>
+   <entry key="selectQuestionDetail">
         SELECT
                A.QNA_NO
              , A.QNA_TITLE
@@ -82,8 +82,8 @@
           LEFT JOIN MG_QNA_ATTACHMENT C ON (A.QNA_NO = C.REF_QNA_NO)
          WHERE A.QNA_DISPLAY = 'Y'
            AND A.QNA_NO = ?
-	</entry>
-		<entry key="insertQuestion">
+   </entry>
+      <entry key="insertQuestion">
         INSERT
           INTO MG_QNA A
         (
@@ -99,32 +99,32 @@
         , ?
         , ?
         ) 
-	</entry>
-	<entry key="searchQueNameCount">
-		SELECT
-			COUNT(*)
-		 FROM MG_QNA A	
-		 JOIN MG_MEMBER C ON (A.QNA_WRITER_MEMBER_NO = C.MEMBER_NO)
-		WHERE A.QNA_DISPLAY = 'Y'
-		  AND C.MEMBER_ID LIKE '%' || ? || '%'
-	</entry>
-	<entry key="searchQueTitleCount">
-		SELECT
-			COUNT(*)
-		FROM MG_QNA A
-		JOIN MG_MEMBER C ON (A.QNA_WRITER_MEMBER_NO = C.MEMBER_NO)
-		WHERE A.QNA_DISPLAY = 'Y'
-		 AND A.QNA_TITLE LIKE '%' || ? || '%'
-	</entry>
-	<entry key="searchQueBodyCount">
-		SELECT
-			COUNT(*)
-		FROM MG_QNA A
-		JOIN MG_MEMBER C ON (A.QNA_WRITER_MEMBER_NO = C.MEMBER_NO)
-		WHERE A.QNA_DISPLAY = 'Y'
-		 AND A.QNA_BODY LIKE '%' || ? || '%'
-	</entry>
-	<entry key="searchQueNameList">
+   </entry>
+   <entry key="searchQueNameCount">
+      SELECT
+         COUNT(*)
+       FROM MG_QNA A   
+       JOIN MG_MEMBER C ON (A.QNA_WRITER_MEMBER_NO = C.MEMBER_NO)
+      WHERE A.QNA_DISPLAY = 'Y'
+        AND C.MEMBER_ID LIKE '%' || ? || '%'
+   </entry>
+   <entry key="searchQueTitleCount">
+      SELECT
+         COUNT(*)
+      FROM MG_QNA A
+      JOIN MG_MEMBER C ON (A.QNA_WRITER_MEMBER_NO = C.MEMBER_NO)
+      WHERE A.QNA_DISPLAY = 'Y'
+       AND A.QNA_TITLE LIKE '%' || ? || '%'
+   </entry>
+   <entry key="searchQueBodyCount">
+      SELECT
+         COUNT(*)
+      FROM MG_QNA A
+      JOIN MG_MEMBER C ON (A.QNA_WRITER_MEMBER_NO = C.MEMBER_NO)
+      WHERE A.QNA_DISPLAY = 'Y'
+       AND A.QNA_BODY LIKE '%' || ? || '%'
+   </entry>
+   <entry key="searchQueNameList">
         SELECT 
                D.RNUM 
              , D.QNA_NO
@@ -142,28 +142,28 @@
           FROM(SELECT
                       ROWNUM RNUM
                     , C.QNA_NO
-             		, C.QNA_STATUS
-             		, C.CATEGORY_CODE
-	          	    , C.QNA_TITLE
-	          	    , C.QNA_BODY
-             		, C.QNA_WRITER_MEMBER_NO
-             		, C.MEMBER_ID
-            	    , C.QNA_COUNT
-	            	, C.CREATED_DATE
-	                , C.MODIFIED_DATE
-           	        , C.QNA_DISPLAY
-           	        
+                   , C.QNA_STATUS
+                   , C.CATEGORY_CODE
+                    , C.QNA_TITLE
+                    , C.QNA_BODY
+                   , C.QNA_WRITER_MEMBER_NO
+                   , C.MEMBER_ID
+                   , C.QNA_COUNT
+                  , C.CREATED_DATE
+                   , C.MODIFIED_DATE
+                      , C.QNA_DISPLAY
+                      
                  FROM( SELECT  A.QNA_NO
-            				 , A.QNA_STATUS
-            				 , A.CATEGORY_CODE
-           				     , A.QNA_TITLE
-            			     , A.QNA_BODY
-            			     , A.QNA_WRITER_MEMBER_NO
-           				     , B.MEMBER_ID
-            			     , A.QNA_COUNT
-          				     , A.CREATED_DATE
-            				 , A.MODIFIED_DATE
-          			         , A.QNA_DISPLAY
+                         , A.QNA_STATUS
+                         , A.CATEGORY_CODE
+                            , A.QNA_TITLE
+                          , A.QNA_BODY
+                          , A.QNA_WRITER_MEMBER_NO
+                            , B.MEMBER_ID
+                          , A.QNA_COUNT
+                           , A.CREATED_DATE
+                         , A.MODIFIED_DATE
+                            , A.QNA_DISPLAY
                         FROM MG_QNA A
                         JOIN MG_MEMBER B ON (B.MEMBER_NO = A.QNA_WRITER_MEMBER_NO)
                        WHERE A.QNA_DISPLAY = 'Y'
@@ -191,28 +191,28 @@
           FROM(SELECT
                       ROWNUM RNUM
                     , C.QNA_NO
-             		, C.QNA_STATUS
-             		, C.CATEGORY_CODE
-	          	    , C.QNA_TITLE
-	          	    , C.QNA_BODY
-             		, C.QNA_WRITER_MEMBER_NO
-             		, C.MEMBER_ID
-            	    , C.QNA_COUNT
-	            	, C.CREATED_DATE
-	                , C.MODIFIED_DATE
-           	        , C.QNA_DISPLAY
-           	        
+                   , C.QNA_STATUS
+                   , C.CATEGORY_CODE
+                    , C.QNA_TITLE
+                    , C.QNA_BODY
+                   , C.QNA_WRITER_MEMBER_NO
+                   , C.MEMBER_ID
+                   , C.QNA_COUNT
+                  , C.CREATED_DATE
+                   , C.MODIFIED_DATE
+                      , C.QNA_DISPLAY
+                      
                  FROM( SELECT  A.QNA_NO
-            				 , A.QNA_STATUS
-            				 , A.CATEGORY_CODE
-           				     , A.QNA_TITLE
-            			     , A.QNA_BODY
-            			     , A.QNA_WRITER_MEMBER_NO
-           				     , B.MEMBER_ID
-            			     , A.QNA_COUNT
-          				     , A.CREATED_DATE
-            				 , A.MODIFIED_DATE
-          			         , A.QNA_DISPLAY
+                         , A.QNA_STATUS
+                         , A.CATEGORY_CODE
+                            , A.QNA_TITLE
+                          , A.QNA_BODY
+                          , A.QNA_WRITER_MEMBER_NO
+                            , B.MEMBER_ID
+                          , A.QNA_COUNT
+                           , A.CREATED_DATE
+                         , A.MODIFIED_DATE
+                            , A.QNA_DISPLAY
                         FROM MG_QNA A
                         JOIN MG_MEMBER B ON (B.MEMBER_NO = A.QNA_WRITER_MEMBER_NO)
                        WHERE A.QNA_DISPLAY = 'Y'
@@ -240,43 +240,43 @@
           FROM(SELECT
                       ROWNUM RNUM
                     , C.QNA_NO
-             		, C.QNA_STATUS
-             		, C.CATEGORY_CODE
-	          	    , C.QNA_TITLE
-	          	    , C.QNA_BODY
-             		, C.QNA_WRITER_MEMBER_NO
-             		, C.MEMBER_ID
-            	    , C.QNA_COUNT
-	            	, C.CREATED_DATE
-	                , C.MODIFIED_DATE
-           	        , C.QNA_DISPLAY
-           	        
+                   , C.QNA_STATUS
+                   , C.CATEGORY_CODE
+                    , C.QNA_TITLE
+                    , C.QNA_BODY
+                   , C.QNA_WRITER_MEMBER_NO
+                   , C.MEMBER_ID
+                   , C.QNA_COUNT
+                  , C.CREATED_DATE
+                   , C.MODIFIED_DATE
+                      , C.QNA_DISPLAY
+                      
                  FROM( SELECT  A.QNA_NO
-            				 , A.QNA_STATUS
-            				 , A.CATEGORY_CODE
-           				     , A.QNA_TITLE
-            			     , A.QNA_BODY
-            			     , A.QNA_WRITER_MEMBER_NO
-           				     , B.MEMBER_ID
-            			     , A.QNA_COUNT
-          				     , A.CREATED_DATE
-            				 , A.MODIFIED_DATE
-          			         , A.QNA_DISPLAY
+                         , A.QNA_STATUS
+                         , A.CATEGORY_CODE
+                            , A.QNA_TITLE
+                          , A.QNA_BODY
+                          , A.QNA_WRITER_MEMBER_NO
+                            , B.MEMBER_ID
+                          , A.QNA_COUNT
+                           , A.CREATED_DATE
+                         , A.MODIFIED_DATE
+                            , A.QNA_DISPLAY
                         FROM MG_QNA A
                         JOIN MG_MEMBER B ON (B.MEMBER_NO = A.QNA_WRITER_MEMBER_NO)
                        WHERE A.QNA_DISPLAY = 'Y'
-                         AND A.QNA_BODY	LIKE '%' || ? || '%'
+                         AND A.QNA_BODY   LIKE '%' || ? || '%'
                        ORDER BY A.QNA_NO DESC
                     ) C
                  )D
           WHERE D.RNUM BETWEEN ? AND ?
  </entry>
  <entry key="updateQuestion">
-	        UPDATE
+           UPDATE
                MG_QNA A
            SET A.QNA_TITLE = ?
              , A.QNA_BODY = ?
          WHERE A.QNA_NO = ?
            AND A.QNA_WRITER_MEMBER_NO = ?
-	</entry>
+   </entry>
 </properties>

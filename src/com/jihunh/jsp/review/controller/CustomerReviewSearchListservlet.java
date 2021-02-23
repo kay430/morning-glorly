@@ -57,16 +57,18 @@ public class CustomerReviewSearchListservlet extends HttpServlet {
 		
 		System.out.println("pageInfo : " + reviewPageInfo );
 		
-		List<ReviewDTO> reviewList = reviewService.selectAllReviewList(reviewPageInfo);
+		List<ReviewDTO> reviewList = reviewService.selectSearchReviewList(searchCondition, searchValue,reviewPageInfo);
 		
-		for(ReviewDTO reviewBoard : reviewList) {
-			System.out.println(reviewBoard); 
+		for(ReviewDTO review : reviewList) {
+			System.out.println(review); 
 		}
 		String path = "";
 		if(reviewList != null) {
 			path = "/WEB-INF/views/review/review.jsp";
 			request.setAttribute("reviewList", reviewList);
 			request.setAttribute("pageInfo", reviewPageInfo);
+			request.setAttribute("searchCondition", searchCondition);
+			request.setAttribute("searchValue", searchValue);
 			
 		} else {
 			path = "/WEB-INF/views/common/failed.jsp";

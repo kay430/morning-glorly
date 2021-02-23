@@ -64,6 +64,9 @@ public class CustomerProductReviewServlet extends HttpServlet {
 			path = "/WEB-INF/views/review/review.jsp";
 			request.setAttribute("reviewList", reviewList);
 			request.setAttribute("reviewPageInfo", reviewPageInfo);
+		
+			
+		
 		} else {
 			path = "/WEB-INF/views/main/failed.jsp";
 			request.setAttribute("message", "리뷰 조회 실패!");

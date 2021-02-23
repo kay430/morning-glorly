@@ -107,6 +107,16 @@ public class ReviewService {
 		
 		return reviewDetail;
 	}
+	public List<ReviewDTO> selectSearchReviewList(String searchCondition, String searchValue,
+			ReviewPageInfoDTO reviewPageInfo) {
+		Connection con = getConnection();
+		
+		List<ReviewDTO> reviewList = reviewDAO.selectSearchReviewList(con, searchCondition, searchValue, reviewPageInfo);
+		
+		close(con);
+		
+		return reviewList;
+	}
 	 
 
 	  
