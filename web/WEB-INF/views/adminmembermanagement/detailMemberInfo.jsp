@@ -264,6 +264,42 @@
                 	</tr>
 						</c:forEach>
                 </table>
+                   <!-- /content-panel -->
+          <div align="center">
+         <c:choose>
+            <c:when test="${ empty requestScope.searchValue }">
+               <button id="startPage"><<</button>
+               <c:if test="${ requestScope.pageInfo.pageNo <= 1 }">
+                  <button disabled><</button>
+               </c:if>
+               <c:if test="${ requestScope.pageInfo.pageNo > 1 }">
+                  <button id="prevPage"><</button>
+               </c:if>
+               
+               <c:forEach var="p" begin="${ requestScope.pageInfo.startPage }" end="${ requestScope.pageInfo.endPage }" step="1">
+               	<c:if test="${ requestScope.pageInfo.pageNo eq P }">
+               		<button disabled><c:out value="${ p }"/></button>
+               	</c:if>
+               	<c:if test="${ requestScope.pageInfo.pageNo ne P }">
+               		<button onclick="pageButtonAction(this.innerText);"><c:out value="${ p }"/></button>
+               	</c:if>
+               </c:forEach>
+               
+               <c:if test="${ requestScope.pageInfo.pageNo >= requestScope.pageInfo.maxpage }">
+                  <button disabled>></button>
+               </c:if>
+               <c:if test="${ requestScope.pageInfo.pageNo < requestScope.pageInfo.maxpage }">
+                  <button id="nextPage">></button>
+               </c:if>
+               
+               <button id="maxpage">>></button>
+               
+            </c:when>
+            <c:otherwise>
+               
+            </c:otherwise>
+         </c:choose>
+      </div>
 
 
 
@@ -311,48 +347,6 @@
                         </div>
                         <!-- /row -->
                         <h4>My Friends</h4>
-                        <div class="row centered mb">
-                          <ul class="my-friends">
-                            <li>
-                              <div class="friends-pic"><img class="img-circle" width="35" height="35" src="img/friends/fr-01.jpg"></div>
-                            </li>
-                            <li>
-                              <div class="friends-pic"><img class="img-circle" width="35" height="35" src="img/friends/fr-02.jpg"></div>
-                            </li>
-                            <li>
-                              <div class="friends-pic"><img class="img-circle" width="35" height="35" src="img/friends/fr-03.jpg"></div>
-                            </li>
-                            <li>
-                              <div class="friends-pic"><img class="img-circle" width="35" height="35" src="img/friends/fr-04.jpg"></div>
-                            </li>
-                            <li>
-                              <div class="friends-pic"><img class="img-circle" width="35" height="35" src="img/friends/fr-05.jpg"></div>
-                            </li>
-                            <li>
-                              <div class="friends-pic"><img class="img-circle" width="35" height="35" src="img/friends/fr-06.jpg"></div>
-                            </li>
-                            <li>
-                              <div class="friends-pic"><img class="img-circle" width="35" height="35" src="img/friends/fr-07.jpg"></div>
-                            </li>
-                            <li>
-                              <div class="friends-pic"><img class="img-circle" width="35" height="35" src="img/friends/fr-08.jpg"></div>
-                            </li>
-                            <li>
-                              <div class="friends-pic"><img class="img-circle" width="35" height="35" src="img/friends/fr-09.jpg"></div>
-                            </li>
-                            <li>
-                              <div class="friends-pic"><img class="img-circle" width="35" height="35" src="img/friends/fr-10.jpg"></div>
-                            </li>
-                            <li>
-                              <div class="friends-pic"><img class="img-circle" width="35" height="35" src="img/friends/fr-11.jpg"></div>
-                            </li>
-                          </ul>
-                          <div class="row mt">
-                            <div class="col-md-4 col-md-offset-4">
-                              <h6><a href="#">VIEW ALL</a></h6>
-                            </div>
-                          </div>
-                        </div>
                         <!-- /row -->
                         <h4>Pending Tasks</h4>
                         <div class="row centered">
@@ -716,87 +710,6 @@
                   </table>
                 </div>
                 </div>
-                <hr>
-             <form id="searchForm" action="${ pageContext.servletContext.contextPath}/admin/member/manage/search" method="get">
-                <div class="search-area" align="center">
-			<select id="searchCondition" name="searchCondition">
-				<option value="mgName" <c:if test="${ requestScope.searchCondition eq 'mgName' }">selected</c:if>>이름</option>
-				<option value="mgId" <c:if test="${ requestScope.searchCondition eq 'mgId' }">selected</c:if>>아이디</option>
-				<option value="mgPno" <c:if test="${ requestScope.searchCondition eq 'mgPno' }">selected</c:if>>생년월일</option>
-				<option value="mgGender" <c:if test="${ requestScope.searchCondition eq 'mgGender' }">selected</c:if>>성별</option>
-				<option value="mgAdd" <c:if test="${ requestScope.searchCondition eq 'mgAdd' }">selected</c:if>>주소</option>
-				<option value="mgBlack" <c:if test="${ requestScope.searchCondition eq 'mgBlack' }">selected</c:if>>블랙리스트</option>
-				<option value="mgStatus" <c:if test="${ requestScope.searchCondition eq 'mgStatus' }">selected</c:if>>상태</option>
-			</select>
-			<input type="search" name="searchValue" value="${ requestScope.searchValue }">
-			<button type="submit">검색하기</button>
-			<c:if test="${ sessionScope.loginMember.status eq 'Y' }">
-				<button id="writeNotice" type="button">작성하기</button>
-			</c:if>
-		</div>
-		</form>
-		<br>
-					 <!-- 페이징 버튼 -->
-      <div class="pagingArea" align="center">
-         <c:choose>
-            <c:when test="${ empty requestScope.searchValue }">
-         		<button id="startPage"><<</button>
-         		
-         		<c:if test="${ requestScope.pageInfo.pageNo <= 1 }">
-         			<button disabled><</button>
-         		</c:if>
-         		<c:if test="${ requestScope.pageInfo.pageNo > 1 }">
-         			<button id=prevPage><</button>
-         		</c:if>
-         		
-         		<c:forEach var="p" begin="${ requestScope.pageInfo.startPage }" end="${ requestScope.pageInfo.endPage }" step="1">
-         			<c:if test="${ requestScope.pageInfo.pageNo eq p }">
-         				<button disabled><c:out value="${ p }"/></button>
-         			</c:if>
-         			<c:if test="${ requestScope.pageInfo.pageNo ne p }">
-         				<button onclick="pageButtonAction(this.innerText);"><c:out value="${ p }"/></button>
-         			</c:if>
-         		</c:forEach>
-         		
-         		<c:if test="${ requestScope.pageInfo.pageNo >= requestScope.pageInfo.maxpage }">
-         			<button disabled>></button>
-         		</c:if>
-         		<c:if test="${ requestScope.pageInfo.pageNo < requestScope.pageInfo.maxpage }">
-         			<button id="nextPage">></button>
-         		</c:if>
-         		
-         		<button id="maxpage">>></button>
-            </c:when>
-            <c:otherwise>
-               <button id="searchStartPage"><<</button>
-               
-               <c:if test="${ requestScope.pageInfo.pageNo <= 1 }">
-               	<button disabled><</button>
-               </c:if>
-               <c:if test="${ requestScope.pageInfo.pageNo > 1 }">
-               	<button id="searchPrevPage"><</button>
-               </c:if>
-               
-               <c:forEach var="s" begin="${ requestScope.pageInfo.startPage }" end="${ requestScope.pageInfo.endPage }" step="1">
-               	<c:if test="${ requestScope.pageInfo.pageNo eq s }">
-               		<button disabled><c:out value="${ s }"/></button>
-               	</c:if>
-               	<c:if test="${ requestScope.pageInfo.pageNo ne s }">
-               		<button onclick="searchPageButtonAction(this.innerText)"><c:out value="${ s }"/></button>
-               	</c:if>
-               </c:forEach>
-<%-- 				<p>${ s }</p> --%>
-               <c:if test="${ requestScope.pageInfo.pageNo >= requestScope.pageInfo.maxpage }">
-               	<button disabled>></button>
-               </c:if>
-               <c:if test="${ requestScope.pageInfo.pageNo < requestScope.pageInfo.maxpage }">
-               	<button id="searchNextPage">></button>
-               </c:if>
-               
-               <button id="searchMaxPage">>></button>
-            </c:otherwise>
-         </c:choose>
-      </div>
 		
               </div>
             </section>
@@ -827,27 +740,27 @@
 		}
 	</script>
 	<script>
-      const link = "${ pageContext.servletContext.contextPath }/admin/member/manage";
+      const link = "${ pageContext.servletContext.contextPath }/admin/member/manage/detail?no=${ pageNumNo }&";
       const searchLink = "${ pageContext.servletContext.contextPath }/admin/member/manage/search"
       
       if(document.getElementById("startPage")) {
          const $startPage = document.getElementById("startPage");
          $startPage.onclick = function() {
-            location.href = link + "?currentPage=1";
+            location.href = link + "currentPage=1";
          }
       }
       
       if(document.getElementById("prevPage")) {
          const $prevPage = document.getElementById("prevPage");
          $prevPage.onclick = function() {
-            location.href = link + "?currentPage=${ requestScope.pageInfo.pageNo - 1}";
+            location.href = link + "currentPage=${ requestScope.pageInfo.pageNo - 1}";
          }
       }
       
       if(document.getElementById("nextPage")) {
          const $nextPage = document.getElementById("nextPage");
          $nextPage.onclick = function() {
-            location.href = link + "?currentPage=${ requestScope.pageInfo.pageNo + 1}";
+            location.href = link + "currentPage=${ requestScope.pageInfo.pageNo + 1}";
          }
       }
       
@@ -856,46 +769,12 @@
 			const $maxpage = document.getElementById("maxpage");
 			$maxpage.onclick = function() {
 				location.href = link
-						+ "?currentPage=${ requestScope.pageInfo.maxpage }";
-			}
-		}
-		
-		if(document.getElementById("searchStartPage")) {
-			const $searchStartPage = document.getElementById("searchStartPage");
-			$searchStartPage.onclick = function() {
-				location.href = searchLink + "?currentPage=1&searchCondition=${ requestScope.searchCondition }&searchValue=${ requestScope.searchValue}";
-			}
-		}
-		
-		if(document.getElementById("searchPrevPage")) {
-			const $searchPrevPage = document.getElementById("searchPrevPage");
-			$searchPrevPage.onclick = function() {
-				location.href = searchLink + "?currentPage=${ requestScope.pageInfo.pageNo - 1}&searchCondition=${ requestScope.searchCondition }&searchValue=${ requestScope.searchValue}";
-			}
-		}
-		
-		if (document.getElementById("searchNextPage")) {
-			const $searchNextPage = document.getElementById("searchNextPage");
-			$searchNextPage.onclick = function() {
-				location.href = searchLink
-						+ "?currentPage=${ requestScope.pageInfo.pageNo + 1}&searchCondition=${ requestScope.searchCondition}&searchValue=${ requestScope.searchValue}";
-			}
-		}
-		
-		if(document.getElementById("searchMaxPage")) {
-			const $searchMaxPage = document.getElementById("searchMaxPage");
-			$searchMaxPage.onclick = function() {
-				location.href = searchLink
-					+ "?currentPage=${ requestScope.pageInfo.maxpage }&searchCondition=${ requestScope.searchCondition }&searchValue=${ requestScope.searchValue }";
+						+ "currentPage=${ requestScope.pageInfo.maxpage }";
 			}
 		}
 
 		function pageButtonAction(text) {
-			location.href = link + "?currentPage=" + text;
-		}
-		
-		function searchPageButtonAction(text) {
-			location.href = searchLink + "?currentPage=" + text + "&searchCondition=${ requestScope.searchCondition}&searchValue=${ requestScope.searchValue}";
+			location.href = link + "currentPage=" + text;
 		}
 	</script>
     <!-- /MAIN CONTENT -->

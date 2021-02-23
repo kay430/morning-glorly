@@ -45,13 +45,17 @@
 			case "insertQuestion" :
 				successMessage = "등록 성공하셨습니다.";
 				movePath = "${ pageContext.servletContext.contextPath}";
-        break;
+       		 break;
           
 			  case "insertReviewNotice"	:
 				successMessage = "상품리뷰 등록 성공하셨습니다.";
 				movePath = "${ pageContext.servletContext.contextPath }/product/review";
 
 				break;
+	          case "insertThumbnail":
+	              successMessage = "썸네일 게시판 등록 성공";
+	              movePath ="${ pageContext.servletContext.contextPath }/admin/SelectProduct";
+	              break;
 			}
 			
 			alert(successMessage);

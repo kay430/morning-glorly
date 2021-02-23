@@ -8,8 +8,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.jihunh.jsp.admin.model.dto.NoticePageInfoDTO;
+import com.jihunh.jsp.admin.model.dto.SearchReadyDTO;
 import com.jihunh.jsp.admin.model.service.MemberService;
 import com.jihunh.jsp.admin.model.service.NoticeService;
+import com.jihunh.jsp.common.paging.Pagenation;
 import com.jihunh.jsp.member.model.dto.MgDTO;
 
 @WebServlet("/admin/member/manage/detail")
@@ -20,7 +23,25 @@ public class DetailMember extends HttpServlet {
 		int no = Integer.parseInt(request.getParameter("no"));
 		int pageNumNo = no;
 		
-		MgDTO mgList = new MemberService().viewMemberDetailInfo(no);
+		String currentPage = request.getParameter("currentPage");
+		int pageNo = 1;
+		
+		if(currentPage != null && !"".equals(currentPage)) {
+			pageNo = Integer.parseInt(currentPage);
+		}
+		
+		if(pageNo <= 0) {
+			pageNo = 1;
+		}
+		SearchReadyDTO mgBlackCount = new SearchReadyDTO();
+		mgBlackCount.setPageInfo(new NoticePageInfoDTO());
+		mgBlackCount.getPageInfo().setPageNo(pageNo);
+		mgBlackCount.getPageInfo().setTotalCount((new MemberService().viewMgBlackCount(no)));
+		mgBlackCount.getPageInfo().setLimit(5);
+		mgBlackCount.getPageInfo().setButtonAmount(5);
+		Pagenation.getSearchPage(mgBlackCount);
+		
+		MgDTO mgList = new MemberService().viewMemberDetailInfo(no, mgBlackCount);
 		
 		System.out.println("주서온 글과 이미지 : " + mgList);
 		
@@ -29,6 +50,7 @@ public class DetailMember extends HttpServlet {
 			path = "/WEB-INF/views/adminmembermanagement/detailMemberInfo.jsp";
 			request.setAttribute("mgList", mgList);
 			request.setAttribute("pageNumNo", pageNumNo);
+			request.setAttribute("pageInfo", mgBlackCount.getPageInfo());
 		} else {
 			path = "/WEB-INF/views/common/failed.jsp";
 			request.setAttribute("message", "공지사항 상세 보기 조회에 실패하셨습니다.");
