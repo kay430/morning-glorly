@@ -176,7 +176,6 @@ SELECT
                  )D
           WHERE D.RNUM BETWEEN ? AND ?
  </entry>
- 
   <entry key="searchMdNameList">
         SELECT 
                D.RNUM 
@@ -219,7 +218,50 @@ SELECT
                  )D
           WHERE D.RNUM BETWEEN ? AND ?
  </entry>
- 
-
- 
-</properties>
+ <entry key="insertThumbnailContent">
+         INSERT 
+        INTO MG_GOODS A
+        (
+          A.GOODS_NO
+        , A.GOODS_NAME
+        , A.GOODS_PRICE
+        , A.GOODS_WRITER_MEMBER_NO
+        , A.GOODS_TYPE_NO
+        )
+        VALUES
+        (
+         SEQ_GOODS_NO.NEXTVAL
+       , ?
+       , ?
+       , ?
+       , ?
+        )
+ </entry>
+ <entry key="selectThumbnailSequence">
+      SELECT
+             SEQ_GOODS_NO.CURRVAL
+        FROM DUAL 
+ </entry>
+ <entry key="insertAttachment">
+       INSERT
+         INTO MG_GOODS_ATTACHMENT A
+         (
+           A.ATTACHMENT_NO
+         , A.REF_GOODS_NO
+         , A.ORIGINAL_NAME
+         , A.SAVED_NAME
+         , A.SAVE_PATH
+         , A.FILE_TYPE
+         , A.THUMBNAIL_PATH
+         )
+         VALUES
+         (
+           SEQ_GOODS_ATTACHMENT_NO.NEXTVAL
+         , ?
+         , ?
+         , ?
+         , ?
+         , ?
+         , ?  
+         )
+ </entry>

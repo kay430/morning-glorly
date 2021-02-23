@@ -433,7 +433,7 @@ public class MemberDAO {
 		return mgDTO;
 	}
 	
-	public int searchMgBlackCount(Connection con, int no) {
+	public int viewMgBlackCount(Connection con, int no) {
 
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;

@@ -111,21 +111,24 @@ public class MemberService {
 		
 		return mgAdList;
 	}
-
-	public MgDTO viewMemberDetailInfo(int no) {
+	
+	public int viewMgBlackCount(int no) {
+		
+		Connection con = getConnection();
+		
+		int viewMgBlackCount = memDAO.viewMgBlackCount(con, no); 
+		
+		close(con);
+		
+		return viewMgBlackCount;
+	}
+	
+	public MgDTO viewMemberDetailInfo(int no, SearchReadyDTO mgBlackCount) {
 
 		Connection con = getConnection();
 		MgDTO mgDetail = null;
 
 		mgDetail = memDAO.viewMemberDetailInfo(con, no);
-		
-		SearchReadyDTO mgBlackCount = new SearchReadyDTO();
-		mgBlackCount.setPageInfo(new NoticePageInfoDTO());
-		mgBlackCount.getPageInfo().setPageNo(1);
-		mgBlackCount.getPageInfo().setTotalCount((memDAO.searchMgBlackCount(con, no)));
-		mgBlackCount.getPageInfo().setLimit(10);
-		mgBlackCount.getPageInfo().setButtonAmount(5);
-		Pagenation.getSearchPage(mgBlackCount);
 		
 		mgDetail = memDAO.viewMgBlackListlInfo(con, no, mgDetail, mgBlackCount);
 		
@@ -141,7 +144,5 @@ public class MemberService {
 
 		return mgDetail;
 	}
-	
-	
 	
 }
