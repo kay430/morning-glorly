@@ -45,13 +45,14 @@
 			case "insertQuestion" :
 				successMessage = "등록 성공하셨습니다.";
 				movePath = "${ pageContext.servletContext.contextPath}";
-        break;
+                break;
           
-			  case "insertReviewNotice"	:
+		    case "insertReviewNotice"	:
 				successMessage = "상품리뷰 등록 성공하셨습니다.";
 				movePath = "${ pageContext.servletContext.contextPath }/product/review";
-
 				break;
+			
+			   
 			}
 			
 			alert(successMessage);

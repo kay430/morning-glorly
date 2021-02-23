@@ -74,36 +74,4 @@ public class MgGoodsService {
 		return productList;
 	}
 
-	public int insertThumbnail(MgGoodsDTO thumbnail) {
-		
-		Connection con = getConnection();
-			
-		int result = 0;
-		
-
-		int MgGoodsResult = mgGoodsDAO.insertThumbnailContent(con, thumbnail);
-		
-		int MgGoodsNo = mgGoodsDAO.selectThumbnailSequence(con);
-		
-		List<AttachmentDTO> fileList = thumbnail.getAttachmentList();
-		for(int i = 0; i <fileList.size(); i++) {
-			fileList.get(i).setRefGoodsNo(MgGoodsNo);
-			
-		}
-		
-		int attachmentResult = 0;
-		for(int i = 0; i < fileList.size(); i++) {
-			attachmentResult += mgGoodsDAO.insertAttachment(con,fileList.get(i));
-		}
-		
-		if(MgGoodsResult > 0 && attachmentResult == fileList.size()) {
-			commit(con);
-			result = 1;
-		} else {
-			rollback(con);
-		}
-		close(con);
-		return MgGoodsResult;
-	}
-
 }
