@@ -12,9 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
-import com.jihunh.jsp.admin.model.dto.AttaNoticeDTO;
+import com.jihunh.jsp.admin.model.dto.MemberBlackListDTO;
 import com.jihunh.jsp.admin.model.dto.MgAdDTO;
-import com.jihunh.jsp.admin.model.dto.NoticeDTO;
 import com.jihunh.jsp.admin.model.dto.SearchReadyDTO;
 import com.jihunh.jsp.common.config.ConfigLocation;
 import com.jihunh.jsp.member.model.dto.MgDTO;
@@ -433,5 +432,73 @@ public class MemberDAO {
 		
 		return mgDTO;
 	}
+	
+	public int searchMgBlackCount(Connection con, int no) {
+
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		int totalCount = 0;
+		String query = prop.getProperty("searchMgBlackCount");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, no);
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				totalCount = rset.getInt("COUNT(*)");
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return totalCount;
+	}
+
+	public MgDTO viewMgBlackListlInfo(Connection con, int no, MgDTO mgDetail, SearchReadyDTO mgBlackCount) {
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		
+		String query = prop.getProperty("viewMgBlackListlInfo");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, no);
+			pstmt.setInt(2, mgBlackCount.getPageInfo().getStartRow());
+			pstmt.setInt(3, mgBlackCount.getPageInfo().getEndRow());
+			
+			rset = pstmt.executeQuery();
+			
+			List<MemberBlackListDTO> mgBlackList = new ArrayList<>();
+			
+			while(rset.next()) {
+				MemberBlackListDTO mgBlack = new MemberBlackListDTO();
+				
+				mgBlack.setNo(rset.getInt("BLACKLIST_NO"));
+				mgBlack.setCreatedDate(rset.getDate("CREATED_DATE"));
+				mgBlack.setReasonInfo(rset.getString("REASON_INFO"));
+				mgBlack.setStatus(rset.getString("BLACKLIST_STATUS"));
+				mgBlackList.add(mgBlack);
+			}
+			mgDetail.setMgBlack(mgBlackList);
+			System.out.println("이건 뭐지 : " + mgDetail);
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return mgDetail;
+	}
+
 
 }

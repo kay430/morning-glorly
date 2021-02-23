@@ -1,6 +1,7 @@
 package com.jihunh.jsp.member.model.dto;
 
 import java.sql.Date;
+import java.util.List;
 
 import com.jihunh.jsp.admin.model.dto.MemberAddress;
 import com.jihunh.jsp.admin.model.dto.MemberBlackListDTO;
@@ -27,19 +28,19 @@ public class MgDTO implements java.io.Serializable {
 	private String status;
 	private String nickname;			//- 이거 닉넹미 쓰는분 있습니까? 02/22(월) 지훈 -
 	
-	private MemberModifyDTO mgModify;
-	private MemberBlackListDTO mgBlack;
-	private MemberAddress mgAddress;
-	private MemberPointDTO mgPoint;
-	private PaymentDTO payInfo;
+	private List<MemberModifyDTO> mgModify;
+	private List<MemberBlackListDTO> mgBlack;
+	private List<MemberAddress> mgAddress;
+	private List<MemberPointDTO> mgPoint;
+	private List<PaymentDTO> payInfo;
 	/* 장바구니 추가되야함 */
 	
 	public MgDTO() {}
-
+	
 	public MgDTO(int no, String name, String id, String pwd, String pno, String gender, String email, String address,
 			String phone, String subPhone, int point, Date enrollDate, Date modifiedDate, String blackList,
-			String status, String nickname, MemberModifyDTO mgModify, MemberBlackListDTO mgBlack,
-			MemberAddress mgAddress, MemberPointDTO mgPoint, PaymentDTO payInfo) {
+			String status, String nickname, List<MemberModifyDTO> mgModify, List<MemberBlackListDTO> mgBlack,
+			List<MemberAddress> mgAddress, List<MemberPointDTO> mgPoint, List<PaymentDTO> payInfo) {
 		super();
 		this.no = no;
 		this.name = name;
@@ -192,43 +193,43 @@ public class MgDTO implements java.io.Serializable {
 		this.nickname = nickname;
 	}
 
-	public MemberModifyDTO getMgModify() {
+	public List<MemberModifyDTO> getMgModify() {
 		return mgModify;
 	}
 
-	public void setMgModify(MemberModifyDTO mgModify) {
+	public void setMgModify(List<MemberModifyDTO> mgModify) {
 		this.mgModify = mgModify;
 	}
 
-	public MemberBlackListDTO getMgBlack() {
+	public List<MemberBlackListDTO> getMgBlack() {
 		return mgBlack;
 	}
 
-	public void setMgBlack(MemberBlackListDTO mgBlack) {
+	public void setMgBlack(List<MemberBlackListDTO> mgBlack) {
 		this.mgBlack = mgBlack;
 	}
 
-	public MemberAddress getMgAddress() {
+	public List<MemberAddress> getMgAddress() {
 		return mgAddress;
 	}
 
-	public void setMgAddress(MemberAddress mgAddress) {
+	public void setMgAddress(List<MemberAddress> mgAddress) {
 		this.mgAddress = mgAddress;
 	}
 
-	public MemberPointDTO getMgPoint() {
+	public List<MemberPointDTO> getMgPoint() {
 		return mgPoint;
 	}
 
-	public void setMgPoint(MemberPointDTO mgPoint) {
+	public void setMgPoint(List<MemberPointDTO> mgPoint) {
 		this.mgPoint = mgPoint;
 	}
 
-	public PaymentDTO getPayInfo() {
+	public List<PaymentDTO> getPayInfo() {
 		return payInfo;
 	}
 
-	public void setPayInfo(PaymentDTO payInfo) {
+	public void setPayInfo(List<PaymentDTO> payInfo) {
 		this.payInfo = payInfo;
 	}
 

@@ -769,4 +769,35 @@
         FROM MG_MEMBER A
        WHERE A.MEMBER_NO = ?
 	</entry>
+	<entry key="searchMgBlackCount">
+        SELECT
+               COUNT(*)
+          FROM MG_MEMBER_BLACKLIST A
+         WHERE A.MEMBER_NO = ?
+	</entry>
+	<entry key="viewMgBlackListlInfo">
+        SELECT A.RNUM
+             , A.BLACKLIST_NO
+             , A.CREATED_DATE
+             , A.REASON_INFO
+             , A.MEMBER_NO
+             , A.BLACKLIST_STATUS
+        FROM (SELECT ROWNUM RNUM
+                   , B.BLACKLIST_NO
+                   , B.CREATED_DATE
+                   , B.REASON_INFO
+                   , B.MEMBER_NO
+                   , B.BLACKLIST_STATUS
+              FROM (SELECT A.BLACKLIST_NO
+                         , A.CREATED_DATE
+                         , A.REASON_INFO
+                         , B.MEMBER_NO
+                         , A.BLACKLIST_STATUS
+                    FROM MG_MEMBER_BLACKLIST A
+                    JOIN MG_MEMBER B ON (A.MEMBER_NO = B.MEMBER_NO)
+                   WHERE A.MEMBER_NO = ?
+                   ORDER BY BLACKLIST_NO DESC) B
+                   ) A
+              WHERE RNUM BETWEEN ? AND ?     
+	</entry>
 </properties>

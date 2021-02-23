@@ -20,14 +20,14 @@ public class DetailMember extends HttpServlet {
 		int no = Integer.parseInt(request.getParameter("no"));
 		int pageNumNo = no;
 		
-		MgDTO mgDetail = new MemberService().viewMemberDetailInfo(no);
+		MgDTO mgList = new MemberService().viewMemberDetailInfo(no);
 		
-		System.out.println("주서온 글과 이미지 : " + mgDetail);
+		System.out.println("주서온 글과 이미지 : " + mgList);
 		
 		String path = "";
-		if(mgDetail != null) {
-			path = "/WEB-INF/views/admin/DetailNotice.jsp";
-			request.setAttribute("mgDetail", mgDetail);
+		if(mgList != null) {
+			path = "/WEB-INF/views/adminmembermanagement/detailMemberInfo.jsp";
+			request.setAttribute("mgList", mgList);
 			request.setAttribute("pageNumNo", pageNumNo);
 		} else {
 			path = "/WEB-INF/views/common/failed.jsp";
