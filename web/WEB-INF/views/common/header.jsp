@@ -22,7 +22,7 @@
                 <li class="fr"><a href="/shop/confirm_login.html?type=myorder" title="주문조회">주문조회</a></li>
                 <li class="fr"><a href="/shop/basket.html" title="장바구니">장바구니 <span><span id="user_basket_quantity"
                                 class="user_basket_quantity">0</span></span></a></li>
-                <li class="fr"><a href="/shop/member.html?type=mynewmain" title="마이페이지">마이페이지</a></li>
+                <li class="fr"><a href="${ pageContext.servletContext.contextPath }/mypage/main" title="고객센터" id="customer">마이페이지</a></li>
                 <c:if test="${ empty sessionScope.loginMember }"> 
                 <li class="fr"><input type="button" value="로그인/회원가입" id="mainLogin" class="login-btn btn-yg"></input></li>
             	</c:if>

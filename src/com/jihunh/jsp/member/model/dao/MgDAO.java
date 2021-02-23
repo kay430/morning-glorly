@@ -1,6 +1,7 @@
 package com.jihunh.jsp.member.model.dao;
 
 import static com.jihunh.jsp.common.jdbc.JDBCTemplate.close;
+import static com.jihunh.jsp.common.jdbc.JDBCTemplate.close;
 import static com.jihunh.jsp.member.controller.SendupdatePwd.getEmail;
 
 import java.io.FileInputStream;
@@ -253,8 +254,31 @@ public class MgDAO {
       return result;
    }
 
-   
+public int deleteMember(Connection con, MgDTO requestMember) {
+		PreparedStatement pstmt = null;
+	
+		int result = 0;
+	
+		String query = prop.getProperty("deleteMember");
+	
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, requestMember.getNo());
+		
+			result = pstmt.executeUpdate();
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+		  close(pstmt);
+		}
+	
+	return result;
+  }
+
 }
+
+
 
 
 

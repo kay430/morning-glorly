@@ -265,4 +265,25 @@ SELECT
          , ?  
          )
  </entry>
+ <entry key="selectOnedetailInfo">
+         SELECT
+                 A.GOODS_NO
+               , A.GOODS_TYPE_NO
+               , A.GOODS_NAME
+               , A.GOODS_PRICE
+               , A.CREATED_DATE
+               , A.GOODS_STATUS
+               , C.GOODS_TYPE_NAME  
+               , B.ATTACHMENT_NO
+               , B.ORIGINAL_NAME
+               , B.SAVED_NAME
+               , B.SAVE_PATH
+               , B.FILE_TYPE
+               , B.THUMBNAIL_PATH
+          FROM MG_GOODS A
+          JOIN MG_GOODS_TYPE C ON (A.GOODS_TYPE_NO = C.GOODS_TYPE_NO)
+          LEFT JOIN MG_GOODS_ATTACHMENT B ON (A.GOODS_NO = B.REF_GOODS_NO)
+         WHERE A.GOODS_STATUS = 'Y'
+           AND A.GOODS_NO = ?                     	
+ </entry>
  </properties>

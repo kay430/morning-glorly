@@ -328,6 +328,60 @@ public class MgGoodsDAO {
       return result;
    }
 
+public MgGoodsDTO selectOnedetailInfo(Connection con, int no) {
+	
+	PreparedStatement pstmt = null;
+	ResultSet rset = null;
+	
+	MgGoodsDTO detailInfo = null;
+	
+	String query = prop.getProperty("selectOnedetailInfo");
+	
+	try {
+		pstmt = con.prepareStatement(query);
+		pstmt.setInt(1, no);
+		
+		rset = pstmt.executeQuery();
+		
+		detailInfo = new MgGoodsDTO();
+		List<AttachmentDTO> attachmentList = new ArrayList<>();
+		
+		while(rset.next()) {
+			
+			AttachmentDTO attachment = new AttachmentDTO();
+			MgGoodsTypeDTO goodsTypeName = new MgGoodsTypeDTO();
+			detailInfo.setGoodsTypeNo(goodsTypeName);
+			
+			detailInfo.setNo(rset.getInt("GOODS_NO"));
+			detailInfo.setTypeNo(rset.getInt("GOODS_TYPE_NO"));
+			detailInfo.setName(rset.getString("GOODS_NAME"));
+			detailInfo.setPrice(rset.getInt("GOODS_PRICE"));
+			detailInfo.setCreatedDate(rset.getDate("CREATED_DATE"));
+			detailInfo.setStatus(rset.getString("GOODS_STATUS"));
+			detailInfo.getGoodsTypeNo().setName(rset.getString("GOODS_TYPE_NAME"));
+			attachment.setNo(rset.getInt("ATTACHMENT_NO"));
+			attachment.setOriginalName(rset.getString("ORIGINAL_NAME"));
+			attachment.setSavedName(rset.getString("SAVED_NAME"));
+			attachment.setSavePath(rset.getString("SAVE_PATH"));
+			attachment.setFileType(rset.getString("FILE_TYPE"));
+			attachment.setThumbnailPath(rset.getString("THUMBNAIL_PATH"));
+			
+			
+			attachmentList.add(attachment);
+		}
+		  detailInfo.setAttachmentList(attachmentList);
+		
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} finally {
+		close(pstmt);
+		close(rset);
+	}
+	
+	return detailInfo;
+}
+
 	
 	
 

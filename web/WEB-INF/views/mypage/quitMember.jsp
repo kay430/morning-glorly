@@ -46,7 +46,7 @@
 						<tr>
 							<td width="200px" class="red">* 아이디</td>
 							<td><input type="text" maxlength="13" name="memberId"
-								id="memberId" class="a" readonly
+								id="memberId" class="a"
 								value="${ sessionScope.loginMember.id }"></td>
 
 						</tr>
@@ -68,7 +68,7 @@
 				<br>
 				<div class="btns" align="center">
 					<input type="submit" value="탈퇴하기" class="btn-or"
-						onclick="return movePath('deleteMember')"> <input
+						onclick="${ pageContext.servletContext.contextPath }/mypage/quitMember"> <input
 						type="reset" value="메인으로" class="btn-yg" id="goMain">
 				</div>
 
@@ -77,71 +77,6 @@
 		</form>
 		</div>
 
-		<script
-			src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-		<script>
-			const $searchZipCode = document.getElementById("searchZipCode");
-
-			$searchZipCode.onclick = function() {
-				new daum.Postcode(
-						{
-							oncomplete : function(data) {
-								console.log(data.zonecode);
-								console.log(data.address);
-
-								document.getElementById("zipCode").value = data.zonecode;
-								document.getElementById("address1").value = data.address;
-								document.getElementById("address2").focus();
-							}
-						}).open();
-			}
-		</script>
-
-		<script>
-			//어떤의도로 눌럿는지 intent라는 변수를 하나 만든다
-			function movePath(intent) {
-
-				const $form = document.getElementById("updateForm");
-				//비밀번호를 입력해야 회원수정이 되기위해서 비밀번호를 꼭 입력하라는 코드를 쓴다.
-				//아이디가 memberPwd에 있는 value값을 const passwordValue 값에 넣는다
-				const passwordValue = document.getElementById("memberPwd").value;
-
-				//조건문으로 생성하여 비밀번호가없을떄 입력하라고하기위해서 코드작성
-				if (!passwordValue || passwordValue === "") {
-					alert("비밀번호를 입력해주세요");
-					document.getElementById("memberPwd").focus();
-				}
-				//let requsetPath 초기화해준다
-				let requestPath = "${ pageContext.servletContext.contextPath }";
-
-				//swtich문을 이용해 변수 intent에 어떠한값이 들어가냐에따라 다르게 설정
-				switch (intent) {
-				case "updateMember":
-					requestPath += "/member/update";
-					break;
-				case "deleteMember":
-					requestPath += "/member/delete";
-					break;
-				}
-				//위에 $form쪽에 아직 어떠한 행동을 하라는 action주지않기때문에 마지막에 action정보 제공
-				//action을 할경우 경로 설정후 전달
-				//버튼에 따라서 경로를 바꿔주는 방법
-				// 아이디찾기나 비밀번호찾기도 이런걸 써야할거같다 참고하자
-				$form.action = requestPath;
-				$form.submit();
-			}
-		</script>
-
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
 
 		<jsp:include page="../common/footer.jsp" />
 </body>

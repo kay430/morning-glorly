@@ -266,6 +266,8 @@
                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                      <input type="submit" value="상품등록" id="registDosirak">
+                     <input type="submit" value="뒤로가기" id="goBack">
+                     
                   </div>
                   </div>
                 </div>
