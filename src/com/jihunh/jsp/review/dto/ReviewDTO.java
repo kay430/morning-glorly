@@ -99,6 +99,7 @@ public class ReviewDTO implements java.io.Serializable{
 				+ ", count=" + count + ", createDate=" + createDate + ", modifiedDate=" + modifiedDate + ", Display="
 				+ Display + ", OrderNo=" + OrderNo + ", mgDTO=" + mgDTO + "]";
 	}
+	
 
 	
 

@@ -34,18 +34,18 @@
 			<table align="center">
 				<tr>
 					<td>제목 </td>
-					<td colspan="3"><p><c:out value="${ requestScope.reviewBoard.title }"/></p></td>
+					<td colspan="3"><p><c:out value="${ requestScope.reviewDetail.title }"/></p></td>
 				</tr>
 				<tr>
 					<td>작성자 </td>
-					<td><p><c:out value="${ requestScope.mgDTO.name }"/></p></td>
+					<td><p><c:out value="${ requestScope.reviewDetail.mgDTO.name }"/></p></td>
 					<td>작성일</td>
-					<td><p><c:out value="${ requestScope.reviewBoard.createDate }"/></p></td>
+					<td><p><c:out value="${ requestScope.reviewDetail.createDate }"/></p></td>
 				</tr>
 				<tr>
 					<td>내용 </td>
 					<td colspan="3">
-						<textarea style="resize:none; width:90%; height:200px;" readonly><c:out value="${ requestScope.reviewBoard.body }"/></textarea>
+						<textarea style="resize:none; width:90%; height:200px;" readonly><c:out value="${ requestScope.reviewDetail.body }"/></textarea>
 					</td>
 				</tr>
 			</table>

@@ -25,7 +25,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 		String path = "";
 		if(reviewDetail != null) {
 			path = "/WEB-INF/views/review/reviewDetail.jsp";
-			request.setAttribute("notice", reviewDetail);
+			request.setAttribute("reviewDetail", reviewDetail);
 		} else {
 			path = "/WEB-INF/views/main/failed.jsp";
 			request.setAttribute("message", "리뷰 상세 보기 조회에 실패하셨습니다.");

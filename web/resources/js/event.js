@@ -235,6 +235,11 @@ window.onload = function() {
 		}
 		
 	}
-	
+	if(document.getElementById("updateReview")) {
+		const $updateReview = document.getElementById("updateReview");
+		$updateReview.onclick = function() {
+			location.href = "/mg/product/review";
+		}	
+}
 
 }
