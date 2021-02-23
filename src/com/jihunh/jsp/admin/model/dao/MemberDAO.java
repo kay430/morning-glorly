@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Properties;
 
 import com.jihunh.jsp.admin.model.dto.MemberBlackListDTO;
+import com.jihunh.jsp.admin.model.dto.MemberModifyDTO;
 import com.jihunh.jsp.admin.model.dto.MgAdDTO;
 import com.jihunh.jsp.admin.model.dto.SearchReadyDTO;
 import com.jihunh.jsp.common.config.ConfigLocation;
@@ -498,6 +499,109 @@ public class MemberDAO {
 		}
 		
 		return mgDetail;
+	}
+
+	public String selectMgOriginalInfo(Connection con, int pageNo) {
+
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String selectMgOriginalInfo = null;
+		String query = prop.getProperty("selectMgOriginalInfo");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, pageNo);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				selectMgOriginalInfo = rset.getString("CHECK_BLACKLIST");
+			
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return selectMgOriginalInfo;
+	}
+
+	public int InsertBlackList(Connection con, MemberBlackListDTO mgBlack) {
+
+		PreparedStatement pstmt = null;
+		
+		int result = 0;
+		
+		String query = prop.getProperty("InsertBlackList");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, mgBlack.getReasonInfo());
+			pstmt.setInt(2, mgBlack.getMgNo().getNo());
+			pstmt.setString(3, mgBlack.getStatus());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+	public int insertMgModify(Connection con, MemberModifyDTO mgModis) {
+
+		PreparedStatement pstmt = null;
+		
+		int result = 0;
+		
+		String query = prop.getProperty("insertMgModify");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, mgModis.getColumn());
+			pstmt.setString(2, mgModis.getOriginInfo());
+			pstmt.setString(3, mgModis.getModifyInfo());
+			pstmt.setInt(4, mgModis.getMgNo().getNo());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+	public int updateMgBlackColumn(Connection con, MemberBlackListDTO mgBlack, String modifyInfo) {
+
+		PreparedStatement pstmt = null;
+		
+		int result = 0;
+		
+		String query = prop.getProperty("updateMgBlackColumn");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, modifyInfo);
+			pstmt.setInt(2, mgBlack.getMgNo().getNo());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
 	}
 
 
