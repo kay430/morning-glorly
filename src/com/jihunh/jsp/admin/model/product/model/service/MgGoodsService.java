@@ -1,7 +1,9 @@
 package com.jihunh.jsp.admin.model.product.model.service;
 
 import static com.jihunh.jsp.common.jdbc.JDBCTemplate.close;
+import static com.jihunh.jsp.common.jdbc.JDBCTemplate.commit;
 import static com.jihunh.jsp.common.jdbc.JDBCTemplate.getConnection;
+import static com.jihunh.jsp.common.jdbc.JDBCTemplate.rollback;
 
 import java.sql.Connection;
 import java.util.List;
@@ -10,8 +12,6 @@ import com.jihunh.jsp.admin.model.product.model.dao.MgGoodsDAO;
 import com.jihunh.jsp.admin.model.product.model.dto.AttachmentDTO;
 import com.jihunh.jsp.admin.model.product.model.dto.MgGoodsDTO;
 import com.jihunh.jsp.customerservice.model.dto.PageInfoDTO;
-import static com.jihunh.jsp.common.jdbc.JDBCTemplate.commit;
-import static com.jihunh.jsp.common.jdbc.JDBCTemplate.rollback;
 public class MgGoodsService {
 
    private final MgGoodsDAO mgGoodsDAO;
@@ -106,6 +106,17 @@ public class MgGoodsService {
       close(con);
       return result;
    }
+
+public MgGoodsDTO selectOnedetailInfo(int no) {
+	
+	Connection con = getConnection();
+	
+	MgGoodsDTO detailInfo = mgGoodsDAO.selectOnedetailInfo(con,no);
+	
+	
+	
+	return detailInfo;
+}
 
 }
 

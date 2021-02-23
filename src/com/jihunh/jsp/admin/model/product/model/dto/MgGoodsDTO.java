@@ -121,13 +121,10 @@ public class MgGoodsDTO {
 	public String toString() {
 		return "MgGoodsDTO [no=" + no + ", name=" + name + ", price=" + price + ", writerMemberNo=" + writerMemberNo
 				+ ", typeNo=" + typeNo + ", goodsTypeNo=" + goodsTypeNo + ", createdDate=" + createdDate + ", status="
-				+ status + ", modifiedDate=" + modifiedDate + ", attachmentList=" + attachmentList + ", getNo()="
-				+ getNo() + ", getName()=" + getName() + ", getPrice()=" + getPrice() + ", getWriterMemberNo()="
-				+ getWriterMemberNo() + ", getTypeNo()=" + getTypeNo() + ", getGoodsTypeNo()=" + getGoodsTypeNo()
-				+ ", getCreatedDate()=" + getCreatedDate() + ", getStatus()=" + getStatus() + ", getModifiedDate()="
-				+ getModifiedDate() + ", getAttachmentList()=" + getAttachmentList() + ", getClass()=" + getClass()
-				+ ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
+				+ status + ", modifiedDate=" + modifiedDate + ", attachmentList=" + attachmentList + "]";
 	}
+
+	
 
 	
 	

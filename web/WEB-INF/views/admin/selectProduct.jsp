@@ -288,10 +288,11 @@
 				$tds[i].onmouseout = function() {
 					this.parentNode.style.background = "white";
 				}
-				
+				//여기서부터 스타트야 지금 작성한다..
 				$tds[i].onclick = function() {
-					const $update = this.parentNode.children[1].innerText;
-					location.href = "${ pageContext.servletContext.contextPath }/admin/update/product";
+					const no = this.parentNode.children[0].innerText;
+					console.log(no);
+					location.href = "${ pageContext.servletContext.contextPath }/admin/update/product?no=" + no ;
 				}
 			}
 		}
