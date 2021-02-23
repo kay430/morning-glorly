@@ -156,7 +156,7 @@ public class QuestionDAO {
 				questionDetail.getMgDTO().setName(rset.getString("MEMBER_ID"));
 				questionDetail.setCount(rset.getInt("QNA_COUNT"));
 				questionDetail.setCreateDate(rset.getDate("CREATED_DATE"));
-				questionDetail.setModifiedDate(rset.getDate("MODIFIED_DATE"));
+				//questionDetail.setModifiedDate(rset.getDate("MODIFIED_DATE"));
 				questionDetail.setDisplay(rset.getString("QNA_DISPLAY"));
 				attaQue.setNo(rset.getInt("ATTACHMENT_NO"));
 				attaQue.setOriginalName(rset.getString("ORIGINAL_NAME"));
@@ -295,6 +295,31 @@ public class QuestionDAO {
 		
 		
 		return searchQuestionList;
+	}
+	public int updateQuestion(Connection con, QuestionDTO newQuestion) {
+		
+		PreparedStatement pstmt = null;
+		
+		int result = 0;
+		
+		String query = prop.getProperty("updateQuestion");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, newQuestion.getTitle());
+			pstmt.setString(2, newQuestion.getBody());
+			pstmt.setInt(3, newQuestion.getNo());
+			pstmt.setInt(4, newQuestion.getWriterMemberNo());
+			
+			result = pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
 	}
 
 

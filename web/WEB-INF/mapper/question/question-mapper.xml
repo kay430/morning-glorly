@@ -271,4 +271,12 @@
                  )D
           WHERE D.RNUM BETWEEN ? AND ?
  </entry>
+ <entry key="updateQuestion">
+	        UPDATE
+               MG_QNA A
+           SET A.QNA_TITLE = ?
+             , A.QNA_BODY = ?
+         WHERE A.QNA_NO = ?
+           AND A.QNA_WRITER_MEMBER_NO = ?
+	</entry>
 </properties>
