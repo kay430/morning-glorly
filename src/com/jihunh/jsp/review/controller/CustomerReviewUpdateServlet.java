@@ -1,6 +1,7 @@
 package com.jihunh.jsp.review.controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.jihunh.jsp.member.model.dto.MgDTO;
 import com.jihunh.jsp.review.dto.ReviewDTO;
 import com.jihunh.jsp.review.service.ReviewService;
 
@@ -33,29 +35,27 @@ public class CustomerReviewUpdateServlet extends HttpServlet {
 		 * 회원 정보를 수정하는 페이지로 (/member/update) 경로를 이동시킨다.
 		 * */
 		HttpSession session = request.getSession();
-		ReviewDTO loginMember = (ReviewDTO) session.getAttribute("loginMember");
-	
+		MgDTO loginMember = (MgDTO) session.getAttribute("loginMember");
 		
 		System.out.println(loginMember);
 		
-		String reviewTitle = request.getParameter("reviewTitle");
-		String reviewBody = request.getParameter("reviewBody");
+		String reviewTitle = request.getParameter("title");
+		String reviewBody = request.getParameter("body");
 		
 		ReviewDTO changeInfo = new ReviewDTO();
 		changeInfo.setTitle(reviewTitle);
 		changeInfo.setBody(reviewBody);
-		
+		changeInfo.setWriterMemberNo(loginMember.getNo());
 		System.out.println("changeInfo : " + changeInfo);
 		
-		ReviewService reviewService = new ReviewService();
-		ReviewDTO changedReview = reviewService.updateMemberNo(changeInfo);
+		
+		int result = new ReviewService().updateMemberNo(changeInfo);
 		
 		String path = "";
-		if(changedReview != null) {
-			path = "/WEB-INF/views/common/main/success.jsp";
+		if(result > 0) {
+			path = "/WEB-INF/views/main/success.jsp";
 			request.setAttribute("successCode", "updateMemberNo");
-			request.getSession().setAttribute("loginMember", changedReview);
-		} else {
+			} else {
 			path = "/WEB-INF/views/common/failed.jsp";
 			request.setAttribute("message", "회원 정보 수정 실패");
 		}

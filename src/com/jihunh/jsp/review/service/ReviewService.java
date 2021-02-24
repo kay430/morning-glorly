@@ -117,17 +117,16 @@ public class ReviewService {
 		
 		return reviewList;
 	}
-	public ReviewDTO updateMemberNo(ReviewDTO changeInfo) {
+	public int updateMemberNo(ReviewDTO changeInfo) {
 		Connection con = getConnection();
 		
-		ReviewDTO changedReview = null;
-		
+	
 		/* 1. DB에 저장된 게시물 넘버와 일치하는 회원의 넘버 조회 */
-		String memberId = reviewDAO.selectMemberId(con, changeInfo);
+		/* String memberId = reviewDAO.selectMemberId(con, changeInfo); */
 		System.out.println("조회함?");
 		/* 2. 파라미터로 전달받은 회원번호와 DB에 저장된 회원번호가 일치하는지 확인 */
 		
-		if(memberId.equals(changeInfo.getMgDTO().getId())) {
+		/* if(memberId.equals(changeInfo.getMgDTO().getId())) { */
 			
 			/* 3. 회원번호가 일치하면 리뷰 수정 */
 			int result = reviewDAO.changeReview(con, changeInfo);
@@ -140,12 +139,12 @@ public class ReviewService {
 				commit(con);
 			} else {
 				rollback(con);
-			}
+			//}
 		}
 		
 		close(con);
 		
-		return changedReview;
+		return result;
 	}
 	
 
