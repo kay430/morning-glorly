@@ -19,6 +19,9 @@
   
   
 }
+.abc{
+	border:none;
+}
 .del{
   background: rgb(227, 240, 168);
   color: rgb(56, 56, 65) !important;
