@@ -10,6 +10,7 @@ import java.util.List;
 
 import com.jihunh.jsp.customerservice.model.dto.PageInfoDTO;
 import com.jihunh.jsp.review.dao.ReviewDAO;
+import com.jihunh.jsp.review.dto.AttachmentDTO;
 import com.jihunh.jsp.review.dto.ReviewDTO;
 import com.jihunh.jsp.review.dto.ReviewPageInfoDTO;
 
@@ -146,7 +147,36 @@ public class ReviewService {
 		
 		return result;
 	}
-	
+	public int insertThumbnail(ReviewDTO thumbnail) {
+		Connection con = getConnection();
+		
+		int result = 0;
+		
+		int reviewResult = reviewDAO.InsertThumbnailContent(con,thumbnail);
+		
+		int reviewNo = reviewDAO.selectThumbnailSequence(con);
+		
+		List<AttachmentDTO> fileList = thumbnail.getAttachmentList();
+		for(int i = 0; i < fileList.size(); i++) {
+			fileList.get(i).setNotiNo(reviewNo);
+		}
+		
+		int attachmentResult = 0;
+		for(int i = 0; i < fileList.size(); i++) {
+			attachmentResult += reviewDAO.insertAttachment(con, fileList.get(i));
+		}
+		
+		if(reviewResult > 0 && attachmentResult == fileList.size()) {
+			commit(con);
+			result = 1;
+		} else {
+			rollback(con);
+		}
+		
+		close(con);
+		
+		return result;
+	}
 
 	}
 	 
