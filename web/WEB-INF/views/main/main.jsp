@@ -28,7 +28,7 @@
                 <h3 class="w360 onnn">다이어트 도시락<strong> BEST</strong></h3>
                 <ul>
                     <li class="onnn">
-                        <a href="" title="">
+                        <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
                             <img class="MS_prod_img_s" src="" alt="">
                             <p class="s_price">
                                 최종가
@@ -38,7 +38,7 @@
                         </a>
                     </li>
                     <li class="onnn">
-                        <a href="" title="">
+                        <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
                             <img class="MS_prod_img_s" src="" alt="">
                             <p class="s_price">
                                 가격
@@ -48,7 +48,7 @@
                         </a>
                     </li>
                     <li class="onnn">
-                        <a href="" title="">
+                        <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
                             <img class="MS_prod_img_s" src="" alt="">
                             <p class="s_price">
                                 가격
@@ -58,7 +58,7 @@
                         </a>
                     </li>
                     <li class="last onnn">
-                        <a href="" title="">
+                        <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
                             <img class="MS_prod_img_s" src="" alt="">
                             <p class="s_price">
                                 가격
@@ -73,7 +73,7 @@
                 <h3 class="w210">유지어터 도시락<strong> BEST</strong></h3>
                 <ul>
                     <li>
-                        <a href="" title="">
+                        <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
                             <img class="MS_prod_img_s" src="" alt="">
                             <p class="s_price">
                                 <span class="s_price_consume">원가</span>
@@ -85,7 +85,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="" title="">
+                        <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
                             <img class="MS_prod_img_s" src="" alt="">
                             <p class="s_price">
                                 <span class="s_price_consume">원가</span>
@@ -97,7 +97,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="" title="">
+                        <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
                             <img class="MS_prod_img_s" src="" alt="">
                             <p class="s_price">
                                 <span class="s_price_consume">원가</span>
@@ -109,7 +109,7 @@
                         </a>
                     </li>
                     <li class="last">
-                        <a href="" title="">
+                        <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
                             <img class="MS_prod_img_s" src="" alt="">
                             <p class="s_price">
                                 <span class="s_price_consume">원가</span>
@@ -126,7 +126,7 @@
                     <h3>지금 가장 <span>🔥</span><strong>HOT</strong><span>🔥</span> 해요!</h3>
                     <div class="item_best1">
                         <a
-                            href="">
+                            href="${ pageContext.servletContext.contextPath }/menu/detail">
                             <p><img src=""></p>
                             <p>
                                 <span>🍝메뉴명</span>
@@ -144,7 +144,7 @@
                 <h3 class="w330">벌크업 도시락<strong> BEST</strong></h3>
                 <ul>
                     <li>
-                        <a href="" title="">
+                        <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
                             <img class="MS_prod_img_s" src="" alt="">
                             <p class="s_price">
                                 <span class="s_price_consume">원가</span>
@@ -156,7 +156,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="" title="">
+                        <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
                             <img class="MS_prod_img_s" src="" alt="">
                             <p class="s_price">
                                 최종가
@@ -166,7 +166,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="" title="">
+                        <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
                             <img class="MS_prod_img_s" src="" alt="">
                             <p class="s_price">
                                 <span class="s_price_consume">원가</span>
@@ -178,7 +178,7 @@
                         </a>
                     </li>
                     <li class="last">
-                        <a href="" title="">
+                        <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
                             <img class="MS_prod_img_s" src="" alt="">
                             <p class="s_price">
                                 최종가
@@ -197,7 +197,7 @@
                     <p>ONLY ONE BRAND <strong>오직 모닝글로리에서만!</strong></p>
                     <ul>
                         <li>
-                            <a href="" title="">
+                            <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
                                 <img src="" alt="">
                                 <dl>
                                     <dt>저탄수 다이어트 식단!</dt>
@@ -206,7 +206,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="" title="">
+                            <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
                                 <img src="" alt="">
                                 <dl>
                                     <dt>단백질 벌크업 식단!</dt>
@@ -215,7 +215,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="" title="">
+                            <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
                                 <img src="" alt="">
                                 <dl>
                                     <dt>유지어터 식단!</dt>
@@ -232,7 +232,7 @@
                 <h2>당신을 위한 <strong> 도시락 정기 배송!</strong></h2>
                 <ul>
                     <li>
-                        <a href=""
+                        <a href="${ pageContext.servletContext.contextPath }/menu/detail"
                             title="[정기배송] 샐러드 4주 배송 [1일1식]">
                             <p class="s_addtext">#[1주] 벌크업&nbsp;</p>
                             <div class="overli">
@@ -248,7 +248,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="" title="">
+                        <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
                             <p class="s_addtext">#[1주] 유지어터&nbsp;</p>
                             <div class="overli">
                                 <img class="MS_prod_img_s" src="" alt="">
@@ -263,7 +263,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="" title="">
+                        <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
                             <p class="s_addtext"> #[1주] 다이어트&nbsp;</p>
                             <div class="overli">
                                 <img class="MS_prod_img_s" src="" alt="">
@@ -278,7 +278,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="" title="">
+                        <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
                             <p class="s_addtext">#다양한 메뉴&nbsp;</p>
                             <div class="overli">
                                 <img class="MS_prod_img_s" src="" alt="">
@@ -317,7 +317,7 @@
                     <div id="tabcont1">
                         <ul class="tab_product">
                             <li>
-                                <a href="/shop/shopdetail.html?branduid=1121385&amp;xcode=007&amp;mcode=000&amp;scode=&amp;special=3&amp;GfDT=a2x3UQ%3D%3D"
+                                <a href="${ pageContext.servletContext.contextPath }/menu/detail"
                                     title="[12% 할인] 샐러드 8종 맛보기">
                                     <img class="MS_prod_img_s" src="/shopimages/slimcook/0070000000233.jpg?1609808926"
                                         alt="[12% 할인] 샐러드 8종 맛보기">
@@ -331,7 +331,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="/shop/shopdetail.html?branduid=1121458&amp;xcode=007&amp;mcode=000&amp;scode=&amp;special=3&amp;GfDT=bm9%2BW10%3D"
+                                <a href="${ pageContext.servletContext.contextPath }/menu/detail"
                                     title="[정기배송] 샐러드 4주 배송 [1일1식]">
                                     <img class="MS_prod_img_s" src="/shopimages/slimcook/0070000000163.jpg?1609808993"
                                         alt="[정기배송] 샐러드 4주 배송 [1일1식]">
@@ -345,7 +345,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="/shop/shopdetail.html?branduid=1121384&amp;xcode=007&amp;mcode=000&amp;scode=&amp;special=3&amp;GfDT=bmx%2FW14%3D"
+                                <a href="${ pageContext.servletContext.contextPath }/menu/detail"
                                     title="샐러드 골라담기">
                                     <img class="MS_prod_img_s" src="/shopimages/slimcook/0070000000063.jpg?1589955532"
                                         alt="샐러드 골라담기">
@@ -359,7 +359,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="/shop/shopdetail.html?branduid=1120911&amp;xcode=007&amp;mcode=000&amp;scode=&amp;special=3&amp;GfDT=bWx3Ug%3D%3D"
+                                <a href="${ pageContext.servletContext.contextPath }/menu/detail"
                                     title="그린 샐러드(드레싱랜덤)">
                                     <img class="MS_prod_img_s" src="/shopimages/slimcook/0070000000153.jpg?1589522659"
                                         alt="그린 샐러드(드레싱랜덤)">
@@ -379,7 +379,7 @@
                     <div id="tabcont2">
                         <ul class="tab_product">
                             <li>
-                                <a href="/shop/shopdetail.html?branduid=1121458&amp;xcode=007&amp;mcode=000&amp;scode=&amp;special=2&amp;GfDT=bm50W1w%3D"
+                                <a href="${ pageContext.servletContext.contextPath }/menu/detail"
                                     title="[정기배송] 샐러드 4주 배송 [1일1식]">
                                     <img class="MS_prod_img_s" src="/shopimages/slimcook/0070000000163.jpg?1609808993"
                                         alt="[정기배송] 샐러드 4주 배송 [1일1식]">
@@ -393,7 +393,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="/shop/shopdetail.html?branduid=1121468&amp;xcode=007&amp;mcode=000&amp;scode=&amp;special=2&amp;GfDT=bWp3UA%3D%3D"
+                                <a href="${ pageContext.servletContext.contextPath }/menu/detail"
                                     title="[정기배송] 샐러드  4주 배송 [1일2식]">
                                     <img class="MS_prod_img_s" src="/shopimages/slimcook/0070000000173.jpg?1609809011"
                                         alt="[정기배송] 샐러드  4주 배송 [1일2식]">
@@ -407,7 +407,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="/shop/shopdetail.html?branduid=1121386&amp;xcode=007&amp;mcode=000&amp;scode=&amp;special=2&amp;GfDT=aGl3Uw%3D%3D"
+                                <a href="${ pageContext.servletContext.contextPath }/menu/detail"
                                     title="[정기배송] 샐러드 4주 배송 [8종]">
                                     <img class="MS_prod_img_s" src="/shopimages/slimcook/0070000000043.jpg?1609809139"
                                         alt="[정기배송] 샐러드 4주 배송 [8종]">
@@ -421,7 +421,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="/shop/shopdetail.html?branduid=1130298&amp;xcode=007&amp;mcode=000&amp;scode=&amp;special=2&amp;GfDT=bm14W18%3D"
+                                <a href="${ pageContext.servletContext.contextPath }/menu/detail"
                                     title="[정기배송]그린 샐러드">
                                     <img class="MS_prod_img_s" src="/shopimages/slimcook/0070000000213.jpg?1595993945"
                                         alt="[정기배송]그린 샐러드">
@@ -441,7 +441,7 @@
                     <div id="tabcont3">
                         <ul class="tab_product">
                             <li>
-                                <a href="/shop/shopdetail.html?branduid=173&amp;xcode=002&amp;mcode=000&amp;scode=&amp;special=1&amp;GfDT=Z293UQ%3D%3D"
+                                <a href="${ pageContext.servletContext.contextPath }/menu/detail"
                                     title="하루 약 900Kcal 프로그램">
                                     <img class="MS_prod_img_s" src="/shopimages/slimcook/0020000000123.jpg?1587964793"
                                         alt="하루 약 900Kcal 프로그램">
@@ -454,7 +454,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="/shop/shopdetail.html?branduid=176&amp;xcode=002&amp;mcode=000&amp;scode=&amp;special=1&amp;GfDT=aGl3UA%3D%3D"
+                                <a href="${ pageContext.servletContext.contextPath }/menu/detail"
                                     title="간헐적 단식 A(라이스+샌드위치) 프로그램">
                                     <img class="MS_prod_img_s" src="/shopimages/slimcook/0020000000113.jpg?1587964830"
                                         alt="간헐적 단식 A(라이스+샌드위치) 프로그램">
@@ -467,7 +467,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="/shop/shopdetail.html?branduid=158&amp;xcode=002&amp;mcode=000&amp;scode=&amp;special=1&amp;GfDT=bmt9W14%3D"
+                                <a href="${ pageContext.servletContext.contextPath }/menu/detail"
                                     title="간헐적 단식 B(라이스+샐러드) 프로그램">
                                     <img class="MS_prod_img_s" src="/shopimages/slimcook/0020000000133.jpg?1587964684"
                                         alt="간헐적 단식 B(라이스+샐러드) 프로그램">
@@ -480,7 +480,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="/shop/shopdetail.html?branduid=159&amp;xcode=002&amp;mcode=000&amp;scode=&amp;special=1&amp;GfDT=aWd3Ug%3D%3D"
+                                <a href="${ pageContext.servletContext.contextPath }/menu/detail"
                                     title="덴마크 프로그램">
                                     <img class="MS_prod_img_s" src="/shopimages/slimcook/0020000000353.jpg?1587964614"
                                         alt="덴마크 프로그램">
@@ -499,7 +499,7 @@
                     <div id="tabcont4">
                         <ul class="tab_product">
                             <li>
-                                <a href="/shop/shopdetail.html?branduid=1134070&amp;xcode=004&amp;mcode=000&amp;scode=&amp;special=5&amp;GfDT=ZmZ3UQ%3D%3D"
+                                <a href="${ pageContext.servletContext.contextPath }/menu/detail"
                                     title="심쿵닭가슴살 99g 10팩">
                                     <img class="MS_prod_img_s" src="/shopimages/slimcook/0040000000523.jpg?1598601102"
                                         alt="심쿵닭가슴살 99g 10팩">
@@ -513,7 +513,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="/shop/shopdetail.html?branduid=170&amp;xcode=004&amp;mcode=000&amp;scode=&amp;special=5&amp;GfDT=aW13UA%3D%3D"
+                                <a href="${ pageContext.servletContext.contextPath }/menu/detail"
                                     title="수제 샌드위치">
                                     <img class="MS_prod_img_s" src="/shopimages/slimcook/0040000000023.jpg?1587966698"
                                         alt="수제 샌드위치">
@@ -526,7 +526,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="/shop/shopdetail.html?branduid=1133993&amp;xcode=004&amp;mcode=000&amp;scode=&amp;special=5&amp;GfDT=Zm93Uw%3D%3D"
+                                <a href="${ pageContext.servletContext.contextPath }/menu/detail"
                                     title="유기농 ABC 주스 100ml">
                                     <img class="MS_prod_img_s" src="/shopimages/slimcook/0040000000513.jpg?1595839835"
                                         alt="유기농 ABC 주스 100ml">
@@ -540,7 +540,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="/shop/shopdetail.html?branduid=1126886&amp;xcode=004&amp;mcode=000&amp;scode=&amp;special=5&amp;GfDT=bm56W18%3D"
+                                <a href="${ pageContext.servletContext.contextPath }/menu/detail"
                                     title="매일미숫가루선식">
                                     <img class="MS_prod_img_s" src="/shopimages/slimcook/0040000000353.jpg?1587968194"
                                         alt="매일미숫가루선식">
@@ -575,70 +575,70 @@
                     <h2>베스트 상품</h2>
                     <ul>
                         <li>
-                            <a href="메뉴 상세페이지로" title="메뉴명">
+                            <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="메뉴명">
                                 <img src=""  alt="">
                                 <p class="s_sub">메뉴이름</p>
                                 <p class="s_review">간단한 설명</p>
                             </a>
                         </li>
                         <li>
-                            <a href="" title="메뉴명">
+                            <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="메뉴명">
                                 <img src="" alt="">
                                     <p class="s_sub">메뉴이름</p>
                                     <p class="s_review">간단한 설명</p>
                             </a>
                         </li>
                         <li>
-                            <a href="" title="간헐적 단식 B(라이스+샐러드) 프로그램">
+                            <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="간헐적 단식 B(라이스+샐러드) 프로그램">
                                 <img src="" alt="">
                                     <p class="s_sub">메뉴이름</p>
                                     <p class="s_review">간단한 설명</p>
                             </a>
                         </li>
                         <li>
-                            <a href="" title="하루 약 1200Kcal 프로그램">
+                            <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="하루 약 1200Kcal 프로그램">
                                 <img src="" alt="">
                                     <p class="s_sub">메뉴이름</p>
                                     <p class="s_review">간단한 설명</p>
                             </a>
                         </li>
                         <li>
-                            <a href="" title="덴마크 프로그램">
+                            <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="덴마크 프로그램">
                                 <img src="" alt="">
                                     <p class="s_sub">메뉴이름</p>
                                     <p class="s_review">간단한 설명</p>
                             </a>
                         </li>
                         <li>
-                            <a href="" title="헬스 식단 프로그램">
+                            <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="헬스 식단 프로그램">
                                 <img src="" alt="">
                                     <p class="s_sub">메뉴이름</p>
                                     <p class="s_review">간단한 설명</p>
                             </a>
                         </li>
                         <li>
-                            <a href="" title="샐러드 골라담기">
+                            <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="샐러드 골라담기">
                                 <img src="" alt="">
                                     <p class="s_sub">메뉴이름</p>
                                     <p class="s_review">간단한 설명</p>
                             </a>
                         </li>
                         <li>
-                            <a href="" title="[정기배송] 샐러드 4주 배송 [1일1식]">
+                            <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="[정기배송] 샐러드 4주 배송 [1일1식]">
                                 <img src="" alt="">
                                     <p class="s_sub">메뉴이름</p>
                                     <p class="s_review">간단한 설명</p>
                             </a>
                         </li>
                         <li>
-                            <a href="" title="[정기배송] 샐러드 4주 배송 [1일2식]">
+                            <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="[정기배송] 샐러드 4주 배송 [1일2식]">
                                 <img src="" alt="">
                                     <p class="s_sub">메뉴이름</p>
                                     <p class="s_review">간단한 설명</p>
                             </a>
                         </li>
                         <li>
-                            <a href="" title="샐러드 8종 맛보기">
+                            <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="샐러드 8종 맛보기">
                                 <img src="" alt="">
                                     <p class="s_sub">메뉴이름</p>
                                     <p class="s_review">간단한 설명</p>
@@ -647,7 +647,7 @@
                     </ul>
                 </div>
                 <div class="sitebestreviewimg_area">
-                    <a href="" title="이벤트">
+                    <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="이벤트">
                         <img src="" alt="">
                     </a>
                 </div>
