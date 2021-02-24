@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 public class HomepagePolicy extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String path = "/WEB-INF/views/common/homepagepolicy.jsp";
+		String path = "/WEB-INF/views/customerservice/homepagepolicy.jsp";
 		request.getRequestDispatcher(path).forward(request, response);
 	}
 

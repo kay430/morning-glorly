@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 public class MypageWishList extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String path = "/WEB-INF/views/common/wishList.jsp";
+		String path = "/WEB-INF/views/mypage/wishList.jsp";
 		request.getRequestDispatcher(path).forward(request, response);
 	}
 

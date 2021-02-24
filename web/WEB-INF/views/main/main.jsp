@@ -194,7 +194,7 @@
 
             <div class="bestthree_area">
                 <div class="box">
-                    <p>ONLY ONE BRAND <strong>오직 슬림쿡에서만!</strong></p>
+                    <p>ONLY ONE BRAND <strong>오직 모닝글로리에서만!</strong></p>
                     <ul>
                         <li>
                             <a href="" title="">

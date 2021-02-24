@@ -37,15 +37,15 @@
             <li class="sidebar-brand">
             <a href="#"><h3>MyPage</h3></a>
         </li>
-          <li><a href="#">주문 내역</a></li>
-          <li><a href="#">최근 본 상품</a></li>
-          <li><a href="#">관심 상품</a></li>
-          <li><a href="#">회원정보변경</a></li>
-          <li><a href="#">회원탈퇴신청</a></li>
+          <li><a href="${ pageContext.servletContext.contextPath }/mypage/orderList">주문 내역</a></li>
+        <li><a href="${ pageContext.servletContext.contextPath }/mypage/resentlyViewed">최근 본 상품</a></li>
+        <li><a href="${ pageContext.servletContext.contextPath }/mypage/wishList">관심 상품</a></li>
+        <li><a href="#">회원정보변경</a></li>
+        <li><a href="${ pageContext.servletContext.contextPath }/mypage/quitMember">회원탈퇴신청</a></li>
         </ul>
       </div>
       <!-- /사이드바 -->
-      <h2><송남규>님의 위시리스트~</h2>
+      <h2><input value="${sessionScope.loginMember.name }" size="2" readonly class="abc"> 님의 위시리스트~</h2>
       <hr>
       <table align="center" id="listArea">
         <tr>  
@@ -58,7 +58,7 @@
             <th width="70px">가격</th>
             <th width="70px">장바구니</th>
         </tr>
-        <c:forEach var="" items="${ requestScope.noticeList }">
+       <%--  <c:forEach var="" items="${ requestScope.noticeList }">
           <tr>
             <td><c:out value="${ notice.no }"/></td>
             <td><c:out value="${ notice.title }"/></td>
@@ -66,7 +66,7 @@
             <td><c:out value="${ notice.count }"/></td>
             <td><c:out value="${ notice.createdDate }"/></td>
           </tr>
-          </c:forEach>
+          </c:forEach> --%>
         </table>
             <!--여기서부터 관심상품목록 나오게하는 테이블-->
             <div class="wishList-List">
@@ -86,4 +86,5 @@
         </div>
 		<jsp:include page="../common/footer.jsp" />
 </body>
+
 </html>

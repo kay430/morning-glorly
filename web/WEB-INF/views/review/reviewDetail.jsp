@@ -42,8 +42,10 @@
 					<td>작성일</td>
 					<td><p><c:out value="${ requestScope.reviewDetail.createDate }"/></p></td>
 				</tr>
-				<tr>
-					<td>내용 </td>
+										<!--썸네일 시작 부분 -->
+ 			
+ 												<!-- 게시글 작성부분 --> 				
+ 				<tr>	
 					<td colspan="3">
 						<textarea style="resize:none; width:90%; height:200px;" readonly><c:out value="${ requestScope.reviewDetail.body }"/></textarea>
 					</td>

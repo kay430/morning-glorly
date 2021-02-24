@@ -74,6 +74,12 @@
 	            break;    
 
 			}
+			case "insertThumbnail":
+            	successMessage = "썸네일 등록 성공";
+            	movePath ="${ pageContext.servletContext.contextPath }/review/insert";
+            	break;    
+
+		}
 			
 			alert(successMessage);
 			location.href = movePath;
