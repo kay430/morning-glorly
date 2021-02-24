@@ -58,10 +58,10 @@
 	              movePath ="${ pageContext.servletContext.contextPath }/admin/SelectProduct";
 	              break;
 
-	        case "insertThumbnail":
+	       /*  case "insertThumbnail":
 	            successMessage = "썸네일 게시판 등록 성공";
 	            movePath ="${ pageContext.servletContext.contextPath }/admin/SelectProduct";
-	            break;
+	            break; */
 	            
 	        case "deleteMember":
 	            successMessage = "회원탈퇴 성공";
@@ -73,13 +73,9 @@
 	            movePath ="${ pageContext.servletContext.contextPath }";
 	            break;    
 
-			
-			case "insertThumbnail":
-            	successMessage = "썸네일 등록 성공";
-            	movePath ="${ pageContext.servletContext.contextPath }/review/insert";
-            	break;    
+      }
 
-		}
+		
 			
 			alert(successMessage);
 			location.href = movePath;
