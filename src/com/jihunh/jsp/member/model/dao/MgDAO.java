@@ -1,8 +1,6 @@
 package com.jihunh.jsp.member.model.dao;
 
 import static com.jihunh.jsp.common.jdbc.JDBCTemplate.close;
-import static com.jihunh.jsp.common.jdbc.JDBCTemplate.close;
-import static com.jihunh.jsp.member.controller.SendupdatePwd.getEmail;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -86,7 +84,7 @@ public class MgDAO {
          close(rset);
          close(pstmt);
       }
-      
+      System.out.println(encPwd);
       return encPwd;
    }
 
@@ -131,10 +129,53 @@ public class MgDAO {
 			close(rset);
 			close(pstmt);
 		}
-		
+		System.out.println("LOGIN" + loginMember);
 		return loginMember;
 	}
-
+	
+	public MgDTO selectLoginMember1(Connection con, MgDTO changeInfo) {
+		System.out.println("멤버 조회 DAO 들어왔나?");
+		PreparedStatement pstmt = null;
+		
+		ResultSet rset = null;
+		
+		MgDTO loginMember = null;
+		
+		String query = prop.getProperty("selectLoginMember");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, changeInfo.getId());
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				loginMember = new MgDTO();
+				loginMember.setNo(rset.getInt("MEMBER_NO"));
+				loginMember.setName(rset.getString("MEMBER_NAME"));
+				loginMember.setId(rset.getString("MEMBER_ID"));
+				loginMember.setPno(rset.getString("MEMBER_PNO"));
+				loginMember.setGender(rset.getString("MEMBER_GENDER"));
+				loginMember.setEmail(rset.getString("EMAIL"));
+				loginMember.setAddress(rset.getString("ADDRESS"));
+				loginMember.setPhone(rset.getString("PHONE"));
+				loginMember.setSubPhone(rset.getString("SUB_PHONE"));
+				loginMember.setPoint(rset.getInt("MEMBER_POINT"));
+				loginMember.setEnrollDate(rset.getDate("ENROLL_DATE"));
+				loginMember.setModifiedDate(rset.getDate("MODIFIED_DATE"));
+				loginMember.setBlackList(rset.getString("CHECK_BLACKLIST"));
+				loginMember.setStatus(rset.getString("MEMBER_STATUS"));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		System.out.println("LOGIN" + loginMember);
+		return loginMember;
+	}
 
 //   public String selectMemberName(Connection con, MgDTO requestMember) {
 //
@@ -275,6 +316,32 @@ public int deleteMember(Connection con, MgDTO requestMember) {
 	
 	return result;
   }
+
+public int updateMember(Connection con, MgDTO changeInfo) {
+		
+	PreparedStatement pstmt = null;
+	
+	int result = 0;
+	
+	String query = prop.getProperty("updateMember");
+	
+	try {
+		pstmt = con.prepareStatement(query);
+		pstmt.setString(1, changeInfo.getName());
+		pstmt.setString(2, changeInfo.getPhone());
+		pstmt.setString(3, changeInfo.getEmail());
+		pstmt.setString(4, changeInfo.getAddress());
+		pstmt.setInt(5, changeInfo.getNo());
+		
+		result = pstmt.executeUpdate();
+		System.out.println(result);
+	} catch (SQLException e) {
+		e.printStackTrace();
+	} finally {
+		close(pstmt);
+	}
+	return result;
+}
 
 }
 

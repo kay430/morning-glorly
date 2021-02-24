@@ -27,8 +27,6 @@ public class ProceedPayment extends HttpServlet {
 		 * hashMap.put("imp_uid", rsp.imp_uid);
 		 */
 		
-		JSONObject jObject = new JSONObject()
-		System.out.println(imp_uid + merchant_uid);
 		
 	}
 

@@ -31,17 +31,17 @@
 		<!-- 사이드바 -->
 		<div id="sidebar-wrapper">
 			<ul class="sidebar-nav">
-				<li class="sidebar-brand"><a href="#"> 고객센터</a></li>
-				<li><a href="#">이용약관</a></li>
-				<li><a href="#">개인정보취급방침</a></li>
-				<li><a href="#">이용안내 </a></li>
+				<li class="sidebar-brand"><a href="${ pageContext.servletContext.contextPath }/customer/list"> 고객센터</a></li>
+				<li><a href="${ pageContext.servletContext.contextPath }/policy">이용약관</a></li>
+				<li><a href="${ pageContext.servletContext.contextPath }/personal/policy">개인정보취급방침</a></li>
+				<li><a href="${ pageContext.servletContext.contextPath }/policy">이용안내 </a></li>
 			</ul>
 		</div>
 
 		<!-- /사이드바 -->
 
+		<h1>이용안내</h1>
 		<!-- 본문 -->
-		<h1>개인정보 취급방침에 대한 안내</h1>
 		<hr>
 		<div>
 			<table border="1px">

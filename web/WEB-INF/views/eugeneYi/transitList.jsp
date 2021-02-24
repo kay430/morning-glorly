@@ -215,9 +215,10 @@
 								<option value="tranum"
 									<c:if test="${ requestScope.searchCondition eq 'tranum' }">selected</c:if>>운송장
 									번호</option>
-								<option value="orderNo" <c:if test="${ requestScope.searchCondition eq 'orderNo' }">selected</c:if>>주문번호</option>
+								<option value="orderNo"
+									<c:if test="${ requestScope.searchCondition eq 'orderNo' }">selected</c:if>>주문번호</option>
 							</select> <input type="search" name="searchValue"
-								value="${ requestScope.searchValue }"> 
+								value="${ requestScope.searchValue }">
 							<button type="submit">검색하기</button>
 						</div>
 					</form>
@@ -261,7 +262,38 @@
 
 							</c:when>
 							<c:otherwise>
+								<button id="searchStartPage"><<</button>
 
+								<c:if test="${ requestScope.pageInfo.pageNo <= 1 }">
+									<button disabled><</button>
+								</c:if>
+								<c:if test="${ requestScope.pageInfo.pageNo > 1 }">
+									<button id="searchPrevPage"><</button>
+								</c:if>
+
+								<c:forEach var="s" begin="${ requestScope.pageInfo.startPage }"
+									end="${ requestScope.pageInfo.endPage }" step="1">
+									<c:if test="${ requestScope.pageInfo.pageNo eq s }">
+										<button disabled>
+											<c:out value="${ s }" />
+										</button>
+									</c:if>
+									<c:if test="${ requestScope.pageInfo.pageNo ne s }">
+										<button onclick="searchPageButtonAction(this.innerText)">
+											<c:out value="${ s }" />
+										</button>
+									</c:if>
+								</c:forEach>
+								<c:if
+									test="${ requestScope.pageInfo.pageNo >= requestScope.pageInfo.maxPage }">
+									<button disabled>></button>
+								</c:if>
+								<c:if
+									test="${ requestScope.pageInfo.pageNo < requestScope.pageInfo.maxPage }">
+									<button id="searchNextPage">></button>
+								</c:if>
+
+								<button id="searchMaxPage">>></button>
 							</c:otherwise>
 						</c:choose>
 					</div>
@@ -272,27 +304,28 @@
 	<!-- /wrapper -->
 	</section>
 	<script>
-		if(document.getElementsByTagName("td")) {
+		if (document.getElementsByTagName("td")) {
 			const $tds = document.getElementsByTagName("td");
-			
-			for(let i = 0; i < $tds.length; i++) {
-				
+
+			for (let i = 0; i < $tds.length; i++) {
+
 				$tds[i].onmouseenter = function() {
 					this.parentNode.style.backgroundColor = "yellow";
 					this.parentNode.style.cursor = "pointer";
 				}
-				
+
 				$tds[i].onmouseout = function() {
 					this.parentNode.style.background = "white";
 				}
-				
+
 				$tds[i].onclick = function() {
 					const no = this.parentNode.children[1].innerText;
-					location.href = "${ pageContext.servletContext.contextPath }/admin/transit/detail?no=" + no;
+					location.href = "${ pageContext.servletContext.contextPath }/admin/transit/detail?no="
+							+ no;
 				}
 			}
 		}
-		
+
 		/* $(function() {
 			$("#listArea td").hover(function() {
 				$(this).parent().css({"background":"orangered", "cursor":"pointer"});
@@ -303,34 +336,35 @@
 				console.log(no);
 			});
 		}); */
-		
 	</script>
 
 	<script>
-      const link = "${ pageContext.servletContext.contextPath }/admin/transit";
-      
-      if(document.getElementById("startPage")) {
-         const $startPage = document.getElementById("startPage");
-         $startPage.onclick = function() {
-            location.href = link + "?currentPage=1";
-         }
-      }
-      
-      if(document.getElementById("prevPage")) {
-         const $prevPage = document.getElementById("prevPage");
-         $prevPage.onclick = function() {
-            location.href = link + "?currentPage=${ requestScope.pageInfo.pageNo - 1}";
-         }
-      }
-      
-      if(document.getElementById("nextPage")) {
-         const $nextPage = document.getElementById("nextPage");
-         $nextPage.onclick = function() {
-            location.href = link + "?currentPage=${ requestScope.pageInfo.pageNo + 1}";
-         }
-      }
-      
-  
+		const link = "${ pageContext.servletContext.contextPath }/admin/transit";
+		const searchLink = "${ pageContext.servletContext.contextPath }/admin/transit/search";
+
+		if (document.getElementById("startPage")) {
+			const $startPage = document.getElementById("startPage");
+			$startPage.onclick = function() {
+				location.href = link + "?currentPage=1";
+			}
+		}
+
+		if (document.getElementById("prevPage")) {
+			const $prevPage = document.getElementById("prevPage");
+			$prevPage.onclick = function() {
+				location.href = link
+						+ "?currentPage=${ requestScope.pageInfo.pageNo - 1}";
+			}
+		}
+
+		if (document.getElementById("nextPage")) {
+			const $nextPage = document.getElementById("nextPage");
+			$nextPage.onclick = function() {
+				location.href = link
+						+ "?currentPage=${ requestScope.pageInfo.pageNo + 1}";
+			}
+		}
+
 		if (document.getElementById("maxPage")) {
 			const $maxPage = document.getElementById("maxPage");
 			$maxPage.onclick = function() {
@@ -338,9 +372,42 @@
 						+ "?currentPage=${ requestScope.pageInfo.maxPage }";
 			}
 		}
+		if(document.getElementById("searchStartPage")) {
+			const $searchStartPage = document.getElementById("searchStartPage");
+			$searchStartPage.onclick = function() {
+				location.href = searchLink + "?currentPage=1&searchCondition=${ requestScope.searchCondition }&searchValue=${ requestScope.searchValue}";
+			}
+		}
+		
+		if(document.getElementById("searchPrevPage")) {
+			const $searchPrevPage = document.getElementById("searchPrevPage");
+			$searchPrevPage.onclick = function() {
+				location.href = searchLink + "?currentPage=${ requestScope.pageInfo.pageNo - 1}&searchCondition=${ requestScope.searchCondition }&searchValue=${ requestScope.searchValue}";
+			}
+		}
+		
+		if (document.getElementById("searchNextPage")) {
+			const $searchNextPage = document.getElementById("searchNextPage");
+			$searchNextPage.onclick = function() {
+				location.href = searchLink
+						+ "?currentPage=${ requestScope.pageInfo.pageNo + 1}&searchCondition=${ requestScope.searchCondition}&searchValue=${ requestScope.searchValue}";
+			}
+		}
+		
+		if(document.getElementById("searchMaxPage")) {
+			const $searchMaxPage = document.getElementById("searchMaxPage");
+			$searchMaxPage.onclick = function() {
+				location.href = searchLink
+					+ "?currentPage=${ requestScope.pageInfo.maxPage }&searchCondition=${ requestScope.searchCondition }&searchValue=${ requestScope.searchValue }";
+			}
+		}
 
 		function pageButtonAction(text) {
 			location.href = link + "?currentPage=" + text;
+		}
+		
+		function searchPageButtonAction(text) {
+			location.href = searchLink + "?currentPage=" + text + "&searchCondition=${ requestScope.searchCondition}&searchValue=${ requestScope.searchValue}";
 		}
 	</script>
 	<!-- /MAIN CONTENT -->

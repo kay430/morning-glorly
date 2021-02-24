@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 public class MypageResentlyViewed extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String path = "/WEB-INF/views/common/resentlyViewed.jsp";
+		String path = "/WEB-INF/views/mypage/resentlyViewed.jsp";
 		request.getRequestDispatcher(path).forward(request, response);
 	}
 

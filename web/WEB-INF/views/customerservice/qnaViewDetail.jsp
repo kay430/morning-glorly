@@ -14,7 +14,7 @@
 <script
 	src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css"
-	href="/mg/resources/css/customer/customer_main.css">
+	href="web/resources/css/customer/customer_qnadetail.css">
 <link rel="stylesheet" type="text/css"
 	href="/mg/resources/css/header.css">
 <link rel="stylesheet" type="text/css"
@@ -26,67 +26,89 @@
 
 	<jsp:include page="../common/header.jsp" />
 
-    <section class="panel">
-              <header class="panel-heading wht-bg">
-                <h4 class="gen-case">
-                 질문게시판
-                  </h4>
-              </header>
-              <div class="panel-body ">
-                <div class="mail-header row">
-                  <div class="col-md-8">
-                  <textarea id="headCore" style="resize:none; width:90%; height:30px;" readonly><c:out value="${ requestScope.question.title }"/></textarea>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="compose-btn pull-right">
-                                  <a class="btn btn-sm btn-theme" onclick="location.href='${ pageContext.servletContext.contextPath }/admin/GeneralQna'">
-                  <i class="fa fa-reply"></i> 목록으로</a>
-                      <button class="btn  btn-sm tooltips" data-original-title="Print" type="button" data-toggle="tooltip" data-placement="top" title=""><i class="fa fa-print"></i> </button>
-                      <button class="btn btn-sm tooltips" data-original-title="Trash" data-toggle="tooltip" data-placement="top" title=""><i class="fa fa-trash-o"></i></button>
-                    </div>
-                  </div>
-                </div>
-                <div class="mail-sender">
-                  <div class="row">
-                    <div class="col-md-8">
-                      <img src="img/ui-zac.jpg" alt="">
-                      <strong class="col-md-8">작성자 : <c:out value="${ requestScope.question.mgDTO.name}"/></strong>
-                    </div>
-                    <div class="col-md-4">
-                      <p class="date"><c:out value="${ requestScope.question.createDate }"/></p>
-                    </div>
-                  </div>
-                </div>
-                <div class="view-mail">
-                  <%-- <p><c:out value="${ requestScope.notice.body }"/></p> --%>
-                  <textarea id="core" style="resize:none; width:90%; height:200px;" readonly><c:out value="${ requestScope.question.body }"/></textarea>
-                <img src="${ pageContext.servletContext.contextPath }<c:out value="${ requestScope.notice.attaNotiList[0].thumbnailPath }"/>" />
-                </div>
-               
-               
-                <div id="holdUp2" class="compose-btn pull-left">
-                  <a id="rewriteNoList" class="btn btn-sm btn-theme" onclick="location.href='${ pageContext.servletContext.contextPath }/question/list'">
-                  <i class="fa fa-reply"></i> 목록으로</a>
-                  <c:if test="${ sessionScope.loginMember.status eq 'Y' }">
-                  <div id="holdUp">
-                 <button id="rewriteNo" class="btn btn-sm">
-                  <!-- <a href='javascript:test("/mg/resources/js/event")'> -->
-                  <i class="fa fa-arrow-right"></i> 수정하기
-                  <!-- </a> -->
-                  </button>
-                  <button id="deleteNo" class="btn btn-sm">
-                  <!-- <a href='javascript:test("/mg/resources/js/event")'> -->
-                  <i class="fa fa-arrow-right"></i> 삭제하기
-                  <!-- </a> -->
-                  </button>
-     
-                  </div>
-                  <div id="holdUp4">
-                  <button id="rewriteNoCommit" class="btn btn-sm">
-                  <i class="fa fa-arrow-right"></i>완료하기</button>
-                  </div>
-                  <script src="/mg/resources/js/event.js"></script>
-                  <script>
+	<section class="qna_panel"
+		style="margin: 0 auto; width: 1100px; height: 500px; margin-top: 50px;">
+		<header class="panel-heading wht-bg" style="margin: 0 0 30px 0;">
+			<h4 class="gen-case" style="font-size: 30px; text-align: center;">
+				질문게시판</h4>
+		</header>
+		<div class="panel-body ">
+			<div class="mail-header row">
+				<div class="col-md-8">
+					<textarea id="headCore"
+						style="resize: none; width: 90%; height: 30px; margin-bottom: 10px;"
+						readonly><c:out
+							value="${ requestScope.question.title }" /></textarea>
+				</div>
+				<div class="col-md-4">
+					<div class="compose-btn pull-right">
+						<button class="btn  btn-sm tooltips" data-original-title="Print"
+							type="button" data-toggle="tooltip" data-placement="top" title="">
+							<i class="fa fa-print"></i>
+						</button>
+						<button class="btn btn-sm tooltips" data-original-title="Trash"
+							data-toggle="tooltip" data-placement="top" title="">
+							<i class="fa fa-trash-o"></i>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="mail-sender">
+				<div class="row">
+					<div class="col-md-8">
+						<img src="img/ui-zac.jpg" alt=""> <strong class="col-md-8">작성자
+							: <c:out value="${ requestScope.question.mgDTO.name}" />
+						</strong>
+					</div>
+					<div class="col-md-4">
+						<p class="date">
+							<c:out value="${ requestScope.question.createDate }" />
+						</p>
+					</div>
+				</div>
+			</div>
+			<img
+				style="float: left; width: 200px; height: 200px; margin: 10px 15px 10px 0;"
+				src="${ pageContext.servletContext.contextPath }<c:out value="${ requestScope.notice.attaNotiList[0].thumbnailPath }"/>" />
+			<img
+				style="float: left; width: 200px; height: 200px; margin: 10px 15px 10px 0;"
+				src="${ pageContext.servletContext.contextPath }<c:out value="${ requestScope.notice.attaNotiList[0].thumbnailPath }"/>" />
+			<img
+				style="float: left; width: 200px; height: 200px; margin: 10px 15px 10px 0;"
+				src="${ pageContext.servletContext.contextPath }<c:out value="${ requestScope.notice.attaNotiList[0].thumbnailPath }"/>" />
+			<div class="view-mail" style="margin: 150px 0 0 0;">
+				<%-- <p><c:out value="${ requestScope.notice.body }"/></p> --%>
+				<textarea id="core" style="resize: none; width: 90%; height: 250px;"
+					readonly><c:out value="${ requestScope.question.body }" /></textarea>
+			</div>
+
+
+			<div id="holdUp2" class="compose-btn pull-left">
+				<a id="rewriteNoList" class="btn btn-sm btn-theme"
+					onclick="location.href='${ pageContext.servletContext.contextPath }/question/list'">
+					<i class="fa fa-reply"></i> 목록으로
+				</a>
+				<c:if test="${ sessionScope.loginMember.status eq 'Y' }">
+					<div id="holdUp">
+						<button id="rewriteNo" class="btn btn-sm">
+							<!-- <a href='javascript:test("/mg/resources/js/event")'> -->
+							<i class="fa fa-arrow-right"></i> 수정하기
+							<!-- </a> -->
+						</button>
+						<button id="deleteNo" class="btn btn-sm">
+							<!-- <a href='javascript:test("/mg/resources/js/event")'> -->
+							<i class="fa fa-arrow-right"></i> 삭제하기
+							<!-- </a> -->
+						</button>
+
+					</div>
+					<div id="holdUp4">
+						<button id="rewriteNoCommit" class="btn btn-sm">
+							<i class="fa fa-arrow-right"></i>완료하기
+						</button>
+					</div>
+					<script src="/mg/resources/js/event.js"></script>
+					<script>
                   window.onload = function() {
                 	  
                 
@@ -191,14 +213,20 @@
                   		alert("게시물을 삭제를 진행해주세요");
                   	});
                   </script>
-                  </c:if>
-                  <div id="holdUp3">
-                  <button class="btn  btn-sm tooltips" data-original-title="Print" type="button" data-toggle="tooltip" data-placement="top" title=""><i class="fa fa-print"></i> </button>
-                  <button class="btn btn-sm tooltips" data-original-title="Trash" data-toggle="tooltip" data-placement="top" title=""><i class="fa fa-trash-o"></i></button>
-                  </div>
-                </div>
-              </div>
-            </section>
+				</c:if>
+				<div id="holdUp3">
+					<button class="btn  btn-sm tooltips" data-original-title="Print"
+						type="button" data-toggle="tooltip" data-placement="top" title="">
+						<i class="fa fa-print"></i>
+					</button>
+					<button class="btn btn-sm tooltips" data-original-title="Trash"
+						data-toggle="tooltip" data-placement="top" title="">
+						<i class="fa fa-trash-o"></i>
+					</button>
+				</div>
+			</div>
+		</div>
+	</section>
 
 
 </body>

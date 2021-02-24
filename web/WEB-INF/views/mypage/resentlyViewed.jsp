@@ -22,7 +22,7 @@
 <link rel="stylesheet" type="text/css"
 	href="/mg/resources/css/idFind.css">
 <link rel="stylesheet" type="text/css"
-	href="/mg/resources/css/mymapge/resentlyViewed.css">
+	href="/mg/resources/css/mypage/resentlyViewed.css">
 </head>
 <body>
 
@@ -36,11 +36,11 @@
     <li class="sidebar-brand">
     <a href="#"> <h3>MyPage</h3></a>
 </li>
-  <li><a href="#">주문 내역</a></li>
-  <li><a href="#">최근 본 상품</a></li>
-  <li><a href="#">관심 상품</a></li>
+  <li><a href="${ pageContext.servletContext.contextPath }/mypage/orderList">주문 내역</a></li>
+  <li><a href="${ pageContext.servletContext.contextPath }/mypage/resentlyViewed">최근 본 상품</a></li>
+  <li><a href="${ pageContext.servletContext.contextPath }/mypage/wishList">관심 상품</a></li>
   <li><a href="#">회원정보변경</a></li>
-  <li><a href="#">회원탈퇴신청</a></li>
+  <li><a href="${ pageContext.servletContext.contextPath }/mypage/quitMember">회원탈퇴신청</a></li>
 </ul>
 </div>
 <!-- /사이드바 -->
@@ -53,7 +53,7 @@
       <br>
       <br>
       <div class="bar">
-          [이름]님이 최근 본 상품 입니다
+          	<input value="${sessionScope.loginMember.name }" size="2" readonly class="abc">님이 최근 본 상품 입니다
       
       </div>
       <br><br>
