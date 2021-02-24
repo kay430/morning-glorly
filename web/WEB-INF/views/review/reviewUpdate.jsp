@@ -55,12 +55,12 @@
 									<table align="center">
 										<tr>
 											<td>제목</td>
-											<td><input type="text" size="105" name="title" readonly></td>
+											<td><input type="text" size="105" name="title"></td>
 										</tr>
 										<tr>
 											<td>작성자</td>
 											<td><input type="text"
-												value="${ sessionScope.mgDTO.name }" name="writer"
+												value="${ sessionScope.loginMember.name}" name="writer"
 												readonly></td>
 										</tr>
 										<tr>

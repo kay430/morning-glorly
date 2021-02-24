@@ -392,47 +392,49 @@ public class ReviewDAO {
 		return reviewList;
 	}
 
-	public String selectMemberId(Connection con, ReviewDTO changeInfo) {
-		PreparedStatement pstmt = null;
-		ResultSet rset = null;
-
-		String memberId = null;
-		
-		String query = prop.getProperty("selectMemberNo");
-		
-		try {
-			pstmt = con.prepareStatement(query);
-			pstmt.setInt(1, changeInfo.getWriterMemberNo());
-			
-			rset = pstmt.executeQuery();
-			
-			if(rset.next()) {
-				memberId = rset.getString("MEMBER_NAME");
-			}
-		
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close(rset);
-			close(pstmt);
-		}
-		
-		return memberId;
-	}
+	/*
+	 * public String selectMemberId(Connection con, ReviewDTO changeInfo) {
+	 * PreparedStatement pstmt = null; ResultSet rset = null;
+	 * 
+	 * String memberId = null;
+	 * 
+	 * String query = prop.getProperty("selectMemberNo");
+	 * 
+	 * try { pstmt = con.prepareStatement(query); pstmt.setInt(1,
+	 * changeInfo.getWriterMemberNo());
+	 * 
+	 * rset = pstmt.executeQuery();
+	 * 
+	 * if(rset.next()) { memberId = rset.getString("MEMBER_NAME"); }
+	 * 
+	 * } catch (SQLException e) { e.printStackTrace(); } finally { close(rset);
+	 * close(pstmt); }
+	 * 
+	 * return memberId; }
+	 */
 
 	public int changeReview(Connection con, ReviewDTO changeInfo) {
 		PreparedStatement pstmt = null;
 		
+		
 		int result = 0;
 		
-		String query = prop.getProperty("updateReview");
+		String query = prop.getProperty("changeReview");
 		
 		try {
 			pstmt = con.prepareStatement(query);
-			pstmt.setString(1, changeInfo.getBody());
 			
+			
+			pstmt.setString(1, changeInfo.getTitle());
+			pstmt.setString(2, changeInfo.getBody());
+			pstmt.setInt(3, changeInfo.getWriterMemberNo());
+			
+			
+			System.out.println(changeInfo);
 			
 			result = pstmt.executeUpdate();
+			
+			System.out.println("result : " + result);
 			
 		} catch (SQLException e) {
 			e.printStackTrace();

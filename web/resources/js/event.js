@@ -259,10 +259,16 @@ window.onload = function() {
 		$goBack.onclick = function() {
 			location.href = "/mg/admin/SelectProduct";
 		}
-		
 	}
+		
+		if(document.getElementById("updateReview")) {
+			const $updateReview = document.getElementById("updateReview");
+			$updateReview.onclick = function() {
+				location.href = "/mg/review/update";
+			}
+			
+		
 	
-
-
-
+	}
 }
+

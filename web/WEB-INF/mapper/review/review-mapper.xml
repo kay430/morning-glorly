@@ -254,4 +254,11 @@
              )A   
       WHERE A.RNUM BETWEEN ? AND ?
 	</entry>
+	<entry key="changeReview">
+	 UPDATE
+               MG_REVIEW A
+           SET A.REVIEW_TITLE = ?
+             , A.REVIEW_BODY = ?
+          WHERE A.REVIEW_WRITER_MEMBER_NO = ?  
+	</entry>
 </properties>
