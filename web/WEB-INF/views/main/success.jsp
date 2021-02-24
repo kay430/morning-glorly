@@ -65,15 +65,15 @@
 	            
 	        case "deleteMember":
 	            successMessage = "회원탈퇴 성공";
-	            movePath ="${ pageContext.servletContext.contextPath }/mypage/main";
+	            movePath ="${ pageContext.servletContext.contextPath }";
 	            break;    
 	            
 	        case "updateMember":
 	            successMessage = "updateMember 성공";
-	            movePath ="${ pageContext.servletContext.contextPath }/mypage/main";
+	            movePath ="${ pageContext.servletContext.contextPath }";
 	            break;    
 
-			}
+			
 			case "insertThumbnail":
             	successMessage = "썸네일 등록 성공";
             	movePath ="${ pageContext.servletContext.contextPath }/review/insert";
