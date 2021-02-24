@@ -25,24 +25,15 @@ public class TransitService {
 		
 		Connection con = getConnection();
 		TransitDTO transitDetail = null;
-		
-		int result = transitDAO.incrementTransitCount(con, no);
-		
-		if(result > 0) {
-			transitDetail = transitDAO.selectTransitDetail(con, no);
-			
-			if(transitDetail != null) {
-				commit(con);
-			} else {
-				rollback(con);
-			}
-			
+
+		transitDetail = transitDAO.selectTransitDetail(con, no);
+
+		if(transitDetail != null) {
+			commit(con);
 		} else {
 			rollback(con);
 		}
-		
-		close(con);
-		
+
 		return transitDetail;
 	}
 

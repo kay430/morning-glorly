@@ -58,7 +58,6 @@ public class SearchTransit extends HttpServlet {
 		
 		request.getRequestDispatcher(path).forward(request, response);
 		
-		
 	}
 
 
