@@ -101,3 +101,158 @@
 #memberManagement td:nth-child(8) {
   /* text-align: right; */
 }
+
+#memBc {
+	text-align: center;
+	width: 800px;
+}
+#memBc th {
+  text-align: center;
+  color: black;
+  font-size: 20px;
+  width: 60px;
+}
+#memBc tr:nth-child(1) th:nth-child(1) {
+  /* text-align: right; */
+  width: 60px;
+}
+#memBc th:nth-child(2) {
+  /* text-align: right; */
+  width: 125px;
+}
+#memBc th:nth-child(3) {
+/*   font-color: red; */
+  text-align: center;
+  width: 100px;
+/*   background-color: orangered; */
+}
+#memBc th:nth-child(4) {
+/*   font-color: red; */
+  text-align: center;
+  width: 60px;
+/*   background-color: orangered; */
+}
+#memMdTd3 {
+  color: red;
+  font-size: 20px;
+  text-align: center;
+  width: 20px;
+/*   background-color: orangered; */
+}
+#memBc th:nth-child(4) {
+  /* text-align: right; */
+  width: 115px;
+}
+#memBc th:nth-child(5) {
+  /* text-align: right; */
+  width: 115px;
+}
+#memBc tr:nth-child(2) td:nth-child(3) {
+  /* text-align: right; */
+}
+#memBc td {
+  text-align: center;
+}
+#memBc td:nth-child(8) {
+  /* text-align: right; */
+}
+
+#memMd {
+	text-align: center;
+}
+#memMd th {
+  text-align: center;
+  color: black;
+  font-size: 20px;
+  width: 20px;
+}
+#memMd tr:nth-child(1) th:nth-child(1) {
+  /* text-align: right; */
+  width: 60px;
+}
+#memMd th:nth-child(2) {
+  /* text-align: right; */
+  width: 125px;
+}
+#memMd th:nth-child(3) {
+/*   font-color: red; */
+  text-align: center;
+  width: 100px;
+/*   background-color: orangered; */
+}
+#memMd th:nth-child(4) {
+/*   font-color: red; */
+  text-align: center;
+  width: 60px;
+/*   background-color: orangered; */
+}
+#memMdTd3 {
+  color: red;
+  font-size: 20px;
+  text-align: center;
+  width: 20px;
+/*   background-color: orangered; */
+}
+#memMd th:nth-child(4) {
+  /* text-align: right; */
+  width: 115px;
+}
+#memMd th:nth-child(5) {
+  /* text-align: right; */
+  width: 115px;
+}
+#memMd tr:nth-child(2) td:nth-child(3) {
+  /* text-align: right; */
+}
+#memMd td {
+  text-align: center;
+}
+#memMd td:nth-child(8) {
+  /* text-align: right; */
+}
+
+#memPm {
+	text-align: center;
+	width: 800px;
+}
+#memPm th {
+  text-align: center;
+  color: black;
+  font-size: 20px;
+  width: 20px;
+}
+#memPm tr:nth-child(1) th:nth-child(1) {
+  text-align: right;
+  width: 60px;
+}
+#memPm th:nth-child(2) {
+  text-align: right;
+  width: 125px;
+}
+#memPm th:nth-child(3) {
+  font-color: red;
+  text-align: center;
+  width: 100px;
+}
+#memPm th:nth-child(4) {
+  font-color: red;
+  text-align: center;
+  width: 60px;
+}
+#memPm th:nth-child(4) {
+  text-align: right;
+  width: 115px;
+}
+#memPm th:nth-child(5) {
+  text-align: right;
+  width: 115px;
+}
+#memPm tr:nth-child(2) td:nth-child(3) {
+  text-align: right;
+}
+#memPm td {
+  text-align: center;
+}
+#memPm td:nth-child(8) {
+  text-align: right;
+}

@@ -14,10 +14,12 @@ import java.util.Properties;
 
 import com.jihunh.jsp.admin.model.dto.MemberBlackListDTO;
 import com.jihunh.jsp.admin.model.dto.MemberModifyDTO;
+import com.jihunh.jsp.admin.model.dto.MemberPointDTO;
 import com.jihunh.jsp.admin.model.dto.MgAdDTO;
 import com.jihunh.jsp.admin.model.dto.SearchReadyDTO;
 import com.jihunh.jsp.common.config.ConfigLocation;
 import com.jihunh.jsp.member.model.dto.MgDTO;
+import com.jihunh.jsp.payment.model.dto.PaymentDTO;
 
 public class MemberDAO {
 	
@@ -460,6 +462,63 @@ public class MemberDAO {
 		
 		return totalCount;
 	}
+	
+
+	public int viewMgModifyCount(Connection con, int no) {
+
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		int totalCount = 0;
+		String query = prop.getProperty("viewMgModifyCount");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, no);
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				totalCount = rset.getInt("COUNT(*)");
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return totalCount;
+	}
+
+	public int viewMgPointCount(Connection con, int no) {
+
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		int totalCount = 0;
+		String query = prop.getProperty("viewMgPointCount");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, no);
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				totalCount = rset.getInt("COUNT(*)");
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return totalCount;
+	}
+
+
 
 	public MgDTO viewMgBlackListlInfo(Connection con, int no, MgDTO mgDetail, SearchReadyDTO mgBlackCount) {
 		
@@ -501,6 +560,92 @@ public class MemberDAO {
 		return mgDetail;
 	}
 
+
+	public MgDTO viewMgModifyListlInfo(Connection con, int no, MgDTO mgDetail, SearchReadyDTO mgModifyCount) {
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		
+		String query = prop.getProperty("viewMgModifyListlInfo");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, no);
+			pstmt.setInt(2, mgModifyCount.getPageInfo().getStartRow());
+			pstmt.setInt(3, mgModifyCount.getPageInfo().getEndRow());
+			
+			rset = pstmt.executeQuery();
+			
+			List<MemberModifyDTO> mgModifyList = new ArrayList<>();
+			
+			while(rset.next()) {
+				MemberModifyDTO mgModify = new MemberModifyDTO();
+				
+				mgModify.setNo(rset.getInt("MODIFY_NO"));
+				mgModify.setColumn(rset.getString("ORIGIN_COLUMN"));
+				mgModify.setOriginInfo(rset.getString("ORIGIN_INFO"));
+				mgModify.setModifyInfo(rset.getString("MODIFY_INFO"));
+				mgModify.setModifiedDate(rset.getDate("MODIFIED_DATE"));
+				mgModifyList.add(mgModify);
+			}
+			mgDetail.setMgModify(mgModifyList);
+			System.out.println("이건 뭐지 : " + mgDetail);
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return mgDetail;
+	}
+
+	public MgDTO viewMgPointListlInfo(Connection con, int no, MgDTO mgDetail, SearchReadyDTO mgPointCount) {
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		
+		String query = prop.getProperty("viewMgPointListlInfo");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, no);
+			pstmt.setInt(2, mgPointCount.getPageInfo().getStartRow());
+			pstmt.setInt(3, mgPointCount.getPageInfo().getEndRow());
+			
+			rset = pstmt.executeQuery();
+			
+			List<MemberPointDTO> mgPointList = new ArrayList<>();
+			
+			while(rset.next()) {
+				MemberPointDTO mgPoint = new MemberPointDTO();
+				mgPoint.setPayInfo(new PaymentDTO());
+				
+				mgPoint.setNo(rset.getInt("POINT_NO"));
+				mgPoint.setChangedType(rset.getString("CHANGED_POINT_TYPE"));
+				mgPoint.getPayInfo().setNo(rset.getInt("PAYMENT_NO"));
+				mgPoint.setModifyDate(rset.getDate("MODIFY_DATE"));
+				mgPoint.setModifyPoint(rset.getInt("MODIFY_POINT"));
+				mgPointList.add(mgPoint);
+			}
+			mgDetail.setMgPoint(mgPointList);
+			System.out.println("이건 뭐지 : " + mgDetail);
+		
+			} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return mgDetail;
+	}
+
+
+	/* 업데이트 처리 */
 	public String selectMgOriginalInfo(Connection con, int pageNo) {
 
 		PreparedStatement pstmt = null;

@@ -15,8 +15,8 @@ import com.jihunh.jsp.admin.model.service.NoticeService;
 import com.jihunh.jsp.common.paging.Pagenation;
 import com.jihunh.jsp.member.model.dto.MgDTO;
 
-@WebServlet("/admin/member/manage/detail")
-public class DetailMember extends HttpServlet {
+@WebServlet("/admin/member/manage/detailAction2")
+public class DetailMemberAction2 extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -61,7 +61,7 @@ public class DetailMember extends HttpServlet {
 		mgModifyCount.setPageInfo(new NoticePageInfoDTO());
 		mgModifyCount.getPageInfo().setPageNo(pageNoMd);
 		mgModifyCount.getPageInfo().setTotalCount((new MemberService().viewMgModifyCount(no)));
-		mgModifyCount.getPageInfo().setLimit(10);
+		mgModifyCount.getPageInfo().setLimit(5);
 		mgModifyCount.getPageInfo().setButtonAmount(5);
 		Pagenation.getSearchPage(mgModifyCount);
 		
@@ -85,7 +85,7 @@ public class DetailMember extends HttpServlet {
 		
 		String path = "";
 		if(mgList != null) {
-			path = "/WEB-INF/views/adminmembermanagement/detailMemberInfo.jsp";
+			path = "/WEB-INF/views/adminmembermanagement/detailMemberInfoAction2.jsp";
 			request.setAttribute("mgList", mgList);
 			request.setAttribute("pageNumNo", pageNumNo);
 			request.setAttribute("pageInfo", mgBlackCount.getPageInfo());

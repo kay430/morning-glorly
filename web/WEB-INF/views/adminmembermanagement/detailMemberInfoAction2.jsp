@@ -264,9 +264,9 @@
 					<div class="row content-panel">
 						<div class="panel-heading">
 							<ul class="nav nav-tabs nav-justified">
-								<li class="active"><a data-toggle="tab" href="#overview">블랙리스트
+								<li><a data-toggle="tab" href="#overview">블랙리스트
 										관리</a></li>
-								<li><a data-toggle="tab" href="#contact"
+								<li class="active"><a data-toggle="tab" href="#contact"
 									class="contact-map">정보 변경 이력</a></li>
 								<li><a data-toggle="tab" href="#edit">Edit Profile</a></li>
 							</ul>
@@ -274,7 +274,7 @@
 						<!-- /panel-heading -->
 						<div class="panel-body">
 							<div class="tab-content">
-								<div id="overview" class="tab-pane active">
+								<div id="overview" class="tab-pane">
 									<div class="row">
 										<div class="col-md-6">
 											<div class="detailed mt">
@@ -409,92 +409,57 @@
 												</div>
 											</div>
 											<script>
-												/* 							window.onload = function() {
-												 console.log("숨김완료");
-												 console.log('${ pageNumNo }');
-												 $("#mgBlackFinish").css("display","none");
-												
-												 } */
-
-												$("#modifyButton")
-														.click(
-																function() {
-																	$(
-																			"#modifyButton")
-																			.css(
-																					"display",
-																					"none");
-																	$(
-																			"#mgBlackFinish")
-																			.css(
-																					"display",
-																					"block");
-																	$(
-																			"#mgBlackReason")
-																			.attr(
-																					'readonly',
-																					false);
-																	alert("변경을 진행합니다");
-
-																	$(
-																			"#finallyFinish")
-																			.click(
-																					function() {
-
-																						if (confirm("블랙리스트 변경을 완료하시겠습니까?")) {
-																							const reason = document
-																									.getElementById("mgBlackReason").value;
-																							const status = document
-																									.getElementById("ajaxStatus").value;
-																							const pageNo = '${ pageNumNo }';
-																							const loginNo = '${ sessionScope.loginMember.no }';
-
-																							$
-																									.ajax({
-																										url : "${ pageContext.servletContext.contextPath }/admin/member/manage/updateBlackList",
-																										type : "post",
-																										data : {
-																											reason : reason,
-																											status : status,
-																											pageNo : pageNo,
-																											loginNo : loginNo
-																										},
-																										success : function(
-																												data,
-																												textStatus,
-																												xhr) {
-																											document
-																													.getElementById("mgBlackReason").innerHTML = data;
-																											/* 			$("#mgBlackFinish").css("display", "none");
-																														$("#mgBlackReason").attr('readonly', true);
-																														$("#modifyButton").css("display", "block"); */
-																											console
-																													.log("변경 완료");
-																											console
-																													.log(data);
-																											location.href = "${ pageContext.servletContext.contextPath }/admin/member/manage/detail?no="
-																													+ pageNo;
-																										},
-																										error : function(
-																												xhr,
-																												status,
-																												error) {
-																											console
-																													.log(error);
-																											console
-																													.log("에러에러에러");
-																										}
-																									});
-
-																							alert("변경 완료");
-																						} else {
-																							alert("변경 취소");
-																						}
-
-																					});
-																});
-											</script>
-											<br><br><br><br><br><br><br><br><br><br><br><br>
+/* 							window.onload = function() {
+								console.log("숨김완료");
+								console.log('${ pageNumNo }');
+								$("#mgBlackFinish").css("display","none");
+								
+							} */
+							
+							$("#modifyButton").click(function() {
+								$("#modifyButton").css("display","none");
+								$("#mgBlackFinish").css("display","block");
+								$("#mgBlackReason").attr('readonly', false);
+								alert("변경을 진행합니다");
+								
+								$("#finallyFinish").click(function() {
+									
+									if(confirm("블랙리스트 변경을 완료하시겠습니까?")) {
+										const reason = document.getElementById("mgBlackReason").value;
+										const status = document.getElementById("ajaxStatus").value;
+										const pageNo = '${ pageNumNo }';
+										const loginNo = '${ sessionScope.loginMember.no }';
+										
+										$.ajax({
+											url: "${ pageContext.servletContext.contextPath }/admin/member/manage/updateBlackList",
+											type: "post",
+											data: {reason : reason, status : status, pageNo : pageNo, loginNo : loginNo },
+											success: function(data, textStatus, xhr) {
+												document.getElementById("mgBlackReason").innerHTML = data;
+									/* 			$("#mgBlackFinish").css("display", "none");
+												$("#mgBlackReason").attr('readonly', true);
+												$("#modifyButton").css("display", "block"); */
+												console.log("변경 완료");
+												console.log(data);
+												location.href = "${ pageContext.servletContext.contextPath }/admin/member/manage/detail?no=" + pageNo;
+											},
+											error: function(xhr, status, error) {
+												console.log(error);
+												console.log("에러에러에러");
+											}
+										});
+										
+										
+										
+										alert("변경 완료");
+									} else {
+										alert("변경 취소");
+									}
+									
+								});
+							});
+						</script>
+						<br><br><br><br><br><br><br><br><br><br><br><br>
 											<!-- /row -->
 											<h4>My Friends</h4>
 											<!-- /row -->
@@ -545,13 +510,11 @@
 								<!-- /tab-pane -->
 
 								<!-- 정보 변경 이력 시작 -->
-								<div id="contact" class="tab-pane">
+								<div id="contact" class="tab-pane active">
 									<div class="row">
 										<div class="col-md-6">
 											<div class="detailed mt">
-												<p
-													style="text-align: center; color: black; font-size: 30px; font-weight: bolder;">정보변경
-													이력</p>
+												<p style="text-align: center; color: black; font-size: 30px; font-weight: bolder;">정보변경 이력</p>
 												<table id="memMd" style="text-align: center;">
 													<tr style="font-color: black;">
 														<th>번호</th>
@@ -561,35 +524,35 @@
 														<th>변경</th>
 													</tr>
 													<c:choose>
-														<c:when test="${ empty mgList.mgModify }">
+													<c:when test="${ empty mgList.mgModify }">
+														<tr>
+															<td><h4>-</h4></td>
+															<td><h4>-</h4></td>
+															<td id="memMdTd3"><h4>-</h4></td>
+															<td width="550px"><h4>-</h4></td>
+															<td><h4>-</h4></td>
+														</tr>
+													</c:when>
+													<c:otherwise>
+														<c:forEach var="mgModify" items="${ mgList.mgModify }">
 															<tr>
-																<td><h4>-</h4></td>
-																<td><h4>-</h4></td>
-																<td id="memMdTd3"><h4>-</h4></td>
-																<td width="550px"><h4>-</h4></td>
-																<td><h4>-</h4></td>
+																<td><h4>
+																		<c:out value="${mgModify.no}" />
+																	</h4></td>
+																<td><h4>
+																		<c:out value="${mgModify.modifiedDate}" />
+																	</h4></td>
+																<td id="memMdTd3"><c:out value="${mgModify.column}" />
+																</td>
+																<td width="550px"><h4>
+																		<c:out value="${mgModify.originInfo}" />
+																	</h4></td>
+																<td><h4>
+																		<c:out value="${mgModify.modifyInfo}" />
+																	</h4></td>
 															</tr>
-														</c:when>
-														<c:otherwise>
-															<c:forEach var="mgModify" items="${ mgList.mgModify }">
-																<tr>
-																	<td><h4>
-																			<c:out value="${mgModify.no}" />
-																		</h4></td>
-																	<td><h4>
-																			<c:out value="${mgModify.modifiedDate}" />
-																		</h4></td>
-																	<td id="memMdTd3"><c:out
-																			value="${mgModify.column}" /></td>
-																	<td width="550px"><h4>
-																			<c:out value="${mgModify.originInfo}" />
-																		</h4></td>
-																	<td><h4>
-																			<c:out value="${mgModify.modifyInfo}" />
-																		</h4></td>
-																</tr>
-															</c:forEach>
-														</c:otherwise>
+														</c:forEach>
+													</c:otherwise>
 													</c:choose>
 												</table>
 												<!-- /content-panel -->
@@ -880,65 +843,57 @@
 	<hr>
 	<!-- 기존꺼 -->
 	<script>
- 		if (document.getElementsByTagName("td")) {
+		if(document.getElementsByTagName("td")) {
 			const $tds = document.getElementsByTagName("td");
-
-			for (let i = 0; i < $tds.length; i++) {
-
+			
+			for(let i = 0; i < $tds.length; i++) {
+				
 				$tds[i].onmouseenter = function() {
 					this.parentNode.style.backgroundColor = "yellow";
 					this.parentNode.style.cursor = "pointer";
 				}
-
+				
 				$tds[i].onmouseout = function() {
 					this.parentNode.style.background = "white";
 				}
-
-				$tds[i].onclick = function() {
-					console.log("아무 기능 없다~");
-				}
 				
+				$tds[i].onclick = function() {
+					const no = this.parentNode.children[1].innerText;
+					location.href = "${ pageContext.servletContext.contextPath }/admin/member/manage/detail?no=" + no;
+				}
 			}
-		} 
-		
-/* 		$("#memBc").mouseover(function() {
-			/* this.style.backgroundColor = "yellow";
-			$( "#memBc" ).children().css( 'color', 'blue' );
-			console.log("하이");
-    	}); */
-		
+		}
 	</script>
 	<script>
-		/* link는 블랙리스트 페이징 처리 
-		 *  회원정보 수정이력*/
-		const link = "${ pageContext.servletContext.contextPath }/admin/member/manage/detail?no=${ pageNumNo }&";
-		const modifyLink = "${ pageContext.servletContext.contextPath }/admin/member/manage/detailAction2?no=${ pageNumNo }&";
-		const pointLink = "${ pageContext.servletContext.contextPath }/admin/member/manage/detailAction2?no=${ pageNumNo }&";
-
-		/* 블랙리스트 변경 이력 */
-		if (document.getElementById("startPage")) {
-			const $startPage = document.getElementById("startPage");
-			$startPage.onclick = function() {
-				location.href = link + "currentPage=1";
-			}
-		}
-
-		if (document.getElementById("prevPage")) {
-			const $prevPage = document.getElementById("prevPage");
-			$prevPage.onclick = function() {
-				location.href = link
-						+ "currentPage=${ requestScope.pageInfo.pageNo - 1}";
-			}
-		}
-
-		if (document.getElementById("nextPage")) {
-			const $nextPage = document.getElementById("nextPage");
-			$nextPage.onclick = function() {
-				location.href = link
-						+ "currentPage=${ requestScope.pageInfo.pageNo + 1}";
-			}
-		}
-
+	/* link는 블랙리스트 페이징 처리 
+	*  회원정보 수정이력*/
+      const link = "${ pageContext.servletContext.contextPath }/admin/member/manage/detail?no=${ pageNumNo }&";
+      const modifyLink = "${ pageContext.servletContext.contextPath }/admin/member/manage/detailAction2?no=${ pageNumNo }&";
+      const pointLink = "${ pageContext.servletContext.contextPath }/admin/member/manage/detailAction2?no=${ pageNumNo }&";
+      
+      /* 블랙리스트 변경 이력 */
+      if(document.getElementById("startPage")) {
+         const $startPage = document.getElementById("startPage");
+         $startPage.onclick = function() {
+            location.href = link + "currentPage=1";
+         }
+      }
+      
+      if(document.getElementById("prevPage")) {
+         const $prevPage = document.getElementById("prevPage");
+         $prevPage.onclick = function() {
+            location.href = link + "currentPage=${ requestScope.pageInfo.pageNo - 1}";
+         }
+      }
+      
+      if(document.getElementById("nextPage")) {
+         const $nextPage = document.getElementById("nextPage");
+         $nextPage.onclick = function() {
+            location.href = link + "currentPage=${ requestScope.pageInfo.pageNo + 1}";
+         }
+      }
+      
+  
 		if (document.getElementById("maxpage")) {
 			const $maxpage = document.getElementById("maxpage");
 			$maxpage.onclick = function() {
@@ -950,78 +905,76 @@
 		function pageButtonAction(text) {
 			location.href = link + "currentPage=" + text;
 		}
-
+		
 		/* 회원정보 변경이력 Md = MemberModify*/
-		if (document.getElementById("startPageMd")) {
-			const $startPage = document.getElementById("startPageMd");
-			$startPage.onclick = function() {
-				location.href = modifyLink + "currentPageMd=1";
-			}
-		}
+	      if(document.getElementById("startPageMd")) {
+	          const $startPage = document.getElementById("startPageMd");
+	          $startPage.onclick = function() {
+	             location.href = modifyLink + "currentPageMd=1";
+	          }
+	       }
+	       
+	       if(document.getElementById("prevPageMd")) {
+	          const $prevPage = document.getElementById("prevPageMd");
+	          $prevPage.onclick = function() {
+	             location.href = modifyLink + "currentPageMd=${ requestScope.pageInfoMd.pageNo - 1}";
+	          }
+	       }
+	       
+	       if(document.getElementById("nextPageMd")) {
+	          const $nextPage = document.getElementById("nextPageMd");
+	          $nextPage.onclick = function() {
+	             location.href = modifyLink + "currentPageMd=${ requestScope.pageInfoMd.pageNo + 1}";
+	          }
+	       }
+	       
+	   
+	 		if (document.getElementById("maxpageMd")) {
+	 			const $maxpage = document.getElementById("maxpageMd");
+	 			$maxpage.onclick = function() {
+	 				location.href = modifyLink
+	 						+ "currentPageMd=${ requestScope.pageInfoMd.maxpage }";
+	 			}
+	 		}
 
-		if (document.getElementById("prevPageMd")) {
-			const $prevPage = document.getElementById("prevPageMd");
-			$prevPage.onclick = function() {
-				location.href = modifyLink
-						+ "currentPageMd=${ requestScope.pageInfoMd.pageNo - 1}";
-			}
-		}
-
-		if (document.getElementById("nextPageMd")) {
-			const $nextPage = document.getElementById("nextPageMd");
-			$nextPage.onclick = function() {
-				location.href = modifyLink
-						+ "currentPageMd=${ requestScope.pageInfoMd.pageNo + 1}";
-			}
-		}
-
-		if (document.getElementById("maxpageMd")) {
-			const $maxpage = document.getElementById("maxpageMd");
-			$maxpage.onclick = function() {
-				location.href = modifyLink
-						+ "currentPageMd=${ requestScope.pageInfoMd.maxpage }";
-			}
-		}
-
-		function pageButtonActionMd(text) {
-			location.href = modifyLink + "currentPageMd=" + text;
-		}
-
+	 		function pageButtonActionMd(text) {
+	 			location.href = modifyLink + "currentPageMd=" + text;
+	 		}
+		
 		/* 포인트 변경이력 Mp = MemberPoint*/
-		if (document.getElementById("startPageMp")) {
-			const $startPage = document.getElementById("startPageMp");
-			$startPage.onclick = function() {
-				location.href = pointLink + "currentPageMp=1";
-			}
-		}
+	      if(document.getElementById("startPageMp")) {
+	          const $startPage = document.getElementById("startPageMp");
+	          $startPage.onclick = function() {
+	             location.href = pointLink + "currentPageMp=1";
+	          }
+	       }
+	       
+	       if(document.getElementById("prevPageMp")) {
+	          const $prevPage = document.getElementById("prevPageMp");
+	          $prevPage.onclick = function() {
+	             location.href = pointLink + "currentPageMp=${ requestScope.pageInfoMp.pageNo - 1}";
+	          }
+	       }
+	       
+	       if(document.getElementById("nextPageMp")) {
+	          const $nextPage = document.getElementById("nextPageMp");
+	          $nextPage.onclick = function() {
+	             location.href = pointLink + "currentPageMp=${ requestScope.pageInfoMp.pageNo + 1}";
+	          }
+	       }
+	       
+	   
+	 		if (document.getElementById("maxpageMp")) {
+	 			const $maxpage = document.getElementById("maxpageMp");
+	 			$maxpage.onclick = function() {
+	 				location.href = pointLink
+	 						+ "currentPageMp=${ requestScope.pageInfoMp.maxpage }";
+	 			}
+	 		}
 
-		if (document.getElementById("prevPageMp")) {
-			const $prevPage = document.getElementById("prevPageMp");
-			$prevPage.onclick = function() {
-				location.href = pointLink
-						+ "currentPageMp=${ requestScope.pageInfoMp.pageNo - 1}";
-			}
-		}
-
-		if (document.getElementById("nextPageMp")) {
-			const $nextPage = document.getElementById("nextPageMp");
-			$nextPage.onclick = function() {
-				location.href = pointLink
-						+ "currentPageMp=${ requestScope.pageInfoMp.pageNo + 1}";
-			}
-		}
-
-		if (document.getElementById("maxpageMp")) {
-			const $maxpage = document.getElementById("maxpageMp");
-			$maxpage.onclick = function() {
-				location.href = pointLink
-						+ "currentPageMp=${ requestScope.pageInfoMp.maxpage }";
-			}
-		}
-
-		function pageButtonActionMp(text) {
-			location.href = pointLink + "currentPageMp=" + text;
-		}
+	 		function pageButtonActionMp(text) {
+	 			location.href = pointLink + "currentPageMp=" + text;
+	 		}
 	</script>
 	<!-- /MAIN CONTENT -->
 	<!--main content end-->
