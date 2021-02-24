@@ -58,24 +58,24 @@
 	              movePath ="${ pageContext.servletContext.contextPath }/admin/SelectProduct";
 	              break;
 
-	       /*  case "insertThumbnail":
+	        case "insertThumbnail":
 	            successMessage = "썸네일 게시판 등록 성공";
 	            movePath ="${ pageContext.servletContext.contextPath }/admin/SelectProduct";
-	            break; */
+	            break;
 	            
 	        case "deleteMember":
 	            successMessage = "회원탈퇴 성공";
-	            movePath ="${ pageContext.servletContext.contextPath }";
+	            movePath ="${ pageContext.servletContext.contextPath }/mypage/quitM	ember";
 	            break;    
+
+			case "updateMemberNo":
+            	successMessage = "리뷰 수정 성공";
+            	movePath ="${ pageContext.servletContext.contextPath }/product/review";
+            	break;  
 	            
-	        case "updateMember":
-	            successMessage = "updateMember 성공";
-	            movePath ="${ pageContext.servletContext.contextPath }";
-	            break;    
-
-      }
-
-		
+			}
+			
+			
 			
 			alert(successMessage);
 			location.href = movePath;
