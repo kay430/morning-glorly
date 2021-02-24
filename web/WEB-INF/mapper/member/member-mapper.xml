@@ -81,4 +81,14 @@
            SET A.MEMBER_STATUS = 'N'
          WHERE A.MEMBER_NO = ?
 	</entry>
+	<entry key="updateMember">
+		UPDATE 
+		       MG_MEMBER A
+		   SET A.MEMBER_NAME=?
+		     , A.PHONE= ?
+		     , A.EMAIL = ?
+		     , A.ADDRESS = ?
+		 WHERE A.MEMBER_STATUS = 'Y'
+		   AND A.MEMBER_NO = ?
+	</entry>
 </properties>

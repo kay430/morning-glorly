@@ -22,7 +22,7 @@
 <link rel="stylesheet" type="text/css"
 	href="/mg/resources/css/idFind.css">
 <link rel="stylesheet" type="text/css"
-	href="/mg/resources/css/mymapge/wishList.css">
+	href="/mg/resources/css/mypage/wishList.css">
 </head>
 <body>
 

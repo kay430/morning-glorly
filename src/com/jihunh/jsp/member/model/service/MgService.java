@@ -129,6 +129,32 @@ public class MgService {
 		return result;
 	}
 
+	public MgDTO updateMember(MgDTO changeInfo) {
+		
+		Connection con = getConnection();
+		
+		MgDTO changedMember = null;
+		
+		String encPwd = mgDAO.selectEncryptPwd(con, changeInfo);
+		
+		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+		if(passwordEncoder.matches(changeInfo.getPwd(), encPwd)) {
+			
+			int result = mgDAO.updateMember(con, changeInfo);
+			
+			changedMember = mgDAO.selectLoginMember1(con, changeInfo);
+			System.out.println(result);
+			if(result > 0 && changedMember != null) {
+				commit(con);
+			} else {
+				rollback(con);
+			}
+		}
+		
+		close(con);
+		return changedMember;
+	}
+
 }
 
 

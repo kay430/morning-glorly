@@ -14,7 +14,7 @@
 <script
 	src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css"
-	href="/mg/resources/css/customer/customer_main.css">
+	href="/mg/resources/css/customer/customer_qnainsert.css">
 <link rel="stylesheet" type="text/css"
 	href="/mg/resources/css/header.css">
 <link rel="stylesheet" type="text/css"
@@ -66,7 +66,7 @@
 												readonly></td>
 										</tr>
 
-										<tr>
+										<tr class="innerText">
 											<td>내용</td>
 											<td colspan="2"><textarea name="body" cols="60"
 													rows="15" style="resize: none; width: 600px; height: 550px;" required></textarea>

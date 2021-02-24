@@ -65,7 +65,12 @@
 	            
 	        case "deleteMember":
 	            successMessage = "회원탈퇴 성공";
-	            movePath ="${ pageContext.servletContext.contextPath }/mypage/quitM	ember";
+	            movePath ="${ pageContext.servletContext.contextPath }/mypage/main";
+	            break;    
+	            
+	        case "updateMember":
+	            successMessage = "updateMember 성공";
+	            movePath ="${ pageContext.servletContext.contextPath }/mypage/main";
 	            break;    
 
 			}
