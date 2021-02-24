@@ -231,10 +231,10 @@
               <div class="panel-heading">
                 <ul class="nav nav-tabs nav-justified">
                   <li class="active">
-                    <a data-toggle="tab" href="#overview">Overview</a>
+                    <a data-toggle="tab" href="#overview">블랙리스트 관리</a>
                   </li>
                   <li>
-                    <a data-toggle="tab" href="#contact" class="contact-map">Contact</a>
+                    <a data-toggle="tab" href="#contact" class="contact-map">정보 변경 이력</a>
                   </li>
                   <li>
                     <a data-toggle="tab" href="#edit">Edit Profile</a>
@@ -324,6 +324,7 @@
                       </div>
             <!-- 우측 부분 -->
                       <!-- /col-md-6 -->
+                      <br>
                       <div class="col-md-6 detailed">
                         <h4>블랙리스트 변경하기</h4>
                         <div class="row centered mt mb" style=";">
@@ -434,11 +435,87 @@
                     <!-- /OVERVIEW -->
                   </div>
                   <!-- /tab-pane -->
+                  
+                  <!-- 정보 변경 이력 시작 -->
                   <div id="contact" class="tab-pane">
                     <div class="row">
-                      <div class="col-md-6">
-                        <div id="map"></div>
+                                            <div class="col-md-6">
+                        <div class="detailed mt">
+                          <h4>Recent BlackList Activity</h4>
+                 <table style="text-align: center;">
+                	<tr style="font-color: black;">
+                		<th><h4 align="center">번호  </h4></th>
+                		<th><h4 align="center">적용 날짜  </h4></th>
+                		<th><h4 align="center">변경 사유  </h4></th>
+                		<th><h4 align="center">블랙 상태  </h4></th>
+                	</tr>
+             		   <c:forEach var="mgBlack" items="${ mgList.mgBlack }">
+                	<tr>
+   						<td><h4><c:out value="${mgBlack.no}" /></h4></td>
+   						<td><h4><c:out value="${mgBlack.createdDate}" /></h4></td>
+   						<td width="550px"><h4><c:out value="${mgBlack.reasonInfo}" /></h4></td>
+   						<td><h4><c:out value="${mgBlack.status}" /></h4></td>
+                	</tr>
+						</c:forEach>
+                </table>
+                   <!-- /content-panel -->
+          <div align="center">
+         <c:choose>
+            <c:when test="${ empty requestScope.searchValue }">
+               <button id="startPage"><<</button>
+               <c:if test="${ requestScope.pageInfo.pageNo <= 1 }">
+                  <button disabled><</button>
+               </c:if>
+               <c:if test="${ requestScope.pageInfo.pageNo > 1 }">
+                  <button id="prevPage"><</button>
+               </c:if>
+               
+               <c:forEach var="p" begin="${ requestScope.pageInfo.startPage }" end="${ requestScope.pageInfo.endPage }" step="1">
+               	<c:if test="${ requestScope.pageInfo.pageNo eq P }">
+               		<button disabled><c:out value="${ p }"/></button>
+               	</c:if>
+               	<c:if test="${ requestScope.pageInfo.pageNo ne P }">
+               		<button onclick="pageButtonAction(this.innerText);"><c:out value="${ p }"/></button>
+               	</c:if>
+               </c:forEach>
+               
+               <c:if test="${ requestScope.pageInfo.pageNo >= requestScope.pageInfo.maxpage }">
+                  <button disabled>></button>
+               </c:if>
+               <c:if test="${ requestScope.pageInfo.pageNo < requestScope.pageInfo.maxpage }">
+                  <button id="nextPage">></button>
+               </c:if>
+               
+               <button id="maxpage">>></button>
+               
+            </c:when>
+            <c:otherwise>
+               
+            </c:otherwise>
+         </c:choose>
+      </div>
+                          <div class="recent-activity">
+                            <div class="activity-icon bg-theme"><i class="fa fa-check"></i></div>
+                            <div class="activity-panel">
+                              <h5>1 HOUR AGO</h5>
+                              <p>Purchased: Dashio Admin Panel & Front-end theme.</p>
+                            </div>
+                            <div class="activity-icon bg-theme02"><i class="fa fa-trophy"></i></div>
+                            <div class="activity-panel">
+                              <h5>5 HOURS AGO</h5>
+                              <p>Task Completed. Resolved issue with Disk Space.</p>
+                            </div>
+                            <div class="activity-icon bg-theme04"><i class="fa fa-rocket"></i></div>
+                            <div class="activity-panel">
+                              <h5>3 DAYS AGO</h5>
+                              <p>Launched a new product: Flat Pack Heritage.</p>
+                            </div>
+                          </div>
+                          <!-- /recent-activity -->
+                        </div>
+                        <!-- /detailed -->
                       </div>
+                      
                       <!-- /col-md-6 -->
                       <div class="col-md-6 detailed">
                         <h4>Location</h4>
@@ -573,199 +650,6 @@
     <!--main content end-->
     
     <hr><!-- 기존꺼 -->
-    <!--main content start-->
-    <section id="main-content">
-      <section class="wrapper">
-        <!-- page start-->
-        <div class="row mt"></div>
-          <div>
-            <section class="">
-            </section>
-            <section class="">
-            </section>
-          </div>
-          <div class="col-sm-9">
-            <section class="panel">
-              <header class="panel-heading wht-bg">
-                <h4 class="gen-case">
-                    공지사항
-                    <form action="#" class="pull-right mail-src-position">
-                      <div class="input-append">
-                        <!-- <input type="text" class="form-control " placeholder="Search Mail"> -->
-                      </div>
-                    </form>
-                  </h4>
-              </header>
-              <div class="panel-body minimal">
-                <div class="mail-option">
-                  <div class="chk-all">
-                    <div class="pull-left mail-checkbox">
-                      <input type="checkbox" class="">
-                    </div>
-                    <div class="btn-group">
-                      <a data-toggle="dropdown" href="#" class="btn mini all">
-                        All
-                        <i class="fa fa-angle-down "></i>
-                        </a>
-                      <ul class="dropdown-menu">
-                        <li><a href="#"> None</a></li>
-                        <li><a href="#"> Read</a></li>
-                        <li><a href="#"> Unread</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="btn-group">
-                    <a id="adminMemberAdList" data-original-title="관리자회원을 조회할수 있습니다" data-placement="top" data-toggle="" class="btn mini tooltips">
-                      <!-- <i class=" fa fa-refresh"></i> -->
-                     	 관리자 조회
-                      </a>
-                  </div>
-                  <div class="btn-group hidden-phone">
-                    <a data-toggle="dropdown" href="#" class="btn mini blue">
-                      More
-                      <i class="fa fa-angle-down "></i>
-                      </a>
-                    <ul class="dropdown-menu">
-                      <li><a href="#"><i class="fa fa-pencil"></i> Mark as Read</a></li>
-                      <li><a href="#"><i class="fa fa-ban"></i> Spam</a></li>
-                      <li class="divider"></li>
-                      <li><a href="#"><i class="fa fa-trash-o"></i> Delete</a></li>
-                    </ul>
-                  </div>
-<!--                   <div class="btn-group">
-                    <a data-toggle="dropdown" href="#" class="btn mini blue">
-                      Move to
-                      <i class="fa fa-angle-down "></i>
-                      </a>
-                    <ul class="dropdown-menu">
-                      <li><a href="#"><i class="fa fa-pencil"></i> Mark as Read</a></li>
-                      <li><a href="#"><i class="fa fa-ban"></i> Spam</a></li>
-                      <li class="divider"></li>
-                      <li><a href="#"><i class="fa fa-trash-o"></i> Delete</a></li>
-                    </ul>
-                  </div> -->
-                 <!--  <ul class="unstyled inbox-pagination">
-                    <li><span>1-50 of 99</span></li>
-                    <li>
-                      <a class="np-btn" href="#"><i class="fa fa-angle-left  pagination-left"></i></a>
-                    </li>
-                    <li>
-                      <a class="np-btn" href="#"><i class="fa fa-angle-right pagination-right"></i></a>
-                    </li>
-                  </ul> -->
-                </div>
-                <div class="table-inbox-wrap ">
-                  <table id="memberManagement" class="table table-inbox table-hover">
-                    <tbody>
-                    <!-- 추후에 활용해볼 css -->
-                      <!-- <tr class="unread">
-                        <td class="inbox-small-cells">
-                          <input type="checkbox" class="mail-checkbox">
-                        </td>
-                          <td class="inbox-small-cells"><i class="fa fa-star"></i></td>
-                          <td class="view-message  dont-show"><a href="">Google Inc.</a></td>
-                          <td class="view-message "><a href="">Your new account is ready.</a></td>
-                          <td class="view-message  inbox-small-cells"><i class="fa fa-paperclip"></i></td>
-                          <td class="view-message  text-right">08:10 AM</td>
-                      </tr>
-                      <tr class="unread">
-                        <td class="inbox-small-cells">
-                          <input type="checkbox" class="mail-checkbox">
-                        </td>
-                        <td class="inbox-small-cells"><i class="fa fa-star"></i></td>
-                        <td class="view-message dont-show"><a href="mail_view.html">Mark Thompson</a></td>
-                        <td class="view-message"><a href="mail_view.html">Last project updates</a></td>
-                        <td class="view-message inbox-small-cells"></td>
-                        <td class="view-message text-right">March 15</td>
-                      </tr>
-                      <tr class="unread">
-                        <td class="inbox-small-cells">
-                          <input type="checkbox" class="mail-checkbox">
-                        </td>
-                        <td class="inbox-small-cells"><i class="fa fa-star"></i></td>
-                        <td class="view-message dont-show"><a href="mail_view.html">Wonder Corp.</a></td>
-                        <td class="view-message"><a href="mail_view.html">Thanks for your registration</a></td>
-                        <td class="view-message inbox-small-cells"></td>
-                        <td class="view-message text-right">March 15</td>
-                      </tr>
-                      <tr class="">
-                        <td class="inbox-small-cells">
-                          <input type="checkbox" class="mail-checkbox">
-                        </td>
-                        <td class="inbox-small-cells"><i class="fa fa-star"></i></td>
-                        <td class="view-message dont-show"><a href="mail_view.html">Facebook</a></td>
-                        <td class="view-message"><a href="mail_view.html">New Friendship Request</a></td>
-                        <td class="view-message inbox-small-cells"></td>
-                        <td class="view-message text-right">March 13</td>
-                      </tr> -->
-                     <style>
-                      /* #memberManagement th:nth-child(2) {
-                      background-color: red;
-                      }
-                      #memberManagement td {
-                      text-align: center;
-                      } */
-                      </style>
-                      <tr>
-					<th><input type="checkbox" class=""></th>
-					<th>번호</th>
-					<th>이름</th>
-					<th>아이디</th>
-					<th>생년월일</th>
-					<th>성별</th>
-					<th>이메일</th>
-					<th>주소</th>
-					<th>폰번호</th>
-					<th>포인트</th>
-					<th>가입일</th>
-					<th>블랙여부</th>
-					<th>상태</th>
-				</tr>
-				<c:if test="${ requestScope.mgList ne null }">
-				<tr>
-					<td><input type="checkbox" class=""></td>
-					<td><c:out value="${ mgList.no }"/></td>
-					<td><c:out value="${ mgList.name }"/></td>
-					<td><c:out value="${ mgList.id }"/></td>
-					<td><c:out value="${ mgList.pno }"/></td>
-					<td><c:out value="${ mgList.gender }"/></td>
-					<td><c:out value="${ mgList.email }"/></td>
-					<td><c:out value="${ mgList.address }"/></td>
-					<td><c:out value="${ mgList.phone }"/></td>
-					<td><c:out value="${ mgList.point }"/></td>
-					<td><c:out value="${ mgList.enrollDate }"/></td>
-					<td><c:out value="${ mgList.blackList }"/></td>
-					<td><c:out value="${ mgList.status }"/></td>
-				</tr>
-				</c:if>
-<%-- 				<c:forEach var="mgView" items="${ requestScope.mgList }">
-				<tr>
-					<td><input type="checkbox" class=""></td>
-					<td><c:out value="${ mgView.no }"/></td>
-					<td><c:out value="${ mgView.name }"/></td>
-					<td><c:out value="${ mgView.id }"/></td>
-					<td><c:out value="${ mgView.pno }"/></td>
-					<td><c:out value="${ mgView.gender }"/></td>
-					<td><c:out value="${ mgView.email }"/></td>
-					<td><c:out value="${ mgView.address }"/></td>
-					<td><c:out value="${ mgView.phone }"/></td>
-					<td><c:out value="${ mgView.point }"/></td>
-					<td><c:out value="${ mgView.enrollDate }"/></td>
-					<td><c:out value="${ mgView.blackList }"/></td>
-					<td><c:out value="${ mgView.status }"/></td>
-				</tr>
-				</c:forEach> --%>
-                    </tbody>
-                  </table>
-                </div>
-                </div>
-		
-              </div>
-            </section>
-          </div>
-      </section>
-      <!-- /wrapper -->
-    </section>
     	<script>
 		if(document.getElementsByTagName("td")) {
 			const $tds = document.getElementsByTagName("td");
