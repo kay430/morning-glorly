@@ -154,7 +154,7 @@
                 <div class="mail-option">
                   <div class="chk-all">
                     <div class="pull-left mail-checkbox">
-                      <input type="checkbox" class="">
+                      <input type="checkbox" id="allCheck1">
                     </div>
                     <div class="btn-group">
                       <a data-toggle="dropdown" href="#" class="btn mini all">
@@ -172,6 +172,12 @@
                     <a id="adminMemberAdList" data-original-title="관리자회원을 조회할수 있습니다" data-placement="top" data-toggle="" class="btn mini tooltips">
                       <!-- <i class=" fa fa-refresh"></i> -->
                      	 관리자 조회
+                      </a>
+                  </div>
+                  <div id="blackChecked" class="btn-group">
+                    <a id="adminMemberAdList" data-original-title="관리자회원을 조회할수 있습니다" data-placement="top" data-toggle="" class="btn mini tooltips">
+                      <!-- <i class=" fa fa-refresh"></i> -->
+                     	 블랙리스트 변경
                       </a>
                   </div>
                   <div class="btn-group hidden-phone">
@@ -261,7 +267,7 @@
                       } */
                       </style>
                       <tr>
-					<th><input type="checkbox" class=""></th>
+					<th><input type="checkbox" id="allCheck2"></th>
 					<th>번호</th>
 					<th>이름</th>
 					<th>아이디</th>
@@ -385,26 +391,136 @@
       <!-- /wrapper -->
     </section>
     	<script>
-		if(document.getElementsByTagName("td")) {
-			const $tds = document.getElementsByTagName("td");
-			
-			for(let i = 0; i < $tds.length; i++) {
-				
-				$tds[i].onmouseenter = function() {
-					this.parentNode.style.backgroundColor = "yellow";
-					this.parentNode.style.cursor = "pointer";
-				}
-				
-				$tds[i].onmouseout = function() {
-					this.parentNode.style.background = "white";
-				}
-				
-				$tds[i].onclick = function() {
-					const no = this.parentNode.children[1].innerText;
-					location.href = "${ pageContext.servletContext.contextPath }/admin/member/manage/detail?no=" + no;
-				}
-			}
-		}
+    	 $("input:checkbox").change(checkedChange);
+    	 $("#allCheck1").change(checkedAllChange);
+    	 $("#allCheck2").change(checkedAllChange2);
+    	    
+    	 function checkedAllChange() {
+    		 
+    	    	if($("#allCheck1").prop("checked")) {
+    	    		 $("input:checkbox").attr("checked", true);
+    	    	} else {
+    	    		 $("input:checkbox").attr("checked", false);
+    	    		
+    	    	}
+    	    	
+    	 }
+    	 
+    	 function checkedAllChange2() {
+    		 
+ 	    	if($("#allCheck2").prop("checked")) {
+ 	    		 $("input:checkbox").attr("checked", true);
+ 	    	} else {
+ 	    		 $("input:checkbox").attr("checked", false);
+ 	    		
+ 	    	}
+ 	    	
+ 	 }
+	    	    function checkedChange() {
+    	    	
+    	    	
+    	    	//prop 자바스크립트 속성
+    	    	/* console.log($(this).prop("checked")); */
+/*     	    	const a = document.getElementById("game").value;
+    	    	const b = document.getElementById("game").value;
+    	    	const c = document.getElementById("game").value; */
+    	    	if($(this).prop("checked")) {
+    	    		
+    	    		/* 아래 이벤트와 중복 발생해서 전부 다 색 변경은 불가함. */
+    	    		/* (this.parentNode).parentNode.style.background = "orangered";  */
+    	    	 	(this.parentNode).parentNode.children[0].style.background = "orangered";
+    	    	 	(this.parentNode).parentNode.children[1].style.background = "orangered";
+    	    		const no = (this.parentNode).parentNode.children[1].innerText;
+    	    		console.log(no);
+    	    		$("#blackChecked").click(function blackChecked() {
+    	    			console.log(no + '가자');
+    	    			
+    	    			
+    	    			if (confirm("블랙리스트 변경을 진행하시겠습니까?")) {
+							const status = prompt("등록은 'Y', 해제는 'N'을 입력해주세요.");
+							const reason = prompt("변경 사유가 무엇인지 입력해주세요.");
+							const pageNo = no;
+							const loginNo = '${ sessionScope.loginMember.no }';
+
+							$.ajax({
+										url : "${ pageContext.servletContext.contextPath }/admin/member/manage/updateBlackList",
+										type : "post",
+										data : {
+											reason : reason,
+											status : status,
+											pageNo : pageNo,
+											loginNo : loginNo
+										},
+										success : function(
+												data,
+												textStatus,
+												xhr) {
+											document
+											/* 			$("#mgBlackFinish").css("display", "none");
+														$("#mgBlackReason").attr('readonly', true);
+														$("#modifyButton").css("display", "block"); */
+											console
+													.log("변경 완료");
+											console
+													.log(data);
+											location.href = "${ pageContext.servletContext.contextPath }/admin/member/manage"
+										},
+										error : function(
+												xhr,
+												status,
+												error) {
+											console
+													.log(error);
+											console
+													.log("에러에러에러");
+										}
+							});
+
+							alert("변경 완료");
+						} else {
+							alert("변경 취소");
+						}
+    	    			
+    	    	});
+    	    		
+    	    	} else {
+    	    	 	(this.parentNode).parentNode.children[0].style.background = "rgba( 255, 255, 255, 0.5 )";
+    	    	 	(this.parentNode).parentNode.children[1].style.background = "rgba( 255, 255, 255, 0.5 )";
+    	    	}
+    	    	/* nextElementSibling
+    	    	offsetParent: table#memberManagement.table.table-inbox.table-hover
+    	    	parentElement: tr
+    	    	parentNode: tr */
+    	    	
+    	    }
+    	    
+    	    /* Detail view 이벤트 */
+	    		if(document.getElementsByTagName("td")) {
+	    			const $tds = document.getElementsByTagName("td");
+	    			
+	    			for(let i = 0; i < $tds.length; i++) {
+	    				
+	    				$tds[i].onmouseenter = function() {
+	    					this.parentNode.style.backgroundColor = "yellow";
+	    					this.parentNode.style.cursor = "pointer";
+	    				}
+	    				
+	    				$tds[i].onmouseout = function() {
+	    					this.parentNode.style.background = "white";
+	    				}
+	    				
+	    				
+	    				for(let j = 2; j < 13; j++) {
+	    					
+	    					$tds[i].parentNode.children[j].onclick = function() {
+	    						const no = this.parentNode.children[1].innerText;
+	    						location.href = "${ pageContext.servletContext.contextPath }/admin/member/manage/detail?no=" + no;
+	    						}
+
+	    				}	
+	    				
+	    			}
+	    		}
 	</script>
 	<script>
       const link = "${ pageContext.servletContext.contextPath }/admin/member/manage";

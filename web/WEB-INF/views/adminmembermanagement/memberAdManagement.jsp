@@ -154,7 +154,7 @@
                 <div class="mail-option">
                   <div class="chk-all">
                     <div class="pull-left mail-checkbox">
-                      <input type="checkbox" class="">
+                      <input type="checkbox" id="allCheck1">
                     </div>
                     <div class="btn-group">
                       <a data-toggle="dropdown" href="#" class="btn mini all">
@@ -261,7 +261,7 @@
                       } */
                       </style>
                       <tr>
-					<th><input type="checkbox" class=""></th>
+					<th><input type="checkbox" id="allCheck2"></th>
 					<th>번호</th>
 					<th>이름</th>
 					<th>아이디</th>
@@ -374,26 +374,106 @@
       <!-- /wrapper -->
     </section>
     	<script>
-		if(document.getElementsByTagName("td")) {
-			const $tds = document.getElementsByTagName("td");
-			
-			for(let i = 0; i < $tds.length; i++) {
-				
-				$tds[i].onmouseenter = function() {
-					this.parentNode.style.backgroundColor = "yellow";
-					this.parentNode.style.cursor = "pointer";
-				}
-				
-				$tds[i].onmouseout = function() {
-					this.parentNode.style.background = "white";
-				}
-				
-				$tds[i].onclick = function() {
-					const no = this.parentNode.children[1].innerText;
-					location.href = "${ pageContext.servletContext.contextPath }/admin/member/manageAd/detail?no=" + no;
-				}
-			}
-		}
+    	 $("input:checkbox").change(checkedChange);
+    	 $("#allCheck1").change(checkedAllChange);
+    	 $("#allCheck2").change(checkedAllChange2);
+    	    
+    	 function checkedAllChange() {
+    		 
+    	    	if($("#allCheck1").prop("checked")) {
+    	    		console.log('111');
+    	    		 $("input:checkbox").attr("checked", true);
+    	    	} else {
+    	    		 $("input:checkbox").attr("checked", false);
+    	    		
+    	    	}
+    	    	
+    	 }
+    	 
+    	 function checkedAllChange2() {
+    		 
+ 	    	if($("#allCheck2").prop("checked")) {
+ 	    		console.log('222');
+ 	    		 $("input:checkbox").attr("checked", true);
+ 	    	} else {
+ 	    		 $("input:checkbox").attr("checked", false);
+ 	    		
+ 	    	}
+ 	    	
+ 	 }
+	    	    function checkedChange() {
+    	    	
+    	    	
+    	    	//prop 자바스크립트 속성
+    	    	/* console.log($(this).prop("checked")); */
+/*     	    	const a = document.getElementById("game").value;
+    	    	const b = document.getElementById("game").value;
+    	    	const c = document.getElementById("game").value; */
+    	    	if($(this).prop("checked")) {
+    	    		console.log("체크");
+    	    		
+    	    		/* 아래 이벤트와 중복 발생해서 전부 다 색 변경은 불가함. */
+    	    		/* (this.parentNode).parentNode.style.background = "orangered";  */
+    	    	 	(this.parentNode).parentNode.children[0].style.background = "orangered";
+    	    	 	(this.parentNode).parentNode.children[1].style.background = "orangered";
+    	    		const no = (this.parentNode).parentNode.children[1].innerText;
+    	    		console.log(no);
+    	    		
+    	    		
+    	    		/* const a = $(this).val("change value");
+    	    		 let el = document.getElementById('checkTest').nextElementSibling;
+    	    		 console.log('Siblings of checkTest:');
+    	    		  while (el) {
+    	    		    console.log(el.nodeName);
+    	    		    $(function() {
+    	    		    const z = $('el').attr("value");
+    	    		    console.log(z);
+    	    		    	
+    	    		    });
+    	    		    el = el.nextElementSibling;
+    	    		  } */
+    	    		 /* console.log(el.nodeName); */
+    	    		/* console.log(a); */
+/*     	    		console.log($(this).val("change value")); */
+    	    	} else {
+    	    		console.log("체크해제");
+    	    	 	(this.parentNode).parentNode.children[0].style.background = "rgba( 255, 255, 255, 0.5 )";
+    	    	 	(this.parentNode).parentNode.children[1].style.background = "rgba( 255, 255, 255, 0.5 )";
+    	    	}
+    	    	/* nextElementSibling
+    	    	offsetParent: table#memberManagement.table.table-inbox.table-hover
+    	    	parentElement: tr
+    	    	parentNode: tr */
+    	    	
+    	    }
+    	    
+    	    /* Detail view 이벤트 */
+	    		if(document.getElementsByTagName("td")) {
+	    			const $tds = document.getElementsByTagName("td");
+	    			
+	    			for(let i = 0; i < $tds.length; i++) {
+	    				
+	    				$tds[i].onmouseenter = function() {
+	    					this.parentNode.style.backgroundColor = "yellow";
+	    					this.parentNode.style.cursor = "pointer";
+	    				}
+	    				
+	    				$tds[i].onmouseout = function() {
+	    					this.parentNode.style.background = "white";
+	    				}
+	    				
+	    				
+	    				for(let j = 2; j < 8; j++) {
+	    					
+	    					$tds[i].parentNode.children[j].onclick = function() {
+	    						const no = this.parentNode.children[1].innerText;
+	    						location.href = "${ pageContext.servletContext.contextPath }/admin/member/manage/detail?no=" + no;
+	    						}
+
+	    				}	
+	    				
+	    			}
+	    		}
 	</script>
 	<script>
       const link = "${ pageContext.servletContext.contextPath }/admin/member/manageAd";
