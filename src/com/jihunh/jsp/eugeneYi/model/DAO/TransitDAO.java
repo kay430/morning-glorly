@@ -63,7 +63,9 @@ public class TransitDAO {
 		
 		TransitDTO transitDetail = null;
 		
+		List<TransitDTO> trdList = new ArrayList<>();
 		String query = prop.getProperty("selectTransitDetail");
+		System.out.println(no);
 		
 		try {
 			pstmt = con.prepareStatement(query);
@@ -83,9 +85,10 @@ public class TransitDAO {
 				transitDetail.setoDate(rset.getDate("ORDER_DATE"));
 				transitDetail.setoTitle(rset.getString("ORDER_TITLE"));
 				transitDetail.setPrice(rset.getInt("AMOUNT_PRICE"));
-
+				
+				trdList.add(transitDetail);
+				
 			}
-			
 		
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -93,7 +96,8 @@ public class TransitDAO {
 			close(rset);
 			close(pstmt);
 		}
-		
+		System.out.println("================================================================" + trdList);
+		System.out.println(transitDetail);
 		return transitDetail;
 	}
 
@@ -314,35 +318,5 @@ public class TransitDAO {
 		
 		return totalCount;
 	}
-
-
-
-//	public int insertAttaNotice(Connection con, AttaNoticeDTO file) {
-//		
-//		PreparedStatement pstmt = null; 
-//		
-//		int result = 0;
-//		
-//		String query = prop.getProperty("insertAttaNotice");
-//		
-//		try {
-//			pstmt = con.prepareStatement(query);
-//			pstmt.setInt(1, file.getRefNotiNo());
-//			pstmt.setString(2, file.getOriginalName());
-//			pstmt.setString(3, file.getSavedName());
-//			pstmt.setString(4, file.getSavePath());
-//			pstmt.setString(5, file.getFileType());
-//			pstmt.setString(6, file.getThumbnailPath());
-//			
-//			result = pstmt.executeUpdate();
-//			
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		} finally {
-//			close(pstmt);
-//		}
-//		
-//		return result;
-//	}
 
 }
