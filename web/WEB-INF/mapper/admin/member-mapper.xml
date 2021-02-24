@@ -775,6 +775,18 @@
           FROM MG_MEMBER_BLACKLIST A
          WHERE A.MEMBER_NO = ?
 	</entry>
+	<entry key="viewMgModifyCount">
+        SELECT
+               COUNT(*)
+          FROM MG_MEMBER_MODIFY A
+         WHERE A.MEMBER_NO = ?
+	</entry>
+	<entry key="viewMgPointCount">
+        SELECT
+               COUNT(*)
+          FROM MG_MEMBER_POINT A
+         WHERE A.MEMBER_NO = ?
+	</entry>
 	<entry key="viewMgBlackListlInfo">
         SELECT A.RNUM
              , A.BLACKLIST_NO
@@ -799,6 +811,60 @@
                    ORDER BY BLACKLIST_NO DESC) B
                    ) A
               WHERE RNUM BETWEEN ? AND ?     
+	</entry>
+	<entry key="viewMgModifyListlInfo">
+        SELECT A.RNUM
+             , A.MODIFY_NO
+             , A.ORIGIN_COLUMN
+             , A.ORIGIN_INFO
+             , A.MODIFY_INFO
+             , A.MODIFIED_DATE
+             , A.MEMBER_NO
+        FROM (SELECT ROWNUM RNUM
+                   , B.MODIFY_NO
+                   , B.ORIGIN_COLUMN
+                   , B.ORIGIN_INFO
+                   , B.MODIFY_INFO
+                   , B.MODIFIED_DATE
+                   , B.MEMBER_NO
+              FROM (SELECT A.MODIFY_NO
+                         , A.ORIGIN_COLUMN
+                         , A.ORIGIN_INFO
+                         , A.MODIFY_INFO
+                         , A.MODIFIED_DATE
+                         , A.MEMBER_NO
+                    FROM MG_MEMBER_MODIFY A
+                   WHERE A.MEMBER_NO = ?
+                   ORDER BY MODIFY_NO DESC) B
+                   ) A
+              WHERE RNUM BETWEEN ? AND ?     
+	</entry>
+	<entry key="viewMgPointListlInfo">
+        SELECT A.RNUM
+             , A.POINT_NO
+             , A.CHANGED_POINT_TYPE
+             , A.PAYMENT_NO
+             , A.MODIFY_DATE
+             , A.MODIFY_POINT
+             , A.MEMBER_NO
+        FROM (SELECT ROWNUM RNUM
+                   , B.POINT_NO
+                   , B.CHANGED_POINT_TYPE
+                   , B.PAYMENT_NO
+                   , B.MODIFY_DATE
+                   , B.MODIFY_POINT
+                   , B.MEMBER_NO
+              FROM (SELECT A.POINT_NO
+                         , A.CHANGED_POINT_TYPE
+                         , A.PAYMENT_NO
+                         , A.MODIFY_DATE
+                         , A.MODIFY_POINT
+                         , A.MEMBER_NO
+                    FROM MG_MEMBER_POINT A
+                   WHERE A.MEMBER_NO = ?
+                   ORDER BY POINT_NO DESC) B
+                   ) A
+              WHERE RNUM BETWEEN ? AND ?    
 	</entry>
 	<entry key="selectMgOriginalInfo">
         SELECT

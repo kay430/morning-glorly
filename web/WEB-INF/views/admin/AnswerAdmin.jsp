@@ -206,10 +206,10 @@
                </c:if>
                
                <c:forEach var="p" begin="${ requestScope.pageInfo.startPage }" end="${ requestScope.pageInfo.endPage }" step="1">
-               	<c:if test="${ requestScope.pageInfo.pageNo eq P }">
+               	<c:if test="${ requestScope.pageInfo.pageNo eq p }">
                		<button disabled><c:out value="${ p }"/></button>
                	</c:if>
-               	<c:if test="${ requestScope.pageInfo.pageNo ne P }">
+               	<c:if test="${ requestScope.pageInfo.pageNo ne p }">
                		<button onclick="pageButtonAction(this.innerText);"><c:out value="${ p }"/></button>
                	</c:if>
                </c:forEach>
