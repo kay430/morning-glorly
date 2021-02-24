@@ -131,7 +131,7 @@ public class RegistProductServlet extends HttpServlet {
                      .size(width, height)
                      .toFile(thumbnailDirectory + "thumbnail_" + randomFileName);
 
-                     fileMap.put("thumbnailPath", "/resource/upload/thumbnail/thumbnail_" + randomFileName);
+                     fileMap.put("thumbnailPath", "/resources/upload/thumbnail/thumbnail_" + randomFileName);
 
                      fileList.add(fileMap);
 

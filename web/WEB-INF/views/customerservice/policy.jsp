@@ -31,30 +31,30 @@
 		<!-- 사이드바 -->
 		<div id="sidebar-wrapper">
 			<ul class="sidebar-nav">
-				<li class="sidebar-brand"><a href="#"> 고객센터</a></li>
-				<li><a href="#">이용약관</a></li>
-				<li><a href="#">개인정보취급방침</a></li>
-				<li><a href="#">이용안내 </a></li>
+				<li class="sidebar-brand"><a href="${ pageContext.servletContext.contextPath }/customer/list">고객센터</a></li>
+				<li><a href="${ pageContext.servletContext.contextPath }/policy">이용약관</a></li>
+				<li><a href="${ pageContext.servletContext.contextPath }/personal/policy">개인정보취급방침</a></li>
+				<li><a href="${ pageContext.servletContext.contextPath }/homepage/policy">이용안내 </a></li>
 			</ul>
 		</div>
 		<!-- /사이드바 -->
 
 		<!-- 본문 -->
-		<h1>개인정보 취급방침에 대한 안내</h1>
+		<h1>쇼핑몰이용약관</h1>
 		<hr>
 		<div>
 			<tr>
-				<td colspan="2"><textarea name="body" cols="60" rows="60"
-						style="resize: none; width: 800px; height: 800;" required>
+				<td colspan="2"><textarea name="body" cols="60" rows="50"
+						style="resize: none; width: 800px; height: 800px;" required>
           인터넷 쇼핑몰 『모닝글로리 사이버 몰』회원 약관
 
           제1조(목적)
-          이 약관은 주식회사 옳은 회사(전자상거래 사업자)가 운영하는 주식회사 옳은 사이버 몰(이하 “몰”이라 한다)에서 제공하는 인터넷 관련 서비스(이하 “서비스”라 한다)를 이용함에 있어 사이버 몰과 이용자의 권리·의무 및 책임사항을 규정함을 목적으로 합니다.
+          이 약관은 주식회사 모닝글로리(전자상거래 사업자)가 운영하는 주식회사 모닝글로리 사이버 몰(이하 “몰”이라 한다)에서 제공하는 인터넷 관련 서비스(이하 “서비스”라 한다)를 이용함에 있어 사이버 몰과 이용자의 권리·의무 및 책임사항을 규정함을 목적으로 합니다.
           
             ※「PC통신, 무선 등을 이용하는 전자상거래에 대해서도 그 성질에 반하지 않는 한 이 약관을 준용합니다.」
           
           제2조(정의)
-          ① “몰”이란 주식회사 옳은 회사가 재화 또는 용역(이하 “재화 등”이라 함)을 이용자에게 제공하기 위하여 컴퓨터 등 정보통신설비를 이용하여 재화 등을 거래할 수 있도록 설정한 가상의 영업장을 말하며, 아울러 사이버몰을 운영하는 사업자의 의미로도 사용합니다.
+          ① “몰”이란 주식회사 모닝글로리 회사가 재화 또는 용역(이하 “재화 등”이라 함)을 이용자에게 제공하기 위하여 컴퓨터 등 정보통신설비를 이용하여 재화 등을 거래할 수 있도록 설정한 가상의 영업장을 말하며, 아울러 사이버몰을 운영하는 사업자의 의미로도 사용합니다.
           
           ② “이용자”란 “몰”에 접속하여 이 약관에 따라 “몰”이 제공하는 서비스를 받는 회원 및 비회원을 말합니다.
           

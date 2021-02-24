@@ -46,9 +46,9 @@
             <ul class="gnb gnbLayer font_f">
                 <li class="first"><a href="#none" title="슬림쿡 전체메뉴" id="allCategory" class="">전체 메뉴<span></span></a></li>
                 <li class="flow_home"><a href="/html/mainm.html" title="슬림쿡 홈" class="mn">홈</a></li>
-                <li><a href="" title="벌크업 식단" class="mn">벌크업 식단</a></li>
-                <li><a href="" title="유지어터 식단" class="mn">유지어터 식단</a></li>
-                <li><a href="" title="다이어트 식단" class="mn">다이어트 식단</a></li>
+                <li><a href="${ pageContext.servletContext.contextPath }/bulkup" title="벌크업 식단" class="mn">벌크업 식단</a></li>
+                <li><a href="${ pageContext.servletContext.contextPath }/ujiater" title="유지어터 식단" class="mn">유지어터 식단</a></li>
+                <li><a href="${ pageContext.servletContext.contextPath }/diet"  title="다이어트 식단" class="mn">다이어트 식단</a></li>
                 <li><a href="" title="식단표" class="mn">식단표</a></li>
                 <li><a href="" title="정기배송" class="mn">정기배송</a></li>
             </ul>
@@ -119,7 +119,7 @@
                                 </dl>
                             </li>
                         </ul>
-                        <h3><strong>community</strong> | 슬림쿡 커뮤니티 게시판!</h3>
+                        <h3><strong>community</strong> | 모닝글로리 커뮤니티 게시판!</h3>
                         <ul class="community">
                             <li class="first"><a href="/board/board.html?code=slimcook_board2" title="공지사항">공지사항</a>
                             </li>
