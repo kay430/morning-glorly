@@ -31,7 +31,7 @@
                     <h3>지금 가장 <span>🔥</span><strong>HOT</strong><span>🔥</span> 해요!</h3>
                     <div class="item_best1">
                         <a
-                            href="">
+                            href="${ pageContext.servletContext.contextPath }/menu/detail">
                             <p><img src=""></p>
                             <p>
                                 <span>🍝메뉴명</span>
@@ -49,7 +49,7 @@
                 <h3 class="w330">벌크업 도시락<strong> BEST</strong></h3>
                 <ul>
                     <li>
-                        <a href="" title="">
+                        <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
                             <img class="MS_prod_img_s" src="" alt="">
                             <p class="s_price">
                                 <span class="s_price_consume">원가</span>
@@ -61,7 +61,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="" title="">
+                        <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
                             <img class="MS_prod_img_s" src="" alt="">
                             <p class="s_price">
                                 최종가
@@ -71,7 +71,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="" title="">
+                        <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
                             <img class="MS_prod_img_s" src="" alt="">
                             <p class="s_price">
                                 <span class="s_price_consume">원가</span>
@@ -83,7 +83,7 @@
                         </a>
                     </li>
                     <li class="last">
-                        <a href="" title="">
+                        <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
                             <img class="MS_prod_img_s" src="" alt="">
                             <p class="s_price">
                                 최종가
@@ -97,7 +97,7 @@
            	  <h3 class="w330">벌크업 도시락</h3>
                 <ul>
                     <li>
-                        <a href="" title="">
+                        <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
                             <img class="MS_prod_img_s" src="" alt="">
                             <p class="s_price">
                                 <span class="s_price_consume"></span>
@@ -109,7 +109,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="" title="">
+                        <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
                             <img class="MS_prod_img_s" src="" alt="">
                             <p class="s_price">
                                 가격
@@ -119,7 +119,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="" title="">
+                        <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
                             <img class="MS_prod_img_s" src="" alt="">
                             <p class="s_price">
                                 <span class="s_price_consume"></span>
@@ -131,7 +131,7 @@
                         </a>
                     </li>
                     <li class="last">
-                        <a href="" title="">
+                        <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
                             <img class="MS_prod_img_s" src="" alt="">
                             <p class="s_price">
                                가격
@@ -440,63 +440,63 @@
                             </a>
                         </li>
                         <li>
-                            <a href="" title="메뉴명">
+                            <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="메뉴명">
                                 <img src="" alt="">
                                     <p class="s_sub">메뉴이름</p>
                                     <p class="s_review">간단한 설명</p>
                             </a>
                         </li>
                         <li>
-                            <a href="" title="간헐적 단식 B(라이스+샐러드) 프로그램">
+                            <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="간헐적 단식 B(라이스+샐러드) 프로그램">
                                 <img src="" alt="">
                                     <p class="s_sub">메뉴이름</p>
                                     <p class="s_review">간단한 설명</p>
                             </a>
                         </li>
                         <li>
-                            <a href="" title="하루 약 1200Kcal 프로그램">
+                            <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="하루 약 1200Kcal 프로그램">
                                 <img src="" alt="">
                                     <p class="s_sub">메뉴이름</p>
                                     <p class="s_review">간단한 설명</p>
                             </a>
                         </li>
                         <li>
-                            <a href="" title="덴마크 프로그램">
+                            <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="덴마크 프로그램">
                                 <img src="" alt="">
                                     <p class="s_sub">메뉴이름</p>
                                     <p class="s_review">간단한 설명</p>
                             </a>
                         </li>
                         <li>
-                            <a href="" title="헬스 식단 프로그램">
+                            <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="헬스 식단 프로그램">
                                 <img src="" alt="">
                                     <p class="s_sub">메뉴이름</p>
                                     <p class="s_review">간단한 설명</p>
                             </a>
                         </li>
                         <li>
-                            <a href="" title="샐러드 골라담기">
+                            <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="샐러드 골라담기">
                                 <img src="" alt="">
                                     <p class="s_sub">메뉴이름</p>
                                     <p class="s_review">간단한 설명</p>
                             </a>
                         </li>
                         <li>
-                            <a href="" title="[정기배송] 샐러드 4주 배송 [1일1식]">
+                            <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="[정기배송] 샐러드 4주 배송 [1일1식]">
                                 <img src="" alt="">
                                     <p class="s_sub">메뉴이름</p>
                                     <p class="s_review">간단한 설명</p>
                             </a>
                         </li>
                         <li>
-                            <a href="" title="[정기배송] 샐러드 4주 배송 [1일2식]">
+                            <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="[정기배송] 샐러드 4주 배송 [1일2식]">
                                 <img src="" alt="">
                                     <p class="s_sub">메뉴이름</p>
                                     <p class="s_review">간단한 설명</p>
                             </a>
                         </li>
                         <li>
-                            <a href="" title="샐러드 8종 맛보기">
+                            <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="샐러드 8종 맛보기">
                                 <img src="" alt="">
                                     <p class="s_sub">메뉴이름</p>
                                     <p class="s_review">간단한 설명</p>
