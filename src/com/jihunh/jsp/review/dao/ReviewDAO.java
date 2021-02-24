@@ -17,6 +17,7 @@ import com.jihunh.jsp.common.config.ConfigLocation;
 import com.jihunh.jsp.customerservice.model.dto.PageInfoDTO;
 import com.jihunh.jsp.review.dto.ReviewPageInfoDTO;
 import com.jihunh.jsp.member.model.dto.MgDTO;
+import com.jihunh.jsp.review.dto.AttachmentDTO;
 import com.jihunh.jsp.review.dto.CategoryDTO;
 import com.jihunh.jsp.review.dto.ReviewDTO;
 
@@ -444,5 +445,84 @@ public class ReviewDAO {
 		
 		return result;
 	}
+
+	public int InsertThumbnailContent(Connection con, ReviewDTO thumbnail) {
+
+		PreparedStatement pstmt = null;
+		
+		int result = 0;
+		
+		String query = prop.getProperty("insertThumbnailContent");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, thumbnail.getTitle());
+			pstmt.setString(2, thumbnail.getBody());
+			pstmt.setInt(3, thumbnail.getWriterMemberNo());
+			
+			result = pstmt.executeUpdate();
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+	public int selectThumbnailSequence(Connection con) {
+		Statement stmt = null;
+		ResultSet rset = null;
+		
+		int lastReviewNo = 0;
+		
+		String query = prop.getProperty("selectThumbnailSequence");
+		
+		try {
+			stmt = con.createStatement();
+			
+			rset = stmt.executeQuery(query);
+			
+			if(rset.next()) {
+				lastReviewNo = rset.getInt("CURRVAL");
+			}
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(stmt);
+		}
+		
+		return lastReviewNo;
+	}
+
+	public int insertAttachment(Connection con, AttachmentDTO file) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		
+		String query = prop.getProperty("insertAttachment");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, file.getNo());
+			pstmt.setString(2, file.getOriginalName());
+			pstmt.setString(3, file.getSavedName());
+			pstmt.setString(4, file.getSavePath());
+			pstmt.setString(5, file.getFileType());
+			pstmt.setString(6, file.getThumbnailPath());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
 
 }

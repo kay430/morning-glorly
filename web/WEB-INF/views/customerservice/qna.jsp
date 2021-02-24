@@ -81,10 +81,10 @@
 			    </select>
 		        	<input type="search" id="searchValue" name="searchValue" value="${ requestScope.searchValue }">
 		        	<button type="submit">검색하기</button>
-    	  		</div>
-    	         	</form> 
-    	         	  <button id="writeQuestion">작성하기</button>
-	           		
+    	         	<button  type="button" id="writeQuestion">작성하기</button>	
+    	         	  </div>
+    	         	  </form> 
+							           		
 					
 	  <div class="pagingArea" align="center">
          <c:choose>

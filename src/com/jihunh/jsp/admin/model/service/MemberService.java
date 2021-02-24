@@ -125,14 +125,46 @@ public class MemberService {
 		return viewMgBlackCount;
 	}
 	
-	public MgDTO viewMemberDetailInfo(int no, SearchReadyDTO mgBlackCount) {
+	
+	public int viewMgModifyCount(int no) {
+		
+		Connection con = getConnection();
+		
+		int viewMgModifyCount = memDAO.viewMgModifyCount(con, no); 
+		
+		close(con);
+		
+		return viewMgModifyCount;
+	}
+	
+	
+	public int viewMgPointCount(int no) {
+		
+		Connection con = getConnection();
+		
+		int viewMgPointCount = memDAO.viewMgPointCount(con, no); 
+		
+		close(con);
+		
+		return viewMgPointCount;
+	}
+	
+	public MgDTO viewMemberDetailInfo(int no, SearchReadyDTO mgBlackCount, SearchReadyDTO mgModifyCount, SearchReadyDTO mgPointCount) {
 
 		Connection con = getConnection();
 		MgDTO mgDetail = null;
-
+		
+		/* 회원정보 */
 		mgDetail = memDAO.viewMemberDetailInfo(con, no);
 		
+		/* 블랙리스트 */
 		mgDetail = memDAO.viewMgBlackListlInfo(con, no, mgDetail, mgBlackCount);
+		
+		/* 정보변경이력 */
+		mgDetail = memDAO.viewMgModifyListlInfo(con, no, mgDetail, mgModifyCount);
+		
+		/* 포인트변경 이력 */
+		mgDetail = memDAO.viewMgPointListlInfo(con, no, mgDetail, mgPointCount);
 		
 		System.out.println("이건 짬뽕 맛? : " + mgDetail);
 		

@@ -65,10 +65,21 @@
 	            
 	        case "deleteMember":
 	            successMessage = "회원탈퇴 성공";
-	            movePath ="${ pageContext.servletContext.contextPath }/mypage/quitM	ember";
+	            movePath ="${ pageContext.servletContext.contextPath }/mypage/main";
+	            break;    
+	            
+	        case "updateMember":
+	            successMessage = "updateMember 성공";
+	            movePath ="${ pageContext.servletContext.contextPath }/mypage/main";
 	            break;    
 
 			}
+			case "insertThumbnail":
+            	successMessage = "썸네일 등록 성공";
+            	movePath ="${ pageContext.servletContext.contextPath }/review/insert";
+            	break;    
+
+		}
 			
 			alert(successMessage);
 			location.href = movePath;

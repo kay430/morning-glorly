@@ -123,6 +123,16 @@ window.onload = function() {
 	$("#mgBlackFinish").css("display","none");
 	
 	
+	if(document.getElementById("adminMemberList")) {
+		const $adminMemberList = document.getElementById("adminMemberList");
+		$adminMemberList.onclick = function() {
+			location.href = "/mg/admin/member/manage";
+		}
+		
+	}
+	
+	
+	
 }
 
 	
