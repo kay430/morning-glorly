@@ -68,7 +68,14 @@
 	            movePath ="${ pageContext.servletContext.contextPath }/mypage/quitM	ember";
 	            break;    
 
+			case "updateMemberNo":
+            	successMessage = "리뷰 수정 성공";
+            	movePath ="${ pageContext.servletContext.contextPath }/product/review";
+            	break;  
+	            
 			}
+			
+			
 			
 			alert(successMessage);
 			location.href = movePath;
