@@ -31,7 +31,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 		requestMember.setNo(memberNo);
 		requestMember.setId(memberId);
 		requestMember.setPwd(memberPwd);
-		
+		System.out.println("!!!!");
 		System.out.println("requestMember : " + requestMember);
 		
 		int result = new MgService().deleteMember(requestMember);

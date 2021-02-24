@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+	<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
@@ -36,10 +36,12 @@
               <li class="sidebar-brand">
               <a href="${ pageContext.servletContext.contextPath }/mypage/main"><h3>MyPage</h3></a>
           </li>
+
             <li><a href="${ pageContext.servletContext.contextPath }/mypage/orderList">주문 내역</a></li>
             <li><a href="${ pageContext.servletContext.contextPath }/mypage/resentlyViewed">최근 본 상품</a></li>
             <li><a href="${ pageContext.servletContext.contextPath }/mypage/wishList">관심 상품</a></li>
             <li><a href="#">회원정보변경</a></li>
+
             <li><a href="${ pageContext.servletContext.contextPath }/mypage/quitMember">회원탈퇴신청</a></li>
           </ul>
         </div>
@@ -49,10 +51,10 @@
       
       <div class="fakeimg">
           <aside class="area1">
-            1조(이름들어갈곳)님<br><br>
-            전화 : <br>
-            이메일: <br>
-            주소 : 
+           <input value="${ sessionScope.loginMember.name }님 반가워요" readonly class="abc" ><br><br>
+            전화 :   <input value="${ sessionScope.loginMember.phone }" readonly class="abc"><br>
+            이메일: <input value="${ sessionScope.loginMember.email }" readonly class="abc"><br>
+            주소 :  <input  value="${ sessionScope.loginMember.address }"  size="40" readonly class="abc"><br>
           </aside>
           <aside class="area2">
             <h4 class="h">총 주문금액 :</h4>

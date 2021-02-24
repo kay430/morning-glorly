@@ -59,8 +59,8 @@
 				
 				</tr>
 				<tr>
-					<td class="red">* 닉네임</td>
-					<td><input type="text" maxlength="5" name="nickname" readonly value="${ sessionScope.loginMember.nickname }" class="a"></td>
+					<td class="red">* 이름</td>
+					<td><input type="text" maxlength="5" name="name"  class="a"></td>
 				</tr>
 				<tr>
 					<td class="red1">연락처</td>
@@ -74,12 +74,12 @@
 				</tr>
 				<tr>
 					<td class="red1"> 우편번호</td>
-					<td><input type="text" name="zipCode" id="zipCode" class="a" readonly>&nbsp;&nbsp;&nbsp;<input type="button" value="검색" class="btn-ygs" id="searchZipCode" class="a"></td>
+					<td><input type="text" name="zipCode" id="zipCode" class="a" >&nbsp;&nbsp;&nbsp;<input type="button" value="검색" class="btn-ygs" id="searchZipCode" class="a"></td>
 					
 				</tr>
 				<tr>
 					<td class="red1">주소</td>
-					<td><input type="text" name="address1" id="address1"  class="a" readonly></td>
+					<td><input type="text" name="address1" id="address1"  class="a" ></td>
 					
 				</tr>
 				<tr>
@@ -92,7 +92,8 @@
         </div>
 			<br>
 			<div class="btns" align="center">
-				<input type="submit" value="수정하기" class="btn-or" onclick="return movePath('updateMember')">
+				<input type="submit" value="수정하기" class="btn-or" 
+				onclick="${ pageContext.servletContext.contextPath }/change/memberInfo">
                 <input type="reset" value="메인으로" class="btn-yg" id="goMain">
 			</div>
 		</form>
@@ -119,36 +120,6 @@
 	    
 	</script>
 	
-	<script>
-				//어떤의도로 눌럿는지 intent라는 변수를 하나 만든다
-			function movePath(intent) {
-				
-				const $form = document.getElementById("updateForm");
-				//비밀번호를 입력해야 회원수정이 되기위해서 비밀번호를 꼭 입력하라는 코드를 쓴다.
-				//아이디가 memberPwd에 있는 value값을 const passwordValue 값에 넣는다
-				const passwordValue = document.getElementById("memberPwd").value;
-				
-				//조건문으로 생성하여 비밀번호가없을떄 입력하라고하기위해서 코드작성
-				if(!passwordValue || passwordValue === "" ){
-					alert("비밀번호를 입력해주세요");
-					document.getElementById("memberPwd").focus();	
-				}
-				//let requsetPath 초기화해준다
-				let requestPath = "${ pageContext.servletContext.contextPath }";
-				
-				//swtich문을 이용해 변수 intent에 어떠한값이 들어가냐에따라 다르게 설정
-				switch(intent){
-				case "updateMember" : requestPath += "/member/update"; break;
-				case "deleteMember" : requestPath += "/member/delete"; break;
-				}
-				//위에 $form쪽에 아직 어떠한 행동을 하라는 action주지않기때문에 마지막에 action정보 제공
-				//action을 할경우 경로 설정후 전달
-				//버튼에 따라서 경로를 바꿔주는 방법
-				// 아이디찾기나 비밀번호찾기도 이런걸 써야할거같다 참고하자
-				$form.action = requestPath;
-				$form.submit();
-			}
-	</script>
 	<jsp:include page="../common/footer.jsp" />
 </body>
 </html>
