@@ -673,12 +673,14 @@
 												<table id="memPm" style="text-align: center;">
 													<tr style="font-color: black;">
 														<th>번호</th>
-														<th>적용 날짜</th>
-														<th>변경 사유</th>
-														<th>블랙 상태</th>
+														<th>변경 구분</th>
+														<th>변경 금액</th>
+														<th>주문 번호</th>
+														<th>변경일자<th>
 													</tr>
 													<c:choose>
 													<c:when test="${ empty mgList.mgPoint }">
+														<th><h4>-</h4></th>
 														<th><h4>-</h4></th>
 														<th><h4>-</h4></th>
 														<th><h4>-</h4></th>
@@ -693,14 +695,14 @@
 															<td><h4>
 																	<c:out value="${mgPoint.changedType}" />
 																</h4></td>
+															<td><h4>
+																	<c:out value="${mgPoint.modifyPoint}" />
+																</h4></td>
 															<td width="550px"><h4>
 																	<c:out value="${mgPoint.payInfo.no}" />
 																</h4></td>
 															<td><h4>
 																	<c:out value="${mgPoint.modifyDate}" />
-																</h4></td>
-															<td><h4>
-																	<c:out value="${mgPoint.modifyPoint}" />
 																</h4></td>
 														</tr>
 													</c:forEach>
