@@ -46,11 +46,11 @@
 		<!-- 로그인이 필요한경우 -->
 		<div id="for">
 			<div class="img_area">
-				<img src="image/Logo1.png">
+				<img src="../resources/image/Logo1.png">
 			</div>
-			<h3 align="center">
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>모닝글로리 로그인</strong>
-			</h3>
+			<h1 align="center">
+				<strong>모닝글로리 로그인</strong>
+			</h1>
 		</div>
 		<fieldset class="fs">
 			<c:if test="${ empty sessionScope.loginMember }">
@@ -66,16 +66,16 @@
 					</span> <span style="float: right;"> <input type="checkbox"
 						name="security" value="Y" class="security">보안접속
 					</span> <br> <br> <br> <input type="submit"
-						class="btn btn-or" value="로그인" id="login2"><br>
+						class="btn btn-or" value="로그인" id="login2"><br><br>
 					<!-- <button id="login1" title="로그인">로그인</button><br> -->
 					<a href="${ pageContext.servletContext.contextPath }/member/findId" class="find">아이디찾기</a>
 					<a href="${ pageContext.servletContext.contextPath }/member/findpwd" class="find">비밀번호찾기</a> 
 						<input type="button"
 						class="btn btn-yg" value="회원가입" id="regist2">
 
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<img src="login.png">
-
+				<div align="center">
+					<img src="../resources/image/Logo1(2).png">
+				</div>
 				</form>
 			</c:if>
 			

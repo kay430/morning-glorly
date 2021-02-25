@@ -127,8 +127,8 @@
      <div id="edit" class="tab-pane" >
                     <div class="row">
                       <div class="col-lg-8 col-lg-offset-2 detailed">
-                        <h4 class="mb">상품 수정</h4>
-                        <form role="form" class="form-horizontal" >
+                        <h4 class="mb">상품 조회 / 수정</h4>
+                        <form role="form" class="form-horizontal" action="" method="post" >
                           <div class="form-group" >
                             <label class="col-lg-2 control-label">*상품명(상품유형코드)</label>
                             <div class="col-lg-4" >
@@ -197,7 +197,7 @@
                   <div class="col-md-9">
                     <div class="fileupload fileupload-new" data-provides="fileupload">
                       <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;" id="titleImgArea">
-                     <img src="${ pageContext.servletContext.contextPath }<c:out value="${ requestScope.detailInfo.attachmentList[0].thumbnailPath }"/>" />
+                     <img src="${ pageContext.servletContext.contextPath }<c:out value="${ requestScope.detailInfo.attachmentList[0].thumbnailPath }"/>" name="picture"/>
                         <img id="titleImg" width="350" height="300"/>
                        
                         	
@@ -218,6 +218,10 @@
           </div>
           <!-- /col-lg-12 -->
         </div>
+        <div align="center">
+                      <input type="submit" value="상품수정" id="registDosirak">
+                     <input type="button" value="뒤로가기" id="goBack">
+        </div>             
         </form>
         </div>
         </div>
@@ -238,9 +242,7 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                     <input type="submit" value="상품수정" id="registDosirak">
-                     <input type="submit" value="뒤로가기" id="goBack">
-                     
+                    
                   </div>
                   <!-- /tab-pane -->
      <!-- **********************************************************************************************************************************************************
