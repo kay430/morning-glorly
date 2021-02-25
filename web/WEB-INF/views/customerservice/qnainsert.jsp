@@ -72,12 +72,22 @@
 													rows="15" style="resize: none; width: 600px; height: 550px;" required></textarea>
 											</td>
 										</tr>
-
+					
+									  <!--   <select id="qnaCode" name="qnaCode">
+                            				<option value="결제">결제</option>	
+                              				<option value="배송">배송</option>
+                              				<option value="상품">상품</option>
+                              				<option value="환불">환불</option>
+                              				<option value="후기">후기</option>
+                              				<option value="기타">기타</option>
+                              				</select> -->
+                              					
 									</table>
 									<br>
 									<div align="center">
 										<button type="reset" id="cancelQuestion">취소하기</button>
 										<button type="submit">등록하기</button>
+										<button></button>
 									</div>
 								</form>
 							</div>

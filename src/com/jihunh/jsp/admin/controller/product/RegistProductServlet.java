@@ -151,7 +151,7 @@ public class RegistProductServlet extends HttpServlet {
             MgGoodsDTO thumbnail = new MgGoodsDTO();
             thumbnail.setName(parameter.get("productType"));
             thumbnail.setGoodsTypeNo(new MgGoodsTypeDTO());
-               thumbnail.getGoodsTypeNo().setNo(Integer.parseInt(parameter.get("productCode")));
+            thumbnail.getGoodsTypeNo().setNo(Integer.parseInt(parameter.get("productCode")));
             thumbnail.setName(parameter.get("productName"));
             thumbnail.setPrice(Integer.parseInt(parameter.get("price")));
          //   thumbnail.setCreatedDate(java.sql.Date.valueOf(parameter.get("registDate")));

@@ -106,7 +106,10 @@
 						<button id="rewriteNoCommit" class="btn btn-sm">
 							<i class="fa fa-arrow-right"></i>완료하기
 						</button>
-					</div>
+					</div>	
+                            
+
+                  </select>
 					<script src="/mg/resources/js/event.js"></script>
 					<script>
                   window.onload = function() {
