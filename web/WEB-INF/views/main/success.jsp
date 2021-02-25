@@ -73,6 +73,11 @@
             	movePath ="${ pageContext.servletContext.contextPath }/product/review";
             	break;  
 	            
+			case "insertReviewThumbnali":
+            	successMessage = "썸네일 등록 성공";
+            	movePath ="${ pageContext.servletContext.contextPath }/Review/list";
+            	break;  
+	        	
 	            
 			}
 			
