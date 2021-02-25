@@ -13,8 +13,8 @@
 <script src="//code.jquery.com/jquery.min.js"></script>
 <script
 	src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
-<link rel="stylesheet" type="text/css"
-	href="/mg/resources/css/customer_main.css">
+<!-- <link rel="stylesheet" type="text/css"
+	href="/mg/resources/css/customer_main.css"> -->
 <link rel="stylesheet" type="text/css"
 	href="/mg/resources/css/header.css">
 <link rel="stylesheet" type="text/css"
@@ -23,6 +23,7 @@
 	href="/mg/resources/css/idFind.css">
 	<link rel="stylesheet" type="text/css"
 	href="/mg/resources/css/mypage/mypage.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
 
@@ -41,6 +42,7 @@
             <li><a href="${ pageContext.servletContext.contextPath }/mypage/resentlyViewed">최근 본 상품</a></li>
             <li><a href="${ pageContext.servletContext.contextPath }/mypage/wishList">관심 상품</a></li>
             <li><a href="${ pageContext.servletContext.contextPath }/change/memberInfo">회원정보변경</a></li>
+            <li><a href="${ pageContext.servletContext.contextPath }/change/memberPwd">비밀번호변경</a></li>
             <li><a href="${ pageContext.servletContext.contextPath }/mypage/quitMember">회원탈퇴신청</a></li>
           </ul>
         </div>
@@ -53,16 +55,22 @@
            <input value="${ sessionScope.loginMember.name }님 반가워요" readonly class="abc" ><br><br>
             전화 :   <input value="${ sessionScope.loginMember.phone }" readonly class="abc"><br>
             이메일: <input value="${ sessionScope.loginMember.email }" readonly class="abc"><br>
-            주소 :  <input  value="${ sessionScope.loginMember.address }"  size="40" readonly class="abc"><br>
+            주소 :  <input  value="${ sessionScope.loginMember.address }"  id="address" size="40" readonly class="abc"><br>
           </aside>
           <aside class="area2">
             <h4 class="h">총 주문금액 :</h4>
             <br><br>
-            적립금 : 
+            적립금 : <input  value="${ sessionScope.loginMember.point }"  id="address" size="40" readonly class="abc" style="width: 150px;">
           </aside>
       </div>
       <br>
       <div>
+      <script>
+		var result = '${ sessionScope.loginMember.address }'.split('$');
+		console.log(result);
+
+		document.getElementById("address").value = "[" + result[0] + "] " + " " + result[1] + result[2];
+	</script>
       <h5>최근주문정보
       
         <input type="button" value="더보기" class="seeMoreBtn"></h5>

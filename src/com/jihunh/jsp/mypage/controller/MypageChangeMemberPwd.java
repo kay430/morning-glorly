@@ -8,11 +8,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet("/mypage/pwdCheck")
-public class MypagePwdCheck extends HttpServlet {
+@WebServlet("/change/memberPwd")
+public class MypageChangeMemberPwd extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String path = "/WEB-INF/views/common/pwdCheck.jsp";
+		String path = "/WEB-INF/views/mypage/changeMemberPwd.jsp";
 		request.getRequestDispatcher(path).forward(request, response);
 	}
 
