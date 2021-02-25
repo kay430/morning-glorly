@@ -188,12 +188,13 @@ public class QuestionDAO {
 		
 		String query = prop.getProperty("insertQuestion");
 		
-		try {
+		try {			
 			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, newQuestion.getTitle());
 			pstmt.setString(2, newQuestion.getBody());
 			pstmt.setInt(3, newQuestion.getWriterMemberNo());
-		
+//			pstmt.setString(4, newQuestion.getCategory().getName());
+			
 			result = pstmt.executeUpdate();
 			
 			System.out.println(result);
