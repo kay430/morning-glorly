@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
-<head>
+<head>	
 <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
@@ -128,11 +128,11 @@
                     <div class="row">
                       <div class="col-lg-8 col-lg-offset-2 detailed">
                         <h4 class="mb">상품 조회 / 수정</h4>
-                        <form role="form" class="form-horizontal" action="" method="post" >
+                        <form role="form" class="form-horizontal" action="" method="" >
                           <div class="form-group" >
                             <label class="col-lg-2 control-label">*상품명(상품유형코드)</label>
                             <div class="col-lg-4" >
-                              <input type="text" placeholder=" " id="c-name" class="form-control" name="updateProduct" id="updateProduct" c:out value="${ requestScope.detailInfo.goodsTypeNo.name }"/>
+                              <input type="text" placeholder=" "  class="form-control" name="updateProduct" id="updateProduct" c:out value="${ requestScope.detailInfo.goodsTypeNo.name }"/>
                             </div>
                           </div>
                           <div class="form-group">
@@ -156,14 +156,14 @@
                           <div class="form-group">
                             <label class="col-lg-2 control-label">가격</label>
                             <div class="col-lg-4">
-                               <input type="text" class="form-control dpd1" name="price" c:out value="${ requestScope.detailInfo.price }">
+                               <input type="text" class="form-control dpd1" name="price" id="price" c:out value="${ requestScope.detailInfo.price }">
                             </div>
                           </div>
                           <div class="form-group">
                   <label class="control-label col-md-3">수정날짜</label>
                   <div class="col-md-3 col-xs-11">
                     <div>
-                       <input type='date' name="updateDate" c:out value="${ requestScope.detailInfo.createdDate }"/>
+                       <input type='date' name="updateDate" id="updateDate" c:out value="${ requestScope.detailInfo.createdDate }"/>
                     </div>
                  
                   </div>
@@ -197,7 +197,7 @@
                   <div class="col-md-9">
                     <div class="fileupload fileupload-new" data-provides="fileupload">
                       <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;" id="titleImgArea">
-                     <img src="${ pageContext.servletContext.contextPath }<c:out value="${ requestScope.detailInfo.attachmentList[0].thumbnailPath }"/>" name="picture"/>
+                     <img src="${ pageContext.servletContext.contextPath }<c:out value="${ requestScope.detailInfo.attachmentList[0].thumbnailPath }"/>" id="picture" name="picture"/>
                         <img id="titleImg" width="350" height="300"/>
                        
                         	
@@ -219,7 +219,7 @@
           <!-- /col-lg-12 -->
         </div>
         <div align="center">
-                      <input type="submit" value="상품수정" id="registDosirak">
+                      <input type="button" value="상품수정" id="registDosirak">
                      <input type="button" value="뒤로가기" id="goBack">
         </div>             
         </form>
@@ -273,6 +273,62 @@
 				reader.readAsDataURL(value.files[0]);
     		}
     	}
+
+    
+
+		$(
+				"#registDosirak")
+				.click(
+						function() {
+
+							if (confirm("상품수정을 변경하시겠습니까?")) {
+								 const $updateCode = document.getElementById("updateCode");
+								 const updateCode = $updateCode.options[$updateCode.selectedIndex].value;
+									console.log(updateCode);
+								
+										$.ajax({
+											url : "${ pageContext.servletContext.contextPath }/admin/update/product",
+											type : "POST",
+											data : {
+												updateProduct: $('#updateProduct').val(),
+												updateCode : updateCode,
+												updateName : $('#updateName').val(),
+												price : $('#price').val(),
+												updateDate : $('#updateDate').val(),
+												updateStatus : $('#updateStatus').val(),
+												picture : $('#picture').val(),
+												no : "${ requestScope.detailInfo.no}"
+											
+											
+											},
+											success : function(
+													data,
+													textStatus,
+													xhr) {
+												console
+														.log(updateCode);
+											
+											},
+											error : function(
+													xhr,
+													status,
+													error) {
+												console
+														.log(error);
+											}
+										});
+								alert("변경 완료!")
+								location.href = '${ pageContext.servletContext.contextPath }/admin/update/product'
+						
+							} else {
+								alert("변경 취소")
+								location.href = '${ pageContext.servletContext.contextPath }/admin/update/product'
+										
+							}
+
+						});
+
+
     </script>
 	
     <!-- /MAIN CONTENT -->

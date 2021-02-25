@@ -118,5 +118,25 @@ public MgGoodsDTO selectOnedetailInfo(int no) {
 	return detailInfo;
 }
 
+public int updateInfo(MgGoodsDTO changeInfo) {
+	
+	Connection con = getConnection();
+	
+	int result = mgGoodsDAO.updateInfo(con, changeInfo);
+	
+	
+	System.out.println("result 값 : " + result);
+	
+	if(result > 0 ) {
+		commit(con);
+		
+	}else {
+		rollback(con);
+	}
+	close(con);
+	
+	return result;
+}
+
 }
 
