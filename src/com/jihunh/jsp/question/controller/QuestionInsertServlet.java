@@ -27,17 +27,20 @@ public class QuestionInsertServlet extends HttpServlet {
 		String body = request.getParameter("body");
 		String writer = request.getParameter("writer");
 		int writerMemberNo = ((MgDTO) request.getSession().getAttribute("loginMember")).getNo();
+	//	String qnaCode = request.getParameter("qnaCode");
 		
 		System.out.println("1" + title);
 		System.out.println("2" + body);
 		System.out.println("3" + writer);
 		System.out.println("4" + writerMemberNo);
+//		System.out.println("qnacode " + qnaCode );
 		
 		QuestionDTO newQuestion = new QuestionDTO();
 		newQuestion.setTitle(title);
 		newQuestion.setBody(body);
 		newQuestion.setWriterMemberNo(writerMemberNo);
-		
+	/*	newQuestion.getCategory().setName(qnaCode);*/
+
 		int result = new QuestionService().insertQuestion(newQuestion);
 		
 		String path = "";

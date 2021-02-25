@@ -153,7 +153,7 @@ public class ReviewService {
 		int result = 0;
 		
 		int reviewResult = reviewDAO.InsertThumbnailContent(con,thumbnail);
-		
+		System.out.println("여기오나");
 		int reviewNo = reviewDAO.selectThumbnailSequence(con);
 		
 		List<AttachmentDTO> fileList = thumbnail.getAttachmentList();
@@ -163,7 +163,7 @@ public class ReviewService {
 		
 		int attachmentResult = 0;
 		for(int i = 0; i < fileList.size(); i++) {
-			attachmentResult += reviewDAO.insertAttachment(con, fileList.get(i));
+			attachmentResult = reviewDAO.insertAttachment(con, fileList.get(i));
 		}
 		
 		if(reviewResult > 0 && attachmentResult == fileList.size()) {

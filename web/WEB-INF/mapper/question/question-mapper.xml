@@ -91,6 +91,7 @@
         , A.QNA_TITLE
         , A.QNA_BODY
         , A.QNA_WRITER_MEMBER_NO
+     <!-- 	, A.CATEGORY_NAME -->
         )
         VALUES
         (
@@ -98,7 +99,9 @@
         , ?
         , ?
         , ?
+       <!--  , ? -->
         ) 
+        
    </entry>
    <entry key="searchQueNameCount">
       SELECT
