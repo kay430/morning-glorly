@@ -1,3 +1,4 @@
+  
 package com.jihunh.jsp.review.dao;
 
 import static com.jihunh.jsp.common.jdbc.JDBCTemplate.close;
@@ -115,7 +116,7 @@ public class ReviewDAO {
 		PreparedStatement pstmt = null;
 
 		int result = 0;
-
+		System.out.println("newReview"+newReview);
 		String query = prop.getProperty("insertReview");
 
 		try {
@@ -468,6 +469,8 @@ System.out.println("외않되");
 			close(pstmt);
 		}
 		
+		System.out.println("게시물 삽입 성공 : " + result);
+		
 		return result;
 	}
 
@@ -495,25 +498,31 @@ System.out.println("외않되");
 			close(stmt);
 		}
 		
+		System.out.println("쿼러블 : " + lastReviewNo);
+		
 		return lastReviewNo;
 	}
 
-	public int insertAttachment(Connection con, AttachmentDTO file) {//attachment테이블에 인서트
+	public int insertAttachment(Connection con, AttachmentDTO thumbnail) {//attachment테이블에 인서트
 		PreparedStatement pstmt = null;
 		int result = 0;
 		
 		String query = prop.getProperty("insertAttachment");
 		
 		try {
+			
 			pstmt = con.prepareStatement(query);
-			pstmt.setInt(1, file.getNo());   			// mapper보고 dao 작성
-			pstmt.setString(2, file.getOriginalName());
-			pstmt.setString(3, file.getSavedName());
-			pstmt.setString(4, file.getSavePath());
-			pstmt.setString(5, file.getFileType());
-			pstmt.setString(6, file.getThumbnailPath());
+			pstmt.setInt(1, thumbnail.getNotiNo());
+			pstmt.setString(2, thumbnail.getOriginalName());
+			pstmt.setString(3, thumbnail.getSavedName());
+			pstmt.setString(4, thumbnail.getSavePath());	
+			pstmt.setString(5, thumbnail.getFileType());
+			pstmt.setString(6, thumbnail.getThumbnailPath());
+			
 			
 			result = pstmt.executeUpdate();
+			
+			System.out.println("최종 결과" + result);
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
