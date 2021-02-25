@@ -1,6 +1,7 @@
 package com.jihunh.jsp.admin.controller.product;
 
 import java.io.IOException;
+import java.sql.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -40,8 +41,24 @@ public class UpdateProductServlet extends HttpServlet {
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		String updateProduct = request.getParameter("updateProduct");
+		String updateCode = request.getParameter("updateCode");
+		String updateName = request.getParameter("updateName");
+		int price = Integer.parseInt(request.getParameter("price"));
+		Date updateDate = java.sql.Date.valueOf(request.getParameter("updateDate"));
+		String updateStatus = request.getParameter("updatestatus");
+		String picture = request.getParameter("picture");
+		
+		System.out.println(updateProduct);
+		System.out.println(updateCode);
+		System.out.println(updateName);
+		System.out.println(price);
+		System.out.println(updateDate);
+		System.out.println(updateStatus);
+		System.out.println(picture);
+		
+		
+		
 	}
 
 }

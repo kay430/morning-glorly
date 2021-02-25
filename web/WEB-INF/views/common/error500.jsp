@@ -33,21 +33,22 @@
   <!-- **********************************************************************************************************************************************************
       MAIN CONTENT
       *********************************************************************************************************************************************************** -->
- 
- <br><br><br><br><br>
+  
+  <br><br><br><br><br>
   <div class="container">
     <div class="row">
       <div class="col-lg-6 col-lg-offset-3 p404 centered" align="center">
-        <img src="../resources/image/404.png" alt="" >
-        <h1>DON'T PANIC!!</h1>
-        <h3>The page you are looking for doesn't exist.</h3>
+        <img src="../../resources/image/500.png" alt="">
+        <h1>ERROR 500</h1>
+        <h3>Ouch!! Something Went Wrong!</h3>
         <br>
         <div class="row">
           <div class="col-md-8 col-md-offset-2">
           
           </div>
         </div>
-       
+        <h5 class="mt">Hey, maybe you will be interested in these pages:</h5>
+      
       </div>
     </div>
   </div>
