@@ -261,7 +261,7 @@
              , A.REVIEW_BODY = ?
           WHERE A.REVIEW_WRITER_MEMBER_NO = ?  
 	</entry>
-	<entry key="InsertThumbnailContent">
+	<entry key="insertThumbnailContent">
 		INSERT
 		  INTO MG_REVIEW A
 		(
@@ -282,15 +282,15 @@
 	</entry>
 	<entry key="selectThumbnailSequence">
 		SELECT
-		       SEQ_REVIEW_NO.CURRVAL
+		       SEQ_REV_ATTACHMENT_NO.CURRVAL
 		  FROM DUAL       
 	</entry>
 	<entry key="insertAttachment">
 		INSERT
-		  INTO MG_ATTACHMENT A
+		  INTO MG_REV_ATTACHMENT A
 		  (
 		    A.ATTACHMENT_NO
-		  , A.REF_BOARD_NO
+		  , A.REF_REV_NO
 		  , A.ORIGINAL_NAME
 		  , A.SAVED_NAME
 		  , A.SAVE_PATH
@@ -299,7 +299,7 @@
 		  ) 
 		  VALUES
 		  (
-		  	SEQ_ATTACHMENT_NO.NEXTVAL
+		  	SEQ_REV_ATTACHMENT_NO.NEXTVAL
 		  , ?
 		  , ?
 		  , ?

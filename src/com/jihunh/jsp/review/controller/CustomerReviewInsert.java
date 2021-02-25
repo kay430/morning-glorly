@@ -53,7 +53,7 @@ public class CustomerReviewInsert extends HttpServlet {
 		newReview .setWriterMemberNo(writerMemberNo);
 		
 		/*썸네일 */
-		
+		if(ServletFileUpload.isMultipartContent(request)) {
 		String rootLocation = getServletContext().getRealPath("/");
 		int maxFileSize = 1024 * 1024 * 10;  //1024가 1mb 
 		String encodingType = "UTF-8";
@@ -212,5 +212,9 @@ public class CustomerReviewInsert extends HttpServlet {
 		
 			
 	}
+	}
 
 }
+
+
+
