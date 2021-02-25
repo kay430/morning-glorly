@@ -498,7 +498,7 @@ public class ReviewDAO {
 		return lastReviewNo;
 	}
 
-	public int insertAttachment(Connection con, AttachmentDTO file) {
+	public int insertAttachment(Connection con, AttachmentDTO file) {//attachment테이블에 인서트
 		PreparedStatement pstmt = null;
 		int result = 0;
 		
@@ -506,7 +506,7 @@ public class ReviewDAO {
 		
 		try {
 			pstmt = con.prepareStatement(query);
-			pstmt.setInt(1, file.getNo());
+			pstmt.setInt(1, file.getNo());   			// mapper보고 dao 작성
 			pstmt.setString(2, file.getOriginalName());
 			pstmt.setString(3, file.getSavedName());
 			pstmt.setString(4, file.getSavePath());

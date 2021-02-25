@@ -151,9 +151,10 @@ public class CustomerReviewInsert extends HttpServlet {
 			ReviewDTO thumbnail = new ReviewDTO();
 			thumbnail.setTitle(parameter.get("title"));
 			thumbnail.setBody(parameter.get("body"));
-			thumbnail.setWriterMemberNo(((ReviewDTO) request.getSession().getAttribute("loginMember")).getNo());
+			thumbnail.setWriterMemberNo(((MgDTO) request.getSession().getAttribute("loginMember")).getNo());
 			
 			thumbnail.setAttachmentList(new ArrayList<AttachmentDTO>());
+			
 			List<AttachmentDTO> list = thumbnail.getAttachmentList();
 			for(int i = 0; i < fileList.size(); i++) {
 				Map<String, String> file = fileList.get(i);
@@ -168,7 +169,7 @@ public class CustomerReviewInsert extends HttpServlet {
 				list.add(tempFileInfo);
 			}
 			
-			int result = new ReviewService().insertThumbnail(thumbnail);
+			int result = new ReviewService().insertReviewThumbnail(thumbnail);
 			
 			String path = "";
 			if(result > 0) {

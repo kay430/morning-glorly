@@ -147,7 +147,7 @@ public class ReviewService {
 		
 		return result;
 	}
-	public int insertThumbnail(ReviewDTO thumbnail) {
+	public int insertReviewThumbnail(ReviewDTO thumbnail) {
 		Connection con = getConnection();
 		
 		int result = 0;
@@ -177,6 +177,9 @@ public class ReviewService {
 		
 		return result;
 	}
+	
+	
+
 
 	}
 	 
