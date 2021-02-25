@@ -149,9 +149,9 @@ public class ReviewService {
 	}
 	public int insertReviewThumbnail(ReviewDTO thumbnail) {
 		Connection con = getConnection();
-		
+		System.out.println("thumbnail:"+thumbnail);
 		int result = 0;
-		
+		//출력은 되지만 sqlsyntax에러 뜸  시퀀스가 있지만 없다고함 .
 		int reviewResult = reviewDAO.InsertThumbnailContent(con,thumbnail);
 		System.out.println("여기오나");
 		int reviewNo = reviewDAO.selectThumbnailSequence(con);
@@ -165,6 +165,9 @@ public class ReviewService {
 		for(int i = 0; i < fileList.size(); i++) {
 			attachmentResult = reviewDAO.insertAttachment(con, fileList.get(i));
 		}
+		
+		System.out.println("attachmentResult : " + attachmentResult);
+		System.out.println("fileListSize : " + fileList.size());
 		
 		if(reviewResult > 0 && attachmentResult == fileList.size()) {
 			commit(con);
@@ -192,5 +195,3 @@ public class ReviewService {
 
 
 	
-
-

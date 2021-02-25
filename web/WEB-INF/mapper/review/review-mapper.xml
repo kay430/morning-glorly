@@ -263,49 +263,49 @@
 	</entry>
 	<entry key="insertThumbnailContent">
 		INSERT
-		  INTO MG_REVIEW A
-		(
-		  A.REVIEW_NO
-		, A.REVIEW_TYPE
-		, A.REVIEW_TITLE
-		, A.REVIEW_BODY
-		, A.REVIEW_WRITER_MEMBER_NO  
-		)
-		VALUES
-		(
-		  SEQ_BOARD_NO.NEXTVAL
-		, 2
-		, ?
-		, ?
-		, ?		
-		)
+        INTO MG_REVIEW A
+      (
+        A.REVIEW_NO
+      , A.REVIEW_TITLE
+      , A.REVIEW_BODY
+      , A.REVIEW_WRITER_MEMBER_NO
+      , A.REVIEW_ORDER_NO
+      )
+      VALUES
+      (
+        SEQ_REVIEW_NO.NEXTVAL
+      , ?
+      , ?
+      , ?
+      , 2
+      )
 	</entry>
 	<entry key="selectThumbnailSequence">
 		SELECT
-		       SEQ_REV_ATTACHMENT_NO.CURRVAL
+		       SEQ_REVIEW_NO.CURRVAL
 		  FROM DUAL       
 	</entry>
 	<entry key="insertAttachment">
-		INSERT
-		  INTO MG_REV_ATTACHMENT A
-		  (
-		    A.ATTACHMENT_NO
-		  , A.REF_REV_NO
-		  , A.ORIGINAL_NAME
-		  , A.SAVED_NAME
-		  , A.SAVE_PATH
-		  , A.FILE_TYPE
-		  , A.THUMBNAIL_PATH  
-		  ) 
-		  VALUES
-		  (
-		  	SEQ_REV_ATTACHMENT_NO.NEXTVAL
-		  , ?
-		  , ?
-		  , ?
-		  , ?
-		  , ?
-		  , ?
-		  )
+		 INSERT
+		 INTO MG_REV_ATTACHMENT A
+		(
+		  A.ATTACHMENT_NO
+		, A.REF_REV_NO
+		, A.ORIGINAL_NAME
+		, A.SAVED_NAME
+		, A.SAVE_PATH
+		, A.FILE_TYPE
+		, A.THUMBNAIL_PATH
+		)
+		VALUES
+		(
+		  SEQ_REV_ATTACHMENT_NO.NEXTVAL
+		, ?
+		, ?
+		, ?
+		, ?		
+		, ?
+		, ?
+		)
 	</entry>
 </properties>

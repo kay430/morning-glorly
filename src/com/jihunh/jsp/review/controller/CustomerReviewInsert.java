@@ -152,7 +152,7 @@ public class CustomerReviewInsert extends HttpServlet {
 			thumbnail.setTitle(parameter.get("title"));
 			thumbnail.setBody(parameter.get("body"));
 			thumbnail.setWriterMemberNo(((MgDTO) request.getSession().getAttribute("loginMember")).getNo());
-			
+			System.out.println("system:" + thumbnail);
 			thumbnail.setAttachmentList(new ArrayList<AttachmentDTO>());
 			
 			List<AttachmentDTO> list = thumbnail.getAttachmentList();
@@ -170,12 +170,14 @@ public class CustomerReviewInsert extends HttpServlet {
 			}
 			
 			int result = new ReviewService().insertReviewThumbnail(thumbnail);
-			
+			System.out.println("결과는");
 			String path = "";
 			if(result > 0) {
+				System.out.println("성공");
 				path = "/WEB-INF/views/main/success.jsp";
 				request.setAttribute("successCode", "insertThumbnail");
 			} else {
+				System.out.println("실패");
 				path = "/WEB-INF/views/common/failed.jsp";
 				request.setAttribute("message", "썸네일 게시판 등록 실패!");
 			}
@@ -196,25 +198,19 @@ public class CustomerReviewInsert extends HttpServlet {
 					cnt++;
 				}
 			}
+			
+			if(cnt == fileList.size()) {
+				System.out.println("업로드에 실패한 사진은 삭제함");
+			} else {
+				System.out.println("왜 사진 삭제가 실패한거지?");
+			}
+			
 		}
-		int result = new ReviewService().insertReview(newReview);
-		System.out.println("여기와??");
-		String path = "";
-		if(result > 0) {
-			path = "/WEB-INF/views/main/success.jsp";
-			request.setAttribute("successCode", "insertReviewNotice");
-		} else {
-			path = "/WEB-INF/views/main/failed.jsp";
-			request.setAttribute("message", "리뷰등록에 실패하셨습니다.");
-		}
-		
-		request.getRequestDispatcher(path).forward(request, response);
 		
 			
 	}
 	}
 
 }
-
 
 

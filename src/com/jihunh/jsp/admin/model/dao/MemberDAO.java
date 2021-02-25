@@ -98,6 +98,17 @@ public class MemberDAO {
 				mgDTO.setBlackList(rset.getString("CHECK_BLACKLIST"));
 				mgDTO.setStatus(rset.getString("MEMBER_STATUS"));
 				
+				String[] address = mgDTO.getAddress().split("\\$");
+				
+				String resultAdd = "";
+				for(int i = 0; i < address.length; i++) {
+					System.out.println(address[i]);
+					resultAdd += address[i] + " ";
+				}
+				
+				mgDTO.setAddress(resultAdd);
+				
+				
 				mgList.add(mgDTO);
 			}
 			
@@ -422,6 +433,16 @@ public class MemberDAO {
 				mgDTO.setModifiedDate(rset.getDate("MODIFIED_DATE"));
 				mgDTO.setBlackList(rset.getString("CHECK_BLACKLIST"));
 				mgDTO.setStatus(rset.getString("MEMBER_STATUS"));
+				
+				String[] address = mgDTO.getAddress().split("\\$");
+				
+				String resultAdd = "";
+				for(int i = 0; i < address.length; i++) {
+					System.out.println(address[i]);
+					resultAdd += address[i] + " ";
+				}
+				
+				mgDTO.setAddress(resultAdd);
 				
 			}
 			
