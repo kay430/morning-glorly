@@ -19,8 +19,8 @@
 	href="/mg/resources/css/header.css">
 <link rel="stylesheet" type="text/css"
 	href="/mg/resources/css/footer.css">
-<link rel="stylesheet" type="text/css"
-	href="/mg/resources/css/main-common.css">
+<!-- <link rel="stylesheet" type="text/css"
+	href="/mg/resources/css/main-common.css"> -->
 </head>
 <body>
 
@@ -107,9 +107,8 @@
 							<i class="fa fa-arrow-right"></i>완료하기
 						</button>
 					</div>	
-                            
-
-                  </select>
+                 	 </select>
+           		
 					<script src="/mg/resources/js/event.js"></script>
 					<script>
                   window.onload = function() {
@@ -231,6 +230,80 @@
 		</div>
 	</section>
 
+    <!-- 댓글 부분 -->
+    <div id="comment">
+        <table border="1" bordercolor="lightgray">
+    <!-- 댓글 목록 -->    
+    <c:if test="${requestScope.commentList != null}">
+        <c:forEach var="comment" items="${requestScope.commentList}">
+        
+            <tr>
+                <!-- 아이디, 작성날짜 -->
+                <td width="150">
+                    <div>
+                        ${comment.comment_id}<br>
+                        <font size="2" color="lightgray">${comment.comment_date}</font>
+                    </div>
+                </td>
+                <!-- 본문내용 -->
+                <td width="550">
+                    <div class="text_wrapper">
+                        ${comment.comment_content}
+                    </div>
+                </td>
+                <!-- 버튼 -->
+                <td width="100">
+                    <div id="btn" style="text-align:center;">
+                        <a href="#">[답변]</a><br>
+                    <!-- 댓글 작성자만 수정, 삭제 가능하도록 -->    
+                    <c:if test="${comment.comment_id == sessionScope.sessionID}">
+                        <a href="#">[수정]</a><br>    
+                        <a href="#">[삭제]</a>
+                    </c:if>        
+                    </div>
+                </td>
+            </tr>
+            
+        </c:forEach>
+    </c:if>
+            
+            <!-- 로그인 했을 경우만 댓글 작성가능 -->
+<%--             <c:if test="${sessionScope.sessionID !=null}">
+            <tr bgcolor="#F5F5F5">
+            <form id="writeCommentForm">
+                <input type="" name="comment_board" value="${board.board_num}123131312312312312123213123123213">
+                <input type="" name="comment_id" value="${sessionScope.sessionID}">
+                <!-- 아이디-->
+                <td width="150">
+                    <div>
+                        ${sessionScope.sessionID}
+                    </div>
+                </td>
+                <!-- 본문 작성-->
+                <td width="550">
+                    <div>
+                        <textarea name="comment_content" rows="4" cols="70" ></textarea>
+                    </div>
+                </td>
+                <!-- 댓글 등록 버튼 -->
+                <td width="100">
+                    <div id="btn" style="text-align:center;">
+                        <p><a href="#" onclick="writeCmt()">[댓글등록]</a></p>    
+                    </div>
+                </td>
+            </form>
+            </tr>
+            </c:if> --%>
+    
+        </table>
+    </div>
+</div>
 
-</body>
+
+	
+
+
+
+
+	</body>
 </html>

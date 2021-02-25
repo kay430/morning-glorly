@@ -203,3 +203,28 @@ margin-left: -30px;
 .notice-detail_btn{margin: 0 40px 0 40px;}
 
 .notice_detail_header_txt{font-size: 20px; margin: 8px 0 24px 0;}
+
+   #queWrap {
+            width: 800px;
+            margin: 0 auto 0 auto;    
+        }
+    
+        #queDetailBoard{
+            text-align :center;
+        }
+        
+        #queTitle{
+            height : 16;
+            font-family :'돋움';
+            font-size : 12;
+            text-align :center;
+            background-color: #F7F7F7;
+        }
+        
+        #queBtn{
+            font-family :'돋움';
+            font-size : 14;
+            text-align :center;
+        }
+
+

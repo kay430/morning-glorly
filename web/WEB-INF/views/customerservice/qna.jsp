@@ -55,6 +55,7 @@
 								<th class="board-list-sub-td list-header-bd">조회수</th>
 								<th class="board-list-wdate list-header-bd">작성일</th>
 								<th class="board-list-sub-td list-header-bd">처리상태</th>
+								<th class="board-list-sub-td list-header-bd">문의유형</th>
 							</tr>
 							<c:forEach var="question" items="${ requestScope.questionList }">
 
@@ -65,6 +66,7 @@
 									<td class="board-list-sub-td"><c:out value="${ question.count }" /></td>
 									<td class="board-list-wdate"><c:out value="${ question.createDate }" /></td>
 									<td class="board-list-sub-td"><c:out value="${ question.status }" /></td>
+									<td class="board-list-sub-td"><c:out value="${ question.category.name }"/></td>
 
 								</tr>
 							</c:forEach>
