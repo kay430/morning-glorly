@@ -40,7 +40,7 @@
                     </div>                
         
                     <div class="section" style="padding-bottom:20px;">
-                        <button class="btn btn-success"><span style="margin-right:20px" class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> 장바구니에 넣기</button>
+                        <button onClick="location.href='${ pageContext.servletContext.contextPath }/proceed/payment'" class="btn btn-success"><span style="margin-right:20px" class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>결제하러가기</button>
                     </div>                                        
                 </div>                              
         
@@ -89,7 +89,7 @@
                 }else{
                     $(".section > div > input").val("1");
                 }
-            })                        
+            })
         })
         </script>
     
