@@ -20,7 +20,7 @@
               <%--   <li class="fr"><a href="${ pageContext.servletContext.contextPath }" title="고객센터" id="customer">고객센터</a></li> --%>
                 <li class="fr"><a href=" ${ pageContext.servletContext.contextPath }/customer/list" title="고객센터" id="customer">고객센터</a></li>
                 <li class="fr"><a href="/shop/confirm_login.html?type=myorder" title="주문조회">주문조회</a></li>
-                <li class="fr"><a href="/shop/basket.html" title="장바구니">장바구니 <span><span id="user_basket_quantity"
+                <li class="fr"><a href=" ${ pageContext.servletContext.contextPath }/main/basket" title="장바구니">장바구니 <span><span id="user_basket_quantity"
                                 class="user_basket_quantity">0</span></span></a></li>
                 <li class="fr"><a href="${ pageContext.servletContext.contextPath }/mypage/main" title="고객센터" id="customer">마이페이지</a></li>
                 <c:if test="${ empty sessionScope.loginMember }"> 
