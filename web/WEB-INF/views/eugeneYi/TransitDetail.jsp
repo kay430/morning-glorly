@@ -149,20 +149,20 @@
 												value="${ requestScope.transit.dType }" /></span> <c:if
 											test="${ requestScope.transit.dType eq '배송' }">
 											<select id="sel_box" style="display: none;">
-												<option value="delivery" selected>배송</option>
-												<option value="return">반송</option>
+												<option value="배송" selected>배송</option>
+												<option value="반송">반송</option>
 												<option value="cancel">주문취소</option>
 											</select>
 										</c:if> <c:if test="${ requestScope.transit.dType eq '반송' }">
 											<select id="sel_box" style="display: none;">
-												<option value="delivery">배송</option>
-												<option value="return" selected>반송</option>
+												<option value="배송">배송</option>
+												<option value="반송" selected>반송</option>
 												<option value="cancel">주문취소</option>
 											</select>
 										</c:if> <c:if test="${ requestScope.transit.dType eq '취소' }">
 											<select id="sel_box" style="display: none;">
-												<option value="delivery">배송</option>
-												<option value="return">반송</option>
+												<option value="배송">배송</option>
+												<option value="반송">반송</option>
 												<option value="cancel" selected>주문취소</option>
 											</select>
 										</c:if>
@@ -243,14 +243,6 @@
 														.getElementById("adminNotice");
 												$logout.onclick = function() {
 													location.href = "/mg/admin/notice";
-												}
-											}
-											if (document
-													.getElementById("writeNotice")) {
-												const $writeNotice = document
-														.getElementById("writeNotice");
-												$writeNotice.onclick = function() {
-													location.href = "/mg/admin/notice/insert";
 												}
 											}
 											if (document
@@ -340,40 +332,26 @@
 																			function() {
 
 																				if (confirm("배송상태를 변경하시겠습니까?")) {
-																					const headCore = document
-																							.getElementById("headCore").value;
-																					const body = document
-																							.getElementById("core").value;
-																					const pageNumNo = '${ pageNumNo }';
-																					const adminNo = '${ sessionScope.loginMember.no }';
+																				    var typeSel = document.getElementById("sel_box");
+																				    typeSel = typeSel.options[typeSel.selectedIndex].value;
 																					console
-																							.log(headCore);
-																					console
-																							.log(body);
-
+																							.log(sel_box);
+																					console.log(typeSel);
 																					$
 																							.ajax({
 																								url : "${ pageContext.servletContext.contextPath }/admin/transit/update",
 																								type : "post",
 																								data : {
-																									headCore : headCore,
-																									body : body,
-																									pageNumNo : pageNumNo,
-																									adminNo : adminNo
+																									typeSel : typeSel,
+																									delNum : "${ requestScope.transit.dNo }",
+																									tranNum : "${ requestScope.transit.tNo }"
 																								},
 																								success : function(
 																										data,
 																										textStatus,
 																										xhr) {
-																									document
-																											.getElementById("headCore").innerHTML = data["title"];
-																									document
-																											.getElementById("core").innerHTML = data["body"];
-
 																									console
-																											.log(data["title"]);
-																									console
-																											.table(data["body"]);
+																											.log(typeSel);
 																									$(
 																											"#rewriteNoCommit")
 																											.css(
@@ -384,16 +362,6 @@
 																											.css(
 																													"display",
 																													"block");
-																									$(
-																											"#headCore")
-																											.attr(
-																													'readonly',
-																													true);
-																									$(
-																											"#core")
-																											.attr(
-																													'readonly',
-																													true);
 																								},
 																								error : function(
 																										xhr,
@@ -404,8 +372,10 @@
 																								}
 																							});
 																					alert("변경 완료!")
+																					location.href = '${ pageContext.servletContext.contextPath }/admin/transit/detail?no='
+																				+ '${ pageNumNo }';
 																				} else {
-																					alert("변경 취소~")
+																					alert("변경 취소")
 																					location.href = '${ pageContext.servletContext.contextPath }/admin/transit/detail?no='
 																							+ '${ pageNumNo }';
 																				}

@@ -96,8 +96,7 @@ public class TransitDAO {
 			close(rset);
 			close(pstmt);
 		}
-		System.out.println("================================================================" + trdList);
-		System.out.println(transitDetail);
+
 		return transitDetail;
 	}
 
@@ -111,10 +110,9 @@ public class TransitDAO {
 		
 		try {
 			pstmt = con.prepareStatement(query);
-			pstmt.setDate(1, newTransit.gettDate());
-			pstmt.setString(2, newTransit.getdType());
-			pstmt.setInt(3, newTransit.getdNo());
-			pstmt.setInt(4, newTransit.gettNo());
+			pstmt.setString(1, newTransit.getdType());
+			pstmt.setInt(2, newTransit.getdNo());
+			pstmt.setInt(3, newTransit.gettNo());
 			
 			result = pstmt.executeUpdate();
 
