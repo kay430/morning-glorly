@@ -461,7 +461,7 @@ public class ReviewDAO {
 			pstmt.setInt(3, thumbnail.getWriterMemberNo());
 			
 			result = pstmt.executeUpdate();
-		
+System.out.println("외않되");		
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
