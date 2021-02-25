@@ -22,7 +22,7 @@
 <link rel="stylesheet" type="text/css"
 	href="/mg/resources/css/idFind.css">
 	<link rel="stylesheet" type="text/css"
-	href="/mg/resources/css/mymapge/changeMemberInfo.css">
+	href="/mg/resources/css/mypage/changeMemberInfo.css">
 </head>
 <body>
 

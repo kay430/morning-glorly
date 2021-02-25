@@ -54,6 +54,7 @@ public class QuestionDAO {
 			while(rset.next()) {
 				QuestionDTO question = new QuestionDTO();			
 				question.setMgDTO(new MgDTO());
+				question.setCategory(new CategoryDTO());
 				
 				
 				question.setNo(rset.getInt("QNA_NO"));
@@ -65,7 +66,7 @@ public class QuestionDAO {
 				question.setCreateDate(rset.getDate("CREATED_DATE"));
 				question.setDisplay(rset.getString("QNA_DISPLAY"));
 				question.setStatus(rset.getString("QNA_STATUS"));
-				
+				question.getCategory().setName(rset.getString("CATEGORY_NAME"));
 				
 				questionList.add(question);
 				
@@ -193,7 +194,7 @@ public class QuestionDAO {
 			pstmt.setString(1, newQuestion.getTitle());
 			pstmt.setString(2, newQuestion.getBody());
 			pstmt.setInt(3, newQuestion.getWriterMemberNo());
-//			pstmt.setString(4, newQuestion.getCategory().getName());
+			pstmt.setInt(4, newQuestion.getCategoryCode());
 			
 			result = pstmt.executeUpdate();
 			

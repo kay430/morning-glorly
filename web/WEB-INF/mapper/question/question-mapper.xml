@@ -21,6 +21,7 @@
              , A.CREATED_DATE
              , A.MODIFIED_DATE
              , A.QNA_DISPLAY
+             , A.CATEGORY_NAME
         FROM (SELECT ROWNUM RNUM
                    , B.QNA_NO
                    , B.QNA_STATUS
@@ -33,6 +34,7 @@
                    , B.CREATED_DATE
                    , B.MODIFIED_DATE
                    , B.QNA_DISPLAY
+                   , B.CATEGORY_NAME
               FROM (SELECT A.QNA_NO
                          , A.QNA_STATUS
                          , A.CATEGORY_CODE
@@ -44,8 +46,10 @@
                          , A.CREATED_DATE
                          , A.MODIFIED_DATE
                          , A.QNA_DISPLAY
+                         , C.CATEGORY_NAME
                       FROM MG_QNA A
                       JOIN MG_MEMBER B ON (A.QNA_WRITER_MEMBER_NO = B.MEMBER_NO)
+                      JOIN MG_QNA_CATEGORY C ON (A.CATEGORY_CODE = C.CATEGORY_CODE)	   
                      WHERE A.QNA_DISPLAY = 'Y'
                            ORDER BY A.QNA_NO DESC
                           ) B
@@ -91,7 +95,7 @@
         , A.QNA_TITLE
         , A.QNA_BODY
         , A.QNA_WRITER_MEMBER_NO
-     <!-- 	, A.CATEGORY_NAME -->
+     	, A.CATEGORY_CODE 
         )
         VALUES
         (
@@ -99,7 +103,7 @@
         , ?
         , ?
         , ?
-       <!--  , ? -->
+        , ? 
         ) 
         
    </entry>

@@ -63,7 +63,17 @@
 											<td>작성자</td>
 											<td><input type="text"
 												value="${ sessionScope.loginMember.name }" name="writer"
-												readonly></td>
+												readonly>
+									    <select id="qnaCode" name="qnaCode">
+                            				<option value="10">결제</option>	
+                              				<option value="20">배송</option>
+                              				<option value="30">상품</option>
+                              				<option value="40">환불</option>
+                              				<option value="50">후기</option>
+                              				<option value="60">기타</option>
+                              				</select> 
+												
+												</td>
 										</tr>
 
 										<tr class="innerText">
@@ -73,14 +83,6 @@
 											</td>
 										</tr>
 					
-									  <!--   <select id="qnaCode" name="qnaCode">
-                            				<option value="결제">결제</option>	
-                              				<option value="배송">배송</option>
-                              				<option value="상품">상품</option>
-                              				<option value="환불">환불</option>
-                              				<option value="후기">후기</option>
-                              				<option value="기타">기타</option>
-                              				</select> -->
                               					
 									</table>
 									<br>

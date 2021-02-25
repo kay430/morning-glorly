@@ -62,7 +62,7 @@
 	            
 	        case "deleteMember":
 	            successMessage = "회원탈퇴 성공";
-	            movePath ="${ pageContext.servletContext.contextPath }/mypage/quitM	ember";
+	            movePath ="${ pageContext.servletContext.contextPath }/mypage/quitMember";
 	            break;    
 
 			case "updateMemberNo":
@@ -75,6 +75,10 @@
             	movePath ="${ pageContext.servletContext.contextPath }/Review/list";
             	break;  
 	        	
+			case "updateMember":
+            	successMessage = "회원정보 수정 성공";
+            	movePath ="${ pageContext.servletContext.contextPath }/mypage/main";
+            	break;  	
 	            
 			}
 			
