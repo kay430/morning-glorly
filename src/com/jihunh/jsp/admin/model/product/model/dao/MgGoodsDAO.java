@@ -382,6 +382,33 @@ public MgGoodsDTO selectOnedetailInfo(Connection con, int no) {
 	return detailInfo;
 }
 
+public int updateInfo(Connection con, MgGoodsDTO changeInfo) {
+	PreparedStatement pstmt = null;
+	
+	int result = 0 ;
+	
+	
+	String query = prop.getProperty("updateInfo");
+	
+	try {
+		pstmt = con.prepareStatement(query);
+		pstmt.setString(1, changeInfo.getName());
+		pstmt.setInt(2, changeInfo.getPrice());
+		pstmt.setDate(3, changeInfo.getCreatedDate());
+	
+		pstmt.setInt(4, changeInfo.getNo());
+		
+		result = pstmt.executeUpdate();
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} finally {
+		close(con);
+	}
+	
+	return result;
+}
+
 	
 	
 

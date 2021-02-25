@@ -286,4 +286,16 @@ SELECT
          WHERE A.GOODS_STATUS = 'Y'
            AND A.GOODS_NO = ?                     	
  </entry>
+ 
+ <entry key="updateInfo">
+	        UPDATE
+                      MG_GOODS A
+               SET   
+                      A.GOODS_NAME = ?
+                    , A.GOODS_PRICE = ?
+                    , A.CREATED_DATE = ?
+              WHERE A.GOODS_STATUS = 'Y'      
+                AND A.GOODS_NO = ?   
+              
+	</entry>
  </properties>
