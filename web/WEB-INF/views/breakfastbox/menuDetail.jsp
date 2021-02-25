@@ -22,7 +22,7 @@
 <div class="container">
         	<div class="row">
                <div class="col-xs-4 item-photo">
-                    <img style="max-width:100%;" src="image/Main3.jpg" />
+                    <img style="max-width:100%;" src="../resources/image/dosirak/스페셜도시락.PNG" />
                 </div>
                 <div class="col-xs-5" style="border:0px solid gray">
 
