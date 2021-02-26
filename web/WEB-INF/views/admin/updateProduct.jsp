@@ -318,11 +318,11 @@
 											}
 										});
 								alert("변경 완료!")
-								location.href = '${ pageContext.servletContext.contextPath }/admin/update/product'
+								location.href = '${ pageContext.servletContext.contextPath }/admin/update/product?no=' + "${ requestScope.detailInfo.no}";
 						
 							} else {
 								alert("변경 취소")
-								location.href = '${ pageContext.servletContext.contextPath }/admin/update/product'
+								location.href = '${ pageContext.servletContext.contextPath }/admin/update/product?no=' + "${ requestScope.detailInfo.no}";
 										
 							}
 

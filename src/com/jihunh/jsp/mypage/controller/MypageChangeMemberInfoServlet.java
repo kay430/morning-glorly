@@ -34,7 +34,7 @@ public class MypageChangeMemberInfoServlet extends HttpServlet {
 		String name = request.getParameter("name");
 		String phone = request.getParameter("phone");
 		String email = request.getParameter("email");
-		String address = request.getParameter("zipCode") + " " + request.getParameter("address1") + " " + request.getParameter("address2");
+		String address = request.getParameter("zipCode") + "$" + request.getParameter("address1") + "$" + request.getParameter("address2");
 		
 		MgDTO changeInfo = new MgDTO();
 		changeInfo.setNo(memberNo);
