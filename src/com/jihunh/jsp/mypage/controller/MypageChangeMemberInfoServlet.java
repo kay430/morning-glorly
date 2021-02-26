@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 import com.jihunh.jsp.member.model.dto.MgDTO;
 import com.jihunh.jsp.member.model.service.MgService;
 
-
+ 
 @WebServlet("/change/memberInfo")
 public class MypageChangeMemberInfoServlet extends HttpServlet {
 	

@@ -23,7 +23,7 @@
 	href="/mg/resources/css/idFind.css">
 	<link rel="stylesheet" type="text/css"
 	href="/mg/resources/css/mymapge/changeMemberInfo.css">
-</head>
+</head> 
 <style>
 #reconfirmPasswd { padding: 60px 60px 120px; font-size: 12px; font-family: dotum; }
 #reconfirmPasswd h2 { text-align: center; font-size: 0; line-height: 0; }

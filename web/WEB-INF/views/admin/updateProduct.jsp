@@ -10,7 +10,7 @@
   <meta name="author" content="Dashboard">
   <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
   <title>Morning Glory Admin</title>
-
+ 
   <!-- Favicons -->
   <link href="/mg/resources/image/admin/favicon.png" rel="icon">
   <link href="/mg/resources/image/admin/apple-touch-icon.png" rel="apple-touch-icon">
