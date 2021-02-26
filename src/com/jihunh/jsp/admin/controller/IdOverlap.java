@@ -28,7 +28,7 @@ public class IdOverlap extends HttpServlet {
 		if(result > 0) {
 			System.out.println("사용할수 없는 아이디임");
 			path = "cannot";
-		} else if(id.contentEquals("")) {
+		} else if(id.equals("")) {
 			System.out.println("입력해주세요");
 			path = "not";
 		} else {
