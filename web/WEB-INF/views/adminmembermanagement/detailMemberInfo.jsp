@@ -552,7 +552,7 @@
 												<p
 													style="text-align: center; color: black; font-size: 30px; font-weight: bolder;">정보변경
 													이력</p>
-												<table id="memMd" style="text-align: center;">
+												<table id="memMd">
 													<tr style="font-color: black;">
 														<th>번호</th>
 														<th>변경 날짜</th>
@@ -576,17 +576,17 @@
 																	<td><h4>
 																			<c:out value="${mgModify.no}" />
 																		</h4></td>
-																	<td><h4>
+																	<td id="memMdTd2">
 																			<c:out value="${mgModify.modifiedDate}" />
-																		</h4></td>
+																		</td>
 																	<td id="memMdTd3"><c:out
 																			value="${mgModify.column}" /></td>
-																	<td width="550px"><h4>
-																			<c:out value="${mgModify.originInfo}" />
-																		</h4></td>
-																	<td><h4>
+																	<td><h4><textarea cols="30" rows="4">
+																			<c:out value="${mgModify.originInfo}" /></textarea></h4>
+																		</td>
+																	<td><h4><textarea cols="30" rows="4">
 																			<c:out value="${mgModify.modifyInfo}" />
-																		</h4></td>
+																	</textarea></h4></td>
 																</tr>
 															</c:forEach>
 														</c:otherwise>

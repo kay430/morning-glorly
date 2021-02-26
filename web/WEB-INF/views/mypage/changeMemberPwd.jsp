@@ -95,7 +95,7 @@
 				    </script>
 				</div><!-- .frm -->
 				<div class="btns">
-				    <button id="enterButton" type="button">확인</button>
+				    <a id="enterButton" class="btn_default btn_color">확인</button>
 				    <a id="returnButton" class="btn_default btn_color">취소</a>
 				</div><!-- .btns -->
 			    </fieldset>
@@ -104,7 +104,10 @@
 
 		<script>
 			$("#enterButton").click(function() {
-				console.log("버튼");
+				
+				if($("#user_password2").val() == "") {
+					alert("변경할 비밀번호를 입력해주세요");
+				} else {
 				
  				$.ajax({
         			url: "${ pageContext.servletContext.contextPath }/change/memberPwd",
@@ -119,17 +122,30 @@
         					location.href = '${ pageContext.servletContext.contextPath }/mypage/main'
         				} else if(data == "빈값") {
         					alert("기존 비밀번호를 입력해주세요.");
-        				} else {
+        				} else if(data == '불일치'){
         					alert("기존 비밀번호가 일치하지 않습니다.");
+        				} else if(data == '동일'){
+        					alert("기존 비밀번호와 동일하게 변경은 불가합니다.");
+        				} else {
+        					alert("죄송합니다. 내부 사정으로 오류가 발생하였습니다.");
         				}
-        				
         				
         			},
         			error: function(xhr, status, error) {
         				console.log(error);
         			}
-        		});
+        		}); 
+				}
 			});
+			
+			$("#returnButton").click(function() {
+				location.href = '${ pageContext.servletContext.contextPath }/mypage/main'
+			});
+			
+			$(".btns").hover(function() {
+				$(this).css('cursor', 'pointer');
+			});  
+			
 		</script>
 
 	

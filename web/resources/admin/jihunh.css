@@ -159,6 +159,7 @@
 
 #memMd {
 	text-align: center;
+	width: 100px;
 }
 #memMd th {
   text-align: center;
@@ -183,7 +184,33 @@
 #memMd th:nth-child(4) {
 /*   font-color: red; */
   text-align: center;
+  width: 10px;
+  
+/*   background-color: orangered; */
+}
+#memMd th:nth-child(5) {
+/*   font-color: red; */
+  text-align: center;
   width: 60px;
+/*   background-color: orangered; */
+}
+#memMd td:nth-child(4) {
+/*   font-color: red; */
+  text-align: center;
+  width: 10px;
+/*   background-color: orangered; */
+}
+#memMd td:nth-child(5) {
+/*   font-color: red; */
+  text-align: center;
+  width: 60px;
+/*   background-color: orangered; */
+}
+#memMdTd2 {
+  color: #48cfad;
+  font-size: 20px;
+  text-align: center;
+  width: 20px;
 /*   background-color: orangered; */
 }
 #memMdTd3 {

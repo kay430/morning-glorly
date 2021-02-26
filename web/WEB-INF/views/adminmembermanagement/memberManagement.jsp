@@ -494,6 +494,13 @@
     	    	
     	    }
     	    
+/* 	    	    $(" td :nth-child(1)").hover(function() {
+					$(this).css('cursor', 'default');
+					console.log("하이");
+					console.log($(" td :nth-child(2).innerHTML"))
+				}); */
+	    	    
+	    	    
     	    /* Detail view 이벤트 */
 	    		if(document.getElementsByTagName("td")) {
 	    			const $tds = document.getElementsByTagName("td");
@@ -502,13 +509,11 @@
 	    				
 	    				$tds[i].onmouseenter = function() {
 	    					this.parentNode.style.backgroundColor = "yellow";
-	    					this.parentNode.style.cursor = "pointer";
 	    				}
 	    				
 	    				$tds[i].onmouseout = function() {
 	    					this.parentNode.style.background = "white";
 	    				}
-	    				
 	    				
 	    				for(let j = 2; j < 13; j++) {
 	    					

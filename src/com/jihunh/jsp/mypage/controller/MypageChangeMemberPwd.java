@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
+import com.jihunh.jsp.admin.model.dto.MemberModifyDTO;
 import com.jihunh.jsp.common.wrapper.EncodePwd;
+import com.jihunh.jsp.member.model.dao.MgDAO;
 import com.jihunh.jsp.member.model.dto.MgDTO;
 import com.jihunh.jsp.member.model.service.MgService;
  
@@ -29,19 +31,33 @@ public class MypageChangeMemberPwd extends HttpServlet {
 		MgDTO testPwd = new MgDTO();
 		testPwd.setId(((MgDTO) request.getSession().getAttribute("loginMember")).getId());
 		testPwd.setPwd(request.getParameter("pwd1"));
-		String pwd2 = request.getParameter("pwd2");
 		String pwd3 = request.getParameter("pwd3");
 				
-		int result = new MgService().changePwdCheck(testPwd);
+		MemberModifyDTO mgModis = new MgService().changePwdCheck(testPwd);
 		
-		int result2 = 0;
 		String message = "";
-		if(result > 0) {
+		if(mgModis != null) {
 			
-			testPwd.setPwd(new EncodePwd().EncodePwd(pwd3));
-			new MgService().changePwd(testPwd);
-			System.out.println("성공");
-			message = "성공";
+			if(testPwd.getPwd().equals(pwd3)) { 
+				
+				message = "동일";
+			
+			} else {
+			
+				testPwd.setPwd(new EncodePwd().EncodePwd(pwd3));
+				mgModis.setMgNo(new MgDTO());
+				mgModis.setColumn("MEM_PWD");
+				mgModis.setModifyInfo(testPwd.getPwd());
+				mgModis.getMgNo().setNo(((MgDTO) request.getSession().getAttribute("loginMember")).getNo());
+				
+				int result = new MgService().changePwd(testPwd, mgModis);
+				
+					if(result > 0) {
+						message = "성공";
+					} else {
+						message = "오류";
+					}
+				}
 			
 		} else {
 			
