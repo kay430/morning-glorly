@@ -10,7 +10,7 @@
   <meta name="author" content="Dashboard">
   <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
   <title>Morning Glory Admin</title>
-
+ 
   <!-- Favicons -->
   <link href="/mg/resources/image/admin/favicon.png" rel="icon">
   <link href="/mg/resources/image/admin/apple-touch-icon.png" rel="apple-touch-icon">
@@ -318,11 +318,11 @@
 											}
 										});
 								alert("변경 완료!")
-								location.href = '${ pageContext.servletContext.contextPath }/admin/update/product'
+								location.href = '${ pageContext.servletContext.contextPath }/admin/update/product?no=' + "${ requestScope.detailInfo.no}";
 						
 							} else {
 								alert("변경 취소")
-								location.href = '${ pageContext.servletContext.contextPath }/admin/update/product'
+								location.href = '${ pageContext.servletContext.contextPath }/admin/update/product?no=' + "${ requestScope.detailInfo.no}";
 										
 							}
 

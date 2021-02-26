@@ -23,7 +23,7 @@
 	href="/mg/resources/css/idFind.css">
 	<link rel="stylesheet" type="text/css"
 	href="/mg/resources/css/mymapge/changeMemberInfo.css">
-</head>
+</head> 
 <style>
 #reconfirmPasswd { padding: 60px 60px 120px; font-size: 12px; font-family: dotum; }
 #reconfirmPasswd h2 { text-align: center; font-size: 0; line-height: 0; }
@@ -37,7 +37,7 @@
 #reconfirmPasswd .frm li label span { position: absolute; top: 0; left: 5px; color: #dadada; }
 #reconfirmPasswd .frm li .lab { position: absolute; top: 0; left: 0; }
 #reconfirmPasswd .frm li .warn { display: none; position: absolute; top: 44px; left: 95px; color: #ff0000; font-size: 12px; font-weight: normal; line-height: 1.25; white-space: nowrap; }
-#reconfirmPasswd .frm li .txt-input { width: 165px; height: 35px; line-height: 35px; padding-left: 10px; color: #727272; font-size: 14px; font-family: dotum; border: 1px solid #d6d6d6; background: #fff; }
+#reconfirmPasswd .frm li .txt-input { width: 135px; height: 35px; line-height: 35px; padding-left: 10px; color: #727272; font-size: 14px; font-family: dotum; border: 1px solid #d6d6d6; background: #fff; }
 #reconfirmPasswd .btns { margin-top: 40px; text-align: center; font-size: 0; line-height: 0; }
 #reconfirmPasswd .btns a { display: inline-block; margin: 0 5px; }
 </style>
@@ -71,8 +71,16 @@
 					    <strong>${ sessionScope.loginMember.id }</strong>
 					</li>
 					<li>
-					    <span class="lab">비밀번호</span>
-					    <label><span>비밀번호 입력</span><input type="password" id="user_password" name="user_password" class="txt-input" onkeyup="javascript:check_key(event);"></label>
+					    <span class="lab">기존 비밀번호</span>
+					    <label><input type="password" id="user_password" name="user_password" class="txt-input" placeholder="비밀번호 입력" onkeyup="javascript:check_key(event);"></label>
+					</li>
+					<li>
+					    <span class="lab">변경할 비밀번호</span>
+					    <label><input type="password" id="user_password" name="user_password" class="txt-input" placeholder="비밀번호 입력" onkeyup="javascript:check_key(event);"></label>
+					</li>
+					<li>
+					    <span class="lab">변경할 비밀번호 확인</span>
+					    <label><input type="password" id="user_password" name="user_password" class="txt-input" placeholder="비밀번호 입력" onkeyup="javascript:check_key(event);"></label>
 					</li>
 				    </ul>
 				</div><!-- .frm -->
@@ -86,83 +94,7 @@
 
 
 
-            </div><!-- #content -->
-
-          </div><!-- #contentSub -->
 	
-	
-	<div class="ud">
-		<div class="img_area">
-			<img src="image/Logo1.png">
-		</div> 
-        <h1 align="center">모닝글로리
-            <strong>회원정보수정</strong>
-        </h1>
-       
-        <hr class="hr">
-		<br>
-		<h2 align="center" class="update">* 필수입력항목</h2>
-		<form id="updateForm" action="" method="post">
-            <div id="personInfo">
-			<table align="center" class="person-tb">
-                <tbody>
-				<tr>
-					<td width="200px" class="red">* 아이디</td>
-					<td><input type="text" maxlength="13" name="memberId" id="memberId" class="a" readonly value="${ sessionScope.loginMember.id }"></td>
-					
-				</tr>
-				<tr>
-					<td class="red">* 비밀번호</td>
-					<td><input type="password" maxlength="13" name="memberPwd" id="memberPwd" class="a"></td>
-					
-				</tr>
-				<tr>
-					<td class="red">* 비밀번호 확인</td>
-					<td><input type="password" maxlength="13" name="memberPwd2" class="a"></td>
-				
-				</tr>
-				<tr>
-					<td class="red">* 이름</td>
-					<td><input type="text" maxlength="5" name="name"  class="a" value="${ sessionScope.loginMember.name }"></td>
-				</tr>
-				<tr>
-					<td class="red1">연락처</td>
-					<td><input type="tel" name="phone" class="a" value="${ sessionScope.loginMember.phone }"></td>
-					
-				</tr>
-				<tr>
-					<td class="red1">이메일</td>
-					<td><input type="email" name="email" class="a" value="${ sessionScope.loginMember.email }"></td>
-					
-				</tr>
-				<tr>
-					<td class="red1"> 우편번호</td>
-					<td><input type="text" name="zipCode" id="zipCode" class="a" >&nbsp;&nbsp;&nbsp;<input type="button" value="검색" class="btn-ygs" id="searchZipCode" class="a"></td>
-					
-				</tr>
-				<tr>
-					<td class="red1">주소</td>
-					<td><input type="text" name="address1" id="address1"  class="a" ></td>
-					
-				</tr>
-				<tr>
-					<td class="red1">상세주소</td>
-					<td><input type="text" name="address2" id="address2" class="a"></td>
-					
-				</tr>
-            </tbody>
-			</table>
-        </div>
-			<br>
-			<div class="btns" align="center">
-				<input type="submit" value="수정하기" class="btn-or" 
-				onclick="${ pageContext.servletContext.contextPath }/change/memberInfo">
-                <input type="reset" value="메인으로" class="btn-yg" id="goMain">
-			</div>
-		</form>
-		
-	</div>	<!-- 회원 정보 수정 영역 끝 -->
-    
 	
 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script>
