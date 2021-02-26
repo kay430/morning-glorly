@@ -155,6 +155,48 @@ public class MgService {
 		return changedMember;
 	}
 
+	public int changePwdCheck(MgDTO requestMember) {
+
+		Connection con = getConnection();
+		
+		int result = 0;
+		
+		/* 1. DB에 저장된 회원 아이디와 일치하는 회원ㅇ늬 비밀번호 조회 */
+		String encPwd = mgDAO.selectEncryptPwd(con, requestMember);
+		
+		System.out.println("encPwd : " + encPwd);
+		System.out.println("비밀번호 전달 받았나? : " + requestMember.getPwd());
+		
+		/* 2. 파라미터로 전달받은 비밀번호와 DB에 저장된 비밀번호가 일치하는지 확인 */
+		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+		if(passwordEncoder.matches(requestMember.getPwd(), encPwd)) {
+			result = 1;
+		} else {
+			result = 0;
+		}
+		
+		close(con);
+
+		return result;
+
+	}
+	
+	public int changePwd(MgDTO changeInfo) {
+		
+		Connection con = getConnection();
+		
+		int result = mgDAO.changePwd(con, changeInfo);
+			
+		if(result > 0) {
+			commit(con);
+		} else {
+			rollback(con);
+		}
+		close(con);
+		
+		return result;
+	}
+
 }
 
 
