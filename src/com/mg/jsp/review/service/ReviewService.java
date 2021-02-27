@@ -1,18 +1,18 @@
-package com.jihunh.jsp.review.service;
+package com.mg.jsp.review.service;
 
-import static com.jihunh.jsp.common.jdbc.JDBCTemplate.close;
-import static com.jihunh.jsp.common.jdbc.JDBCTemplate.commit;
-import static com.jihunh.jsp.common.jdbc.JDBCTemplate.getConnection;
-import static com.jihunh.jsp.common.jdbc.JDBCTemplate.rollback;
+import static com.mg.jsp.common.jdbc.JDBCTemplate.close;
+import static com.mg.jsp.common.jdbc.JDBCTemplate.commit;
+import static com.mg.jsp.common.jdbc.JDBCTemplate.getConnection;
+import static com.mg.jsp.common.jdbc.JDBCTemplate.rollback;
 
 import java.sql.Connection;
 import java.util.List;
 
-import com.jihunh.jsp.customerservice.model.dto.PageInfoDTO;
-import com.jihunh.jsp.review.dao.ReviewDAO;
-import com.jihunh.jsp.review.dto.AttachmentDTO;
-import com.jihunh.jsp.review.dto.ReviewDTO;
-import com.jihunh.jsp.review.dto.ReviewPageInfoDTO;
+import com.mg.jsp.admin.model.product.model.dto.AttachmentDTO;
+import com.mg.jsp.customerservice.model.dto.PageInfoDTO;
+import com.mg.jsp.review.dao.ReviewDAO;
+import com.mg.jsp.review.dto.ReviewDTO;
+import com.mg.jsp.review.dto.ReviewPageInfoDTO;
 
 
 public class ReviewService {

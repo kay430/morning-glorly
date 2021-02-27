@@ -1,4 +1,4 @@
-package com.jihunh.jsp.common.filter;
+package com.mg.jsp.common.filter;
 
 import java.io.IOException;
 
@@ -10,7 +10,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 
-import com.jihunh.jsp.common.config.ConfigLocation;
+import com.mg.jsp.common.config.ConfigLocation;
 
 @WebFilter("/*")
 public class ContextConfigFilter implements Filter {

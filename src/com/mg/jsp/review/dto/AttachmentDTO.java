@@ -1,4 +1,4 @@
-package com.jihunh.jsp.review.dto;
+package com.mg.jsp.review.dto;
 
 public class AttachmentDTO implements java.io.Serializable{
 

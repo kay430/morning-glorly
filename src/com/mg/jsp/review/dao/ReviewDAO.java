@@ -1,7 +1,6 @@
-  
-package com.jihunh.jsp.review.dao;
+package com.mg.jsp.review.dao;
 
-import static com.jihunh.jsp.common.jdbc.JDBCTemplate.close;
+import static com.mg.jsp.common.jdbc.JDBCTemplate.close;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -14,13 +13,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
-import com.jihunh.jsp.common.config.ConfigLocation;
-import com.jihunh.jsp.customerservice.model.dto.PageInfoDTO;
-import com.jihunh.jsp.review.dto.ReviewPageInfoDTO;
-import com.jihunh.jsp.member.model.dto.MgDTO;
-import com.jihunh.jsp.review.dto.AttachmentDTO;
-import com.jihunh.jsp.review.dto.CategoryDTO;
-import com.jihunh.jsp.review.dto.ReviewDTO;
+import com.mg.jsp.admin.model.product.model.dto.AttachmentDTO;
+import com.mg.jsp.common.config.ConfigLocation;
+import com.mg.jsp.customerservice.model.dto.PageInfoDTO;
+import com.mg.jsp.member.model.dto.MgDTO;
+import com.mg.jsp.review.dto.ReviewDTO;
+import com.mg.jsp.review.dto.ReviewPageInfoDTO;
 
 
 

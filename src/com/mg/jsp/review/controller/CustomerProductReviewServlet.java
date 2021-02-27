@@ -1,4 +1,4 @@
-package com.jihunh.jsp.review.controller;
+package com.mg.jsp.review.controller;
 
 import java.io.IOException;
 import java.util.List;
@@ -9,10 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.jihunh.jsp.common.paging.Pagenation;
-import com.jihunh.jsp.review.dto.ReviewDTO;
-import com.jihunh.jsp.review.dto.ReviewPageInfoDTO;
-import com.jihunh.jsp.review.service.ReviewService;
+import com.mg.jsp.common.paging.Pagenation;
+import com.mg.jsp.review.dto.ReviewDTO;
+import com.mg.jsp.review.dto.ReviewPageInfoDTO;
+import com.mg.jsp.review.service.ReviewService;
 
 /**
  * Servlet implementation class CustomerProductReviewServlet

@@ -1,4 +1,4 @@
-package com.jihunh.jsp.common.filter;
+package com.mg.jsp.common.filter;
 
 import java.io.IOException;
 

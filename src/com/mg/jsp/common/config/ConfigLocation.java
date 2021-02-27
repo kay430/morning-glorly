@@ -1,4 +1,4 @@
-package com.jihunh.jsp.common.config;
+package com.mg.jsp.common.config;
 
 public class ConfigLocation {
 	public static String CONNECTION_CONFIG_LOCATION;
