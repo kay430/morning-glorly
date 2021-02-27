@@ -2,6 +2,7 @@ package com.jihunh.jsp.question.model.dao;
 
 import static com.jihunh.jsp.common.jdbc.JDBCTemplate.close;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Connection;
@@ -358,6 +359,10 @@ public class QuestionDAO {
 		
 		try {
 			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, thumbnail.getMgDTO().getName());
+			pstmt.setString(2, thumbnail.getTitle());
+			pstmt.setString(3, thumbnail.getBody());
+			pstmt.setInt(4, thumbnail.getCategoryCode());
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -391,7 +396,7 @@ public class QuestionDAO {
 	
 		return lastQuestionNo;
 	}
-	public int insertAttachment(Connection con, AttaQuestionDTO attaQuestionDTO) {
+	public int insertAttachment(Connection con, AttaQuestionDTO file) {
 		
 		PreparedStatement pstmt = null;
 		
@@ -401,6 +406,15 @@ public class QuestionDAO {
 		
 		try {
 			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, file.getRefQnaNo());
+			pstmt.setString(2, file.getOriginalName());
+			pstmt.setString(3, file.getSavedName());
+			pstmt.setString(4, file.getSavedPath());
+			pstmt.setString(5, file.getFileType());
+			pstmt.setString(6, file.getThumbnailPath());
+			
+			result = pstmt.executeUpdate();
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {

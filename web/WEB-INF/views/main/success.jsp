@@ -78,7 +78,12 @@
 			case "updateMember":
             	successMessage = "회원정보 수정 성공";
             	movePath ="${ pageContext.servletContext.contextPath }/mypage/main";
-            	break;  	
+            	break;
+            	
+			case "insertQueThumbnail":
+            	successMessage = "질문게시판 등록 성공";
+            	movePath ="${ pageContext.servletContext.contextPath }";
+            	break;	
 	            
 			}
 			
