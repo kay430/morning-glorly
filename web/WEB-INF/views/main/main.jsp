@@ -29,42 +29,42 @@
                 <ul>
                     <li class="onnn">
                         <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
-                            <img class="MS_prod_img_s" src="" alt="">
+                            <img src="./resources/image/dosirak/닭가슴살도시락.jpg" class="MS_prod_img_s" alt="">
                             <p class="s_price">
-                                최종가
+                                최종가 : 3,000원
                             </p>
-                            <p class="s_name">메뉴명</p>
-                            <p class="s_subname">간단한 설명</p>
+                            <p class="s_name">닭가슴살 도시락</p>
+                            <p class="s_subname">다이어트를 위한 도시락!</p>
                         </a>
                     </li>
                     <li class="onnn">
                         <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
-                            <img class="MS_prod_img_s" src="" alt="">
+                            <img class="MS_prod_img_s" src="./resources/image/dosirak/불고기 샐러드.PNG" alt="" height="224.5px">
                             <p class="s_price">
-                                가격
+                                가격 : 4,500원
                             </p>
-                            <p class="s_name">메뉴명</p>
-                            <p class="s_subname">간단한 설명</p>
+                            <p class="s_name">불고기 샐러드</p>
+                            <p class="s_subname">맛과 건강을 가득히 !</p>
                         </a>
                     </li>
                     <li class="onnn">
                         <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
-                            <img class="MS_prod_img_s" src="" alt="">
+                            <img class="MS_prod_img_s" src="./resources/image/dosirak/닭가슴살 단호박 샐러드.PNG" alt="" height="224.5px">
                             <p class="s_price">
-                                가격
+                                가격 : 4,500원
                             </p>
-                            <p class="s_name">메뉴명</p>
-                            <p class="s_subname">간단한 설명</p>
+                            <p class="s_name">닭가슴살 단호박 샐러드</p>
+                            <p class="s_subname">이거 먹으면 근육랑이 증가한다!!</p>
                         </a>
                     </li>
                     <li class="last onnn">
                         <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
-                            <img class="MS_prod_img_s" src="" alt="">
+                            <img class="MS_prod_img_s" src="./resources/image/dosirak/틸라피아 도시락.jpg" alt="">
                             <p class="s_price">
-                                가격
+                                가격 : 4,700원
                             </p>
-                            <p class="s_name">메뉴명</p>
-                            <p class="s_subname">간단한 설명</p>
+                            <p class="s_name">틸라피아 도시락</p>
+                            <p class="s_subname">틸라피아 도시락은 사랑입니다!</p>
                         </a>
                     </li>
                 </ul>
@@ -74,25 +74,25 @@
                 <ul>
                     <li>
                         <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
-                            <img class="MS_prod_img_s" src="" alt="">
+                            <img class="MS_prod_img_s" src="./resources/image/dosirak/유지어터.PNG" alt="">
                             <p class="s_price">
                                 <span class="s_price_consume">원가</span>
                                 <span class="s_discount_percent">(할인율)</span> 
-                                최종가
+                                최종가 : 3,000원
                             </p>
-                            <p class="s_name">[할인율] 메뉴명</p>
-                            <p class="s_subname">간단한 설명</p>
+                            <p class="s_name">유지어터 도시락</p>
+                            <p class="s_subname">다이어트 유지</p>
                         </a>
                     </li>
                     <li>
                         <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
-                            <img class="MS_prod_img_s" src="" alt="">
+                            <img class="MS_prod_img_s" src="./resources/image/dosirak/유지어터1.PNG" alt="" height="224.5px">
                             <p class="s_price">
-                                <span class="s_price_consume">원가</span>
-                                <span class="s_discount_percent">(할인율)</span> 
-                                최종가
+                                <span class="s_price_consume">유지어터 도시락!</span>
+                                <span class="s_discount_percent">다이어트 유지 2</span> 
+                                최종가 : 3,000원
                             </p>
-                            <p class="s_name">[정기배송] 메뉴명</p>
+                            <p class="s_name">유지어터1 ㄷ</p>
                             <p class="s_subname">간단한 설명</p>
                         </a>
                     </li>
