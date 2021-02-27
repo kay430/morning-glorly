@@ -324,7 +324,7 @@ public class ReviewDAO {
 				reviewDetail.setCount(rset.getInt("REVIEW_COUNT"));	
 				reviewDetail.setCreateDate(rset.getDate("CREATED_DATE"));
 				reviewDetail.setModifiedDate(rset.getDate("MODIFIED_DATE"));
-				System.out.println(reviewDetail);
+				System.out.println("조회한 게시물 : " + reviewDetail);
 				
 					}
 		
@@ -532,6 +532,45 @@ System.out.println("외않되");
 		
 		return result;
 	}
+
+	
+	public ReviewDTO selectReviewAttachment(Connection con, int no, ReviewDTO reviewDetail) {
+
+		PreparedStatement pstmt = null; ResultSet rset = null;
+
+
+		System.out.println("진입" + no); String
+		query = prop.getProperty("selectReviewAttachment");
+
+		try { pstmt = con.prepareStatement(query); pstmt.setInt(1, no);
+
+		rset = pstmt.executeQuery();
+
+		if(rset.next()) {
+		List<AttachmentDTO> list = new ArrayList<>();
+
+		AttachmentDTO att = new AttachmentDTO();
+
+		att.setNo(rset.getInt("ATTACHMENT_NO"));
+		att.setNotiNo(rset.getInt("REF_REV_NO"));
+		att.setOriginalName(rset.getString("ORIGINAL_NAME"));
+		att.setSavedName(rset.getString("SAVED_NAME"));
+		att.setSavePath(rset.getString("SAVE_PATH"));
+		att.setFileType(rset.getString("FILE_TYPE"));
+		att.setThumbnailPath(rset.getString("THUMBNAIL_PATH"));
+		att.setAttachmentStatus(rset.getString("ATTACHMENT_STATUS"));
+		list.add(att);	  
+		reviewDetail.setAttachmentList(list);
+		System.out.println("reviewThumbnailDetail : "+reviewDetail);
+
+		}
+
+		} catch (SQLException e) { e.printStackTrace(); } finally { close(rset);
+		close(pstmt); }
+
+		return reviewDetail; 
+	}
+
 
 
 }

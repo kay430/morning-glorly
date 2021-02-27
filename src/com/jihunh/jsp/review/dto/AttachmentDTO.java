@@ -97,6 +97,5 @@ public class AttachmentDTO implements java.io.Serializable{
 		this.attachmentStatus = attachmentStatus;
 	}
 
-
-
+	
 }
