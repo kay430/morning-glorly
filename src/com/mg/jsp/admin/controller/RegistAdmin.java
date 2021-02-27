@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.jihunh.jsp.admin.model.dto.MgAdDTO;
-import com.jihunh.jsp.admin.model.service.MgAdService;
+import com.mg.jsp.admin.model.dto.MgAdDTO;
+import com.mg.jsp.admin.model.service.MgAdService;
 
 @WebServlet("/admin/regist")
 public class RegistAdmin extends HttpServlet {

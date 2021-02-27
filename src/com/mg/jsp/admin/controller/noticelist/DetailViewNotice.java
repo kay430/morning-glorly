@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.jihunh.jsp.admin.model.dto.NoticeDTO;
-import com.jihunh.jsp.admin.model.service.NoticeService;
+import com.mg.jsp.admin.model.dto.NoticeDTO;
+import com.mg.jsp.admin.model.service.NoticeService;
 
 @WebServlet("/admin/notice/detail")
 public class DetailViewNotice extends HttpServlet {

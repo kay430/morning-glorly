@@ -18,11 +18,11 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
-import com.jihunh.jsp.admin.model.dto.MgAdDTO;
-import com.jihunh.jsp.admin.model.product.model.dto.AttachmentDTO;
-import com.jihunh.jsp.admin.model.product.model.dto.MgGoodsDTO;
-import com.jihunh.jsp.admin.model.product.model.dto.MgGoodsTypeDTO;
-import com.jihunh.jsp.admin.model.product.model.service.MgGoodsService;
+import com.mg.jsp.admin.model.dto.MgAdDTO;
+import com.mg.jsp.admin.model.product.model.dto.AttachmentDTO;
+import com.mg.jsp.admin.model.product.model.dto.MgGoodsDTO;
+import com.mg.jsp.admin.model.product.model.dto.MgGoodsTypeDTO;
+import com.mg.jsp.admin.model.product.model.service.MgGoodsService;
 
 import net.coobird.thumbnailator.Thumbnails;
 

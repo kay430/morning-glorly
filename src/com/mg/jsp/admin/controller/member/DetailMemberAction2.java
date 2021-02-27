@@ -8,12 +8,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.jihunh.jsp.admin.model.dto.NoticePageInfoDTO;
-import com.jihunh.jsp.admin.model.dto.SearchReadyDTO;
-import com.jihunh.jsp.admin.model.service.MemberService;
-import com.jihunh.jsp.admin.model.service.NoticeService;
-import com.jihunh.jsp.common.paging.Pagenation;
-import com.jihunh.jsp.member.model.dto.MgDTO;
+import com.mg.jsp.admin.model.dto.NoticePageInfoDTO;
+import com.mg.jsp.admin.model.dto.SearchReadyDTO;
+import com.mg.jsp.admin.model.service.MemberService;
+import com.mg.jsp.common.paging.Pagenation;
+import com.mg.jsp.member.model.dto.MgDTO;
 
 @WebServlet("/admin/member/manage/detailAction2")
 public class DetailMemberAction2 extends HttpServlet {
