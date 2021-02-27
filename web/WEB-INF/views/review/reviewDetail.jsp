@@ -42,8 +42,6 @@
 					<td>작성일</td>
 					<td><p><c:out value="${ requestScope.reviewDetail.createDate }"/></p></td>
 				</tr>
-										<!--썸네일 시작 부분 -->
- 			
  												<!-- 게시글 작성부분 --> 				
  				<tr>	
 					<td colspan="3">
@@ -51,12 +49,25 @@
 					</td>
 				</tr>
 			</table>
+										<!--썸네일 시작 부분 -->
+ 			<table class="detail">
+			<tr>
+				<td colspan="5">
+					<div id="titleImgArea" align="center">
+						<img src="${ pageContext.servletContext.contextPath }${ requestScope.reviewDetail.attachmentList[0].thumbnailPath }"
+							width="500" height="300">
+					</div>
+					</td>
+					</tr>
+					</table>
 			<br>
 			<div align="center">
 				<button onclick="location.href='${ pageContext.servletContext.contextPath }/product/review'">메뉴로 돌아가기</button>
 				<%-- <c:if test="${ sessionScope.loginMember.role eq 'ADMIN' }">--%>
 					<button onclick="location.href='${ pageContext.servletContext.contextPath }/review/update?no=${ requestScope.review.no }'">수정하기</button>
 				<%-- </c:if> --%>
+				<button onclick="location.href='${ pageContext.servletContext.contextPath }/product/review'">리뷰 삭제</button>
+				
 			</div>
 		</div>
 	</div>

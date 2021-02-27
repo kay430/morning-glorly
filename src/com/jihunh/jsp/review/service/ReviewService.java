@@ -93,9 +93,12 @@ public class ReviewService {
 		
 		if(result > 0) {
 			reviewDetail = reviewDAO.selectReviewDetail(con, no);
+			System.out.println("게시물 조회 " + reviewDetail);
 			
 			if(reviewDetail != null) {
 				commit(con);
+				reviewDetail = reviewDAO.selectReviewAttachment(con, no, reviewDetail);
+				
 			} else {
 				rollback(con);
 			}
@@ -105,7 +108,7 @@ public class ReviewService {
 		}
 		
 		close(con);
-		
+		System.out.println("썸네일 조회 "+reviewDetail);
 		return reviewDetail;
 	}
 	public List<ReviewDTO> selectSearchReviewList(String searchCondition, String searchValue,

@@ -308,4 +308,17 @@
 		, ?
 		)
 	</entry>
+	<entry key="selectReviewAttachment">
+		SELECT
+               A.ATTACHMENT_NO
+             , A.REF_REV_NO
+             , A.ORIGINAL_NAME
+             , A.SAVED_NAME
+             , A.SAVE_PATH
+             , A.FILE_TYPE
+             , A.THUMBNAIL_PATH
+             , A.ATTACHMENT_STATUS
+          FROM MG_REV_ATTACHMENT A
+         WHERE A.REF_REV_NO = ? 
+	</entry>
 </properties>
