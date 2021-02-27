@@ -1,4 +1,4 @@
-package com.jihunh.jsp.review.controller;
+package com.mg.jsp.review.controller;
 
 import java.io.IOException;
 

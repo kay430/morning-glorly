@@ -1,4 +1,4 @@
-package com.jihunh.jsp.review.controller;
+package com.mg.jsp.review.controller;
 
 import java.io.File;
 import java.io.IOException;
@@ -18,10 +18,10 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
-import com.jihunh.jsp.member.model.dto.MgDTO;
-import com.jihunh.jsp.review.dto.AttachmentDTO;
-import com.jihunh.jsp.review.dto.ReviewDTO;
-import com.jihunh.jsp.review.service.ReviewService;
+import com.mg.jsp.admin.model.product.model.dto.AttachmentDTO;
+import com.mg.jsp.member.model.dto.MgDTO;
+import com.mg.jsp.review.dto.ReviewDTO;
+import com.mg.jsp.review.service.ReviewService;
 
 import net.coobird.thumbnailator.Thumbnails;
 

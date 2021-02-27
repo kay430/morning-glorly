@@ -1,4 +1,4 @@
-package com.jihunh.jsp.common.wrapper;
+package com.mg.jsp.common.wrapper;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;

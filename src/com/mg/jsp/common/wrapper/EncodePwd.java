@@ -1,4 +1,4 @@
-package com.jihunh.jsp.common.wrapper;
+package com.mg.jsp.common.wrapper;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 

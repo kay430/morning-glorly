@@ -1,13 +1,13 @@
-package com.jihunh.jsp.member.model.dto;
+package com.mg.jsp.member.model.dto;
 
 import java.sql.Date;
 import java.util.List;
 
-import com.jihunh.jsp.admin.model.dto.MemberAddress;
-import com.jihunh.jsp.admin.model.dto.MemberBlackListDTO;
-import com.jihunh.jsp.admin.model.dto.MemberModifyDTO;
-import com.jihunh.jsp.admin.model.dto.MemberPointDTO;
-import com.jihunh.jsp.payment.model.dto.PaymentDTO;
+import com.mg.jsp.admin.model.dto.MemberAddress;
+import com.mg.jsp.admin.model.dto.MemberBlackListDTO;
+import com.mg.jsp.admin.model.dto.MemberModifyDTO;
+import com.mg.jsp.admin.model.dto.MemberPointDTO;
+import com.mg.jsp.payment.model.dto.PaymentDTO;
 
 public class MgDTO implements java.io.Serializable {
 	

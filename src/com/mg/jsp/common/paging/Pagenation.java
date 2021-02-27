@@ -1,14 +1,13 @@
+package com.mg.jsp.common.paging;
 
-package com.jihunh.jsp.common.paging;
 
-
-import com.jihunh.jsp.admin.model.dto.NoticePageInfoDTO;
-import com.jihunh.jsp.admin.model.dto.SearchReadyDTO;
-import com.jihunh.jsp.customerservice.model.dto.PageInfoDTO;
-import com.jihunh.jsp.eugeneYi.model.DTO.SearchDTO;
-import com.jihunh.jsp.eugeneYi.model.DTO.TransitPageInfoDTO;
-import com.jihunh.jsp.question.model.dto.QuestionPageInfoDTO;
-import com.jihunh.jsp.review.dto.ReviewPageInfoDTO;
+import com.mg.jsp.admin.model.dto.NoticePageInfoDTO;
+import com.mg.jsp.admin.model.dto.SearchReadyDTO;
+import com.mg.jsp.customerservice.model.dto.PageInfoDTO;
+import com.mg.jsp.eugeneYi.model.DTO.SearchDTO;
+import com.mg.jsp.eugeneYi.model.DTO.TransitPageInfoDTO;
+import com.mg.jsp.question.model.dto.QuestionPageInfoDTO;
+import com.mg.jsp.review.dto.ReviewPageInfoDTO;
 
 public class Pagenation {
 

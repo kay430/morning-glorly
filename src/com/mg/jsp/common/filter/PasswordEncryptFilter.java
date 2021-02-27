@@ -1,4 +1,4 @@
-package com.jihunh.jsp.common.filter;
+package com.mg.jsp.common.filter;
 
 import java.io.IOException;
 
@@ -11,7 +11,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 
-import com.jihunh.jsp.common.wrapper.EncryptRequestWrapper;
+import com.mg.jsp.common.wrapper.EncryptRequestWrapper;
 
 @WebFilter(urlPatterns = {"/member/regist", "/member/findpwd"})
 public class PasswordEncryptFilter implements Filter {

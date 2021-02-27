@@ -1,4 +1,4 @@
-package com.jihunh.jsp.common.jdbc;
+package com.mg.jsp.common.jdbc;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Properties;
 
-import com.jihunh.jsp.common.config.ConfigLocation;
+import com.mg.jsp.common.config.ConfigLocation;
 
 public class JDBCTemplate {
 

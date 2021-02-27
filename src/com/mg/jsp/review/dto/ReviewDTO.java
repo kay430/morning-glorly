@@ -1,9 +1,9 @@
-package com.jihunh.jsp.review.dto;
+package com.mg.jsp.review.dto;
 
 import java.sql.Date;
 import java.util.List;
 
-import com.jihunh.jsp.member.model.dto.MgDTO;
+import com.mg.jsp.member.model.dto.MgDTO;
 
 public class ReviewDTO implements java.io.Serializable{
 
