@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.util.List;
 
 import com.jihunh.jsp.question.model.dao.QuestionDAO;
+import com.jihunh.jsp.question.model.dto.AttaQuestionDTO;
 import com.jihunh.jsp.question.model.dto.QuestionDTO;
 import com.jihunh.jsp.question.model.dto.QuestionPageInfoDTO;
 
@@ -143,6 +144,37 @@ public class QuestionService {
 			rollback(con);
 		}
 		
+		close(con);
+		
+		return result;
+	}
+
+	public int insertThumbnail(QuestionDTO thumbnail) {
+		
+		Connection con = getConnection();
+		
+		int result = 0;
+		
+		int questionPic = questionDAO.insertThumbnailContent(con, thumbnail);
+		System.out.println("시퀀스 조회");
+		int questionSeqNo = questionDAO.selectThumbnailSequence(con);
+		
+		List<AttaQuestionDTO> fileList = thumbnail.getAttaQueList();
+		for(int i = 0; i < fileList.size(); i++) {
+			fileList.get(i).setRefQnaNo(questionSeqNo);
+		}
+		
+		int attachmentResult = 0;
+		for(int i = 0; i < fileList.size(); i++) {
+			attachmentResult = questionDAO.insertAttachment(con,fileList.get(i));
+		}
+		
+		if(questionPic > 0 && attachmentResult == fileList.size()) {
+			commit(con);
+			result = 1;
+		} else { 
+			rollback(con);
+		}
 		close(con);
 		
 		return result;
