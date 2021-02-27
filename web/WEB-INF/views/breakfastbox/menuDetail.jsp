@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -21,17 +22,23 @@
 
 <div class="container">
         	<div class="row">
+        	<br><br>
                <div class="col-xs-4 item-photo">
-                    <img style="max-width:100%;" src="../resources/image/dosirak/스페셜도시락.PNG" />
+                    <%-- <img style="max-width:100%;"<c:out value="${ requestScope.detailInfo.attachmentList[0].thumbnailPath }"/>> --%>
+                    <img src="${ pageContext.servletContext.contextPath }<c:out value="${ requestScope.detailInfo.attachmentList[0].thumbnailPath }"/>" id="picture" name="picture"/>
                 </div>
                 <div class="col-xs-5" style="border:0px solid gray">
+                <br><br>
 
-                    <h3>메뉴 1</h3> 
-
-                    <h3 style="margin-top:0px;">12,000 원</h3>
+                    <h3>식단유형명 : <input type="text" value="<c:out value="${ requestScope.detailInfo.goodsTypeNo.name }"/>" readonly style="border: none"></h3> 
+						<br><br>
+						<h3>도시락상품명 : <input type="text" value="<c:out value="${ requestScope.detailInfo.name }"/>" readonly style="border: none"></h3> 
+						<br><br>
+                    <h3 style="margin-top:0px;">가격 : <input type="text" value="<c:out value="${ requestScope.detailInfo.price }원"/>" readonly style="border: none"></h3>
 
                     <div class="section" style="padding-bottom:20px;">
-                        <h6 class="title-attr"><small>수량</small></h6>                    
+                    <br>
+                        <h4 class="title-attr"><small>수량</small></h4>                    
                         <div>
                             <div class="btn-minus"><span class="glyphicon glyphicon-minus"></span></div>
                             <input value="1" />
