@@ -175,7 +175,7 @@ public class CustomerReviewInsert extends HttpServlet {
 			if(result > 0) {
 				System.out.println("성공");
 				path = "/WEB-INF/views/main/success.jsp";
-				request.setAttribute("successCode", "insertThumbnail");
+				request.setAttribute("successCode", "insertReviewThumbnail");
 			} else {
 				System.out.println("실패");
 				path = "/WEB-INF/views/common/failed.jsp";
