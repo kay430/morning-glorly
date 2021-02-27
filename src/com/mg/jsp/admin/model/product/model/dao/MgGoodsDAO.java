@@ -13,11 +13,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
-import com.jihunh.jsp.admin.model.product.model.dto.AttachmentDTO;
-import com.jihunh.jsp.admin.model.product.model.dto.MgGoodsDTO;
-import com.jihunh.jsp.admin.model.product.model.dto.MgGoodsTypeDTO;
-import com.jihunh.jsp.common.config.ConfigLocation;
-import com.jihunh.jsp.customerservice.model.dto.PageInfoDTO;
+import com.mg.jsp.admin.model.product.model.dto.AttachmentDTO;
+import com.mg.jsp.admin.model.product.model.dto.MgGoodsDTO;
+import com.mg.jsp.admin.model.product.model.dto.MgGoodsTypeDTO;
+import com.mg.jsp.common.config.ConfigLocation;
+import com.mg.jsp.customerservice.model.dto.PageInfoDTO;
 
 public class MgGoodsDAO {
    

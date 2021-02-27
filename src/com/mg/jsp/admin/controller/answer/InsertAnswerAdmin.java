@@ -8,9 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.jihunh.jsp.admin.model.dto.AnswerDTO;
-import com.jihunh.jsp.admin.model.dto.MgAdDTO;
-import com.jihunh.jsp.admin.model.service.AnswerService;
+import com.mg.jsp.admin.model.dto.AnswerDTO;
+import com.mg.jsp.admin.model.dto.MgAdDTO;
+import com.mg.jsp.admin.model.service.AnswerService;
 
 @WebServlet("/admin/answer/insert")
 public class InsertAnswerAdmin extends HttpServlet {

@@ -1,6 +1,6 @@
 package com.mg.jsp.admin.model.dao;
 
-import static com.jihunh.jsp.common.jdbc.JDBCTemplate.close;
+import static com.mg.jsp.common.jdbc.JDBCTemplate.close;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -13,12 +13,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
-import com.jihunh.jsp.admin.model.dto.AttaNoticeDTO;
-import com.jihunh.jsp.admin.model.dto.MgAdDTO;
-import com.jihunh.jsp.admin.model.dto.NoticeDTO;
-import com.jihunh.jsp.admin.model.dto.NoticePageInfoDTO;
-import com.jihunh.jsp.admin.model.dto.SearchReadyDTO;
-import com.jihunh.jsp.common.config.ConfigLocation;
+import com.mg.jsp.admin.model.dto.AttaNoticeDTO;
+import com.mg.jsp.admin.model.dto.MgAdDTO;
+import com.mg.jsp.admin.model.dto.NoticeDTO;
+import com.mg.jsp.admin.model.dto.NoticePageInfoDTO;
+import com.mg.jsp.admin.model.dto.SearchReadyDTO;
+import com.mg.jsp.common.config.ConfigLocation;
 
 public class NoticeDAO {
 	

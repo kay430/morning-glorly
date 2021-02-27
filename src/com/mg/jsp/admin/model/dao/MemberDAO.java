@@ -1,6 +1,6 @@
 package com.mg.jsp.admin.model.dao;
 
-import static com.jihunh.jsp.common.jdbc.JDBCTemplate.close;
+import static com.mg.jsp.common.jdbc.JDBCTemplate.close;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -12,14 +12,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
-import com.jihunh.jsp.admin.model.dto.MemberBlackListDTO;
-import com.jihunh.jsp.admin.model.dto.MemberModifyDTO;
-import com.jihunh.jsp.admin.model.dto.MemberPointDTO;
-import com.jihunh.jsp.admin.model.dto.MgAdDTO;
-import com.jihunh.jsp.admin.model.dto.SearchReadyDTO;
-import com.jihunh.jsp.common.config.ConfigLocation;
-import com.jihunh.jsp.member.model.dto.MgDTO;
-import com.jihunh.jsp.payment.model.dto.PaymentDTO;
+import com.mg.jsp.admin.model.dto.MemberBlackListDTO;
+import com.mg.jsp.admin.model.dto.MemberModifyDTO;
+import com.mg.jsp.admin.model.dto.MemberPointDTO;
+import com.mg.jsp.admin.model.dto.MgAdDTO;
+import com.mg.jsp.admin.model.dto.SearchReadyDTO;
+import com.mg.jsp.common.config.ConfigLocation;
+import com.mg.jsp.member.model.dto.MgDTO;
+import com.mg.jsp.payment.model.dto.PaymentDTO;
 
 public class MemberDAO {
 	

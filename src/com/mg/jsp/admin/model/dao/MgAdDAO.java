@@ -1,6 +1,6 @@
 package com.mg.jsp.admin.model.dao;
 
-import static com.jihunh.jsp.common.jdbc.JDBCTemplate.close;
+import static com.mg.jsp.common.jdbc.JDBCTemplate.close;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -10,9 +10,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Properties;
 
-import com.jihunh.jsp.admin.model.dto.MgAdDTO;
-import com.jihunh.jsp.common.config.ConfigLocation;
-import com.jihunh.jsp.member.model.dto.MgDTO;
+import com.mg.jsp.admin.model.dto.MgAdDTO;
+import com.mg.jsp.common.config.ConfigLocation;
 public class MgAdDAO {
 
 	private final Properties prop;

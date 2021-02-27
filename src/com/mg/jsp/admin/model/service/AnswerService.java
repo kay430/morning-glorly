@@ -1,18 +1,16 @@
 package com.mg.jsp.admin.model.service;
 
-import static com.jihunh.jsp.common.jdbc.JDBCTemplate.close;
-import static com.jihunh.jsp.common.jdbc.JDBCTemplate.commit;
-import static com.jihunh.jsp.common.jdbc.JDBCTemplate.getConnection;
-import static com.jihunh.jsp.common.jdbc.JDBCTemplate.rollback;
+import static com.mg.jsp.common.jdbc.JDBCTemplate.close;
+import static com.mg.jsp.common.jdbc.JDBCTemplate.commit;
+import static com.mg.jsp.common.jdbc.JDBCTemplate.getConnection;
+import static com.mg.jsp.common.jdbc.JDBCTemplate.rollback;
 
 import java.sql.Connection;
 import java.util.List;
 
-import com.jihunh.jsp.admin.model.dao.AnswerDAO;
-import com.jihunh.jsp.admin.model.dao.NoticeDAO;
-import com.jihunh.jsp.admin.model.dto.AnswerDTO;
-import com.jihunh.jsp.admin.model.dto.NoticeDTO;
-import com.jihunh.jsp.admin.model.dto.NoticePageInfoDTO;
+import com.mg.jsp.admin.model.dao.AnswerDAO;
+import com.mg.jsp.admin.model.dto.AnswerDTO;
+import com.mg.jsp.admin.model.dto.NoticePageInfoDTO;
 
 public class AnswerService {
 	

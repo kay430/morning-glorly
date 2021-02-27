@@ -1,6 +1,6 @@
 package com.mg.jsp.admin.model.dto;
 
-import com.jihunh.jsp.member.model.dto.MgDTO;
+import com.mg.jsp.member.model.dto.MgDTO;
 
 public class MemberAddress {
 	

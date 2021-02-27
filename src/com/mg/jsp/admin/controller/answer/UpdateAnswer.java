@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
-import com.jihunh.jsp.admin.model.dto.AnswerDTO;
-import com.jihunh.jsp.admin.model.service.AnswerService;
+import com.mg.jsp.admin.model.dto.AnswerDTO;
+import com.mg.jsp.admin.model.service.AnswerService;
 
 @WebServlet("/admin/answer/update")
 public class UpdateAnswer extends HttpServlet {
