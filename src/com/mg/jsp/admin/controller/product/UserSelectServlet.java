@@ -1,14 +1,15 @@
 package com.mg.jsp.admin.controller.product;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.jihunh.jsp.admin.model.product.model.dto.MgGoodsDTO;
-import com.jihunh.jsp.admin.model.product.model.service.MgGoodsService;
+import com.mg.jsp.admin.model.product.model.dto.MgGoodsDTO;
+import com.mg.jsp.admin.model.product.model.service.MgGoodsService;
 
 /**
  * Servlet implementation class UserSelectServlet

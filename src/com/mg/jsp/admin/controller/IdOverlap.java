@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
-import com.jihunh.jsp.admin.model.service.MgAdService;
+import com.mg.jsp.admin.model.service.MgAdService;
 
 @WebServlet("/admin/regist/overlapid")
 public class IdOverlap extends HttpServlet {

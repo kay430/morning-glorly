@@ -9,10 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.jihunh.jsp.admin.model.dto.AnswerDTO;
-import com.jihunh.jsp.admin.model.dto.NoticePageInfoDTO;
-import com.jihunh.jsp.admin.model.service.AnswerService;
-import com.jihunh.jsp.common.paging.Pagenation;
+import com.mg.jsp.admin.model.dto.AnswerDTO;
+import com.mg.jsp.admin.model.dto.NoticePageInfoDTO;
+import com.mg.jsp.admin.model.service.AnswerService;
+import com.mg.jsp.common.paging.Pagenation;
 
 @WebServlet("/admin/answer")
 public class AnswerAdmin extends HttpServlet {

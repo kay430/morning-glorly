@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
-import com.jihunh.jsp.admin.model.dto.NoticeDTO;
-import com.jihunh.jsp.admin.model.service.NoticeService;
+import com.mg.jsp.admin.model.dto.NoticeDTO;
+import com.mg.jsp.admin.model.service.NoticeService;
 
 @WebServlet("/admin/notice/update")
 public class UpdateNotice extends HttpServlet {

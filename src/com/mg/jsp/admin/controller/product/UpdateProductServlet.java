@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.jihunh.jsp.admin.model.product.model.dto.MgGoodsDTO;
-import com.jihunh.jsp.admin.model.product.model.service.MgGoodsService;
+import com.mg.jsp.admin.model.product.model.dto.MgGoodsDTO;
+import com.mg.jsp.admin.model.product.model.service.MgGoodsService;
 
 
 @WebServlet("/admin/update/product")

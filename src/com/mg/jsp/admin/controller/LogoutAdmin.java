@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.jihunh.jsp.admin.model.dto.MgAdDTO;
+import com.mg.jsp.admin.model.dto.MgAdDTO;
 
 @WebServlet("/admin/logout")
 public class LogoutAdmin extends HttpServlet {

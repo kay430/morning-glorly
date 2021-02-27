@@ -15,14 +15,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
-import com.jihunh.jsp.admin.model.dto.AttaNoticeDTO;
-import com.jihunh.jsp.admin.model.dto.MgAdDTO;
-import com.jihunh.jsp.admin.model.dto.NoticeDTO;
-import com.jihunh.jsp.admin.model.service.NoticeService;
+import com.mg.jsp.admin.model.dto.AttaNoticeDTO;
+import com.mg.jsp.admin.model.dto.MgAdDTO;
+import com.mg.jsp.admin.model.dto.NoticeDTO;
+import com.mg.jsp.admin.model.service.NoticeService;
 
 import net.coobird.thumbnailator.Thumbnails;
 
