@@ -127,7 +127,7 @@
      <div id="edit" class="tab-pane" >
                     <div class="row">
                       <div class="col-lg-8 col-lg-offset-2 detailed">
-                        <h4 class="mb">상품 조회 / 수정</h4>
+                        <h4 class="mb">상품 조회 / 수정 / 삭제</h4>
                         <form role="form" class="form-horizontal" action="" method="" >
                           <div class="form-group" >
                             <label class="col-lg-2 control-label">*상품명(상품유형코드)</label>
@@ -198,7 +198,7 @@
                     <div class="fileupload fileupload-new" data-provides="fileupload">
                       <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;" id="titleImgArea">
                      <img src="${ pageContext.servletContext.contextPath }<c:out value="${ requestScope.detailInfo.attachmentList[0].thumbnailPath }"/>" id="picture" name="picture"/>
-                        <img id="titleImg" width="350" height="300"/>
+                      <!--   <img id="titleImg" width="350" height="300"/> -->
                        
                         	
                       </div>
@@ -221,6 +221,7 @@
         <div align="center">
                       <input type="button" value="상품수정" id="registDosirak">
                      <input type="button" value="뒤로가기" id="goBack">
+                     <input type="button" value="상품삭제" id="deleteDosirak">
         </div>             
         </form>
         </div>
@@ -274,7 +275,7 @@
     		}
     	}
 
-    
+    //상품수정
 
 		$(
 				"#registDosirak")
@@ -329,6 +330,60 @@
 						});
 
 
+    //상품삭제
+    $(
+				"#deleteDosirak")
+				.click(
+						function() {
+
+							if (confirm("상품삭제를 진행하시겠습니까?")) {
+								 const $updateCode = document.getElementById("updateCode");
+								 const updateCode = $updateCode.options[$updateCode.selectedIndex].value;
+									console.log(updateCode);
+								
+										$.ajax({
+											url : "${ pageContext.servletContext.contextPath }/admin/delete/product",
+											type : "POST",
+											data : {
+												updateProduct: $('#updateProduct').val(),
+												updateCode : updateCode,
+												updateName : $('#updateName').val(),
+												price : $('#price').val(),
+												updateDate : $('#updateDate').val(),
+												updateStatus : $('#updateStatus').val(),
+												picture : $('#picture').val(),
+												no : "${ requestScope.detailInfo.no}"
+											
+											
+											},
+											success : function(
+													data,
+													textStatus,
+													xhr) {
+												console
+														.log(updateCode);
+											
+											},
+											error : function(
+													xhr,
+													status,
+													error) {
+												console
+														.log(error);
+											}
+										});
+								alert("삭제 완료!")
+								location.href = '${ pageContext.servletContext.contextPath }/admin/SelectProduct';
+/* 								location.href = '${ pageContext.servletContext.contextPath }/admin/update/product?no=' + "${ requestScope.detailInfo.no}"; */
+						
+							} else {
+								alert("삭제 취소")
+								location.href = '${ pageContext.servletContext.contextPath }/admin/update/product?no=' + "${ requestScope.detailInfo.no}";
+/* 								location.href = '${ pageContext.servletContext.contextPath }/admin/update/product?no=' + "${ requestScope.detailInfo.no}"; */
+										
+							}
+
+						});
     </script>
 	
     <!-- /MAIN CONTENT -->

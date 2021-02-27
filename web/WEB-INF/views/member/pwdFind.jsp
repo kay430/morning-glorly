@@ -113,7 +113,7 @@
     </p>     -->
    <!--  <button type="submit" id="pwd">확인</button> -->
        <script>
-       	$(document).ready(function() {
+     /*   	$(document).ready(function() {
        		var id = document.getElementById('name');
        		console.log(id);
        		$("#pwd").click(function(){
@@ -126,7 +126,7 @@
        			
        			});
        		
-       	});
+       	}); */
        </script>
 
 	<jsp:include page="../common/footer.jsp" />

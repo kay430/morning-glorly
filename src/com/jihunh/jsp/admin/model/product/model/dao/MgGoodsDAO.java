@@ -409,6 +409,32 @@ public int updateInfo(Connection con, MgGoodsDTO changeInfo) {
 	return result;
 }
 
+public int deleteProduct(Connection con, MgGoodsDTO deleteInfo) {
+	
+	
+	PreparedStatement pstmt = null;
+	
+	int result = 0 ;
+	
+	String query = prop.getProperty("deleteProduct");
+	
+	
+	
+	try {
+		pstmt = con.prepareStatement(query);
+		pstmt.setInt(1, deleteInfo.getNo());
+		
+		result = pstmt.executeUpdate();
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} finally {
+		close(pstmt);
+	}
+	
+	return result;
+}
+
 	
 	
 

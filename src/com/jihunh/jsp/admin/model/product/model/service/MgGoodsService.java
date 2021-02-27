@@ -138,5 +138,24 @@ public int updateInfo(MgGoodsDTO changeInfo) {
 	return result;
 }
 
+public int deleteProduct(MgGoodsDTO deleteInfo) {
+	
+	Connection con = getConnection();
+	
+	int result = mgGoodsDAO.deleteProduct(con, deleteInfo);
+	
+	System.out.println("delete result 값 : " + result);
+	
+	if(result > 0) {
+		commit(con);
+	}else {
+		rollback(con);
+	}
+	
+	close(con);
+	
+	return result;
+}
+
 }
 
