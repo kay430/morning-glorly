@@ -1,10 +1,9 @@
-package com.jihunh.jsp.question.model.dto;
+package com.mg.jsp.question.model.dto;
 
 import java.sql.Date;
 import java.util.List;
 
-import com.jihunh.jsp.admin.model.dto.AttaNoticeDTO;
-import com.jihunh.jsp.member.model.dto.MgDTO;
+import com.mg.jsp.member.model.dto.MgDTO;
 
 public class QuestionDTO implements java.io.Serializable{
 

@@ -13,10 +13,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
-import com.mg.jsp.admin.model.product.model.dto.AttachmentDTO;
 import com.mg.jsp.common.config.ConfigLocation;
 import com.mg.jsp.customerservice.model.dto.PageInfoDTO;
 import com.mg.jsp.member.model.dto.MgDTO;
+import com.mg.jsp.review.dto.AttachmentDTO;
 import com.mg.jsp.review.dto.ReviewDTO;
 import com.mg.jsp.review.dto.ReviewPageInfoDTO;
 

@@ -1,17 +1,17 @@
-package com.jihunh.jsp.eugeneYi.model.service;
+package com.mg.jsp.transit.model.service;
 
-import static com.jihunh.jsp.common.jdbc.JDBCTemplate.close;
-import static com.jihunh.jsp.common.jdbc.JDBCTemplate.commit;
-import static com.jihunh.jsp.common.jdbc.JDBCTemplate.getConnection;
-import static com.jihunh.jsp.common.jdbc.JDBCTemplate.rollback;
+import static com.mg.jsp.common.jdbc.JDBCTemplate.close;
+import static com.mg.jsp.common.jdbc.JDBCTemplate.commit;
+import static com.mg.jsp.common.jdbc.JDBCTemplate.getConnection;
+import static com.mg.jsp.common.jdbc.JDBCTemplate.rollback;
 
 import java.sql.Connection;
 import java.util.List;
 
-import com.jihunh.jsp.eugeneYi.model.DAO.TransitDAO;
-import com.jihunh.jsp.eugeneYi.model.DTO.SearchDTO;
-import com.jihunh.jsp.eugeneYi.model.DTO.TransitDTO;
-import com.jihunh.jsp.eugeneYi.model.DTO.TransitPageInfoDTO;
+import com.mg.jsp.transit.model.DAO.TransitDAO;
+import com.mg.jsp.transit.model.DTO.SearchDTO;
+import com.mg.jsp.transit.model.DTO.TransitDTO;
+import com.mg.jsp.transit.model.DTO.TransitPageInfoDTO;
 
 public class TransitService {
 	

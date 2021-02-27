@@ -1,18 +1,18 @@
-package com.jihunh.jsp.member.model.service;
+package com.mg.jsp.member.model.service;
 
-import static com.jihunh.jsp.common.jdbc.JDBCTemplate.close;
-import static com.jihunh.jsp.common.jdbc.JDBCTemplate.commit;
-import static com.jihunh.jsp.common.jdbc.JDBCTemplate.getConnection;
-import static com.jihunh.jsp.common.jdbc.JDBCTemplate.rollback;
+import static com.mg.jsp.common.jdbc.JDBCTemplate.close;
+import static com.mg.jsp.common.jdbc.JDBCTemplate.commit;
+import static com.mg.jsp.common.jdbc.JDBCTemplate.getConnection;
+import static com.mg.jsp.common.jdbc.JDBCTemplate.rollback;
 
 import java.sql.Connection;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import com.jihunh.jsp.admin.model.dao.MemberDAO;
-import com.jihunh.jsp.admin.model.dto.MemberModifyDTO;
-import com.jihunh.jsp.member.model.dao.MgDAO;
-import com.jihunh.jsp.member.model.dto.MgDTO;
+import com.mg.jsp.admin.model.dao.MemberDAO;
+import com.mg.jsp.admin.model.dto.MemberModifyDTO;
+import com.mg.jsp.member.model.dao.MgDAO;
+import com.mg.jsp.member.model.dto.MgDTO;
 
 public class MgService {
 

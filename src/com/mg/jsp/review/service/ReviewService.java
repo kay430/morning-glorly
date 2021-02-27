@@ -8,9 +8,9 @@ import static com.mg.jsp.common.jdbc.JDBCTemplate.rollback;
 import java.sql.Connection;
 import java.util.List;
 
-import com.mg.jsp.admin.model.product.model.dto.AttachmentDTO;
 import com.mg.jsp.customerservice.model.dto.PageInfoDTO;
 import com.mg.jsp.review.dao.ReviewDAO;
+import com.mg.jsp.review.dto.AttachmentDTO;
 import com.mg.jsp.review.dto.ReviewDTO;
 import com.mg.jsp.review.dto.ReviewPageInfoDTO;
 

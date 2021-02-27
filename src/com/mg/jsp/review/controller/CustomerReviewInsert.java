@@ -18,8 +18,8 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
-import com.mg.jsp.admin.model.product.model.dto.AttachmentDTO;
 import com.mg.jsp.member.model.dto.MgDTO;
+import com.mg.jsp.review.dto.AttachmentDTO;
 import com.mg.jsp.review.dto.ReviewDTO;
 import com.mg.jsp.review.service.ReviewService;
 

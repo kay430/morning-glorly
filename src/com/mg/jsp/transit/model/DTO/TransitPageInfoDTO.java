@@ -1,4 +1,4 @@
-package com.jihunh.jsp.eugeneYi.model.DTO;
+package com.mg.jsp.transit.model.DTO;
 
 public class TransitPageInfoDTO implements java.io.Serializable {
 

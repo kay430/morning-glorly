@@ -1,6 +1,6 @@
-package com.jihunh.jsp.question.model.dao;
+package com.mg.jsp.question.model.dao;
 
-import static com.jihunh.jsp.common.jdbc.JDBCTemplate.close;
+import static com.mg.jsp.common.jdbc.JDBCTemplate.close;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -14,12 +14,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
-import com.jihunh.jsp.common.config.ConfigLocation;
-import com.jihunh.jsp.member.model.dto.MgDTO;
-import com.jihunh.jsp.question.model.dto.AttaQuestionDTO;
-import com.jihunh.jsp.question.model.dto.CategoryDTO;
-import com.jihunh.jsp.question.model.dto.QuestionDTO;
-import com.jihunh.jsp.question.model.dto.QuestionPageInfoDTO;
+import com.mg.jsp.common.config.ConfigLocation;
+import com.mg.jsp.member.model.dto.MgDTO;
+import com.mg.jsp.question.model.dto.AttaQuestionDTO;
+import com.mg.jsp.question.model.dto.CategoryDTO;
+import com.mg.jsp.question.model.dto.QuestionDTO;
+import com.mg.jsp.question.model.dto.QuestionPageInfoDTO;
 
 public class QuestionDAO {
 	

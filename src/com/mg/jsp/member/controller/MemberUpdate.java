@@ -1,4 +1,4 @@
-package com.jihunh.jsp.member.controller;
+package com.mg.jsp.member.controller;
 
 import java.io.IOException;
 
@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.jihunh.jsp.member.model.dto.MgDTO;
+import com.mg.jsp.member.model.dto.MgDTO;
 
 @WebServlet("/member/update")
 public class MemberUpdate extends HttpServlet {
