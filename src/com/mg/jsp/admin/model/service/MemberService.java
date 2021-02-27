@@ -1,22 +1,19 @@
 package com.mg.jsp.admin.model.service;
 
+import static com.mg.jsp.common.jdbc.JDBCTemplate.close;
+import static com.mg.jsp.common.jdbc.JDBCTemplate.commit;
+import static com.mg.jsp.common.jdbc.JDBCTemplate.getConnection;
+import static com.mg.jsp.common.jdbc.JDBCTemplate.rollback;
+
 import java.sql.Connection;
 import java.util.List;
 
-import static com.jihunh.jsp.common.jdbc.JDBCTemplate.close;
-import static com.jihunh.jsp.common.jdbc.JDBCTemplate.commit;
-import static com.jihunh.jsp.common.jdbc.JDBCTemplate.getConnection;
-import static com.jihunh.jsp.common.jdbc.JDBCTemplate.rollback;
-
-import com.jihunh.jsp.admin.model.dao.MemberDAO;
-import com.jihunh.jsp.admin.model.dto.MemberBlackListDTO;
-import com.jihunh.jsp.admin.model.dto.MemberModifyDTO;
-import com.jihunh.jsp.admin.model.dto.MgAdDTO;
-import com.jihunh.jsp.admin.model.dto.NoticeDTO;
-import com.jihunh.jsp.admin.model.dto.NoticePageInfoDTO;
-import com.jihunh.jsp.admin.model.dto.SearchReadyDTO;
-import com.jihunh.jsp.common.paging.Pagenation;
-import com.jihunh.jsp.member.model.dto.MgDTO;
+import com.mg.jsp.admin.model.dao.MemberDAO;
+import com.mg.jsp.admin.model.dto.MemberBlackListDTO;
+import com.mg.jsp.admin.model.dto.MemberModifyDTO;
+import com.mg.jsp.admin.model.dto.MgAdDTO;
+import com.mg.jsp.admin.model.dto.SearchReadyDTO;
+import com.mg.jsp.member.model.dto.MgDTO;
 
 public class MemberService {
 	

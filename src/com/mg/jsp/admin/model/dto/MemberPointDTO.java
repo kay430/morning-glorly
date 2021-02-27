@@ -2,8 +2,8 @@ package com.mg.jsp.admin.model.dto;
 
 import java.sql.Date;
 
-import com.jihunh.jsp.member.model.dto.MgDTO;
-import com.jihunh.jsp.payment.model.dto.PaymentDTO;
+import com.mg.jsp.member.model.dto.MgDTO;
+import com.mg.jsp.payment.model.dto.PaymentDTO;
 
 public class MemberPointDTO {
 

@@ -1,6 +1,6 @@
 package com.mg.jsp.admin.model.dao;
 
-import static com.jihunh.jsp.common.jdbc.JDBCTemplate.close;
+import static com.mg.jsp.common.jdbc.JDBCTemplate.close;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -13,11 +13,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
-import com.jihunh.jsp.admin.model.dto.AnswerCategoryDTO;
-import com.jihunh.jsp.admin.model.dto.AnswerDTO;
-import com.jihunh.jsp.admin.model.dto.NoticePageInfoDTO;
-import com.jihunh.jsp.common.config.ConfigLocation;
-import com.jihunh.jsp.member.model.dto.MgDTO;
+import com.mg.jsp.admin.model.dto.AnswerCategoryDTO;
+import com.mg.jsp.admin.model.dto.AnswerDTO;
+import com.mg.jsp.admin.model.dto.NoticePageInfoDTO;
+import com.mg.jsp.common.config.ConfigLocation;
+import com.mg.jsp.member.model.dto.MgDTO;
 
 public class AnswerDAO {
 	

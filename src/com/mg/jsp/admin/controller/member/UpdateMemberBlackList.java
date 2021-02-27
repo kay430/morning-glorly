@@ -10,10 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
-import com.jihunh.jsp.admin.model.dto.MemberBlackListDTO;
-import com.jihunh.jsp.admin.model.dto.MemberModifyDTO;
-import com.jihunh.jsp.admin.model.service.MemberService;
-import com.jihunh.jsp.member.model.dto.MgDTO;
+import com.mg.jsp.admin.model.dto.MemberBlackListDTO;
+import com.mg.jsp.admin.model.dto.MemberModifyDTO;
+import com.mg.jsp.admin.model.service.MemberService;
+import com.mg.jsp.member.model.dto.MgDTO;
 
 @WebServlet("/admin/member/manage/updateBlackList")
 public class UpdateMemberBlackList extends HttpServlet {
