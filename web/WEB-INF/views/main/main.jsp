@@ -29,11 +29,11 @@
                 <ul>
                     <li class="onnn">
                         <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
-                            <img src="./resources/image/dosirak/닭가슴살도시락.jpg" class="MS_prod_img_s" alt="">
+                            <img src="./resources/image/dosirak/크래미 베이컨 샐러드.PNG" class="MS_prod_img_s" alt=""  height="224.5px">
                             <p class="s_price">
                                 최종가 : 3,000원
                             </p>
-                            <p class="s_name">닭가슴살 도시락</p>
+                            <p class="s_name">크래미 베이컨 샐러드</p>
                             <p class="s_subname">다이어트를 위한 도시락!</p>
                         </a>
                     </li>
@@ -59,11 +59,11 @@
                     </li>
                     <li class="last onnn">
                         <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
-                            <img class="MS_prod_img_s" src="./resources/image/dosirak/틸라피아 도시락.jpg" alt="">
+                            <img class="MS_prod_img_s" src="./resources/image/dosirak/훈제오리 고구마 샐러드.PNG" alt="" height="224.5px">
                             <p class="s_price">
                                 가격 : 4,700원
                             </p>
-                            <p class="s_name">틸라피아 도시락</p>
+                            <p class="s_name">훈제오리 고구마 샐러드</p>
                             <p class="s_subname">틸라피아 도시락은 사랑입니다!</p>
                         </a>
                     </li>
@@ -74,35 +74,32 @@
                 <ul>
                     <li>
                         <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
-                            <img class="MS_prod_img_s" src="./resources/image/dosirak/유지어터.PNG" alt="">
+                            <img class="MS_prod_img_s" src="./resources/image/dosirak/닭가슴살도시락.jpg" alt="">
                             <p class="s_price">
-                                <span class="s_price_consume">원가</span>
-                                <span class="s_discount_percent">(할인율)</span> 
+                             
                                 최종가 : 3,000원
                             </p>
-                            <p class="s_name">유지어터 도시락</p>
+                            <p class="s_name">닭가슴살 도시락</p>
                             <p class="s_subname">다이어트 유지</p>
                         </a>
                     </li>
                     <li>
-                        <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
-                            <img class="MS_prod_img_s" src="./resources/image/dosirak/유지어터1.PNG" alt="" height="224.5px">
+                        <a href="${ pageContext.servletContext.contextPath }/user/select?no=29" title="">
+                            <img class="MS_prod_img_s" src="./resources/image/dosirak/부채살도시락.jpg" alt="" height="224.5px">
                             <p class="s_price">
-                                <span class="s_price_consume">유지어터 도시락!</span>
-                                <span class="s_discount_percent">다이어트 유지 2</span> 
+                               
                                 최종가 : 3,000원
                             </p>
-                            <p class="s_name">유지어터1 ㄷ</p>
-                            <p class="s_subname">간단한 설명</p>
+                            <p class="s_name">부채살 도시락</p>
+                            <p class="s_subname">부채살로 다이어트 유지해보자!</p>
                         </a>
                     </li>
                     <li>
-                        <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
-                            <img class="MS_prod_img_s" src="" alt="">
+                        <a href="${ pageContext.servletContext.contextPath }/user/select?no=28" title="">
+                            <img class="MS_prod_img_s"  src="./resources/image/dosirak/틸라피아 도시락.jpg" alt="">
                             <p class="s_price">
-                                <span class="s_price_consume">원가</span>
-                                <span class="s_discount_percent">(할인율)</span>
-                                최종가
+                                
+                                최종가 : 
                             </p>
                             <p class="s_name">메뉴명</p>
                             <p class="s_subname">간단한 설명</p>
