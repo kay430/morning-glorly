@@ -62,20 +62,20 @@
 										<tr>
 											<td>작성자</td>
 											<td><input type="text"
-												value="${ sessionScope.mgDTO.name }" name="writer" readonly></td>
+												value="${ sessionScope.loginMember.name }" name="writer" readonly></td>
 										</tr>
 										<!--썸네일 들어갈곳 -->
 										<tr>
 											<td>대표이미지</td>
 											<td colspan="3">
-												<div class="title-ㅑmage-area1">
-													<img id="titleImg" width="350" heigth="200">
+												<div class="title-image-area1">
+													<img id="titleImg" width="350" height="200">
 												</div>
 											</td>
 										</tr>
 										<tr>
-											<td>사진리뷰</td>
-											<td>
+											<!-- <td>사진리뷰</td>
+											 --><!-- <td>
 												<div class="content-image-area1" id="contentImgArea1">
 													<img id="contentImg1" width="120" height="100">
 												</div>
@@ -90,26 +90,26 @@
 													<img id="contentImg3" width="120" height="100">
 												</div>
 											</td>
-										</tr>
+ -->										</tr>
 										<div class="thumbnail-file-area">
 											<input type="file" id="thumbnailImg1" name="thumbnailImage1"
-												onchange="loadImg(this, 1)"> <input type="file"
-												id="thumbnailImg2" name="thumbnailImage2"
+												onchange="loadImg(this, 1)"> <input type="file">
+												<!-- id="thumbnailImg2" name="thumbnailImage2"
 												onchange="loadImg(this, 2)"> <input type="file"
 												id="thumbnailImg3" name="thumbnailImage3"
 												onchange="loadImg(this, 3)"> <input type="file"
 												id="thumbnailImg4" name="thumbnailImage4"
-												onchange="loadImg(this, 4)">
+												onchange="loadImg(this, 4)"> -->
 										</div>
 										<script>
 											const $titleImgArea = document
 													.getElementById("titleImgArea");
-											const $contentImgArea1 = document
+											/* const $contentImgArea1 = document
 													.getElementById("contentImgArea1");
 											const $contentImgArea2 = document
 													.getElementById("contentImgArea2");
 											const $contentImgArea3 = document
-													.getElementById("contentImgArea3");
+													.getElementById("contentImgArea3"); */
 
 											$titleImgArea.onclick = function() {
 												document.getElementById(
@@ -117,7 +117,7 @@
 														.click();
 											}
 
-											$contentImgArea1.onclick = function() {
+											/* $contentImgArea1.onclick = function() {
 												document.getElementById(
 														"thumbnailImg2")
 														.click();
@@ -134,7 +134,7 @@
 														"thumbnailImg4")
 														.click();
 											}
-
+ */
 											function loadImg(value, num) {
 												if (value.files
 														&& value.files[0]) {
@@ -146,7 +146,7 @@
 															document
 																	.getElementById("titleImg").src = e.target.result;
 															break;
-														case 2:
+														/* case 2:
 															document
 																	.getElementById("contentImg1").src = e.target.result;
 															break;
@@ -157,7 +157,7 @@
 														case 4:
 															document
 																	.getElementById("contentImg3").src = e.target.result;
-															break;
+															break; */
 														}
 													}
 

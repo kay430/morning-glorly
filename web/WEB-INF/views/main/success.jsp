@@ -70,9 +70,9 @@
             	movePath ="${ pageContext.servletContext.contextPath }/product/review";
             	break;  
 	            
-			case "insertReviewThumbnali":
-            	successMessage = "썸네일 등록 성공";
-            	movePath ="${ pageContext.servletContext.contextPath }/Review/list";
+			case "insertReviewThumbnail":
+            	successMessage = "리뷰 등록 성공! 리뷰포인트 100p 적립됩니다.";
+            	movePath ="${ pageContext.servletContext.contextPath }/product/review"; 
             	break;  
 	        	
 			case "updateMember":
