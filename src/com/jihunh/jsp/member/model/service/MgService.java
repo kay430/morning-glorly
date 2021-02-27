@@ -9,6 +9,8 @@ import java.sql.Connection;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import com.jihunh.jsp.admin.model.dao.MemberDAO;
+import com.jihunh.jsp.admin.model.dto.MemberModifyDTO;
 import com.jihunh.jsp.member.model.dao.MgDAO;
 import com.jihunh.jsp.member.model.dto.MgDTO;
 
@@ -155,11 +157,11 @@ public class MgService {
 		return changedMember;
 	}
 
-	public int changePwdCheck(MgDTO requestMember) {
+	public MemberModifyDTO changePwdCheck(MgDTO requestMember) {
 
 		Connection con = getConnection();
 		
-		int result = 0;
+		MemberModifyDTO mgModi = null;
 		
 		/* 1. DB에 저장된 회원 아이디와 일치하는 회원ㅇ늬 비밀번호 조회 */
 		String encPwd = mgDAO.selectEncryptPwd(con, requestMember);
@@ -170,31 +172,42 @@ public class MgService {
 		/* 2. 파라미터로 전달받은 비밀번호와 DB에 저장된 비밀번호가 일치하는지 확인 */
 		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 		if(passwordEncoder.matches(requestMember.getPwd(), encPwd)) {
-			result = 1;
+			mgModi = new MemberModifyDTO();
+			mgModi.setOriginInfo(encPwd);
 		} else {
-			result = 0;
+			System.out.println("null이 드가려나?ㄴ");
 		}
 		
 		close(con);
-
-		return result;
+		
+		System.out.println(mgModi);
+		
+		return mgModi;
 
 	}
 	
-	public int changePwd(MgDTO changeInfo) {
+	public int changePwd(MgDTO changeInfo, MemberModifyDTO mgModis) {
 		
 		Connection con = getConnection();
 		
 		int result = mgDAO.changePwd(con, changeInfo);
-			
+		
+		int result2 = 0;
+		
 		if(result > 0) {
-			commit(con);
+			result2 = new MemberDAO().insertMgModify(con, mgModis);
+				if(result2 > 0) {
+					commit(con);
+				} else {
+					rollback(con);
+				}
+					
 		} else {
 			rollback(con);
 		}
 		close(con);
 		
-		return result;
+		return result2;
 	}
 
 }
