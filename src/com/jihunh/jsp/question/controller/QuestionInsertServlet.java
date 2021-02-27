@@ -33,6 +33,7 @@ public class QuestionInsertServlet extends HttpServlet {
 		
 		String path = "/WEB-INF/views/customerservice/qnainsert.jsp";
 		request.getRequestDispatcher(path).forward(request, response);
+		System.out.println("여기");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -48,6 +49,8 @@ public class QuestionInsertServlet extends HttpServlet {
 			
 			File directory1 = new File(fileUploadDirectory);
 			File directory2 = new File(thumbnailDirectory);
+			
+			System.out.println("=======================================================================================" + directory1);
 			
 			if(!directory1.exists() || !directory2.exists()) {
 				System.out.println("원본 저장 폴더 생성 : " + directory1.mkdirs());
@@ -97,7 +100,7 @@ public class QuestionInsertServlet extends HttpServlet {
 							
 							int width = 0;
 							int height = 0;
-							if("thumbnailImg1".equals(fieldName)) {
+							if("QuethumbnailImg1".equals(fieldName)) {
 								fileMap.put("fileType", "TITLE");
 								
 								width = 350;
@@ -131,11 +134,16 @@ public class QuestionInsertServlet extends HttpServlet {
 				System.out.println("fileList : " + fileList);
 				
 				QuestionDTO thumbnail = new QuestionDTO();
+				thumbnail.setMgDTO(new MgDTO());
+				thumbnail.getMgDTO().setName(parameter.get("loginMember.name"));
+//				thumbnail.getMgDTO().setName(((MgDTO) request.getSession().getAttribute("loginMember")).getName());
 				thumbnail.setTitle(parameter.get("title"));
 				thumbnail.setBody(parameter.get("body"));
-				thumbnail.setWriterMemberNo(((MgDTO) request.getSession().getAttribute("loginMember")).getName());
-				int qnaCode  = Integer.parseInt(request.getParameter("qnaCode"));
+				thumbnail.setCategoryCode(Integer.parseInt((parameter.get("qnaCode"))));
 
+				System.out.println(thumbnail);
+				
+				
 				thumbnail.setAttaQueList(new ArrayList<AttaQuestionDTO>());
 				List<AttaQuestionDTO> list = thumbnail.getAttaQueList();
 				for(int i = 0; i < fileList.size(); i++) {
@@ -145,7 +153,7 @@ public class QuestionInsertServlet extends HttpServlet {
 					tempFileInfo.setOriginalName(file.get("originFileName"));
 					tempFileInfo.setSavedName(file.get("savedFileName"));
 					tempFileInfo.setSavedPath(file.get("savePath"));
-					tempFileInfo.setFileType(file.get("fileType"));
+					tempFileInfo.setFileType(file.get("fileType"));	
 					tempFileInfo.setThumbnailPath(file.get("thumbnailPath"));
 					
 					list.add(tempFileInfo);
@@ -155,8 +163,8 @@ public class QuestionInsertServlet extends HttpServlet {
 				
 				String path = "";
 				if(result > 0) {
-					path = "/WEB-INF/views/common/success.jsp";
-					request.setAttribute("successCode", "insertThumbnail");
+					path = "/WEB-INF/views/main/success.jsp";
+					request.setAttribute("successCode", "insertQueThumbnail");
 				} else {
 					path = "/WEB-INF/views/common/failed.jsp";
 					request.setAttribute("message", "썸네일 게시판 등록 실패!");

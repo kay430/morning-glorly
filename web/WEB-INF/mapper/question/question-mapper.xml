@@ -292,4 +292,51 @@
            SET A.QNA_DISPLAY = 'N'
          WHERE A.QNA_NO = ?
    </entry>
+   <entry key="insertQueThumbnailContent">
+        INSERT
+          INTO MG_QNA A
+        (
+          A.QNA_NO	
+        , A.CATEGORY_CODE
+        , A.QNA_TITLE
+        , A.QNA_BODY
+        )
+        VALUES
+        (
+          SEQ_BOARD_NO.NEXTVAL
+        , ?
+        , ?
+        , ?
+        )
+	</entry>
+	<entry key="selectQueThumbnailSequence">
+        SELECT
+               SEQ_QNA_NO.CURRVAL
+          FROM DUAL
+	</entry>
+	<entry key="insertQueAttachment">
+        INSERT
+          INTO MG_QNA_ATTACHMENT A
+        (
+          A.ATTACHMENT_NO
+        , A.REF_QNA_NO
+        , A.ORIGINAL_NAME
+        , A.SAVED_NAME
+        , A.SAVE_PATH
+        , A.FILE_TYPE
+        , A.THUMBNAIL_PATH
+        , A.ATTACHMENT_STATUS
+        )
+        VALUES
+        (
+          SEQ_ATTACHMENT_NO.NEXTVAL
+        , ?
+        , ?
+        , ?
+        , ?
+        , ?
+        , ?
+        , ?
+        )
+	</entry>
 </properties>

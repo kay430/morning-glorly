@@ -53,7 +53,7 @@
 							<div class="table-area">
 								<form
 									action="${ pageContext.servletContext.contextPath }/question/insert"
-									method="post">
+									method="post" encType="multipart/form-data">
 									<table align="center">
 										<tr>
 											<td>제목</td>
@@ -82,9 +82,12 @@
 													rows="15" style="resize: none; width: 600px; height: 550px;" required></textarea>
 											</td>
 										</tr>
-					
                               					
 									</table>
+										<div align="center">
+											<div class="thumbnail-file-area" id="titleQueImgArea">
+												<input type="file" id="QuethumbnailImg1" name="QuethumbnailImg1" onchange="loadImg(this, 1)">
+										</div>								
 									<br>
 									<div align="center">
 										<button type="reset" id="cancelQuestion">취소하기</button>
@@ -99,7 +102,33 @@
 			</div>
 		</div>
 	</div>
-
+	
+	<script>
+		const $titleImgArea = document.getElementById("titleQueImgArea");
+		
+		
+		$titleImgArea.onclick = function() {
+			document.getElementById("QuethumbnailImg1").click();
+		}
+		
+		function loadImg(value, num) {
+			if(value.files && value.files[0]) {
+				const reader = new FileReader();
+				
+				reader.onload = function(e) {
+					switch(num) {
+					case 1 :
+						document.getElementById("titleImg").src = e.target.result;
+						break;
+					
+					}
+				}
+				
+				reader.readAsDataURL(value.files[0]);
+			}
+		}
+	</script>
+	
 	<jsp:include page="../common/footer.jsp" />
 
 </body>
