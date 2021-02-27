@@ -38,8 +38,8 @@
 			movePath = "${ pageContext.servletContext.contextPath }"
 			break;
 			case "Findpwd" :
-				successMessage =  "성공입니다";
-				movePath = "${ pageContext.servletContext.contextPath }"
+				successMessage =  " 조회가 성공하여 메일로 임시비밀번호를 보내드렸습니다";
+				movePath = "${ pageContext.servletContext.contextPath }/member/login"
 				break;
 
 			case "insertQuestion" :

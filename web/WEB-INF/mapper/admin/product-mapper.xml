@@ -295,7 +295,13 @@ SELECT
                     , A.GOODS_PRICE = ?
                     , A.CREATED_DATE = ?
               WHERE A.GOODS_STATUS = 'Y'      
-                AND A.GOODS_NO = ?   
-              
+                AND A.GOODS_NO = ?             
 	</entry>
+<entry key="deleteProduct">
+       UPDATE 
+               MG_GOODS A
+          SET  A.GOODS_STATUS = 'N'
+        WHERE  A.GOODS_NO = ?    
+</entry>	
+	
  </properties>
