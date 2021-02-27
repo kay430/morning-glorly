@@ -346,6 +346,69 @@ public class QuestionDAO {
 		
 		return result;
 	}
+	public int insertThumbnailContent(Connection con, QuestionDTO thumbnail) {
+		
+		PreparedStatement pstmt = null;
+		
+		int result = 0;
+		System.out.println("thumb : " + thumbnail);
+		
+		String query = prop.getProperty("insertQueThumbnailContent");
+		System.out.println("인서트 쿼리 : " + query);
+		
+		try {
+			pstmt = con.prepareStatement(query);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+	public int selectThumbnailSequence(Connection con) {
+		
+		Statement stmt = null;
+		ResultSet rset = null;
+		
+		int lastQuestionNo = 0;
+		
+		String query = prop.getProperty("selectQueThumbnailSequence");
+		System.out.println("쿼리이름 : " + query );
+		
+		try {
+			stmt = con.createStatement();
+			
+			rset = stmt.executeQuery(query);
+			
+			if(rset.next()) {
+				lastQuestionNo = rset.getInt("CURVAL");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(stmt);
+		}
+		
+	
+		return lastQuestionNo;
+	}
+	public int insertAttachment(Connection con, AttaQuestionDTO attaQuestionDTO) {
+		
+		PreparedStatement pstmt = null;
+		
+		int result = 0;
+		
+		String query = prop.getProperty("insertQueAttachment");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
 
 
 }
