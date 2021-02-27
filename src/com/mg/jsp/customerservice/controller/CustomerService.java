@@ -1,4 +1,4 @@
-package com.jihunh.jsp.customerservice.controller;
+package com.mg.jsp.customerservice.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;

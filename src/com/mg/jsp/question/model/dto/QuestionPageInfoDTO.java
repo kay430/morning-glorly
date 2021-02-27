@@ -1,4 +1,4 @@
-package com.jihunh.jsp.question.model.dto;
+package com.mg.jsp.question.model.dto;
 
 public class QuestionPageInfoDTO implements java.io.Serializable{
 

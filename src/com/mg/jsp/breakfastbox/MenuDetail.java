@@ -1,4 +1,4 @@
-package com.jihunh.jsp.breakfastbox;
+package com.mg.jsp.breakfastbox;
 
 import java.io.IOException;
 
@@ -7,7 +7,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 @WebServlet("/menu/detail")
 public class MenuDetail extends HttpServlet {

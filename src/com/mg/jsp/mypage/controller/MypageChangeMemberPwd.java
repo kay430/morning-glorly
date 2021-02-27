@@ -1,4 +1,4 @@
-package com.jihunh.jsp.mypage.controller;
+package com.mg.jsp.mypage.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,11 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
-import com.jihunh.jsp.admin.model.dto.MemberModifyDTO;
-import com.jihunh.jsp.common.wrapper.EncodePwd;
-import com.jihunh.jsp.member.model.dao.MgDAO;
-import com.jihunh.jsp.member.model.dto.MgDTO;
-import com.jihunh.jsp.member.model.service.MgService;
+import com.mg.jsp.admin.model.dto.MemberModifyDTO;
+import com.mg.jsp.common.wrapper.EncodePwd;
+import com.mg.jsp.member.model.dto.MgDTO;
+import com.mg.jsp.member.model.service.MgService;
  
 
 @WebServlet("/change/memberPwd")

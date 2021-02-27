@@ -1,4 +1,4 @@
-package com.jihunh.jsp.question.controller;
+package com.mg.jsp.question.controller;
 
 import java.io.IOException;
 import java.util.List;
@@ -9,10 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.jihunh.jsp.common.paging.Pagenation;
-import com.jihunh.jsp.question.model.dto.QuestionDTO;
-import com.jihunh.jsp.question.model.dto.QuestionPageInfoDTO;
-import com.jihunh.jsp.question.model.service.QuestionService;
+import com.mg.jsp.common.paging.Pagenation;
+import com.mg.jsp.question.model.dto.QuestionDTO;
+import com.mg.jsp.question.model.dto.QuestionPageInfoDTO;
+import com.mg.jsp.question.model.service.QuestionService;
 
 
 @WebServlet("/question/list")

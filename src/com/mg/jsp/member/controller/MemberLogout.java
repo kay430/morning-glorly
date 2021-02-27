@@ -1,4 +1,4 @@
-package com.jihunh.jsp.member.controller;
+package com.mg.jsp.member.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;

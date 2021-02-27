@@ -1,4 +1,4 @@
-package com.jihunh.jsp.question.controller;
+package com.mg.jsp.question.controller;
 
 import java.io.File;
 import java.io.IOException;
@@ -18,10 +18,10 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
-import com.jihunh.jsp.member.model.dto.MgDTO;
-import com.jihunh.jsp.question.model.dto.AttaQuestionDTO;
-import com.jihunh.jsp.question.model.dto.QuestionDTO;
-import com.jihunh.jsp.question.model.service.QuestionService;
+import com.mg.jsp.member.model.dto.MgDTO;
+import com.mg.jsp.question.model.dto.AttaQuestionDTO;
+import com.mg.jsp.question.model.dto.QuestionDTO;
+import com.mg.jsp.question.model.service.QuestionService;
 
 import net.coobird.thumbnailator.Thumbnails;
 

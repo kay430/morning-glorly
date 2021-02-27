@@ -1,4 +1,4 @@
-package com.jihunh.jsp.mypage.controller;
+package com.mg.jsp.mypage.controller;
 
 import java.io.IOException;
 
@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.jihunh.jsp.member.model.dto.MgDTO;
-import com.jihunh.jsp.member.model.service.MgService;
+import com.mg.jsp.member.model.dto.MgDTO;
+import com.mg.jsp.member.model.service.MgService;
 
 
 @WebServlet("/mypage/quitMember")

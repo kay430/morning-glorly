@@ -1,6 +1,6 @@
 package com.mg.jsp.admin.model.product.model.dao;
 
-import static com.jihunh.jsp.common.jdbc.JDBCTemplate.close;
+import static com.mg.jsp.common.jdbc.JDBCTemplate.close;
 
 import java.io.FileInputStream;
 import java.io.IOException;

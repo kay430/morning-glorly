@@ -1,4 +1,4 @@
-package com.jihunh.jsp.member.controller;
+package com.mg.jsp.member.controller;
 import java.util.Properties;
 import java.util.UUID;
 
@@ -11,7 +11,7 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-import com.jihunh.jsp.member.model.dto.MgDTO;
+import com.mg.jsp.member.model.dto.MgDTO;
 
 public class SendupdatePwd {
    

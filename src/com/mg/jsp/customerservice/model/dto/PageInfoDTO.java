@@ -1,4 +1,4 @@
-package com.jihunh.jsp.customerservice.model.dto;
+package com.mg.jsp.customerservice.model.dto;
 
 public class PageInfoDTO implements java.io.Serializable {
 	

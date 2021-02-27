@@ -9,9 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.jihunh.jsp.member.model.dto.MgDTO;
-import com.jihunh.jsp.review.dto.ReviewDTO;
-import com.jihunh.jsp.review.service.ReviewService;
+import com.mg.jsp.member.model.dto.MgDTO;
+import com.mg.jsp.review.dto.ReviewDTO;
+import com.mg.jsp.review.service.ReviewService;
 
 /**
  * Servlet implementation class CustomerReviewUpdateServlet

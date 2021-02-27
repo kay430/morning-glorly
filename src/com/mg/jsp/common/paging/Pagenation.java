@@ -4,10 +4,10 @@ package com.mg.jsp.common.paging;
 import com.mg.jsp.admin.model.dto.NoticePageInfoDTO;
 import com.mg.jsp.admin.model.dto.SearchReadyDTO;
 import com.mg.jsp.customerservice.model.dto.PageInfoDTO;
-import com.mg.jsp.eugeneYi.model.DTO.SearchDTO;
-import com.mg.jsp.eugeneYi.model.DTO.TransitPageInfoDTO;
 import com.mg.jsp.question.model.dto.QuestionPageInfoDTO;
 import com.mg.jsp.review.dto.ReviewPageInfoDTO;
+import com.mg.jsp.transit.model.DTO.SearchDTO;
+import com.mg.jsp.transit.model.DTO.TransitPageInfoDTO;
 
 public class Pagenation {
 

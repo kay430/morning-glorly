@@ -2,8 +2,8 @@ package com.mg.jsp.payment.model.dto;
 
 import java.sql.Date;
 
-import com.jihunh.jsp.member.model.dto.MgDTO;
-import com.jihunh.jsp.order.model.dto.OrderGoodsDTO;
+import com.mg.jsp.member.model.dto.MgDTO;
+import com.mg.jsp.order.model.dto.OrderGoodsDTO;
 
 public class PaymentDTO implements java.io.Serializable {
 		

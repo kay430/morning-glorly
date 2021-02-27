@@ -1,4 +1,4 @@
-package com.jihunh.jsp.mypage.controller;
+package com.mg.jsp.mypage.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;

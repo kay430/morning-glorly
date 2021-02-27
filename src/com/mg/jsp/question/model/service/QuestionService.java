@@ -1,17 +1,17 @@
-package com.jihunh.jsp.question.model.service;
+package com.mg.jsp.question.model.service;
 
-import static com.jihunh.jsp.common.jdbc.JDBCTemplate.close;
-import static com.jihunh.jsp.common.jdbc.JDBCTemplate.commit;
-import static com.jihunh.jsp.common.jdbc.JDBCTemplate.getConnection;
-import static com.jihunh.jsp.common.jdbc.JDBCTemplate.rollback;
+import static com.mg.jsp.common.jdbc.JDBCTemplate.close;
+import static com.mg.jsp.common.jdbc.JDBCTemplate.commit;
+import static com.mg.jsp.common.jdbc.JDBCTemplate.getConnection;
+import static com.mg.jsp.common.jdbc.JDBCTemplate.rollback;
 
 import java.sql.Connection;
 import java.util.List;
 
-import com.jihunh.jsp.question.model.dao.QuestionDAO;
-import com.jihunh.jsp.question.model.dto.AttaQuestionDTO;
-import com.jihunh.jsp.question.model.dto.QuestionDTO;
-import com.jihunh.jsp.question.model.dto.QuestionPageInfoDTO;
+import com.mg.jsp.question.model.dao.QuestionDAO;
+import com.mg.jsp.question.model.dto.AttaQuestionDTO;
+import com.mg.jsp.question.model.dto.QuestionDTO;
+import com.mg.jsp.question.model.dto.QuestionPageInfoDTO;
 
 public class QuestionService {
 	
