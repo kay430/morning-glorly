@@ -42,7 +42,7 @@
                         <h4 class="title-attr"><small>수량</small></h4>                    
                         <div>
                             <div class="btn-minus"><span class="glyphicon glyphicon-minus"></span></div>
-                            <input value="1" />
+                            <input name="count" value="1" />
                             <div class="btn-plus"><span class="glyphicon glyphicon-plus"></span></div>
                         </div>
                     </div>                
@@ -56,7 +56,9 @@
                 <script>
                 $("#testJihun").click(function() {
                 	
-                	location.href = "${ pageContext.servletContext.contextPath }/testJihun/test?no=" + "${ requestScope.detailInfo.no }";
+                	
+                	
+                	location.href = "${ pageContext.servletContext.contextPath }/testJihun/test?no=" + "${ requestScope.detailInfo.no }" + "&count=" + $('input[name="count"]').val(); 
                 	 
 /*                 	 $.ajax({
                 		url : "${ pageContext.servletContext.contextPath }/testJihun/test",
