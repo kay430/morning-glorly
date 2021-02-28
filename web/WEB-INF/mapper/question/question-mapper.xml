@@ -317,14 +317,13 @@
 	<entry key="insertQueAttachment">
         INSERT
           INTO MG_QNA_ATTACHMENT A
-        (
-          A.ATTACHMENT_NO
+        (   
         , A.REF_QNA_NO
         , A.ORIGINAL_NAME
         , A.SAVED_NAME
         , A.SAVE_PATH
         , A.FILE_TYPE
-        , A.THUMBNAIL_PATH
+        , A.THUMBNAIL_PATH 
         , A.ATTACHMENT_STATUS
         )
         VALUES

@@ -145,7 +145,7 @@ public class QuestionInsertServlet extends HttpServlet {
 				
 				System.out.println(thumbnail);
 				
-				
+				      
 				thumbnail.setAttaQueList(new ArrayList<AttaQuestionDTO>());
 				List<AttaQuestionDTO> list = thumbnail.getAttaQueList();
 				for(int i = 0; i < fileList.size(); i++) {
@@ -159,7 +159,7 @@ public class QuestionInsertServlet extends HttpServlet {
 					tempFileInfo.setThumbnailPath(file.get("thumbnailPath"));
 					
 					list.add(tempFileInfo);
-				}
+				} 
 				
 				int result = new QuestionService().insertThumbnail(thumbnail);
 				

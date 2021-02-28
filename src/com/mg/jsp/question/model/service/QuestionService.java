@@ -145,7 +145,7 @@ public class QuestionService {
 		}
 		
 		close(con);
-		
+		  
 		return result;
 	}
 
@@ -158,7 +158,7 @@ public class QuestionService {
 		int questionPic = questionDAO.insertThumbnailContent(con, thumbnail);
 		
 		int questionSeqNo = questionDAO.selectThumbnailSequence(con);
-		
+		 
 		List<AttaQuestionDTO> fileList = thumbnail.getAttaQueList();
 		for(int i = 0; i < fileList.size(); i++) {
 			fileList.get(i).setRefQnaNo(questionSeqNo);

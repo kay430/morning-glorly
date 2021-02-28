@@ -393,13 +393,13 @@ public class QuestionDAO {
 		} finally {
 			close(rset);
 			close(stmt);
-		}
+		}   
 		
 	
 		return lastQuestionNo;
 	}
 	public int insertAttachment(Connection con, AttaQuestionDTO file) {
-		
+		 
 		PreparedStatement pstmt = null;
 		
 		int result = 0;
@@ -408,7 +408,7 @@ public class QuestionDAO {
 		
 		try {
 			pstmt = con.prepareStatement(query);
-			pstmt.setInt(1, file.getRefQnaNo());
+			pstmt.setInt(1, file.getRefQnaNo()); 
 			pstmt.setString(2, file.getOriginalName());
 			pstmt.setString(3, file.getSavedName());
 			pstmt.setString(4, file.getSavedPath());
