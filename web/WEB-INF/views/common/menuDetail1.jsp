@@ -12,6 +12,9 @@
 <script src="/mg/resources/js/detail.js"></script>
 </head>
 <body>
+
+	<jsp:include page="../common/header.jsp"/>
+
 <div class="container">
         	<div class="row">
                <div class="col-xs-4 item-photo">
@@ -47,5 +50,6 @@
                 </div>		
             </div>
         </div>     
+        <jsp:include page="../common/footer.jsp"/>
     </body>
 </html>

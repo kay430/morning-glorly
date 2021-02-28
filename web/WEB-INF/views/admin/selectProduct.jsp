@@ -70,23 +70,23 @@
             </ul>
           </li>
           <li class="sub-menu">
-            <a href="javascript:;">
+            <a  class="active" href="javascript:;">
               <i class="fa fa-book"></i>
               <span>상품관리</span>
               </a>
             <ul class="sub">
               <li><a href=" ${ pageContext.servletContext.contextPath }/admin/registProduct" id="registProduct">상품등록</a></li>
-              <li><a href=" ${ pageContext.servletContext.contextPath }/admin/SelectProduct" id="SelectProduct">상품조회</a></li>
-              <li><a href="lock_screen.html">카테고리 관리</a></li>
+              <li class="active"><a href=" ${ pageContext.servletContext.contextPath }/admin/SelectProduct" id="SelectProduct">상품조회</a></li>
+              
             </ul>
           </li>
           <li class="sub-menu">
-            <a class="active" href="javascript:;">
+            <a href="javascript:;">
               <i class="fa fa-tasks"></i>
               <span>고객센터</span>
               </a>
             <ul class="sub">
-              <li class="active"><a id="adminNotice">공지사항</a></li>
+              <li><a id="adminNotice">공지사항</a></li>
               <li><a id="answer">Q&A</a></li>
               <li><a id="review">상품후기</a></li>
               <li><a id="generalQna">자주 묻는 질문</a></li>

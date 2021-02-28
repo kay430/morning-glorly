@@ -84,7 +84,7 @@
             <ul class="sub">
               <li><a href=" ${ pageContext.servletContext.contextPath }/admin/registProduct" id="registProduct">상품등록</a></li>
               <li><a href=" ${ pageContext.servletContext.contextPath }/admin/SelectProduct" id="SelectProduct">상품조회</a></li>
-              <li><a href="lock_screen.html">카테고리 관리</a></li>
+              
             </ul>
           </li>
           <li class="sub-menu">

@@ -80,9 +80,9 @@
               <span>상품관리</span>
               </a>
             <ul class="sub">
-              <li><a href="blank.html">상품등록</a></li>
-              <li><a href="login.html">상품조회</a></li>
-              <li><a href="lock_screen.html">카테고리 관리</a></li>
+              <li><a href=" ${ pageContext.servletContext.contextPath }/admin/registProduct">상품등록</a></li>
+              <li><a href=" ${ pageContext.servletContext.contextPath }/admin/SelectProduct">상품조회</a></li>
+              
             </ul>
           </li>
           <li class="sub-menu">
