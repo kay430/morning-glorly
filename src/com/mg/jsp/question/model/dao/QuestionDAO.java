@@ -359,10 +359,10 @@ public class QuestionDAO {
 		
 		try {
 			pstmt = con.prepareStatement(query);
-			pstmt.setString(1, thumbnail.getMgDTO().getName());
-			pstmt.setString(2, thumbnail.getTitle());
-			pstmt.setString(3, thumbnail.getBody());
-			pstmt.setInt(4, thumbnail.getCategoryCode());
+			pstmt.setString(1, thumbnail.getTitle());
+			pstmt.setString(2, thumbnail.getBody());
+			pstmt.setInt(3, thumbnail.getCategoryCode());
+			pstmt.setInt(4, thumbnail.getWriterMemberNo());
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
