@@ -22,7 +22,7 @@ public class ReviewService {
 	public ReviewService() {
 		reviewDAO = new ReviewDAO();
 	}
-		//페이징처리 위한  전체게시물수 조회용 메소드 
+		
 	public int selectTotalCount() {
 		
 		Connection con = getConnection();
@@ -30,7 +30,7 @@ public class ReviewService {
 		int totalCount = reviewDAO.selectTotalCount(con);
 		
 		close(con);
-		
+		 
 		return totalCount;
 	}
 	
@@ -72,7 +72,7 @@ public class ReviewService {
 	  
 	  return totalCount; }
 	 
-	//오류.
+	
 	  public List<ReviewDTO> searchReviewList(String searchCondition, String
 	  searchValue, PageInfoDTO pageInfo) {
 	  
@@ -88,7 +88,7 @@ public class ReviewService {
 	public ReviewDTO selectReviewDetail(int no) {
 		Connection con = getConnection();
 		ReviewDTO reviewDetail = null;
-		System.out.println("진입");
+		
 		int result = reviewDAO.incrementReviewCount(con, no);
 		
 		if(result > 0) {
@@ -125,25 +125,15 @@ public class ReviewService {
 		Connection con = getConnection();
 		
 	
-		/* 1. DB에 저장된 게시물 넘버와 일치하는 회원의 넘버 조회 */
-		/* String memberId = reviewDAO.selectMemberId(con, changeInfo); */
-		System.out.println("조회함?");
-		/* 2. 파라미터로 전달받은 회원번호와 DB에 저장된 회원번호가 일치하는지 확인 */
 		
-		/* if(memberId.equals(changeInfo.getMgDTO().getId())) { */
-			
-			/* 3. 회원번호가 일치하면 리뷰 수정 */
 			int result = reviewDAO.changeReview(con, changeInfo);
 			
-			/* 4. update가 성공하면  회원 리ㅂ 조회 */
-			
-			
-			/* 5. 모두 정상적으로 동작하면 commit */
+		
 			if(result > 0 ) {
 				commit(con);
 			} else {
 				rollback(con);
-			//}
+		
 		}
 		
 		close(con);
@@ -154,9 +144,9 @@ public class ReviewService {
 		Connection con = getConnection();
 		System.out.println("thumbnail:"+thumbnail);
 		int result = 0;
-		//출력은 되지만 sqlsyntax에러 뜸  시퀀스가 있지만 없다고함 .
+		
 		int reviewResult = reviewDAO.InsertThumbnailContent(con,thumbnail);
-		System.out.println("여기오나");
+		
 		int reviewNo = reviewDAO.selectThumbnailSequence(con);
 		
 		List<AttachmentDTO> fileList = thumbnail.getAttachmentList();

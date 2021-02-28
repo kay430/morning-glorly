@@ -34,7 +34,7 @@
          <ul class="sidebar-nav">
          <li class="sidebar-brand"><a href="${ pageContext.servletContext.contextPath }/customer/list"> CUSTOMER</a></li>
             <li><a href="${ pageContext.servletContext.contextPath }/notice/list">공지사항</a>
-            <li><a href="${ pageContext.servletContext.contextPath }/question/list">질문과 답변~</a></li>
+            <li><a href="${ pageContext.servletContext.contextPath }/question/list">질문과 답변</a></li>
             <li><a href="${ pageContext.servletContext.contextPath }/product/review">상품 후기 </a></li>
          </ul>
       </div>
@@ -54,7 +54,7 @@
                         <th class="board-list-sub-td list-header-bd">작성자</th>
                         <th class="board-list-sub-td list-header-bd">조회수</th>
                         <th class="board-list-wdate list-header-bd">작성일</th>
-                        <!-- <th class="board-list-sub-td list-header-bd">처리상태</th> -->
+                       
                      </tr>
                      <c:forEach var="reviewBoard" items="${ requestScope.reviewList }">
 
@@ -64,8 +64,7 @@
                            <td class="board-list-sub-td"><c:out value="${ reviewBoard.mgDTO.name }" /></td>
                            <td class="board-list-sub-td"><c:out value="${ reviewBoard.count }" /></td>
                            <td class="board-list-wdate"><c:out value="${ reviewBoard.createDate }" /></td>
-                          <%--  <td class="board-list-sub-td"><c:out value="${ question.status }" /></td>
- --%>
+                         
                         </tr>
                      </c:forEach>
                   </table>
