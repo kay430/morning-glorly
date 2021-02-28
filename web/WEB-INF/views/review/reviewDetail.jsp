@@ -64,7 +64,7 @@
 			<div align="center">
 				<button onclick="location.href='${ pageContext.servletContext.contextPath }/product/review'">메뉴로 돌아가기</button>
 				<%-- <c:if test="${ sessionScope.loginMember.role eq 'ADMIN' }">--%>
-					<button onclick="location.href='${ pageContext.servletContext.contextPath }/review/update?no=${ requestScope.review.no }'">수정하기</button>
+					<button onclick="location.href='${ pageContext.servletContext.contextPath }/review/update?no=${ requestScope.reviewDetail.no }'">수정하기</button>
 				<%-- </c:if> --%>
 				<button onclick="location.href='${ pageContext.servletContext.contextPath }/product/review'">리뷰 삭제</button>
 				

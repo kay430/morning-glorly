@@ -259,7 +259,8 @@
                MG_REVIEW A
            SET A.REVIEW_TITLE = ?
              , A.REVIEW_BODY = ?
-          WHERE A.REVIEW_WRITER_MEMBER_NO = ?  
+          WHERE A.REVIEW_WRITER_MEMBER_NO = ?
+            AND A.REVIEW_NO = ?
 	</entry>
 	<entry key="insertThumbnailContent">
 		INSERT

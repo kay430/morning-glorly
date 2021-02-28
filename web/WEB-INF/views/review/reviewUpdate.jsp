@@ -74,6 +74,7 @@
 											<td><input type="text" size="30" name="password"></td>
 										</tr>
 
+									<input type="hidden" name="no" value="${ param.no }">
 									</table>
 									<br>
 									<div align="center">

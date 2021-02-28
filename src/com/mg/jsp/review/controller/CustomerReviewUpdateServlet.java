@@ -41,8 +41,10 @@ public class CustomerReviewUpdateServlet extends HttpServlet {
 		
 		String reviewTitle = request.getParameter("title");
 		String reviewBody = request.getParameter("body");
+		int reviewNo = Integer.parseInt(request.getParameter("no"));
 		
 		ReviewDTO changeInfo = new ReviewDTO();
+		changeInfo.setNo(reviewNo);
 		changeInfo.setTitle(reviewTitle);
 		changeInfo.setBody(reviewBody);
 		changeInfo.setWriterMemberNo(loginMember.getNo());
