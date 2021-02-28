@@ -60,17 +60,17 @@ public class QuestionInsertServlet extends HttpServlet {
 			Map<String, String> parameter = new HashMap<>();
 			List<Map<String, String>> fileList = new ArrayList<>();
 			
-			DiskFileItemFactory fileItemFactory = new DiskFileItemFactory();
-			fileItemFactory.setRepository(new File(fileUploadDirectory));
-			fileItemFactory.setSizeThreshold(maxFileSize);
+			DiskFileItemFactory queFileItemFactory = new DiskFileItemFactory();
+			queFileItemFactory.setRepository(new File(fileUploadDirectory));
+			queFileItemFactory.setSizeThreshold(maxFileSize);
 			
-			ServletFileUpload fileUpload = new ServletFileUpload(fileItemFactory);
+			ServletFileUpload fileUpload = new ServletFileUpload(queFileItemFactory);
 			
 			try {
 				List<FileItem> fileItems = fileUpload.parseRequest(request);
 				
 				for(FileItem item : fileItems) {
-					System.out.println(item);
+					System.out.println("업로드한거 확인" + item);
 				}				
 				
 				for(int i = 0; i < fileItems.size(); i++) {
@@ -134,9 +134,9 @@ public class QuestionInsertServlet extends HttpServlet {
 				System.out.println("fileList : " + fileList);
 				
 				QuestionDTO thumbnail = new QuestionDTO();
-				thumbnail.setMgDTO(new MgDTO());
-				thumbnail.getMgDTO().setName(parameter.get("loginMember"));
-				thumbnail.setNo(Integer.parseInt(parameter.get("no")));
+//				thumbnail.setMgDTO(new MgDTO());
+//				thumbnail.getMgDTO().setName(parameter.get("loginMember"));
+//				thumbnail.setNo(Integer.parseInt(parameter.get("no")));
 //				thumbnail.getMgDTO().setName(((MgDTO) request.getSession().getAttribute("loginMember")).getName());
 				thumbnail.setTitle(parameter.get("title"));
 				thumbnail.setBody(parameter.get("body"));

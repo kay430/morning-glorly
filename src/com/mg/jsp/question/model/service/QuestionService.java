@@ -156,7 +156,7 @@ public class QuestionService {
 		int result = 0;
 		
 		int questionPic = questionDAO.insertThumbnailContent(con, thumbnail);
-		System.out.println("시퀀스 조회");
+		
 		int questionSeqNo = questionDAO.selectThumbnailSequence(con);
 		
 		List<AttaQuestionDTO> fileList = thumbnail.getAttaQueList();
