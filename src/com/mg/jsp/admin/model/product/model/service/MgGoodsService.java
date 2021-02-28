@@ -95,6 +95,7 @@ public class MgGoodsService {
       int attachmentResult = 0;
       for(int i = 0; i < fileList.size(); i++) {
          attachmentResult = mgGoodsDAO.insertAttachment(con,fileList.get(i));
+         System.out.println(fileList.get(i));
       }
       
       if(MgGoodsResult > 0 && attachmentResult == fileList.size()) {
