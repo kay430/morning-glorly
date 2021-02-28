@@ -14,7 +14,7 @@
 <script
    src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css"
-   href="/mg/resources/css/customer/customer_qna.css">
+   href="/mg/resources/css/customer/customer_reviewdetail.css">
 <link rel="stylesheet" type="text/css"
    href="/mg/resources/css/header.css">
 <link rel="stylesheet" type="text/css"
@@ -27,50 +27,79 @@
 <body>
 
    <jsp:include page="../common/header.jsp" />
-<div class="outer outer-review-detail">
+	<section class="qna_panel"
+		style="margin: 0 auto; width: 1100px; height: 500px; margin-top: 50px;">
+		<header class="panel-heading wht-bg" style="margin: 0 0 30px 0;">
+			<h4 class="gen-case" style="font-size: 30px; text-align: center;">
+				질문게시판</h4>
+		</header>
+		<div class="panel-body ">
 		<br>
-		<h2 align="center">리뷰  내용</h2>
-		<div class="table-area">
-			<table align="center">
-				<tr>
-					<td>제목 </td>
-					<td colspan="3"><p><c:out value="${ requestScope.reviewDetail.title }"/></p></td>
-				</tr>
-				<tr>
-					<td>작성자 </td>
-					<td><p><c:out value="${ requestScope.reviewDetail.mgDTO.name }"/></p></td>
-					<td>작성일</td>
-					<td><p><c:out value="${ requestScope.reviewDetail.createDate }"/></p></td>
-				</tr>
- 												<!-- 게시글 작성부분 --> 				
- 				<tr>	
-					<td colspan="3">
-						<textarea style="resize:none; width:90%; height:200px;" readonly><c:out value="${ requestScope.reviewDetail.body }"/></textarea>
-					</td>
-				</tr>
-			</table>
-										<!--썸네일 시작 부분 -->
- 			<table class="detail">
-			<tr>
-				<td colspan="5">
-					<div id="titleImgArea" align="center">
-						<img src="${ pageContext.servletContext.contextPath }${ requestScope.reviewDetail.attachmentList[0].thumbnailPath }"
-							width="500" height="300">
+		<br>
+			<div class="review-header row">
+				<div class="col-md-8">
+					<textarea id="headCore"
+						style="resize: none; width: 980px; height: 30px; margin-left:50px; margin-bottom: 10px;"
+						readonly><c:out
+							value="${ requestScope.reviewDetail.title }" /></textarea>
+				</div>
+				
+			</div>
+			<div class="review-info">
+				<div class="row" style="width:600px; margin-left:50px;">
+					<div class="col-md-8" style="width:150px;">
+						 <strong class="col-md-8">작성자
+							: <c:out value="${ requestScope.reviewDetail.mgDTO.name}" />
+						</strong>
 					</div>
-					</td>
-					</tr>
-					</table>
+					<div class="col-md-4" style="width:200px;" >
+						<p class="date">작성일자
+							<c:out value="${ requestScope.reviewDetail.createDate }" />
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="review-detail" style="margin: 40px 0 0 0;">
+				<textarea id="core" style="resize: none; width: 980px; height: 250px; margin-left:50px;"
+					readonly><c:out value="${ requestScope.reviewDetail.body }" /></textarea>
+			</div>
 			<br>
+			<br>
+			<br>
+			<img src="${ pageContext.servletContext.contextPath }${ requestScope.reviewDetail.attachmentList[0].thumbnailPath }"
+							width="500" height="300" style="margin-left:50px">
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+			
+
 			<div align="center">
 				<button onclick="location.href='${ pageContext.servletContext.contextPath }/product/review'">메뉴로 돌아가기</button>
 				<%-- <c:if test="${ sessionScope.loginMember.role eq 'ADMIN' }">--%>
 					<button onclick="location.href='${ pageContext.servletContext.contextPath }/review/update?no=${ requestScope.reviewDetail.no }'">수정하기</button>
 				<%-- </c:if> --%>
-				<button onclick="location.href='${ pageContext.servletContext.contextPath }/product/review'">리뷰 삭제</button>
-				
+				<button type="submit"id="deleteReview" onclick="alert('리뷰를 삭제합니다');">리뷰 삭제</button>
+				<br>
+		<script> function deleteReview()
+		{ alert("리뷰가 삭제 되었습니다"); 
+		} </script>
+	<br>
+	<br>
+	<br>
+	<br>
 			</div>
 		</div>
-	</div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	
+		</section>
+
+
 </body>
 </html>
    

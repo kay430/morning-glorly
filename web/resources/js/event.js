@@ -251,7 +251,18 @@ window.onload = function() {
 			location.href = "/mg/product/review";
 		}	
 }
-
+	if(document.getElementById("cancelNotice")) {
+		const $cancelNotice = document.getElementById("cancelNotice");
+		$cancelNotice.onclick = function() {
+			location.href = "/mg/review/update";
+		}	
+}
+	if(document.getElementById("deleteReview")) {
+		const $deleteReview = document.getElementById("deleteReview");
+		$deleteReview.onclick = function() {
+			location.href = "/mg/product/review";
+		}	
+}
 
 	
 	if(document.getElementById("goBack")) {

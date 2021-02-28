@@ -22,7 +22,7 @@
 	}
 /*wrapper*/
 	#page-content-wrapper {
-		width: 100%;
+		width: 1000px;
 	}
 /* 사이드바 마우스 올렸을때 스타일 */
 	.sidebar-nav :hover {
@@ -76,7 +76,7 @@
 }
 
 /* 공지사항 리스트 크기 지정 */
-.outer-notice-list, .outer-notice-detail {
+.outer-notice-list, .outer-notice-detail ,.outer-review-detail{
 	width: 1000px;
 	height: 750px;
 	border: 1px solid rgb(190, 190, 190);
@@ -88,24 +88,24 @@
 }
 
 /* 게시판 리스트 크기 지정 */
-.outer-board-list {
+.outer-board-list{
 	width: 900px;
 	height: 500px;
 }
 
 /* 공지사항 리스트 테이블 설정 */
-.outer-notice-list table, .outer-thumbnail-insert table {
+.outer-notice-list table, .outer-thumbnail-insert table,.outer-review-detail {
 	text-align: center;
 }
 
 /* 모든 테이블 중앙 배치할 수 있는 설정 */
 .table-area {
-	
+	width : 1000px;
 }
 
 /* 테이블 영역 크기 지정 */
 .outer-notice-list .table-area, .outer-notice-detail .table-area,
-	.outer-board-list .table-area, .outer-board-insert .table-area {
+	.outer-board-list .table-area, .outer-board-insert .table-area ,.outer-review-detail{
     height: 650px;
 }
 
@@ -116,7 +116,7 @@
 }
 
 /* 공지사항 상세보기 테이블 사이즈 조정 */
-.outer-notice-detail table, .outer-board-insert table {
+.outer-notice-detail table, .outer-board-insert table, .outer-review-detail {
 	width: 500px;
 }
 
@@ -124,23 +124,39 @@
 	width: 100%;
 }
 /* 공지사항 작성 영역 크기 지정 */
-.outer-notice-insert {
+.outer-notice-insert ,.outer-review-detail{
 	width: 750px;
 	height: 100%;
 }
 
 /* 공지사항 작성 영역 테이블 테두리 지정 */
-.outer-notice-insert table, .outer-board-insert table {
+.outer-notice-insert table, .outer-board-insert table,.outer-review-detail {
 	width: 750px;
 	height: 650px;
 }
-
-/* 공지사항 작성 영역 테이블 영역 크기 지정 */
-.outer-notice-insert .table-area, .outer-board-insert .table-area {
+/*리뷰 작성부분 */
+.outer-review-detail {
 	width: 750px;
-	height: 100%;
+	height: 650px;
+	background: rgb(226, 240, 219);
 }
 
+
+/* 공지사항 작성 영역 테이블 영역 크기 지정 */
+.outer-notice-insert .table-area, .outer-board-insert .table-area,.outer-review-detail {
+	margin-left:600px;
+	width: 850px;
+	height: 100%;
+}
+/*리뷰 작성영역 크기 지정*/
+.review-table-area{
+	width: 700px;
+}
+/*리뷰 작성영역 위치 지정*/
+.review-table-area{
+	margin-left:90px;
+	
+}
 .main-header {
 	border: 1px solid black;
 	text-align: center;
@@ -197,7 +213,7 @@
   text-align: center;
 }
 
-.board-list-tr{font-size: 17px; line-height: 50px; border-bottom: 1px solid lightgray;}
+.board-list-tr{font-size: 17px; line-height: 50px; border-bottom: 1px solid lightgray; border:1px solid black;}
 
 .board-list-th{width: 50px; line-height: 50px;}
 

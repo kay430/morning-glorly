@@ -68,7 +68,11 @@
 			case "updateMemberNo":
             	successMessage = "리뷰 수정 성공";
             	movePath ="${ pageContext.servletContext.contextPath }/product/review";
-            	break;  
+            	break;
+			case "cancelNotice":
+            	successMessage = "리뷰 수정 취소";
+            	movePath ="${ pageContext.servletContext.contextPath }/product/review";
+            	break;	
 	            
 			case "insertReviewThumbnail":
             	successMessage = "리뷰 등록 성공! 리뷰포인트 100p 적립됩니다.";
@@ -85,7 +89,12 @@
             	movePath ="${ pageContext.servletContext.contextPath }";
             	break;	
 	            
+			case "deleteReview":
+            	successMessage = "리뷰삭제 성공";
+            	movePath ="${ pag   Context.servletContext.contextPath }/product/review";
+            	break;		
 			}
+			
 			
 			
 			
