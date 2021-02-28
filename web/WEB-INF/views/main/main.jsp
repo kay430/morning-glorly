@@ -28,7 +28,9 @@
                 <h3 class="w360 onnn">다이어트 도시락<strong> BEST</strong></h3>
                 <ul>
                     <li class="onnn">
-                        <a href="${ pageContext.servletContext.contextPath }/user/select?no=38" title="">
+
+                        <a href="${ pageContext.servletContext.contextPath }/user/select?no=7" title="">
+
                             <img src="./resources/image/dosirak/크래미 베이컨 샐러드.PNG" class="MS_prod_img_s" alt=""  height="224.5px">
                             <p class="s_price">
                                 최종가 : 5,200원
@@ -38,7 +40,9 @@
                         </a>
                     </li>
                     <li class="onnn">
-                        <a href="${ pageContext.servletContext.contextPath }/user/select?no=39" title="">
+
+                        <a href="${ pageContext.servletContext.contextPath }/user/select?no=8" title="">
+
                             <img class="MS_prod_img_s" src="./resources/image/dosirak/불고기 샐러드.PNG" alt="" height="224.5px">
                             <p class="s_price">
                                 가격 : 5,200원
@@ -48,7 +52,7 @@
                         </a>
                     </li>
                     <li class="onnn">
-                        <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
+                        <a href="${ pageContext.servletContext.contextPath }/user/select?no=9" title="">
                             <img class="MS_prod_img_s" src="./resources/image/dosirak/닭가슴살 단호박 샐러드.PNG" alt="" height="224.5px">
                             <p class="s_price">
                                 가격 : 5,200원

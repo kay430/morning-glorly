@@ -2,9 +2,11 @@ package com.mg.jsp.payment.model.dao;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.sql.PreparedStatement;
 import java.util.Properties;
 
 import com.mg.jsp.common.config.ConfigLocation;
+import com.mg.jsp.member.model.dto.MgDTO;
 
 public class PaymentDAO {
 
@@ -18,6 +20,12 @@ public class PaymentDAO {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+
+	public MgDTO selectMemberInfo(String memId) {
+		
+		
+		return null;
 	}
 
 	
