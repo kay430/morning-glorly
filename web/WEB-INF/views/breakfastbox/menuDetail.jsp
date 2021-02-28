@@ -15,6 +15,7 @@
 <link rel="stylesheet" type="text/css" href="/mg/resources/css/MorningGloryMain.css">
 <link rel="stylesheet" type="text/css" href="/mg/resources/css/main-common.css">
 <script src="/mg/resources/js/detail.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
 
@@ -29,7 +30,7 @@
                 </div>
                 <div class="col-xs-5" style="border:0px solid gray">
                 <br><br>
-
+				<input type="hidden" id="jihunTest" value="<c:out value="${ requestScope.detailInfo }"/>">
                     <h3>식단유형명 : <input type="text" value="<c:out value="${ requestScope.detailInfo.goodsTypeNo.name }"/>" readonly style="border: none"></h3> 
 						<br><br>
 						<h3>도시락상품명 : <input type="text" value="<c:out value="${ requestScope.detailInfo.name }"/>" readonly style="border: none"></h3> 
@@ -47,9 +48,33 @@
                     </div>                
         
                     <div class="section" style="padding-bottom:20px;">
-                        <button onClick="location.href='${ pageContext.servletContext.contextPath }/proceed/payment'" class="btn btn-success"><span style="margin-right:20px" class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>결제하러가기</button>
+                          <button onClick="location.href='${ pageContext.servletContext.contextPath }/proceed/payment'" class="btn btn-success"><span style="margin-right:20px" class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>결제하러가기</button>
                     </div>                                        
-                </div>                              
+                </div>                        
+                <br><hr>
+                <button id="testJihun" class="btn btn-success"><span style="margin-right:20px" class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>지훈테스트</button>
+                <script>
+                $("#testJihun").click(function() {
+                	
+                	location.href = "${ pageContext.servletContext.contextPath }/testJihun/test?no=" + "${ requestScope.detailInfo.no }";
+                	 
+/*                 	 $.ajax({
+                		url : "${ pageContext.servletContext.contextPath }/testJihun/test",
+                		type : "get",
+                		data : {
+                			jihunTest : "${ requestScope.detailInfo.no }"
+                		},
+                		success : function(data, textStatus, xhr) {
+                			console.log('성공쓰');
+                		},
+                		error : function(xhr, status, error) {
+                			console.log('실패');
+                		}
+                	});  */
+                	
+                });
+            	
+                </script>      
         
                 <div class="col-xs-9">
                     <ul class="menu-items">

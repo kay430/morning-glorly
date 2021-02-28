@@ -26,7 +26,6 @@ public class UserSelectServlet extends HttpServlet {
 
 
 
-
 		String path = ""; 
 		if(detailInfo !=null) { 
 			path ="/WEB-INF/views/breakfastbox/menuDetail.jsp";
