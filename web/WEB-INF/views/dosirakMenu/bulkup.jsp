@@ -27,120 +27,116 @@
             
               
 
-                <div class="clobox">
+             
+
+
+                  <h3 class="w330">벌크업 도시락<strong> BEST</strong></h3>
+                <ul>
+                    <li>
+                        <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
+                            <img class="MS_prod_img_s" src="./resources/image/dosirak/닭가슴살 200g.PNG" alt="">
+                            <p class="s_price">
+                              
+                                최종가 : 8,500원
+                            </p>
+                            <p class="s_name">닭가슴살 200g</p>
+                            <p class="s_subname">근육을 성장시키자!</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
+                            <img class="MS_prod_img_s" src="./resources/image/dosirak/부채살200g.PNG" alt="" height="280px">
+                            <p class="s_price">
+                               최종가 : 8,500원
+                            </p>
+                            <p class="s_name">부채살 200g</p>
+                            <p class="s_subname">근육을 조금 더 성장시키자!</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
+                            <img class="MS_prod_img_s" src="./resources/image/dosirak/홍두깨살 200g.jpg" alt="" height="280px">
+                            <p class="s_price">
+                                
+                                최종가  : 8,500원
+                            </p>
+                            <p class="s_name">홍두깨살 200g</p>
+                            <p class="s_subname">근육아 나에게 오라~!</p>
+                        </a>
+                    </li>
+                    <li class="last">
+                        <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
+                            <img class="MS_prod_img_s" src="./resources/image/dosirak/스페셜도시락.PNG" alt="" height="280px">
+                            <p class="s_price">
+                                최종가 : 10,900원
+                            </p>
+                            <p class="s_name">스페셜 도시락</p>
+                            <p class="s_subname">근육을 스페셜하게~!</p>
+                        </a>
+                    </li>
+                </ul>
+                    <div class="clobox">
                     <h3>지금 가장 <span>🔥</span><strong>HOT</strong><span>🔥</span> 해요!</h3>
                     <div class="item_best1">
                         <a
                             href="${ pageContext.servletContext.contextPath }/menu/detail">
-                            <p><img src=""></p>
-                            <p>
-                                <span>🍝메뉴명</span>
-                                <span>💝간단한 설명 💝</span>
-                                <span>10,000원</span>
+                            <p><img src="./resources/image/dosirak/부채살200g.PNG" style="height:500px;"></p>
+                            <p style="padding-top: 120px;">
+                                <span>🍝메뉴명 : 부채살 200g</span>
+                                <span>💝간단한 설명 💝 : 근육을 조금더 성장시켜볼까!!</span>
+                                <span>8,500원</span>
                                 <span>10<i>%</i></span>
-                                <span>9,000<i>원</i></span>
+                                <span>7,650<i>원</i></span>
                                 <span>지금바로 구매하기!</span>
                             </p>
                         </a>
                     </div>
                 </div>
-
-
-                <h3 class="w330">벌크업 도시락<strong> BEST</strong></h3>
+                <br><br>
+           	   <h3 class="w330">벌크업 도시락<strong></strong></h3>
                 <ul>
                     <li>
                         <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
-                            <img class="MS_prod_img_s" src="" alt="">
+                            <img class="MS_prod_img_s" src="./resources/image/dosirak/닭가슴살 200g.PNG" alt="">
                             <p class="s_price">
-                                <span class="s_price_consume">원가</span>
-                                <span class="s_discount_percent">(할인율)</span> 
-                                최종가
+                              
+                                최종가 : 8,500원
                             </p>
-                            <p class="s_name">메뉴명</p>
-                            <p class="s_subname">간단한 설명</p>
+                            <p class="s_name">닭가슴살 200g</p>
+                            <p class="s_subname">근육을 성장시키자!</p>
                         </a>
                     </li>
                     <li>
                         <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
-                            <img class="MS_prod_img_s" src="" alt="">
+                            <img class="MS_prod_img_s" src="./resources/image/dosirak/부채살200g.PNG" alt="" height="280px">
                             <p class="s_price">
-                                최종가
+                               최종가 : 8,500원
                             </p>
-                            <p class="s_name">메뉴명</p>
-                            <p class="s_subname">간단한 설명</p>
+                            <p class="s_name">부채살 200g</p>
+                            <p class="s_subname">근육을 조금 더 성장시키자!</p>
                         </a>
                     </li>
                     <li>
                         <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
-                            <img class="MS_prod_img_s" src="" alt="">
+                            <img class="MS_prod_img_s" src="./resources/image/dosirak/홍두깨살 200g.jpg" alt="" height="280px">
                             <p class="s_price">
-                                <span class="s_price_consume">원가</span>
-                                <span class="s_discount_percent">(할인율)</span> 
-                                최종가
+                                
+                                최종가  : 8,500원
                             </p>
-                            <p class="s_name">메뉴명</p>
-                            <p class="s_subname">간단한 설명</p>
+                            <p class="s_name">홍두깨살 200g</p>
+                            <p class="s_subname">근육아 나에게 오라~!</p>
                         </a>
                     </li>
                     <li class="last">
                         <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
-                            <img class="MS_prod_img_s" src="" alt="">
+                            <img class="MS_prod_img_s" src="./resources/image/dosirak/스페셜도시락.PNG" alt="" height="280px">
                             <p class="s_price">
-                                최종가
+                                최종가 : 10,900원
                             </p>
-                            <p class="s_name">메뉴명</p>
-                            <p class="s_subname">간단한 설명</p>
+                            <p class="s_name">스페셜 도시락</p>
+                            <p class="s_subname">근육을 스페셜하게~!</p>
                         </a>
                     </li>
-                </ul>
-           	
-           	  <h3 class="w330">벌크업 도시락</h3>
-                <ul>
-                    <li>
-                        <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
-                            <img class="MS_prod_img_s" src="" alt="">
-                            <p class="s_price">
-                                <span class="s_price_consume"></span>
-                                <span class="s_discount_percent"></span> 
-                                가격
-                            </p>
-                            <p class="s_name">메뉴명</p>
-                            <p class="s_subname">간단한 설명</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
-                            <img class="MS_prod_img_s" src="" alt="">
-                            <p class="s_price">
-                                가격
-                            </p>
-                            <p class="s_name">메뉴명</p>
-                            <p class="s_subname">간단한 설명</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
-                            <img class="MS_prod_img_s" src="" alt="">
-                            <p class="s_price">
-                                <span class="s_price_consume"></span>
-                                <span class="s_discount_percent"></span> 
-                                가격
-                            </p>
-                            <p class="s_name">메뉴명</p>
-                            <p class="s_subname">간단한 설명</p>
-                        </a>
-                    </li>
-                    <li class="last">
-                        <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
-                            <img class="MS_prod_img_s" src="" alt="">
-                            <p class="s_price">
-                               가격
-                            </p>
-                            <p class="s_name">메뉴명</p>
-                            <p class="s_subname">간단한 설명</p>
-                        </a>
-                    </li>
-                    
                 </ul>
             </div>
            	
@@ -428,89 +424,8 @@
 
 
 
-            <div class="sitebestreview_area">
-                <div class="box">
-                    <h2>모닝글로리 전체 베스트 상품</h2>
-                    <ul>
-                        <li>
-                            <a href="메뉴 상세페이지로" title="메뉴명">
-                                <img src=""  alt="">
-                                <p class="s_sub">메뉴이름</p>
-                                <p class="s_review">간단한 설명</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="메뉴명">
-                                <img src="" alt="">
-                                    <p class="s_sub">메뉴이름</p>
-                                    <p class="s_review">간단한 설명</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="간헐적 단식 B(라이스+샐러드) 프로그램">
-                                <img src="" alt="">
-                                    <p class="s_sub">메뉴이름</p>
-                                    <p class="s_review">간단한 설명</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="하루 약 1200Kcal 프로그램">
-                                <img src="" alt="">
-                                    <p class="s_sub">메뉴이름</p>
-                                    <p class="s_review">간단한 설명</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="덴마크 프로그램">
-                                <img src="" alt="">
-                                    <p class="s_sub">메뉴이름</p>
-                                    <p class="s_review">간단한 설명</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="헬스 식단 프로그램">
-                                <img src="" alt="">
-                                    <p class="s_sub">메뉴이름</p>
-                                    <p class="s_review">간단한 설명</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="샐러드 골라담기">
-                                <img src="" alt="">
-                                    <p class="s_sub">메뉴이름</p>
-                                    <p class="s_review">간단한 설명</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="[정기배송] 샐러드 4주 배송 [1일1식]">
-                                <img src="" alt="">
-                                    <p class="s_sub">메뉴이름</p>
-                                    <p class="s_review">간단한 설명</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="[정기배송] 샐러드 4주 배송 [1일2식]">
-                                <img src="" alt="">
-                                    <p class="s_sub">메뉴이름</p>
-                                    <p class="s_review">간단한 설명</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="샐러드 8종 맛보기">
-                                <img src="" alt="">
-                                    <p class="s_sub">메뉴이름</p>
-                                    <p class="s_review">간단한 설명</p>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="sitebestreviewimg_area">
-                    <a href="" title="이벤트">
-                        <img src="" alt="">
-                    </a>
-                </div>
-            </div>
-        </div>
+            
+        
         
         <jsp:include page="../common/footer.jsp"/>
 </body>

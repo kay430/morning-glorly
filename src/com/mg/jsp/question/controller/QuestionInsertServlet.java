@@ -135,12 +135,14 @@ public class QuestionInsertServlet extends HttpServlet {
 				
 				QuestionDTO thumbnail = new QuestionDTO();
 				thumbnail.setMgDTO(new MgDTO());
-				thumbnail.getMgDTO().setName(parameter.get("loginMember.name"));
+				thumbnail.getMgDTO().setName(parameter.get("loginMember"));
+				thumbnail.setNo(Integer.parseInt(parameter.get("no")));
 //				thumbnail.getMgDTO().setName(((MgDTO) request.getSession().getAttribute("loginMember")).getName());
 				thumbnail.setTitle(parameter.get("title"));
 				thumbnail.setBody(parameter.get("body"));
 				thumbnail.setCategoryCode(Integer.parseInt((parameter.get("qnaCode"))));
-
+				thumbnail.setWriterMemberNo(((MgDTO) request.getSession().getAttribute("loginMember")).getNo());
+				
 				System.out.println(thumbnail);
 				
 				
