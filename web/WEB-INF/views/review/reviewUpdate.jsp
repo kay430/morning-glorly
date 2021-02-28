@@ -14,7 +14,7 @@
 <script
 	src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css"
-	href="/mg/resources/css/customer/customer_main.css">
+	href="/mg/resources/css/customer/customer_reviewUpdate.css">
 <link rel="stylesheet" type="text/css"
 	href="/mg/resources/css/header.css">
 <link rel="stylesheet" type="text/css"
@@ -38,40 +38,41 @@
 		<!-- /사이드바 -->
   																				<!--구매하기 작성 하는곳  -->
 		<!-- 본문 -->
-		<h1>구매후기</h1>
+		
 		<hr>
 		<div id="page-content-wrapper">
 			<div class="container-fluid">
-				<h2>구매후기 작성</h2>
+				
 				<hr>
 				<div class="gongji">
-					<div class="outer-notice-insert">
+					
 						<div class="outer outer-notice-list">
 							<br>
 							<div class="table-area">
 								<form
 									action="${ pageContext.servletContext.contextPath }/review/update"
 									method="post">
-									<table align="center">
+									<table align="center" style="margin-left: -90px;">
 										<tr>
 											<td>제목</td>
-											<td><input type="text" size="105" name="title"></td>
+											<td><input type="text" size="105" name="title" style="margin-bottom:40px; margin-top:40px;"></td>
 										</tr>
 										<tr>
 											<td>작성자</td>
 											<td><input type="text"
 												value="${ sessionScope.loginMember.name}" name="writer"
-												readonly></td>
+												readonly style="margin-bottom:40px;  margin-top:20px;"></td>
 										</tr>
 										<tr>
 											<td>내용</td>
 											<td colspan="2"><textarea name="body" cols="60"
-													rows="15" style="resize: none; width: 800px; height: 450;"
+													rows="15" style="resize: none; width: 700px; height: 380px; margin-bottom:40px;"
 													required></textarea></td>
 										</tr>
+									
 										<tr>
 											<td>비밀번호</td>
-											<td><input type="text" size="30" name="password"></td>
+											<td><input type="text" size="30" name="password" style="margin-bottom:40px; margin-top:20px; "></td>
 										</tr>
 
 									</table>
@@ -87,7 +88,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	
 
 	<jsp:include page="../common/footer.jsp" />
 

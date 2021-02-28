@@ -16,6 +16,8 @@
 <link rel="stylesheet" type="text/css"
 	href="/mg/resources/css/customer/customer_main.css">
 <link rel="stylesheet" type="text/css"
+	href="/mg/resources/css/customer/customer_reviewinsert.css">
+<link rel="stylesheet" type="text/css"
 	href="/mg/resources/css/header.css">
 <link rel="stylesheet" type="text/css"
 	href="/mg/resources/css/footer.css">
@@ -37,14 +39,12 @@
 				<li><a href="#">상품 후기 </a></li>
 			</ul>
 		</div>
-		<!-- /사이드바 -->
-		<!--구매하기 작성 하는곳  -->
-		<!-- 본문 -->
-		<h1>구매후기</h1>
+		
+		
 		<hr>
 		<div id="page-content-wrapper">
 			<div class="container-fluid">
-				<h2>구매후기 작성</h2>
+				
 				<hr>
 				<div class="gongji">
 					<div class="outer-notice-insert">
@@ -53,42 +53,41 @@
 							<div class="table-area">
 								<form action="${ pageContext.servletContext.contextPath }/review/insert"
 									method="post" encType="multipart/form-data">
-									<table align="center">
+									<table align="center" style="margin-left:-80px">
 										<tr>
 											<td>제목</td>
-											<td><input type="text" size="105" name="title"></td>
+											<td><input type="text" size="95" name="title" style="margin-top: 15px; margin-bottom: 15px"></td>
 										</tr>
 										<tr>
 											<td>작성자</td>
 											<td><input type="text"
-												value="${ sessionScope.loginMember.name }" name="writer" readonly></td>
+												value="${ sessionScope.loginMember.name }" name="writer" readonly style="margin-top: 15px; margin-bottom: 15px"></td>
 										</tr>
 										<tr>
 											<td>내용</td>
 											<td colspan="2"><textarea name="body" cols="60"
-													rows="15" style="resize: none; width: 800px; height: 450;"
-													required></textarea></td>
+													rows="15" style="resize: none; width: 600px; height: 350px; margin-left:1px;margin-top: 15px; margin-bottom: 15px"
+													required ></textarea></td>
 										</tr>
 										<tr>
 											<td>비밀번호</td>
-											<td><input type="text" size="30" name="password"></td>
+											<td><input type="text" size="30" name="password" style="margin-top: 15px; margin-bottom: 15px"></td>
 										</tr>
 
 									
 									<br>
 										<tr>
-											<td>대표이미지</td>
-											<td colspan="3">
+											<td>후기 사진</td>
+											 <td colspan="3">
 												<div class="title-image-area1">
-													<img id="titleImg" width="350" height="200">
+													<img id="titleImg" width="350" height="200" style="margin-top: 15px; margin-bottom: 15px">
 												</div>
-											</td>
+											</td> 
 										</tr>
-										<tr>
-											
-									</tr>
+										
  												</table>
-										<div class="thumbnail-file-area">
+										<div class="thumbnail-file-area" align="center">
+ 												
 											<input type="file" id="thumbnailImg1" name="thumbnailImage1"
 												onchange="loadImg(this, 1)"> 
 											

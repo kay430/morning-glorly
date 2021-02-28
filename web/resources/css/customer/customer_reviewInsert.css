@@ -14,6 +14,7 @@
     background: rgb(241, 234, 191);
     border-radius: 30px / 30px;
     margin: 0 0px 0 -200px;  
+   
     }
     
     #main-wrapper{
@@ -62,11 +63,12 @@
       height: auto;
     }
     
-.gongji{
+.review-board{
 background: rgb(226, 240, 219);
 width:1000px;
-height: 900px;
+height: 1000px;
 margin-left: -30px;
+
 }
 /*자주묻는 질문 운영정보*/
 .info{
@@ -86,20 +88,20 @@ margin-left: -30px;
 	width: 1000px; 
 	} */
 /* 모든 테이블 중앙 배치할 수 있는 설정 */
-/* .table-area {
-	width: 1000px;
-	margin-left:auto;
-	margin-right:50px;
+.table-area {
+	
+	margin-left:-100px;
+	
 }
- */
+
 /* 테이블 영역 크기 지정 */
-/* .outer-notice-list .table-area, 
+.outer-notice-list .table-area, 
 .outer-notice-detail .table-area, 
 .outer-board-list .table-area,
 .outer-board-insert .table-area {
 	width:980px;
 	height:600px;
-} */
+}
 
 .main-header{
     border:1px solid black;
