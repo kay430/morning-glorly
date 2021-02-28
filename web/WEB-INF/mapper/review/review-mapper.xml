@@ -8,7 +8,7 @@
           WHERE A.REVIEW_DISPLAY = 'Y'    		
 	</entry>
 	<entry key="searchReviewList">
-	SELECT /*com.greedy.jsp.customerservice.model.dao.ReviewDAO#selectAllReviewService()*/
+	SELECT 
 	   	      A.REVIEW_NO
 	   		, A.REVIEW_TITLE
 	   		, A.REVIEW_BODY
@@ -21,7 +21,7 @@
 	   	FROM MG_REVIEW A
 	   	JOIN MG_MEMBER B ON (A.REVIEW_WRITER_MEMBER_NO = B.MEMBER_NO)
 	   JOIN MG_ORDER C ON (A.REVIEW_ORDER_NO = C.ORDER_NO)
-	  <!--  WHERE A.REVIEW_STATUS ='Y' -->
+
 	   ORDER BY A.REVIEW_NO DESC	
 	</entry>
 	<entry key="selectAllReviewList">

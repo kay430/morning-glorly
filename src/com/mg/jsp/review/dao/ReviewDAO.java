@@ -301,7 +301,7 @@ public class ReviewDAO {
 		ResultSet rset = null;
 		
 		ReviewDTO reviewDetail = null;
-		System.out.println("진입" + no);
+	
 		String query = prop.getProperty("selectReviewDetail");
 		
 		try {
