@@ -300,10 +300,12 @@
         , A.QNA_TITLE
         , A.QNA_BODY
         , A.QNA_WRITER_MEMBER_NO
+        , A.CATEGORY_CODE
         )
         VALUES
         (
           SEQ_QNA_NO.NEXTVAL
+        , ?
         , ?
         , ?
         , ?
@@ -318,6 +320,7 @@
         INSERT
           INTO MG_QNA_ATTACHMENT A
         (   
+       	  A.ATTACHMENT_NO
         , A.REF_QNA_NO
         , A.ORIGINAL_NAME
         , A.SAVED_NAME

@@ -69,13 +69,7 @@
 			</div>
 			<img
 				style="float: left; width: 200px; height: 200px; margin: 10px 15px 10px 0;"
-				src="${ pageContext.servletContext.contextPath }<c:out value="${ requestScope.notice.attaNotiList[0].thumbnailPath }"/>" />
-			<img
-				style="float: left; width: 200px; height: 200px; margin: 10px 15px 10px 0;"
-				src="${ pageContext.servletContext.contextPath }<c:out value="${ requestScope.notice.attaNotiList[0].thumbnailPath }"/>" />
-			<img
-				style="float: left; width: 200px; height: 200px; margin: 10px 15px 10px 0;"
-				src="${ pageContext.servletContext.contextPath }<c:out value="${ requestScope.notice.attaNotiList[0].thumbnailPath }"/>" />
+				src="${ pageContext.servletContext.contextPath }<c:out value="${ requestScope.question.attaQueList[0].thumbnailPath }"/>" />
 			<div class="view-mail" style="margin: 150px 0 0 0;">
 				<%-- <p><c:out value="${ requestScope.notice.body }"/></p> --%>
 				<textarea id="core" style="resize: none; width: 90%; height: 250px;"
