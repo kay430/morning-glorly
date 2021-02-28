@@ -75,18 +75,19 @@
 												
 												</td>
 										</tr>
-
+    
 										<tr class="innerText">
 											<td>내용</td>
 											<td colspan="2"><textarea name="body" cols="60"
 													rows="15" style="resize: none; width: 600px; height: 550px;" required></textarea>
 											</td>
 										</tr>
-                              					
+                              					 
 									</table>
 										<div align="center">
 											<div class="thumbnail-file-area" id="titleQueImgArea">
-												<input type="file" id="QuethumbnailImg1" name="QuethumbnailImg1" onchange="loadImg(this, 1)">
+												<input type="file" id="QuethumbnailImg1" name="QuethumbnailImg1" onchange="QueloadImg(this, 1)">
+												<img id="QuecontentImg1" width="100" height="100">
 										</div>								
 									<br>
 									<div align="center">
@@ -104,29 +105,25 @@
 	</div>
 	
 	<script>
-		const $titleImgArea = document.getElementById("titleQueImgArea");
-		
-		
-		$titleImgArea.onclick = function() {
-			document.getElementById("QuethumbnailImg1").click();
-		}
-		
-		function loadImg(value, num) {
-			if(value.files && value.files[0]) {
-				const reader = new FileReader();
-				
-				reader.onload = function(e) {
-					switch(num) {
-					case 1 :
-						document.getElementById("titleImg").src = e.target.result;
-						break;
-					
-					}
-				}
-				
-				reader.readAsDataURL(value.files[0]);
-			}
-		}
+  	function QueloadImg(value, num) {
+  		if(value.files && value.files[0]) {
+  			const reader = new FileReader();
+  			
+  			reader.onload = function(e) {
+  				switch(num) {
+  				case 1 :
+  					document.getElementById("QuecontentImg1").src = e.target.result;
+  					console.log("클릭완료");
+  					console.log(e.target.result);
+  					break;
+  				}
+  			}
+  			
+  			reader.readAsDataURL(value.files[0]);
+  			console.log(value.files[0]);
+  			
+  		}
+  	}
 	</script>
 	
 	<jsp:include page="../common/footer.jsp" />

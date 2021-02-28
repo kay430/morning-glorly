@@ -355,18 +355,21 @@ public class QuestionDAO {
 		System.out.println("thumb : " + thumbnail);
 		
 		String query = prop.getProperty("insertQueThumbnailContent");
-		System.out.println("인서트 쿼리 : " + query);
+//		System.out.println("인서트 쿼리 : " + query);
 		
 		try {
 			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, thumbnail.getTitle());
 			pstmt.setString(2, thumbnail.getBody());
-			pstmt.setInt(3, thumbnail.getCategoryCode());
-			pstmt.setInt(4, thumbnail.getWriterMemberNo());
+			pstmt.setInt(3, thumbnail.getWriterMemberNo());
+			
+			result = pstmt.executeUpdate();
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return 0;
+		
+		return result;
 	}
 	public int selectThumbnailSequence(Connection con) {
 		
@@ -376,28 +379,27 @@ public class QuestionDAO {
 		int lastQuestionNo = 0;
 		
 		String query = prop.getProperty("selectQueThumbnailSequence");
-		System.out.println("쿼리이름 : " + query );
-		
+		System.out.println("여기왔냐씨발");
 		try {
 			stmt = con.createStatement();
 			
 			rset = stmt.executeQuery(query);
 			
 			if(rset.next()) {
-				lastQuestionNo = rset.getInt("CURVAL");
+				lastQuestionNo = rset.getInt("CURRVAL");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			close(rset);
 			close(stmt);
-		}
+		}   
 		
 	
 		return lastQuestionNo;
 	}
 	public int insertAttachment(Connection con, AttaQuestionDTO file) {
-		
+		 
 		PreparedStatement pstmt = null;
 		
 		int result = 0;
@@ -406,12 +408,13 @@ public class QuestionDAO {
 		
 		try {
 			pstmt = con.prepareStatement(query);
-			pstmt.setInt(1, file.getRefQnaNo());
+			pstmt.setInt(1, file.getRefQnaNo()); 
 			pstmt.setString(2, file.getOriginalName());
 			pstmt.setString(3, file.getSavedName());
 			pstmt.setString(4, file.getSavedPath());
 			pstmt.setString(5, file.getFileType());
 			pstmt.setString(6, file.getThumbnailPath());
+			pstmt.setString(7, file.getStatus());
 			
 			result = pstmt.executeUpdate();
 			
