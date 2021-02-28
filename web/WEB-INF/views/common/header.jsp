@@ -50,8 +50,8 @@
                 <li><a href="${ pageContext.servletContext.contextPath }/bulkup" title="벌크업 식단" class="mn">벌크업 식단</a></li>
                 <li><a href="${ pageContext.servletContext.contextPath }/ujiater" title="유지어터 식단" class="mn">유지어터 식단</a></li>
                 <li><a href="${ pageContext.servletContext.contextPath }/diet"  title="다이어트 식단" class="mn">다이어트 식단</a></li>
-                <li><a href="" title="식단표" class="mn">식단표</a></li>
-                <li><a href="" title="정기배송" class="mn">정기배송</a></li>
+                <li><a href="${ pageContext.servletContext.contextPath }/mealplan" title="식단표" class="mn">식단표</a></li>
+                <li><a href="${ pageContext.servletContext.contextPath }/jeongki/delivery"  title="정기배송" class="mn">정기배송</a></li>
             </ul>
             <div id="allCategoryArea">
                 <div class="allCategoryView">

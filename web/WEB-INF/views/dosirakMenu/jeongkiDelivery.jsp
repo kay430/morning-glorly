@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Morning Glory</title>
+<title>Morning Glory - 정기배송</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -27,111 +27,64 @@
             
               
 
-                <h3 class="w360 onnn">다이어트 도시락<strong></strong></h3>
+             
+
+
+                  <h3 class="w330">정기배송<strong> 종류</strong></h3>
                 <ul>
-                    <li class="onnn">
+                    <li style="width: 320px;">
                         <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
-                            <img src="./resources/image/dosirak/크래미 베이컨 샐러드.PNG" class="MS_prod_img_s" alt=""  height="224.5px">
+                            <img class="MS_prod_img_s" src="../resources/image/dosirak/정기.PNG" alt="" height="280px">
                             <p class="s_price">
-                                최종가 : 5,200원
+                              
+                                최종가 : 42,500원
                             </p>
-                            <p class="s_name">크래미 베이컨 샐러드</p>
-                            <p class="s_subname">다이어트를 위한 도시락!</p>
+                            <p class="s_name">[정기] 저탄수다이어트식단(샐러드5종)!</p>
+                            <p class="s_subname">불고기,닭가슴살,크래미베이컨,훈제오리 고구마,쉬림프크림파스타 샐러드!</p>
                         </a>
                     </li>
-                    <li class="onnn">
+                    <li style="width: 320px;">
                         <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
-                            <img class="MS_prod_img_s" src="./resources/image/dosirak/불고기 샐러드.PNG" alt="" height="224.5px">
+                            <img class="MS_prod_img_s" src="../resources/image/dosirak/유지어터.PNG" alt="" height="280px">
                             <p class="s_price">
-                                가격 : 5,200원
+                               최종가 : 44,900원
                             </p>
-                            <p class="s_name">불고기 샐러드</p>
-                            <p class="s_subname">맛과 건강을 가득히 !</p>
+                            <p class="s_name">[정기] 유지어터 식단(5종)</p>
+                            <p class="s_subname">닭가슴살,부채살,홍두깨살,틸라피아,스페셜 도시락</p>
                         </a>
                     </li>
-                    <li class="onnn">
+                    <li style="width: 350px;">
                         <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
-                            <img class="MS_prod_img_s" src="./resources/image/dosirak/닭가슴살 단호박 샐러드.PNG" alt="" height="224.5px">
+                            <img class="MS_prod_img_s" src="../resources/image/dosirak/유지어터1.PNG" alt="" height="280px">
                             <p class="s_price">
-                                가격 : 5,200원
+                                
+                                최종가  : 44,900원
                             </p>
-                            <p class="s_name">닭가슴살 단호박 샐러드</p>
-                            <p class="s_subname">이거 먹으면 근육랑이 증가한다!!</p>
+                            <p class="s_name">[정기] 벌크업 식단</p>
+                            <p class="s_subname">닭가슴살200g,부채살200g,홍두깨살200g,틸라피아도시락,스페셜도시락</p>
                         </a>
                     </li>
-                    <li class="last onnn">
-                        <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
-                            <img class="MS_prod_img_s" src="./resources/image/dosirak/훈제오리 고구마 샐러드.PNG" alt="" height="224.5px">
-                            <p class="s_price">
-                                가격 : 5,200원
-                            </p>
-                            <p class="s_name">훈제오리 고구마 샐러드</p>
-                            <p class="s_subname">틸라피아 도시락은 사랑입니다!</p>
-                        </a>
-                    </li>
+                 
                 </ul>
-                   <div class="clobox">
+                    <div class="clobox">
                     <h3>지금 가장 <span>🔥</span><strong>HOT</strong><span>🔥</span> 해요!</h3>
                     <div class="item_best1">
                         <a
                             href="${ pageContext.servletContext.contextPath }/menu/detail">
-                            <p><img src="./resources/image/dosirak/닭가슴살 단호박 샐러드.PNG"></p>
-                            <p>
-                                <span>🍝메뉴명: 닭가슴살 단호박 샐러드 </span>
-                                <span>💝간단한 설명 💝 : 이거먹으면 근육량이 증가한다! </span>
-                                <span>5,200원</span>
-                                <span>10<i>%</i></span>
-                                <span>4,480<i>원</i></span>
+                            <p><img src="../resources/image/dosirak/정기.PNG" style="height:500px;"></p>
+                            <p style="padding-top: 120px;">
+                                <span>🍝메뉴명 : [정기] 저탄수다이어트식단(샐러드5종)!</span>
+                                <span>💝간단한 설명 💝 : 불고기,닭가슴살,크래미베이컨,훈제오리 고구마,쉬림프크림파스타 샐러드!</span>
+                                <span></span>
+                                <span><i></i></span>
+                                <span>42,500<i>원</i></span>
                                 <span>지금바로 구매하기!</span>
                             </p>
                         </a>
                     </div>
                 </div>
-           	
-           	<br><br><br>
-           	  <h3 class="w360 onnn">다이어트 도시락<strong> BEST</strong></h3>
-                <ul>
-                    <li class="onnn">
-                        <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
-                            <img src="./resources/image/dosirak/크래미 베이컨 샐러드.PNG" class="MS_prod_img_s" alt=""  height="224.5px">
-                            <p class="s_price">
-                                최종가 : 5,200원
-                            </p>
-                            <p class="s_name">크래미 베이컨 샐러드</p>
-                            <p class="s_subname">다이어트를 위한 도시락!</p>
-                        </a>
-                    </li>
-                    <li class="onnn">
-                        <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
-                            <img class="MS_prod_img_s" src="./resources/image/dosirak/불고기 샐러드.PNG" alt="" height="224.5px">
-                            <p class="s_price">
-                                가격 : 5,200원
-                            </p>
-                            <p class="s_name">불고기 샐러드</p>
-                            <p class="s_subname">맛과 건강을 가득히 !</p>
-                        </a>
-                    </li>
-                    <li class="onnn">
-                        <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
-                            <img class="MS_prod_img_s" src="./resources/image/dosirak/닭가슴살 단호박 샐러드.PNG" alt="" height="224.5px">
-                            <p class="s_price">
-                                가격 : 5,200원
-                            </p>
-                            <p class="s_name">닭가슴살 단호박 샐러드</p>
-                            <p class="s_subname">이거 먹으면 근육랑이 증가한다!!</p>
-                        </a>
-                    </li>
-                    <li class="last onnn">
-                        <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
-                            <img class="MS_prod_img_s" src="./resources/image/dosirak/훈제오리 고구마 샐러드.PNG" alt="" height="224.5px">
-                            <p class="s_price">
-                                가격 : 5,200원
-                            </p>
-                            <p class="s_name">훈제오리 고구마 샐러드</p>
-                            <p class="s_subname">틸라피아 도시락은 사랑입니다!</p>
-                        </a>
-                    </li>
-                </ul>
+                <br><br>
+  
             </div>
            	
            
@@ -418,8 +371,8 @@
 
 
 
- 
-        </div>
+            
+        
         
         <jsp:include page="../common/footer.jsp"/>
 </body>
