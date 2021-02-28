@@ -428,6 +428,7 @@ public class ReviewDAO {
 			pstmt.setString(1, changeInfo.getTitle());
 			pstmt.setString(2, changeInfo.getBody());
 			pstmt.setInt(3, changeInfo.getWriterMemberNo());
+			pstmt.setInt(4, changeInfo.getNo());
 			
 			
 			System.out.println(changeInfo);

@@ -307,7 +307,8 @@
 #order #paybutton img { margin: 0 5px; }
 #order .tbl-order { position: relative; margin-top: 10px; border-top: 2px solid #ccc; border-bottom: 1px solid #ccc; }
 #order .tbl-order { _position/**/:static; }
-#order .tbl-order table { font-size:14px; }
+#order .tbl-order table { font-size:14px; width: 1040px;}
+#order .tbl-pay table {width: 1040px;}
 
 #order .tbl-order th, 
 #order .tbl-order td { padding: 10px; border-bottom: 1px solid #eee; color: #222; line-height:150%; }
@@ -445,3 +446,6 @@ a.f14 { font-size:17px; font-weight:500; color:#555; }
 .can_btn { display:inline-block; font-size:15px; padding:20px 30px; background: #FFF; color:#999; border:1px solid #ccc;  text-align:center; margin:5px; transition: color 250ms ease-out; }
 .can_btn:hover { color:#000;}
 /* BASIC css end */
+
+
+#order .nbg :parent { text-align: centerbackground-color: red; }

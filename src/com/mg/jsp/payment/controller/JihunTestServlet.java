@@ -22,14 +22,15 @@ public class JihunTestServlet extends HttpServlet {
 		MgGoodsDTO detailInfo = new MgGoodsService().selectOnedetailInfo(no);
 		String MemId = ((MgDTO) request.getSession().getAttribute("loginMember")).getId();
 		System.out.println("detailInfo " + detailInfo);
-		System.out.println("MemNo " + MemId);
 		MgDTO loginInfo = new PaymentService().selectMemberInfo(MemId);
 		
+		System.out.println("회원정보 " + loginInfo);
 
 		String path = ""; 
 		if(detailInfo !=null) { 
 			path ="/WEB-INF/views/payment/testJihun.jsp";
 			request.setAttribute("detailInfo", detailInfo);
+			request.setAttribute("loginInfo", loginInfo);
 
 		} else { path= "/WEB-INF/views/main/failed.jsp";
 		request.setAttribute("message", "상세조회실패"); 

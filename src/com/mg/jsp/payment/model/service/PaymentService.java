@@ -1,6 +1,8 @@
 package com.mg.jsp.payment.model.service;
 
 import static com.mg.jsp.common.jdbc.JDBCTemplate.getConnection;
+import static com.mg.jsp.common.jdbc.JDBCTemplate.commit;
+import static com.mg.jsp.common.jdbc.JDBCTemplate.rollback;
 
 import java.sql.Connection;
 
@@ -20,8 +22,15 @@ public class PaymentService {
 		
 		Connection con = getConnection();
 		
-		MgDTO result = payDAO.selectMemberInfo(memId);		
-		return null;
+		MgDTO result = payDAO.selectMemberInfo(con, memId);	
+		
+		if(result != null) {
+			commit(con);
+		} else {
+			rollback(con);
+		}
+		
+		return result;
 	}
 
 

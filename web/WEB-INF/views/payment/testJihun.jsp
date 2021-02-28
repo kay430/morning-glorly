@@ -162,19 +162,12 @@
 								value="2021-03-02,2021-03-03,2021-03-04,"> <input
 								type="hidden" id="hopedate_except_holiday"
 								value="01-01,03-01,05-05,06-06,08-15,10-03,10-09,12-25,">
-							<input type="hidden" name="useemoney" value="" /> <input
-								type="hidden" name="emergency" value=""> <input
-								type="hidden" name="emergency2" value=""> <input
-								type="hidden" name="emergency3" value=""> <input
-								type="hidden" name="tempemergency21" value="" id=tempemergency21>
-							<input type="hidden" name="tempemergency22" value=""
-								id=tempemergency22> <input type="hidden"
-								name="tempemergency23" value="" id=tempemergency23> <input
-								type="hidden" name="member_before_pay" id="member_before_agree"
-								value="Y">
+							<input type="hidden" name="tempslimPhone" value="" id=tempslimPhone>
+							<input type="hidden" name="tempslimPhoneMid" value="" id=tempslimPhoneMid> 
+							<input type="hidden" name="tempslimPhoneEnd" value="" id=tempslimPhoneEnd>
+							<input type="hidden" name="member_before_pay" id="member_before_agree" value="Y">
 
 							<fieldset>
-								<legend>주문 폼</legend>
 								<h3>주문리스트</h3>
 								<div class="tbl-order">
 									<table>
@@ -206,41 +199,23 @@
 												</td>
 												<td>
 													<div class="tb-left">
-														<input type="text" value="<c:out value="${ requestScope.detailInfo.name }"/>" readonly style="border: none">
+														<c:out value="${ requestScope.detailInfo.name }"/>
 													</div>
 												</td>
 												<td>
 													<div class="tb-center">1개</div>
 												</td>
 												<td>
-													<input type="text" value="<c:out value="${ requestScope.detailInfo.price }"/>" readonly style="border: none">
+													<c:out value="${ requestScope.detailInfo.price }"/>
 												</td>
 												<td>
 													<div class="tb-center">1,100원</div>
-												</td>
-											</tr>
-											<tr class="nbg">
-												<td colspan="5">
-													<div style="padding-left: 25px">
-														<img src="/images/d3/modern_simple/basket_option.gif"
-															alt="옵션" title="옵션" /> 기간선택(필수) : 01. 1주 - 기본구성(실속구매) 1개
-													</div>
 												</td>
 											</tr>
 										</tbody>
 									</table>
 								</div>
 								<!-- .table-order -->
-
-								<div class="mem-lvl">
-									<div class="lvl-img">
-										<img src="/images/common/mypage_goldmember.gif" />
-									</div>
-									<p>
-										길홍동님은 <em>[일반]</em>회원입니다.<br />
-									</p>
-								</div>
-								<!-- .mem-lvl -->
 
 								<h3>주문자정보</h3>
 								<div class="tbl-order">
@@ -253,40 +228,23 @@
 										<tbody>
 											<tr>
 												<th scope="row"><div class="txt-l">이름</div></th>
-												<td>길홍동 <input type="hidden" name="sender"
-													form="order_form" id="sender" class="MS_input_txt"
-													value="길홍동" />
+												<td>${ requestScope.loginInfo.name }<input
+													type="hidden" name="sender" form="order_form" id="sender"
+													class="MS_input_txt"
+													value="${ requestScope.loginInfo.name }" />
 												</td>
 											</tr>
 											<tr>
 												<th scope="row"><div class="txt-l">이메일</div></th>
-												<td><input type="hidden" name="oldemail" id="oldemail" />
-													<input type="hidden" name="email" id="email" /> <input
-													type="text" name="email1" id="email1" class="MS_input_txt"
-													maxlength="20" form="order_form" /> <span>@</span> <span
-													id="direct_email"
-													style="margin-top: 3px; display: inline-block"> <input
-														type="text" name="email3" id="email3" value="naver.com"
-														class="MS_input_txt" disabled maxlength="25"
-														form="order_form" />
-												</span> <select name="emailsel" id="emailsel"
-													class="MS_select MS_email" style="margin-right: 5px;"
-													onchange="viewdirect()">
-														<option value='direct'>직접입력</option>
-														<option value="naver.com" selected="selected">naver.com</option>
-														<option value="hotmail.com">hotmail.com</option>
-														<option value="hanmail.net">hanmail.net</option>
-														<option value="yahoo.com">yahoo.com</option>
-														<option value="nate.com">nate.com</option>
-														<option value="korea.com">korea.com</option>
-														<option value="chol.com">chol.com</option>
-														<option value="gmail.com">gmail.com</option>
-														<option value="netian.com">netian.com</option>
-												</select></td>
+												<td>${ requestScope.loginInfo.email }</td>
 											</tr>
 											<tr>
 												<th scope="row"><div class="txt-l">핸드폰</div></th>
-												<td><select name="emergency11" form="order_form"
+												<td>${ requestScope.loginInfo.phone }</td>
+											</tr>
+											<tr>
+												<th scope="row"><div class="txt-l">핸드폰</div></th>
+												<td><select name="phone1" form="order_form"
 													id="emergency11" class="MS_select MS_tel">
 														<option value="">선택</option>
 														<option value="010">010</option>
@@ -295,37 +253,9 @@
 														<option value="017">017</option>
 														<option value="018">018</option>
 														<option value="019">019</option>
-														<option value="02">02</option>
-														<option value="031">031</option>
-														<option value="032">032</option>
-														<option value="033">033</option>
-														<option value="041">041</option>
-														<option value="042">042</option>
-														<option value="043">043</option>
-														<option value="044">044</option>
-														<option value="051">051</option>
-														<option value="052">052</option>
-														<option value="053">053</option>
-														<option value="054">054</option>
-														<option value="055">055</option>
-														<option value="061">061</option>
-														<option value="062">062</option>
-														<option value="063">063</option>
-														<option value="064">064</option>
-														<option value="0502">0502</option>
-														<option value="0503">0503</option>
-														<option value="0504">0504</option>
-														<option value="0505">0505</option>
-														<option value="0507">0507</option>
-														<option value="0508">0508</option>
-														<option value="070">070</option>
-														<option value="080">080</option>
-												</select> - <input type="text" name="emergency12" form="order_form"
-													id="emergency12" size="4" maxlength="4"
-													class="MS_input_txt w60" value=""> - <input
-													type="text" name="emergency13" form="order_form"
-													id="emergency13" size="4" maxlength="4" minlength=4
-													class="MS_input_txt w60" value=""></td>
+												</select> - 
+												<input type="text" name="phone2" form="order_form" id="emergency12" size="4" maxlength="4" class="MS_input_txt w60" value=""> - 
+												<input type="text" name="phone3" form="order_form" id="emergency13" size="4" maxlength="4" minlength=4 class="MS_input_txt w60" value=""></td>
 											</tr>
 										</tbody>
 									</table>
@@ -338,6 +268,65 @@
 										정보와 같음
 									</label>
 								</h3>
+								
+								<script>
+								$('select[name="phone1"] option[value='+'${ requestScope.loginInfo.phone}'.substring(0, 3)+']').attr("selected", true);
+								$('input[name="phone2"]').val('${ requestScope.loginInfo.phone}'.substring(3, 7));
+								$('input[name="phone3"]').val('${ requestScope.loginInfo.phone}'.substring(7, 11));
+								console.log('${ requestScope.loginInfo.phone}'.substring(0, 3));
+								
+								//주문정보 동일checkbox action
+								function copydata() {
+								    if ($('input[name="same"]').prop('checked') === true) {
+								    	
+								        $('input[name="receiver"]').val($('input[name="sender"]').val());
+								        
+								        if ('select' == 'select') {
+								        	if ($('select[name="slimPhone"]')) {
+								        		$('select[name="slimPhone"] option[value='+'${ requestScope.loginInfo.phone}'.substring(0, 3)+']').attr("selected", true);
+								        	} else {
+								        		console.table($('select[name="slimPhone"]'));
+								        		$('select[name="slimPhone"]').val('${ requestScope.loginInfo.phone}'.substring(0, 3)).attr("selected", true);
+								        	}
+								        } else {
+								        }
+								        
+										$('input[name="slimPhoneMid"]').val('${ requestScope.loginInfo.phone}'.substring(3, 7));
+										$('input[name="slimPhoneEnd"]').val('${ requestScope.loginInfo.phone}'.substring(7, 11));
+								        
+								    } else {
+								        $('input[name="receiver"]').val('');
+		 						        if ('select' == 'select') {
+								            if ($('select[name="slimPhone"]')) $('select[name="slimPhone"] option[value=""]').attr("selected",true);
+								        } else {
+								            if ($('select[name="slimPhone"]')) $('select[name="slimPhone"]').val('');
+								        }
+								        if ($('input[name="slimPhoneMid"]')) $('input[name="slimPhoneMid"]').val('');
+								        if ($('input[name="slimPhoneEnd"]')) $('input[name="slimPhoneEnd"]').val('');
+								    }
+								}
+								function addrclick() {
+									var result = '${ requestScope.loginInfo.address }'.split('$');
+									
+									$('input[name="post1"]').val(result[0]);
+									$('input[name="address1"]').val(result[1]);
+									$('input[name="address2"]').val(result[2]);
+									
+								}
+								
+								function post() {
+									console.log('하이');
+									
+									$('input[name="post1"]').val('');
+									$('input[name="address1"]').val('');
+									$('input[name="address2"]').val('');
+									
+								}
+								
+								
+								</script>
+								
+								
 								<div class="tbl-order">
 									<table>
 										<caption>배송 정보 입력</caption>
@@ -355,9 +344,9 @@
 													value="" /></td>
 											</tr>
 											<tr>
-												<th scope="row"><div class="txt-l">집전화</div></th>
-												<td><select name="emergency21" form="order_form"
-													id="emergency21" class="MS_select MS_tel">
+												<th scope="row"><div class="txt-l">핸드폰</div></th>
+												<td><select name="slimPhone" form="order_form"
+													id="slimPhone" class="MS_select MS_tel">
 														<option value="">선택</option>
 														<option value="010">010</option>
 														<option value="011">011</option>
@@ -365,169 +354,30 @@
 														<option value="017">017</option>
 														<option value="018">018</option>
 														<option value="019">019</option>
-														<option value="02">02</option>
-														<option value="031">031</option>
-														<option value="032">032</option>
-														<option value="033">033</option>
-														<option value="041">041</option>
-														<option value="042">042</option>
-														<option value="043">043</option>
-														<option value="044">044</option>
-														<option value="051">051</option>
-														<option value="052">052</option>
-														<option value="053">053</option>
-														<option value="054">054</option>
-														<option value="055">055</option>
-														<option value="061">061</option>
-														<option value="062">062</option>
-														<option value="063">063</option>
-														<option value="064">064</option>
-														<option value="0502">0502</option>
-														<option value="0503">0503</option>
-														<option value="0504">0504</option>
-														<option value="0505">0505</option>
-														<option value="0507">0507</option>
-														<option value="0508">0508</option>
-														<option value="070">070</option>
-														<option value="080">080</option>
-												</select> - <input type="text" name="emergency22" form="order_form"
-													id="emergency22" size="4" maxlength="4"
+												</select> - <input type="text" name="slimPhoneMid" form="order_form"
+													id="slimPhoneMid" size="4" maxlength="4"
 													class="MS_input_txt w60" value=""> - <input
-													type="text" name="emergency23" form="order_form"
-													id="emergency23" size="4" maxlength="4" minlength=4
-													class="MS_input_txt w60" value=""></td>
-												<th scope="row" style="border: 1px solid #eee"><div
-														class="txt-c">핸드폰</div></th>
-												<td style="padding-left: 10px"><select
-													name="emergency31" form="order_form" id="emergency31"
-													class="MS_select MS_tel">
-														<option value="">선택</option>
-														<option value="010">010</option>
-														<option value="011">011</option>
-														<option value="016">016</option>
-														<option value="017">017</option>
-														<option value="018">018</option>
-														<option value="019">019</option>
-														<option value="02">02</option>
-														<option value="031">031</option>
-														<option value="032">032</option>
-														<option value="033">033</option>
-														<option value="041">041</option>
-														<option value="042">042</option>
-														<option value="043">043</option>
-														<option value="044">044</option>
-														<option value="051">051</option>
-														<option value="052">052</option>
-														<option value="053">053</option>
-														<option value="054">054</option>
-														<option value="055">055</option>
-														<option value="061">061</option>
-														<option value="062">062</option>
-														<option value="063">063</option>
-														<option value="064">064</option>
-														<option value="0502">0502</option>
-														<option value="0503">0503</option>
-														<option value="0504">0504</option>
-														<option value="0505">0505</option>
-														<option value="0507">0507</option>
-														<option value="0508">0508</option>
-														<option value="070">070</option>
-														<option value="080">080</option>
-												</select> - <input type="text" name="emergency32" form="order_form"
-													id="emergency32" size="4" maxlength="4"
-													class="MS_input_txt w60" value=""> - <input
-													type="text" name="emergency33" form="order_form"
-													id="emergency33" size="4" maxlength="4" minlength=4
+													type="text" name="slimPhoneEnd" form="order_form"
+													id="slimPhoneEnd" size="4" maxlength="4" minlength=4
 													class="MS_input_txt w60" value=""></td>
 											</tr>
 											<tr>
 												<th scope="row"><div class="txt-l">배송지 선택</div></th>
 												<td colspan="3"><input type="radio" value="A"
-													name="place" form="order_form" onclick="addrclick()" />최근
-													배송지&nbsp;<a href="javascript:;" class="past_list">배송지
-														목록</a> &nbsp;&nbsp;<input type="radio" value="H"
-													form="order_form" name="place" onclick="addrclick()" />자택
-													&nbsp;&nbsp;<input type="radio" value="E" form="order_form"
+													name="place" form="order_form" onclick="addrclick()" />
+													내 주소&nbsp; &nbsp;&nbsp;<input type="radio" value="E" form="order_form"
 													name="place" onclick="post();" />신규 배송지</font></td>
 											</tr>
 											<tr>
 												<th scope="row"><div class="txt-l">주소</div></th>
-												<td colspan="3"><input name="post1" id="post1"
-													form="order_form" size="6" class="MS_input_txt w60"
-													onclick='this.blur();post();'> <a
-													href="javascript:post();" class="btn-white">우편번호</a>
-													<div class="mt-10">
-														<input type="text" name="address1" form="order_form"
-															id="address1" size="50" class="MS_input_txt w240"
-															readonly> <input type="hidden" name="old_address"
-															form="order_form" id="old_address"
-															value="경기 안양시 동안구 호계동 1045-2"> <input
-															type="hidden" name="old_home_address" form="order_form"
-															id="old_home_address" value="경기 안양시 동안구 호계동 1045-2">
-														<input type="hidden" name="old_offi_address"
-															form="order_form" id="old_offi_address" value="">
-														<input type="text" name="address2" form="order_form"
-															id="address2" size="50" class="MS_input_txt w240">
-													</div></td>
-											</tr>
-											<tr>
-												<th scope="row"><div class="txt-l">
-														주문메세지<br /> <span>(100자내외)</span>
-													</div></th>
-												<td colspan="3"><textarea name="message"
-														form="order_form" id="message" cols="50" rows="5"
-														class="MS_textarea"></textarea></td>
-											</tr>
-											<tr>
-												<th scope="row"><div class="txt-l">무통장 입금자명</div></th>
-												<td colspan="3"><input type="text" name="bankname"
-													form="order_form" class="MS_input_txt" size="10"
-													maxlength="40"> <span class="MS_bankname_message">(주문자와
-														같을경우 생략 가능)</span></td>
-											</tr>
-											<tr>
-												<th scope="row" rowspan="2"><div class="txt-l">희망배송일</div></th>
 												<td colspan="3">
-													<div>
-														<input type="checkbox" name="nowdelivery" value="Y">
-														가능한 빨리 배송
-													</div>
-													<div>
-														<input type="text" id="inputcalendar" size="11"
-															value="2021-03-05" class="MS_input_txt MS_calendar"
-															readonly onclick="Calendar(this, event);" /> <a
-															href="#none"
-															onclick="javascript:document.getElementById('inputcalendar').onclick(event);"><img
-															src="/images/d3/modern_simple/smart_calendar.png" /></a> </br>※
-														희망배송일 적용은 공휴일, 연휴(빨간날)를 피한 다음날 이틀 후로 희망일을 선택해주세요.)</br>※ 주문량증가
-														및 공휴일로 인해 1~2일 지연될 수 있습니다.
+												<input name="post1" id="post1" form="order_form" size="6" class="MS_input_txt w60" onclick='this.blur();post();'> 
+												<a href="javascript:post();" class="btn-white">우편번호</a>
+													<div class="mt-10">
+														<input type="text" name="address1" form="order_form" id="address1" size="50" class="MS_input_txt w240" readonly> 
+														<input type="text" name="address2" form="order_form" id="address2" size="50" class="MS_input_txt w240">
 													</div>
 												</td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
-								<!-- .tbl-order -->
-
-								<h3>추가정보</h3>
-								<div class="tbl-order">
-									<table>
-										<caption>추가정보</caption>
-										<colgroup>
-											<col width="130">
-											<col />
-										</colgroup>
-										<tbody>
-											<tr>
-												<th scope="row"><div class="txt-l">공동 현관 비밀번호</div> <em
-													class="d-block"><font style="color: #F00;">(없을시
-															"없음"으로 작성해주세요.)</font></em></th>
-												<td><input type='text' name='order_add_info[0]'
-													form="order_form" class="MS_input_txt" size='80'
-													maxlength='100' /><br> <font style="color: #F60;">공동현관문
-														비밀번호란?</font><br /> <strong>아파트나 다세대주택의 1층 공동 출입구 비밀번호를
-														말합니다.</strong> (집 비밀번호 아님)<br />새벽배송지역만 필요하며, 택배배송지역은 필요치 않습니다.<br />배송종료
-													후 모든 정보는 삭제됩니다.</td>
 											</tr>
 										</tbody>
 									</table>
@@ -557,7 +407,7 @@
 												<td>
 													<div class="base">
 														<strong><em><span
-																class="op-total block-op-product-price" price="118000">118,000</span></em>원</strong>
+																class="op-total block-op-product-price" price="118000">${ requestScope.detailInfo.price }</span></em>원</strong>
 													</div>
 												</td>
 												<td>
@@ -565,7 +415,7 @@
 														<strong><em><span
 																class="op-total block-op-delivery-price" price="0">0</span></em><span
 															id="block_op_delivery_unit">원</span></strong> <a class="plus"><img
-															src="/images/common/bul_h23_plus.png" alt="plus" /></a><a
+															src="/mg/resources/image/payment/bul_h23_plus.png" alt="plus" /></a><a
 															class="minus" style="display: none;"><img
 															src="/images/common/bul_h23_minus.png" alt="minus" /></a>
 													</div>
@@ -575,9 +425,9 @@
 														<strong><em class="fc-red"><span
 																class="op-total block-op-sale-price" price="-0">0</span></em>원</strong>
 														<a class="plus" style="display: none;"><img
-															src="/images/common/bul_h23_plus.png" alt="plus" /></a><a
+															src="/mg/resources/image/payment/bul_h23_plus.png" alt="plus" /></a><a
 															class="minus"><img
-															src="/images/common/bul_h23_minus.png" alt="minus" /></a>
+															src="/mg/resources/image/payment/bul_h23_minus.png" alt="minus" /></a>
 													</div>
 												</td>
 												<td>
@@ -585,17 +435,17 @@
 														<strong><em><span
 																class="op-total block-op-add-price" price="0">0</span></em>원</strong>
 														<a class="plus"><img
-															src="/images/common/bul_h23_plus.png" alt="plus" /></a><a
+															src="/mg/resources/image/payment/bul_h23_plus.png" alt="plus" /></a><a
 															class="minus" style="display: none;"><img
-															src="/images/common/bul_h23_minus.png" alt="minus" /></a>
+															src="/mg/resources/image/payment/bul_h23_minus.png" alt="minus" /></a>
 													</div>
 												</td>
 												<td>
 													<div class="base">
 														<a class="equal"><img
-															src="/images/common/bul_h23_equal.png" alt="equal" /></a> <strong><em
+															src="/mg/resources/image/payment/bul_h23_equal.png" alt="equal" /></a> <strong><em
 															class="fc-red"><span class="block-op-sum-price"
-																price="118000">118,000</span></em>원</strong>
+																price="118000">계산 준비중</span></em>원</strong>
 													</div>
 												</td>
 											</tr>
@@ -617,14 +467,6 @@
 														value="3000" readonly>원) / (5,000원 이상부터 사용 가능합니다.)
 												</span>
 													<div class="cnt-box"></div></td>
-											</tr>
-											<tr>
-												<th class="txt-l">쿠폰 사용</th>
-												<td colspan="4"><input type="text" name="couponnum"
-													form="order_form" id="couponnum" class="MS_input_txt"
-													readonly> <a class="btn-darkgray"
-													href="javascript:clickcoupon();">쿠폰선택</a> <span
-													class="coupon-description"></span></td>
 											</tr>
 										</tbody>
 									</table>
