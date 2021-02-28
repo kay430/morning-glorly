@@ -91,7 +91,7 @@
 	            
 			case "deleteReview":
             	successMessage = "리뷰삭제 성공";
-            	movePath ="${ pag   Context.servletContext.contextPath }/product/review";
+            	movePath ="${ pageContext.servletContext.contextPath }/product/review";
             	break;		
 			}
 			

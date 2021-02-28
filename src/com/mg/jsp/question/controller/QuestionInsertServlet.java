@@ -162,7 +162,8 @@ public class QuestionInsertServlet extends HttpServlet {
 				} 
 				
 				int result = new QuestionService().insertThumbnail(thumbnail);
-				
+				System.out.println("list : " + list);
+				System.out.println("result "  + result);
 				String path = "";
 				if(result > 0) {
 					path = "/WEB-INF/views/main/success.jsp";

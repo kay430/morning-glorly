@@ -362,6 +362,7 @@ public class QuestionDAO {
 			pstmt.setString(1, thumbnail.getTitle());
 			pstmt.setString(2, thumbnail.getBody());
 			pstmt.setInt(3, thumbnail.getWriterMemberNo());
+			pstmt.setInt(4, thumbnail.getCategoryCode());
 			
 			result = pstmt.executeUpdate();
 			
@@ -379,7 +380,6 @@ public class QuestionDAO {
 		int lastQuestionNo = 0;
 		
 		String query = prop.getProperty("selectQueThumbnailSequence");
-		System.out.println("여기왔냐씨발");
 		try {
 			stmt = con.createStatement();
 			
@@ -417,6 +417,7 @@ public class QuestionDAO {
 			pstmt.setString(7, file.getStatus());
 			
 			result = pstmt.executeUpdate();
+			System.out.println("result : "  + result);
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
