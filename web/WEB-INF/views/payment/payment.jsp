@@ -20,7 +20,7 @@
 			let movePath = "";
 	
 			IMP.request_pay({
-				pg : 'inicis', // version 1.1.0부터 지원.
+				pg : 'html5_inicis', // version 1.1.0부터 지원.
 				pay_method : 'card',
 				merchant_uid : 'merchant_' + new Date().getTime(),
 				name : '도시락',
@@ -33,7 +33,7 @@
 			}, function(rsp) {
 				if (rsp.success) {
 					jQuery.ajax({
-				          url: "http://2d1e62a1d414.ngrok.io/mg/proceed/payment", // 가맹점 서버
+				          url: "http://2d1e62a1d414.ngrok.io/mg/payments/complete", // 가맹점 서버
 				          method: "POST",
 				          headers: { "Content-Type": "application/json" },
 				          data: {
