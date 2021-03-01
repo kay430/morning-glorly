@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.mg.jsp.admin.model.dto.AnswerDTO;
 import com.mg.jsp.admin.model.service.AnswerService;
+import com.mg.jsp.question.model.dto.QuestionDTO;
+import com.mg.jsp.question.model.service.QuestionService;
 
 @WebServlet("/admin/answer/detail")
 public class DetailViewAnswer extends HttpServlet {
@@ -19,6 +21,8 @@ public class DetailViewAnswer extends HttpServlet {
 		int no = Integer.parseInt(request.getParameter("no"));
 		int pageNumNo = no;
 		
+		QuestionDTO questionDetail = new QuestionService().selectQuestionDetail(no);
+		
 		AnswerDTO answerDTO = new AnswerService().selectAnswerDetail(no);
 		
 		System.out.println(answerDTO);
@@ -26,6 +30,7 @@ public class DetailViewAnswer extends HttpServlet {
 		String path = "";
 		if(answerDTO != null) {
 			path = "/WEB-INF/views/admin/AnswerDetail.jsp";
+			request.setAttribute("question", questionDetail);
 			request.setAttribute("answer", answerDTO);
 			request.setAttribute("pageNumNo", pageNumNo);
 		} else {
