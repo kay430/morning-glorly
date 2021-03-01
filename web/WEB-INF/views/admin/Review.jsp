@@ -148,16 +148,17 @@
                   </tr>
                 </thead>
                 <tbody>
-                <c:forEach var="answer" items="${ requestScope.answerList }">
-				<tr>
-					<td><c:out value="${ answer.no }"/></td>
-					<td><c:out value="${ answer.title }"/></td>
-					<td><c:out value="${ answer.writer.name }"/></td>
-					<td><c:out value="${ answer.count }"/></td>
-					<td><c:out value="${ answer.createdDate }"/></td>
-					<td><c:out value="${ answer.type }"/></td>
-				</tr>
-				</c:forEach>
+                  <c:forEach var="reviewBoard" items="${ requestScope.reviewList }">
+
+                        <tr class="board-list-tr">
+                           <td class="board-list-th list-header-bd"><c:out value="${ reviewBoard.no }" /></td>
+                           <td class="board-list-main-td"><c:out value="${ reviewBoard.title }" /></td>
+                           <td class="board-list-sub-td"><c:out value="${ reviewBoard.mgDTO.name }" /></td>
+                           <td class="board-list-sub-td"><c:out value="${ reviewBoard.count }" /></td>
+                           <td class="board-list-wdate"><c:out value="${ reviewBoard.createDate }" /></td>
+                         
+                        </tr>
+                     </c:forEach>
                   <tr>
                     <td>
                       <a href="basic_table.html#">샘플 아이콘</a>
@@ -179,7 +180,7 @@
               </table>
             </div>
             <!-- /content-panel -->
-<%--           </div>
+          </div>
           <div class="pagingArea" align="center">
          <c:choose>
             <c:when test="${ empty requestScope.searchValue }">
@@ -200,14 +201,14 @@
                	</c:if>
                </c:forEach>
                
-               <c:if test="${ requestScope.pageInfo.pageNo >= requestScope.pageInfo.maxpage }">
+               <c:if test="${ requestScope.pageInfo.pageNo >= requestScope.pageInfo.maxPage }">
                   <button disabled>></button>
                </c:if>
-               <c:if test="${ requestScope.pageInfo.pageNo < requestScope.pageInfo.maxpage }">
+               <c:if test="${ requestScope.pageInfo.pageNo < requestScope.pageInfo.maxPage }">
                   <button id="nextPage">></button>
                </c:if>
                
-               <button id="maxpage">>></button>
+               <button id="maxPage">>></button>
                
             </c:when>
             <c:otherwise>
@@ -238,13 +239,13 @@
 				
 				$tds[i].onclick = function() {
 					const no = this.parentNode.children[0].innerText;
-					location.href = "${ pageContext.servletContext.contextPath }/admin/answer/detail?no=" + no;
+					location.href = "${ pageContext.servletContext.contextPath }/admin/review/detail?no=" + no;
 				}
 			}
 		}
 	</script>
 	<script>
-      const link = "${ pageContext.servletContext.contextPath }/admin/answer";
+      const link = "${ pageContext.servletContext.contextPath }/admin/review";
       
       if(document.getElementById("startPage")) {
          const $startPage = document.getElementById("startPage");
@@ -268,18 +269,18 @@
       }
       
   
-		if (document.getElementById("maxpage")) {
-			const $maxpage = document.getElementById("maxpage");
-			$maxpage.onclick = function() {
+		if (document.getElementById("maxPage")) {
+			const $maxPage = document.getElementById("maxPage");
+			$maxPage.onclick = function() {
 				location.href = link
-						+ "?currentPage=${ requestScope.pageInfo.maxpage }";
+						+ "?currentPage=${ requestScope.pageInfo.maxPage }";
 			}
 		}
 
 		function pageButtonAction(text) {
 			location.href = link + "?currentPage=" + text;
 		}
-	</script> --%>
+	</script>
     <!--main content end-->
   
   
