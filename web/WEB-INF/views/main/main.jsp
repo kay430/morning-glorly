@@ -88,7 +88,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="${ pageContext.servletContext.contextPath }/user/select?no=29" title="">
+                        <a href="${ pageContext.servletContext.contextPath }/user/select?no=13" title="">
                             <img class="MS_prod_img_s" src="./resources/image/dosirak/부채살도시락.jpg" alt="" height="224.5px">
                             <p class="s_price">
                                
@@ -174,14 +174,14 @@
                     <h3>지금 가장 <span>🔥</span><strong>HOT</strong><span>🔥</span> 해요!</h3>
                     <div class="item_best1">
                         <a
-                            href="${ pageContext.servletContext.contextPath }/menu/detail">
+                            href="${ pageContext.servletContext.contextPath }/user/select?no=13">
                             <p><img src="./resources/image/dosirak/부채살200g.PNG" style="height:500px;"></p>
                             <p style="padding-top: 120px;">
                                 <span>🍝메뉴명 : 부채살 200g</span>
                                 <span>💝간단한 설명 💝 : 근육을 조금더 성장시켜볼까!!</span>
-                                <span>8,500원</span>
-                                <span>10<i>%</i></span>
-                                <span>7,650<i>원</i></span>
+                                <span></span>
+                                <span><i></i></span>
+                                <span>8,500<i>원</i></span>
                                 <span>지금바로 구매하기!</span>
                             </p>
                         </a>
@@ -198,7 +198,7 @@
                     <p>ONLY ONE BRAND <strong>오직 모닝글로리에서만!</strong></p>
                     <ul>
                         <li>
-                            <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
+                            <a href="${ pageContext.servletContext.contextPath }/user/select?no=14" title="">
                                 <img src="./resources/image/dosirak/정기.PNG" alt="">
                                    <br><br><br>
                                 <dl>
@@ -237,7 +237,7 @@
                 <h2>당신을 위한 <strong> 도시락 정기 배송!</strong></h2>
                 <ul>
                     <li>
-                        <a href="${ pageContext.servletContext.contextPath }/menu/detail"
+                        <a href="${ pageContext.servletContext.contextPath }/user/select?no=14"
                             title="[정기배송] 샐러드 4주 배송 [1일1식]">
                             <p class="s_addtext">#[1주] 벌크업&nbsp;</p>
                             <div class="overli">

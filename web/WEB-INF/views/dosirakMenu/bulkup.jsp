@@ -79,14 +79,14 @@
                     <h3>지금 가장 <span>🔥</span><strong>HOT</strong><span>🔥</span> 해요!</h3>
                     <div class="item_best1">
                         <a
-                            href="${ pageContext.servletContext.contextPath }/menu/detail">
+                            href="${ pageContext.servletContext.contextPath }/user/select?no=13">
                             <p><img src="./resources/image/dosirak/부채살200g.PNG" style="height:500px;"></p>
                             <p style="padding-top: 120px;">
                                 <span>🍝메뉴명 : 부채살 200g</span>
                                 <span>💝간단한 설명 💝 : 근육을 조금더 성장시켜볼까!!</span>
-                                <span>8,500원</span>
-                                <span>10<i>%</i></span>
-                                <span>7,650<i>원</i></span>
+                                <span></span>
+                                <span><i></i></span>
+                                <span>8,500<i>원</i></span>
                                 <span>지금바로 구매하기!</span>
                             </p>
                         </a>
@@ -107,7 +107,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
+                        <a href="${ pageContext.servletContext.contextPath }/user/select?no=13" title="">
                             <img class="MS_prod_img_s" src="./resources/image/dosirak/부채살200g.PNG" alt="" height="280px">
                             <p class="s_price">
                                최종가 : 8,500원

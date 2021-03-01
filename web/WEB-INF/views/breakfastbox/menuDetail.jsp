@@ -28,12 +28,13 @@
                     <%-- <img style="max-width:100%;"<c:out value="${ requestScope.detailInfo.attachmentList[0].thumbnailPath }"/>> --%>
                     <img src="${ pageContext.servletContext.contextPath }<c:out value="${ requestScope.detailInfo.attachmentList[0].thumbnailPath }"/>" id="picture" name="picture"/>
                 </div>
+                
                 <div class="col-xs-5" style="border:0px solid gray">
                 <br><br>
 				<input type="hidden" id="jihunTest" value="<c:out value="${ requestScope.detailInfo }"/>">
-                    <h3>식단유형명 : <input type="text" value="<c:out value="${ requestScope.detailInfo.goodsTypeNo.name }"/>" readonly style="border: none"></h3> 
+                    <h3>식단유형명 : <input type="text" value="<c:out value="${ requestScope.detailInfo.goodsTypeNo.name }"/>" readonly style="border: none" size="30"></h3> 
 						<br><br>
-						<h3>도시락상품명 : <input type="text" value="<c:out value="${ requestScope.detailInfo.name }"/>" readonly style="border: none"></h3> 
+						<h3>도시락상품명 : <input type="text" value="<c:out value="${ requestScope.detailInfo.name }"/>" readonly style="border: none" size="30"></h3> 
 						<br><br>
                     <h3 style="margin-top:0px;">가격 : <input type="text" value="<c:out value="${ requestScope.detailInfo.price }원"/>" readonly style="border: none"></h3>
 
@@ -46,6 +47,9 @@
                             <div class="btn-plus"><span class="glyphicon glyphicon-plus"></span></div>
                         </div>
                     </div>                
+                    <div>
+                	<input type="button" value="장바구니 담기" id="basket" class="btn btn-success" style="width: 428px;">
+                </div>
         
                     <div class="section" style="padding-bottom:20px;">
                           <button onClick="location.href='${ pageContext.servletContext.contextPath }/proceed/payment'" class="btn btn-success"><span style="margin-right:20px" class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>결제하러가기</button>

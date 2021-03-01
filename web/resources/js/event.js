@@ -278,6 +278,12 @@ window.onload = function() {
 			location.href = "/mg/review/update";
 		}
 	}
-
+  
+	if(document.getElementById("basket")) {
+		const $basket = document.getElementById("basket");
+		$basket.onclick = function() {
+			location.href = "/mg/main/basket?no=13";
+		}
+	}
 }
 
