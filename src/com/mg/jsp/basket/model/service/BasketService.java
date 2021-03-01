@@ -17,11 +17,11 @@ public class BasketService {
 		basketDAO = new BasketDAO();
 	}
 
-	public basketDTO selectBasketInfo(int no) {
+	public basketDTO selectBasketInfo(int no, int memberNo) {
 	 Connection con = getConnection();
 	
 	 System.out.println("서비스라인입니다 오나여?");
-	 basketDTO detailInfo1 = basketDAO.selectBasketInfo(con, no);
+	 basketDTO detailInfo1 = basketDAO.selectBasketInfo(con, no, memberNo);
 	
 	 close(con);
 	 System.out.println("서비스끝나는곳 : " + detailInfo1);

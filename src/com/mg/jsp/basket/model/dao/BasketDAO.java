@@ -30,7 +30,7 @@ public class BasketDAO {
 		}
 	}
 
-	public basketDTO selectBasketInfo(Connection con, int no) {
+	public basketDTO selectBasketInfo(Connection con, int no, int memberNo) {
 		
 		System.out.println("DAO시작입니다");
 		PreparedStatement pstmt = null;
@@ -45,7 +45,7 @@ public class BasketDAO {
 			MgDTO mg = new MgDTO();
 			pstmt = con.prepareStatement(query);
 			pstmt.setInt(1, no);
-			/* pstmt.setInt(2, mg.getNo()); */
+			pstmt.setInt(2, memberNo);
 			
 			rset = pstmt.executeQuery();
 			System.out.println("여긴 rset마지막 ");
@@ -58,7 +58,8 @@ public class BasketDAO {
 				System.out.println("들어오니?");
 				AttachmentDTO attachment = new AttachmentDTO();
 				MgGoodsDTO goods = new MgGoodsDTO();
-				
+				//MgDTO 타입의 넣을 수 있는 공간이 있어야 MgDTO에 정보를 넣을 수 있음
+				detailInfo1.setMgDTO(new MgDTO());
 				detailInfo1.setMgGoodsDTO(goods);
 				
 				detailInfo1.getMgDTO().setNo(rset.getInt("MEMBER_NO"));

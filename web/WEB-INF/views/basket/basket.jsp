@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,29 +44,46 @@
                                 </colgroup>
                                 <thead>
                                     <tr>
-                                        <th scope="col"><div class="tb-center">선택</div></th>
+                                        <th scope="col"><div class="tb-center">사진</div></th>
                                         <th scope="col"><div class="tb-center">&nbsp;</div></th>
                                         <th scope="col"><div class="tb-center">제품명</div></th>
+                                        
                                         <th scope="col"><div class="tb-center">수량</div></th>
                                         <th scope="col"><div class="tb-right">적립</div></th>
                                         <th scope="col"><div class="tb-right">가격</div></th>
                                         <th scope="col"><div class="tb-center">배송비</div></th>
-                                        <th scope="col"><div class="tb-center">취소</div></th>
+                                        <th scope="col"><div class="tb-center">&nbsp;</div></th>
+                                        
                                     </tr>
                                 </thead>
+                                <tbody>
+                                <tr>
+                                         <td scope="col"><div class="tb-center"> <img src="${ pageContext.servletContext.contextPath }<c:out value="${ requestScope.detailInfo.attachmentList[0].thumbnailPath }"/>"></div></td>
+                                         
+                               	        <%-- <td scope="col"><div class="tb-center"><img src="${ pageContext.servletContext.contextPath }/resources/upload/original/a25a6e882e3749b8ae30890c33714421.png" height="100px" width="100px"/></div></td> --%>
+                                        <td scope="col"><div class="tb-center">&nbsp;</div></td>
+                                        <td scope="col"><div class="tb-center"><c:out value="${ requestScope.detailInfo1.mgGoodsDTO.name }"/></div></td>
+                                        
+                                        <td scope="col"><div class="tb-center"><c:out value="${ requestScope.detailInfo1.amountCount }"/>개</div></td>
+                                        <td scope="col"><div class="tb-right">100</div></td>
+                                        <td scope="col"><div class="tb-right"><fmt:formatNumber value="${ requestScope.detailInfo1.mgGoodsDTO.price }"/>원</div></td>
+                                        <td scope="col"><div class="tb-center">0원</div></td>
+                                        
+                                </tr>
+                                </tbody>
                                 <tfoot>
-                                    <tr>
+                                   <!--  <tr>
                                         <td colspan="8" class="bgd">
                                                                                     <div class="tb-center dont_nocart">장바구니에 담긴 상품이 없습니다.</div>
                                                                                 </td>
-                                    </tr>
+                                    </tr> -->
                                 </tfoot>
                                         </table>
                             
                         </div><!-- .table-fill-prd -->
                         
-                                                <div class="basket-totalprice">
-                            <div class="totalprice-txt"><strong>0원</strong></div>
+                                                <div class="basket-totalprice" >
+                            <div class="totalprice-txt"> <strong>총액 : <fmt:formatNumber value="${ requestScope.detailInfo1.mgGoodsDTO.price * requestScope.detailInfo1.amountCount }"/>원</strong></div>
                         </div>
                                                                         
 
@@ -76,7 +94,7 @@
                             <a href="javascript:alert('주문이 가능한 금액이 아닙니다.고객센터에 문의 바랍니다.')" class="btn_large btn_color_point">주문하기</a>
                             <a href="${ pageContext.servletContext.contextPath }" class="btn_large  btn_color">계속 쇼핑하기</a>
                             <a href="javascript:basket_clear();" class="btn_large btn_color">장바구니 비우기</a>
-                            <a href="javascript:basket_estimate()" class="btn_large btn_color">견적서 출력</a>
+                            
                         </div>
 <div class="order_pay" style="margin-top: 10px; text-align:center;"></div>
 

@@ -137,7 +137,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
+                        <a href="${ pageContext.servletContext.contextPath }/user/select?no=13" title="">
                             <img class="MS_prod_img_s" src="./resources/image/dosirak/부채살200g.PNG" alt="" height="280px">
                             <p class="s_price">
                                최종가 : 8,500원
