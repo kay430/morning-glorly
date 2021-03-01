@@ -450,3 +450,4 @@ a.f14 { font-size:17px; font-weight:500; color:#555; }
 
 
 #order .nbg { text-align: center; }
+#order input[name=post1] { width: 150px; }
