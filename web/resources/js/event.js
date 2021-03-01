@@ -279,11 +279,11 @@ window.onload = function() {
 		}
 	}
   
-	if(document.getElementById("basket")) {
+/*	if(document.getElementById("basket")) {
 		const $basket = document.getElementById("basket");
 		$basket.onclick = function() {
 			location.href = "/mg/main/basket?no=13";
 		}
-	}
+	}*/
 }
 

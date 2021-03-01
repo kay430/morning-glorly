@@ -29,6 +29,6 @@
                   )A
    
          WHERE   A.GOODS_NO = ?
-         <!-- AND  A.MEMBER_NO = ? -->
+          AND  A.MEMBER_NO = ? 
 	</entry>
 </properties>

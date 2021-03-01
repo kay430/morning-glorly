@@ -79,6 +79,14 @@
                 	});  */
                 	
                 });
+                
+                $("#basket").click(function(){
+                	if(confirm("장바구니에 담으시겠습니까?") == true){
+                		location.href = "${ pageContext.servletContext.contextPath }/main/basket?no=" + "${ requestScope.detailInfo.no }" ; 
+                	}else{
+                		location.href = "${ pageContext.servletContext.contextPath }/user/select?no=" + "${ requestScope.detailInfo.no }" ; 
+                	}
+                });
             	
                 </script>      
         
