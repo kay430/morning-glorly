@@ -27,7 +27,7 @@
 <body>
 
    <jsp:include page="../common/header.jsp" />
-	<section class="qna_panel"
+	<section class="review_panel"
 		style="margin: 0 auto; width: 1100px; height: 500px; margin-top: 50px;">
 		<header class="panel-heading wht-bg" style="margin: 0 0 30px 0;">
 			<h4 class="gen-case" style="font-size: 30px; text-align: center;">
