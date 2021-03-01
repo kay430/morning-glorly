@@ -86,7 +86,7 @@
             	
 			case "insertQueThumbnail":
             	successMessage = "질문게시판 등록 성공";
-            	movePath ="${ pageContext.servletContext.contextPath }";
+            	movePath ="${ pageContext.servletContext.contextPath }/question/list";
             	break;	
 	            
 			case "deleteReview":

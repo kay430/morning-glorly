@@ -179,6 +179,9 @@
                     </div>
                   </div>
                 </div>
+                <img
+				
+				src="${ pageContext.servletContext.contextPath }<c:out value="${ requestScope.question.attaQueList[0].thumbnailPath }"/>" />
                 <div class="view-mail">
                   <%-- <p><c:out value="${ requestScope.notice.body }"/></p> --%>
                   <textarea id="core" style="resize:none; width:90%; height:200px;" readonly><c:out value="${ requestScope.answer.body }"/></textarea>
@@ -219,6 +222,7 @@
                     </li>
                   </ul>
                 </div> -->
+                
                 <div id="holdUp2" class="compose-btn pull-left">
                   <a id="rewriteNoListA1" class="btn btn-sm btn-theme" onclick="location.href='${ pageContext.servletContext.contextPath }/admin/answer'">
                   <i class="fa fa-reply"></i> 목록으로</a>
