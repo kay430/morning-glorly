@@ -137,6 +137,23 @@
               <table class="table table-striped table-advance table-hover">
                 <h4><i class="fa fa-angle-right"></i> 고객 후기</h4>
                 <hr>
+                 <tr>
+                    <td>
+                      <a href="basic_table.html#">샘플 아이콘</a>
+                    </td>
+                    <td class="hidden-phone">제목</td>
+                    <td>작성자 </td>
+                    <td>조회수</td>
+                    <td><span class="label label-info label-mini">대기중</span>
+                    <span class="label label-warning label-mini">답변완료</span>
+                    <span class="label label-success label-mini">재질문</span>
+                    </td>
+                    <td>
+                      <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
+                      <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+                      <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+                    </td>
+                  </tr>
                 <thead>
                   <tr>
                     <th>글번호</th>
@@ -159,23 +176,7 @@
                          
                         </tr>
                      </c:forEach>
-                  <tr>
-                    <td>
-                      <a href="basic_table.html#">샘플 아이콘</a>
-                    </td>
-                    <td class="hidden-phone">제목</td>
-                    <td>작성자 </td>
-                    <td>조회수</td>
-                    <td><span class="label label-info label-mini">대기중</span>
-                    <span class="label label-warning label-mini">답변완료</span>
-                    <span class="label label-success label-mini">재질문</span>
-                    </td>
-                    <td>
-                      <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
-                      <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
-                      <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
-                    </td>
-                  </tr>
+                 
                 </tbody>
               </table>
             </div>
