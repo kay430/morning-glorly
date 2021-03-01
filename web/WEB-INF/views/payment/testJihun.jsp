@@ -24,6 +24,7 @@
 <link rel="stylesheet" type="text/css"
 	href="/mg/resources/css/mymapge/changeMemberInfo.css">
 <link href="/mg/resources/admin/jihunh.css" rel="stylesheet" />
+<script src="http://code.jquery.com/jquery-latest.js"></script>
 </head>
 <body>
 
@@ -171,7 +172,6 @@
                         <h3>주문리스트</h3>
                         <div class="tbl-order">
                            <table>
-                              <caption>주문리스트</caption>
                               <colgroup>
                                  <col width="150" />
                                  <col width="*" />
@@ -209,7 +209,7 @@
                                        <div id="price"></div>
                                     </td>
                                     <td>
-                                       <div class="tb-center">1,100원</div>
+                                       <div id="point1" class="tb-center"></div>
                                     </td>
                                  </tr>
                               </tbody>
@@ -220,7 +220,6 @@
                         <h3>주문자정보</h3>
                         <div class="tbl-order">
                            <table>
-                              <caption>주문자정보</caption>
                               <colgroup>
                                  <col width="130">
                                  <col />
@@ -237,10 +236,6 @@
                                  <tr>
                                     <th scope="row"><div class="txt-l">이메일</div></th>
                                     <td>${ requestScope.loginInfo.email }</td>
-                                 </tr>
-                                 <tr>
-                                    <th scope="row"><div class="txt-l">핸드폰</div></th>
-                                    <td>${ requestScope.loginInfo.phone }</td>
                                  </tr>
                                  <tr>
                                     <th scope="row"><div class="txt-l">핸드폰</div></th>
@@ -271,7 +266,6 @@
                         
                         <div class="tbl-order">
                            <table>
-                              <caption>배송 정보 입력</caption>
                               <colgroup>
                                  <col width="130">
                                  <col />
@@ -311,8 +305,8 @@
                                  <tr>
                                     <th scope="row"><div class="txt-l">주소</div></th>
                                     <td colspan="3">
-                                    <input name="post1" id="post1" form="order_form" size="6" class="MS_input_txt w60" onclick='this.blur();post();'> 
-                                    <a href="javascript:post();" class="btn-white">우편번호</a>
+                                    <input name="post1" id="post1" form="order_form" size="6" class="MS_input_txt w60"> 
+                                    <a id="searchPost" class="btn-white">우편번호</a>
                                        <div class="mt-10">
                                           <input type="text" name="address1" form="order_form" id="address1" size="50" class="MS_input_txt w240" readonly> 
                                           <input type="text" name="address2" form="order_form" id="address2" size="50" class="MS_input_txt w240">
@@ -327,7 +321,6 @@
                         <h3>주문상품 할인적용</h3>
                         <div class="tbl-pay">
                            <table>
-                              <caption>주문상품 할인적용</caption>
                               <colgroup>
                                  <col style="width: 24%" />
                                  <col style="width: 18%" />
@@ -393,15 +386,13 @@
                               </thead>
                               <tbody>
                                  <tr>
-                                    <th class="txt-l">적립금 사용</th>
+                                    <th class="txt-l">적립금 사용&nbsp;&nbsp;<button id="usePoint" type="button">적용</button></th>
                                     <td colspan="4">
-                                    <input type="text" id="usereserve" name="usereserve" form="order_form" autocomplete="off"
-                                       size="7" style="background: silver" class="MS_input_txt allways-disable" value="0"
-                                       onKeyUp="reservecheck('3000')" onBlur=getUseableMoney();>
-                                        <label> <input type="checkbox"
-                                          name="all_check_reserve" onclick="allCheckUse('reserve');"
-                                          disabled> 전액사용
-                                    </label> <span class="fc-gray">(사용가능 적립금: ${ requestScope.loginInfo.point } 원) 
+                                    <input type="text" id="usePointNum" name="usereserve" form="order_form" autocomplete="off"
+                                       size="7" style="background: silver" class="MS_input_txt allways-disable">
+                                        <label> <input type="checkbox" id="usePointNumAll"
+                                          name="all_check_reserve"> 전액사용
+                                    </label> <span class="fc-gray">(사용가능 적립금: <span id="ableUsePoint"></span> 원) 
                                     </span>
                                        <div class="cnt-box"></div></td>
                                  </tr>
@@ -619,7 +610,6 @@
                         <h3>주문자 동의</h3>
                         <div class="tbl-order">
                             <table>
-                                <caption>주문자 동의</caption>
                                 <colgroup>
                                     <col width="130">
                                     <col />
@@ -639,7 +629,7 @@
                             </div>
 								<!-- .tbl-order -->
 
-                                                        <div
+                                                        <br><hr><div
 									class="tbl-order tot-order">
                                 <table>
                                     <caption></caption>
@@ -664,6 +654,7 @@
                                 </table>
                             </div>
 								<!-- .tbl-pay -->
+								<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 								                        <script>
                         $('select[name="phone1"] option[value='+'${ requestScope.loginInfo.phone}'.substring(0, 3)+']').attr("selected", true);
                         $('input[name="phone2"]').val('${ requestScope.loginInfo.phone}'.substring(3, 7));
@@ -724,15 +715,106 @@
                         } else {
                         	resultPr = ${ requestScope.detailInfo.price };
                         }
+                        
+                        var point = resultPr * 0.02;
+                        
                         function makeComma(str) { str = String(str); return str.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,'); }
-                        $("#price").html(makeComma(resultPr)); 
+                        $("#price").html(makeComma(resultPr) + '원'); 
                         $("#price1").html(makeComma(resultPr) + ' '); 
                         $("#deliveryPrice").html(0 + ' ');
                         $("#salePrice").html(0 + ' ');
                         $("#addPrice").html(0 + ' ');
                         $("#price2").html(makeComma(resultPr) + ' '); 
                         $("#price3").html(makeComma(resultPr) + ' '); 
+                        $("#point1").html(makeComma(point) + '원'); 
+                        $("#ableUsePoint").html(makeComma(${ requestScope.loginInfo.point })); 
+                        
+                        $("#searchPost").click(function() {
+                        	new daum.Postcode({
+                        		oncomplete : function(data) {
+                        			console.log(data.zonecode);
+                        			console.log(data.address);
+                        			$('input[name="post1"]').val(data.zonecode);
+                        			$('input[name="address1"]').val(data.address);
+                        			$('input[name="address2"]').focus();
+                        		}
+                        	}).open();
+                        });
+                        
+                        var p = 0;
+                        $("#usePointNum").click(function() {
+                        	if($("#usePointNumAll").prop("checked")) {
+                        		$("#usePointNum").val('');
+                        		
+                        		//실패. 왜 안되는지 모르겠다.(03/01)
+                        		$("#usePointNumAll").attr("checked", false);
+                        	} else {
+                        		/* $("#usePointNumAll").attr("checked", true); */
+                        	}
+                        	
+                        	
+                        });
+                        /* $("#usePointNum").keyup(function() {}); */
+                        $("#usePointNum").blur(function() {
+                        	/* console.log($("#usePointNum").val());
+                        	console.log("온");
+                        	console.log(resultPr - $("#usePointNum").val());
+                        	console.log(p); */
+                        	p = resultPr - $("#usePointNum").val();
+                        	if(p > 0) {
+                        		$("#salePrice").html(makeComma($("#usePointNum").val()) + ' ');
+                        		$("#price2").html(makeComma(p) + ' '); 
+                        		$("#price3").html(makeComma(p) + ' ');
+                        	} else {
+                        		$("#salePrice").html(makeComma(resultPr) + ' ');
+                        		$("#usePointNum").val(makeComma(resultPr) + ' ');
+                        		$("#price2").html(0 + ' '); 
+                        		$("#price3").html(0 + ' ');
+                        	}
+                        });
+                        
+                        $("#usePoint").click(function() {
+                        	if(p > 0) {
+                        		$("#salePrice").html(makeComma($("#usePointNum").val()) + ' ');
+                        		$("#price2").html(makeComma(p) + ' '); 
+                        		$("#price3").html(makeComma(p) + ' ');
+                        	} else {
+                        		$("#salePrice").html(makeComma(resultPr) + ' ');
+                        		$("#usePointNum").val(makeComma(resultPr) + ' ');
+                        		$("#price2").html(0 + ' '); 
+                        		$("#price3").html(0 + ' ');
+                        	}
+                        	console.log("클릭버튼");
+                        })
+                	 
+              	   	$("#usePointNumAll").change(function() {
+              	    	if($(this).prop("checked")) {
+              	    		console.log("클릭버튼");
+              	    		
+              	    		$("#usePointNum").click(function() {
+              	    			//체크박스 변경 실패.
+              	   			});
+              	    		
+              	    		if(${ requestScope.loginInfo.point } > 0) {
+              	    			
+              	    			if(${ requestScope.loginInfo.point } > resultPr) {
+              	    				$("#usePointNum").val(resultPr);
+              	    			} else {
+              	    				$("#usePointNum").val(${ requestScope.loginInfo.point });
+              	    			}
+              	    			
+              	    				
+              	    		}
+              	    		
+            	    	} else {
+            	    		$("#usePointNum").val('');
+            	    		console.log("클릭버튼dd");
+            	    		
+            	    	}
+                 	});
+                        
                         </script>
+                           
                             
                             <div id="paybutton"><a href="${ pageContext.servletContext.contextPath }/proceed/payment" class="pay_btn">주문하기</a>
                                 <a href="javascript:order_cancel('cancel')" class="can_btn">주문취소</a>
