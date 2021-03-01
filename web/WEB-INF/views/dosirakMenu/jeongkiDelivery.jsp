@@ -33,7 +33,7 @@
                   <h3 class="w330">정기배송<strong> 종류</strong></h3>
                 <ul>
                     <li style="width: 320px;">
-                        <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
+                        <a href="${ pageContext.servletContext.contextPath }/user/select?no=14" title="">
                             <img class="MS_prod_img_s" src="../resources/image/dosirak/정기.PNG" alt="" height="280px">
                             <p class="s_price">
                               
@@ -70,7 +70,7 @@
                     <h3>지금 가장 <span>🔥</span><strong>HOT</strong><span>🔥</span> 해요!</h3>
                     <div class="item_best1">
                         <a
-                            href="${ pageContext.servletContext.contextPath }/menu/detail">
+                            href="${ pageContext.servletContext.contextPath }/user/select?no=14"">
                             <p><img src="../resources/image/dosirak/정기.PNG" style="height:500px;"></p>
                             <p style="padding-top: 120px;">
                                 <span>🍝메뉴명 : [정기] 저탄수다이어트식단(샐러드5종)!</span>
