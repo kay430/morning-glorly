@@ -179,8 +179,8 @@
                     </div>
                   </div>
                 </div>
-                <img
-				
+               <img
+				style="float: left; width: 200px; height: 200px; margin: 10px 15px 10px 0;"
 				src="${ pageContext.servletContext.contextPath }<c:out value="${ requestScope.question.attaQueList[0].thumbnailPath }"/>" />
                 <div class="view-mail">
                   <%-- <p><c:out value="${ requestScope.notice.body }"/></p> --%>
