@@ -341,4 +341,23 @@
         , ?
         )
 	</entry>
+	<entry key="insertReply">
+	INSERT 
+	  INTO MG_QNA_ANS A
+	  (
+	     A.QNA_ANS_NO
+	   , A.QNA_ANS_TITLE
+	   , A.QNA_ANS_BODY
+	   , A.QNA_POST_NO
+	   , A.QNA_WRITER_ADMIN_NO   
+	  )
+	 VALUES
+	 (
+	    ?
+	  , ?
+	  , ?
+	  , 25
+	  , 1  
+	 )
+	</entry>
 </properties>
