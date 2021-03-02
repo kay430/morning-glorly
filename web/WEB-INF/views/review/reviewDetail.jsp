@@ -22,6 +22,8 @@
 <link rel="stylesheet" type="text/css"
    href="/mg/resources/css/main-common.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -30,7 +32,8 @@
 	<section class="review_panel"
 		style="margin: 0 auto; width: 1100px; height: 500px; margin-top: 50px;">
 		<header class="panel-heading wht-bg" style="margin: 0 0 30px 0;">
-			<h4 class="gen-case" style="font-size: 30px; text-align: center;">
+			<h4 class="gen-case" style="font-size: 30px; text-align: center;font-family: 'Jua', sans-serif;
+	font-size:40px">
 				질문게시판</h4>
 		</header>
 		<div class="panel-body ">
@@ -46,7 +49,8 @@
 				
 			</div>
 			<div class="review-info">
-				<div class="row" style="width:600px; margin-left:50px;">
+				<div class="row" style="width:600px; margin-left:50px;font-family: 'Jua', sans-serif;
+	font-size:25px">
 					<div class="col-md-8" style="width:150px;">
 						 <strong class="col-md-8">작성자
 							: <c:out value="${ requestScope.reviewDetail.mgDTO.name}" />
@@ -75,16 +79,17 @@
 	<br>
 			
 
-			<div align="center">
-				<button onclick="location.href='${ pageContext.servletContext.contextPath }/product/review'">메뉴로 돌아가기</button>
+			<div class="button" align="center">
+				<button class="buttons" onclick="location.href='${ pageContext.servletContext.contextPath }/product/review'"
+					style="font-family: 'Jua', sans-serif; font-size:15px;font-family: 'Jua', sans-serif; font-size:25px;padding:15px 15px">메뉴로 돌아가기</button>
 				<%-- <c:if test="${ sessionScope.loginMember.role eq 'ADMIN' }">--%>
-					<button onclick="location.href='${ pageContext.servletContext.contextPath }/review/update?no=${ requestScope.reviewDetail.no }'">수정하기</button>
+					<button class="buttons"onclick="location.href='${ pageContext.servletContext.contextPath }/review/update?no=${ requestScope.reviewDetail.no }'"
+					style="font-family: 'Jua', sans-serif; font-size:15px;font-family: 'Jua', sans-serif; font-size:25px;padding:15px 15px">수정하기</button>
 				<%-- </c:if> --%>
-				<button type="submit"id="deleteReview" onclick="alert('리뷰를 삭제합니다');">리뷰 삭제</button>
+				<button class="buttons" type="submit"id="deleteReview" onclick="alert('리뷰를 삭제합니다');"
+					style="font-family: 'Jua', sans-serif; font-size:15px;font-family: 'Jua', sans-serif; font-size:25px;padding:15px 15px">리뷰 삭제</button>
 				<br>
-		<script> function deleteReview()
-		{ alert("리뷰가 삭제 되었습니다"); 
-		} </script>
+		
 	<br>
 	<br>
 	<br>
