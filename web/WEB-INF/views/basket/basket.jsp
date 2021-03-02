@@ -52,7 +52,7 @@
                                         <th scope="col"><div class="tb-right">적립</div></th>
                                         <th scope="col"><div class="tb-right">가격</div></th>
                                         <th scope="col"><div class="tb-center">배송비</div></th>
-                                        <th scope="col"><div class="tb-center">&nbsp;</div></th>
+                                        <th scope="col"><div class="tb-center">합계</div></th>
                                         
                                     </tr>
                                 </thead>
@@ -64,10 +64,12 @@
                                         <td scope="col"><div class="tb-center">&nbsp;</div></td>
                                         <td scope="col"><div class="tb-center"><c:out value="${ requestScope.detailInfo1.mgGoodsDTO.name }"/></div></td>
                                         
-                                        <td scope="col"><div class="tb-center"><c:out value="${ requestScope.detailInfo1.amountCount }"/>개</div></td>
-                                        <td scope="col"><div class="tb-right">100</div></td>
+                                        <td scope="col"><div class="tb-center">${ param.count }</div></td>
+                                        <%-- <td scope="col"><div class="tb-center"><c:out value="${ requestScope.detailInfo1.amountCount }"/>개</div></td> --%>
+                                        <td scope="col"><div class="tb-right"><fmt:formatNumber value="${ requestScope.detailInfo1.mgGoodsDTO.price * param.count * 0.02}"/>pt</div></td>
                                         <td scope="col"><div class="tb-right"><fmt:formatNumber value="${ requestScope.detailInfo1.mgGoodsDTO.price }"/>원</div></td>
                                         <td scope="col"><div class="tb-center">0원</div></td>
+                                        <td scope="col"><div class="tb-center"><fmt:formatNumber value="${ requestScope.detailInfo1.mgGoodsDTO.price * param.count }"/>원</div></td>
                                         
                                 </tr>
                                 </tbody>
@@ -83,7 +85,7 @@
                         </div><!-- .table-fill-prd -->
                         
                                                 <div class="basket-totalprice" >
-                            <div class="totalprice-txt"> <strong>총액 : <fmt:formatNumber value="${ requestScope.detailInfo1.mgGoodsDTO.price * requestScope.detailInfo1.amountCount }"/>원</strong></div>
+                            <div class="totalprice-txt"> <strong>총액 : <fmt:formatNumber value="${ requestScope.detailInfo1.mgGoodsDTO.price * param.count }"/>원</strong></div>
                         </div>
                                                                         
 

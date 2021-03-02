@@ -82,7 +82,7 @@
                 
                 $("#basket").click(function(){
                 	if(confirm("장바구니에 담으시겠습니까?") == true){
-                		location.href = "${ pageContext.servletContext.contextPath }/main/basket?no=" + "${ requestScope.detailInfo.no }" ; 
+                		location.href = "${ pageContext.servletContext.contextPath }/main/basket?no=" + "${ requestScope.detailInfo.no }" + "&count=" + $('input[name="count"]').val();  
                 	}else{
                 		location.href = "${ pageContext.servletContext.contextPath }/user/select?no=" + "${ requestScope.detailInfo.no }" ; 
                 	}
