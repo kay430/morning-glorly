@@ -19,7 +19,7 @@
 
 	<jsp:include page="../common/header.jsp" />
 	
-	
+	<h1>결제완료</h1>
 	
 	<jsp:include page="../common/footer.jsp" />
 
