@@ -15,7 +15,7 @@
   <link rel="stylesheet" type="text/css" href="/mg/resources/css/header.css">
   <link rel="stylesheet" type="text/css" href="/mg/resources/css/footer.css">
   <link rel="stylesheet" type="text/css" href="/mg/resources/css/main-common.css">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -79,25 +79,25 @@
 								<th class="question-empty"></th>
 							</tr>
 							<tr>
-								<th class="question-list"><div class="main-text">1. 고객센터 전화번호와 상담 시간은 어떻게 되나요?</th>
+								<th class="question-list"><div class="main-text">1. 적립금은 어떻게 적립이 되나요?</th>
 							</tr>
 							<tr>
 								<th class="question-empty"></th>
 							</tr>
 							<tr>
-								<th class="question-list"><div class="main-text">2. 냉동상태로 배송이 되나요?</th>
+								<th class="question-list"><div class="main-text">2. 구매시 카드결제만 가능 한가요?</th>
 							</tr>
 							<tr>
 								<th class="question-empty"></th>
 							</tr>
 							<tr>
-								<th class="question-list"><div class="main-text">3. 구매시 카드 사용만 가능한가요?</th>
+								<th class="question-list"><div class="main-text">3. 적립금은 몇점부터 사용이 가능한가요?</th>
 							</tr>
 							<tr>
 								<th class="question-empty"></th>
 							</tr>
 							<tr>
-								<th class="question-list"><div class="main-text">4. 적립금은 몇점부터 사용 가능한가요?</th>
+								<th class="question-list"><div class="main-text">4. 전화주문 가능한가요?</th>
 							</tr>
 							<tr>
 								<th class="question-empty"></th>

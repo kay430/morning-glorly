@@ -23,7 +23,9 @@
 	href="/mg/resources/css/footer.css">
 <link rel="stylesheet" type="text/css"
 	href="/mg/resources/css/main-common.css">
+<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
 </head>
+<body>
 
 <body>
 
@@ -33,10 +35,10 @@
 		<!-- 사이드바 -->
 		<div id="sidebar-wrapper">
 			<ul class="sidebar-nav">
-				<li class="sidebar-brand"><a href="#"> 고객센터</a></li>
-				<li><a href="#">공지사항</a></li>
-				<li><a href="#">질문과 답변</a></li>
-				<li><a href="#">상품 후기 </a></li>
+				<li class="sidebar-brand"><a href="${ pageContext.servletContext.contextPath }/customer/list"> CUSTOMER</a></li>
+				<li class="sidebar-text"><a href="${ pageContext.servletContext.contextPath }/notice/list">공지사항</a>
+				<li class="sidebar-text"><a href="${ pageContext.servletContext.contextPath }/question/list">질문과 답변</a></li>
+				<li class="sidebar-text"><a href="${ pageContext.servletContext.contextPath }/product/review">상품 후기 </a></li>
 			</ul>
 		</div>
 		
@@ -53,34 +55,34 @@
 							<div class="table-area">
 								<form action="${ pageContext.servletContext.contextPath }/review/insert"
 									method="post" encType="multipart/form-data">
-									<table align="center" style="margin-left:-80px">
+									<table align="center" style="margin-left:-80px ">
 										<tr>
-											<td>제목</td>
-											<td><input type="text" size="95" name="title" style="margin-top: 15px; margin-bottom: 15px"></td>
+											<td><div style="font-family: 'Jua', sans-serif; font-size:25px;">제목</div></td>
+											<td><input type="text" size="95" name="title" style="margin-top: 15px; margin-bottom: 15px;"></td>
 										</tr>
 										<tr>
-											<td>작성자</td>
+											<td><div style="font-family: 'Jua', sans-serif; font-size:25px;">작성자</div></td>
 											<td><input type="text"
 												value="${ sessionScope.loginMember.name }" name="writer" readonly style="margin-top: 15px; margin-bottom: 15px"></td>
 										</tr>
 										<tr>
-											<td>내용</td>
+											<td><div style="font-family: 'Jua', sans-serif; font-size:25px;">내용</div></td>
 											<td colspan="2"><textarea name="body" cols="60"
 													rows="15" style="resize: none; width: 600px; height: 350px; margin-left:1px;margin-top: 15px; margin-bottom: 15px"
 													required ></textarea></td>
 										</tr>
 										<tr>
-											<td>비밀번호</td>
+											<td><div style="font-family: 'Jua', sans-serif; font-size:25px;">비밀번호</div></td>
 											<td><input type="text" size="30" name="password" style="margin-top: 15px; margin-bottom: 15px"></td>
 										</tr>
 
 									
 									<br>
 										<tr>
-											<td>후기 사진</td>
+											<td><div style="font-family: 'Jua', sans-serif; font-size:25px;">후기 사진</div></td>
 											 <td colspan="3">
 												<div class="title-image-area1">
-													<img id="titleImg" width="350" height="200" style="margin-top: 15px; margin-bottom: 15px">
+													<img id="titleImg" width="350" height="200" style="margin-top: 15px; margin-bottom: 15px;">
 												</div>
 											</td> 
 										</tr>
@@ -89,12 +91,12 @@
 										<div class="thumbnail-file-area" align="center">
  												
 											<input type="file" id="thumbnailImg1" name="thumbnailImage1"
-												onchange="loadImg(this, 1)"> 
+												onchange="loadImg(this, 1)" style="font-family: 'Jua', sans-serif; font-size:25px;"> 
 											
 										</div>
 									<div align="center">
-										<button type="reset" id="cancelNotice">취소하기</button>
-										<button type="submit" id="submitReview">등록하기</button>
+										<button class="buttons"type="reset" id="cancelNotice"style="font-family: 'Jua', sans-serif; font-size:25px;padding:15px 15px">취소하기</button>
+										<button class="buttons"type="submit" id="submitReview"style="font-family: 'Jua', sans-serif; font-size:25px; padding:15px 15px">등록하기</button>
 										</div>
 										</form>
 										<!--썸네일 들어갈곳 -->

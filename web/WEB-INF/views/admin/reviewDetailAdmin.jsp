@@ -169,8 +169,9 @@
                     </div>
                   </div>
                 </div>
-                <img src="${ pageContext.servletContext.contextPath }${ requestScope.reviewDetail.attachmentList[0].thumbnailPath }">
-                <div class="view-mail">
+                <img src="${ pageContext.servletContext.contextPath }${ requestScope.reviewDetail.attachmentList[0].thumbnailPath }"
+							style="float: left; width: 200px; height: 200px; margin: 10px 15px 10px 0;">
+                 <div class="view-mail">
                    <textarea id="core" style="resize:none; width:90%; height:200px;" readonly><c:out value="${ requestScope.review.body }"/></textarea>
                 </div>
                 

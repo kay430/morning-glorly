@@ -21,6 +21,10 @@ public class detailReview extends HttpServlet {
 		
 		ReviewDTO reviewDTO = new ReviewService().selectReviewDetail(no);
 		
+		ReviewDTO reviewDetail = new ReviewService().selectReviewDetail(no);
+
+		
+		
 		System.out.println(reviewDTO);
 		
 		String path = "";
@@ -28,6 +32,7 @@ public class detailReview extends HttpServlet {
 			path = "/WEB-INF/views/admin/reviewDetailAdmin.jsp";
 			request.setAttribute("review", reviewDTO);
 			request.setAttribute("pageNumNo", pageNumNo);
+			request.setAttribute("reviewDetail", reviewDetail);
 		} else {
 			path = "/WEB-INF/views/common/failed.jsp";
 			request.setAttribute("message", "공지사항 상세 보기 조회에 실패하셨습니다.");

@@ -15,7 +15,7 @@
   <link rel="stylesheet" type="text/css" href="/mg/resources/css/header.css">
   <link rel="stylesheet" type="text/css" href="/mg/resources/css/footer.css">
   <link rel="stylesheet" type="text/css" href="/mg/resources/css/main-common.css">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -79,31 +79,31 @@
 								<th class="question-empty"></th>
 							</tr>
 							<tr>
-								<th class="question-list"><div class="main-text">1. 고객센터 전화번호와 상담 시간은 어떻게 되나요?</th>
+								<th class="question-list"><div class="main-text">1. 식단을 중단하고 환불을 받고 싶어요</th>
 							</tr>
 							<tr>
 								<th class="question-empty"></th>
 							</tr>
 							<tr>
-								<th class="question-list"><div class="main-text">2. 냉동상태로 배송이 되나요?</th>
+								<th class="question-list"><div class="main-text">2. 배송이 늦어서 상품이 상태가 좋지 않아요</th>
 							</tr>
 							<tr>
 								<th class="question-empty"></th>
 							</tr>
 							<tr>
-								<th class="question-list"><div class="main-text">3. 구매시 카드 사용만 가능한가요?</th>
+								<th class="question-list"><div class="main-text">3. 단순 변심으로 배송받은 상품을 환불 받고 싶어요</th>
 							</tr>
 							<tr>
 								<th class="question-empty"></th>
 							</tr>
 							<tr>
-								<th class="question-list"><div class="main-text">4. 적립금은 몇점부터 사용 가능한가요?</th>
+								<th class="question-list"><div class="main-text">4. 도시락이 너무 맛이 없어서 환불 하고 싶어요</th>
 							</tr>
 							<tr>
 								<th class="question-empty"></th>
 							</tr>
 							<tr>
-								<th class="question-list"><div class="main-text">5. 적립금을 현금화 할수 있나요?</th>
+								<th class="question-list"><div class="main-text">5. 다른 식단이 배송되었어요</th>
 							</tr>
 						</table>
 					</div>
