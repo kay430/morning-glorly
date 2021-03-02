@@ -76,21 +76,38 @@
         <input type="button" value="더보기" class="seeMoreBtn"></h5>
 
       <hr>
-      <table align="center" id="listArea">
+      
+      <table align="center" class="table table-bordered table-striped table-condensed">
+      <thead>
         <tr>
-            <th width="300px">주문일자</th>
-            <th width="200px">상품명</th>
-            <th width="100px">결제금액</th>
-            <th width="100px">주문상세</th>
-        </tr>
         
-        </table>
-        <hr>
-        <table align="center" id="listArea">
-            <tr>
+            <th width="100px">주문일자</th>
+            <th width="100px">상품명</th>
+            <th width="100px">수량</th>
+            <th width="100px">금액</th>
+            <th width="100px">결제금액</th>
+            <th width="100px">배송상태</th>
+        </tr>
+        </thead>
+      
+        
+       <tbody>
+          <c:forEach var="orderState" items="${ requestScope.orderSelectList }">
+				<tr>
+					<td><c:out value="${ orderState.mgOrderDTO.date }"/></td>
+					<td><c:out value="${ orderState.mgGoodsDTO.name }"/></td>
+					<td><c:out value="${ orderState.mgOrderGoodsDTO.amountCount }"/></td>
+					<td><c:out value="${ orderState.mgGoodsDTO.price }"/></td>
+					<td><c:out value="${ orderState.mgOrderDTO.amountPrice }"/></td>
+					<td><c:out value="${ orderState.mgOrderDeliveryDTO.type }"/></td>
+					
+				</tr>
+				</c:forEach>
+				</tbody>
+           <!--  <tr>
                 <td colspan="4" class="t1">주문내역이 없습니다</td>
               
-            </tr>
+            </tr> -->
             </table>
         <hr>
         <h5>최근등록게시글
@@ -109,7 +126,7 @@
           <hr>
           <table align="center" id="listArea">
               <tr>
-                  <td colspan="4" class="t1">주문내역이 없습니다</td>
+                  <td colspan="4" class="t1">게시글이 없습니다</td>
                 
               </tr>
               </table>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="selectAllOrderList">	
+        SELECT
+               A.ORDER_ADD_NO
+             , A.MEMBER_NO
+             , B.ORDER_MEMBER_NO
+             , B.ORDER_DATE
+             , C.GOODS_NO
+             , D.GOODS_NAME
+             , C.AMOUNT_COUNT
+             , D.GOODS_PRICE
+             , C.ORDER_GOODS_PRICE
+             , E.DELIVERY_TYPE
+             , B.ORDER_TITLE
+             , A.DELIVERY_NO
+             , A.RECIEVER_NAME
+             , A.RECIEVER_PHONE
+             , A.RECIEVER_ADDRESS
+         FROM MG_ORDER_ADDRESS A
+         JOIN MG_ORDER B ON (A.ORDER_ADD_NO = B.ORDER_NO)
+         JOIN MG_ORDER_GOODS C ON ( A.ORDER_ADD_NO = C.ORDER_NO)
+         JOIN MG_GOODS D ON (C.GOODS_NO = D.GOODS_NO)
+         JOIN MG_ORDER_DELIVERY E ON (A.ORDER_ADD_NO = E.ORDER_NO)
+	</entry>
+</properties>
