@@ -92,7 +92,13 @@
 			case "deleteReview":
             	successMessage = "리뷰삭제 성공";
             	movePath ="${ pageContext.servletContext.contextPath }/product/review";
-            	break;		
+            	break;
+            	
+			case "insertReply":
+				successMessage = "댓글작성 성공";
+            	movePath ="${ pageContext.servletContext.contextPath }/admin/answer";
+            	break;
+            	
 			}
 			
 			

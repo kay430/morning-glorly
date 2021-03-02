@@ -11,6 +11,10 @@ public class QuestionAnswerDTO implements java.io.Serializable {
 	private int ansPostNo;
 	private int andWriterAdminNo;
 	private String ansStatus;
+	
+	public QuestionAnswerDTO(){
+		
+	}
 	public int getAnsNo() {
 		return ansNo;
 	}

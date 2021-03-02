@@ -144,7 +144,7 @@
             <section class="panel">
               <header class="panel-heading wht-bg">
                 <h4 class="gen-case">
-                    공지사항 확인
+                        질문게시판 확인
                     <form action="#" class="pull-right mail-src-position">
                       <div class="input-append">
                         <input type="text" class="form-control " placeholder="검색하기">
@@ -186,42 +186,42 @@
                   <%-- <p><c:out value="${ requestScope.notice.body }"/></p> --%>
                   <textarea id="core" style="resize:none; width:90%; height:200px;" readonly><c:out value="${ requestScope.answer.body }"/></textarea>
                 </div>
-                <!-- 첨부파일 부분 -->
-               <!--  <div class="attachment-mail">
-                  <p>
-                    <span><i class="fa fa-paperclip"></i> 2 attachments — </span>
-                    <a href="#">Download all attachments</a> |
-                    <a href="#">View all images</a>
-                  </p>
-                  <ul>
-                    <li>
-                      <a class="atch-thumb" href="#">
-                        <img src="img/instagram.jpg">
-                        </a>
-                      <a class="name" href="#">
-                        IMG_001.jpg
-                        <span>20KB</span>
-                        </a>
-                      <div class="links">
-                        <a href="#">View</a> -
-                        <a href="#">Download</a>
-                      </div>
-                    </li>
-                    <li>
-                      <a class="atch-thumb" href="#">
-                        <img src="img/weather.jpg">
-                        </a>
-                      <a class="name" href="#">
-                        IMG_001.jpg
-                        <span>20KB</span>
-                        </a>
-                      <div class="links">
-                        <a href="#">View</a> -
-                        <a href="#">Download</a>
-                      </div>
-                    </li>
-                  </ul>
-                </div> -->
+              
+              
+              
+              
+      <form action="${ pageContext.servletContext.contextPath }/admin/reply" method="post" >        
+              <!-- dddd -->
+       <table>
+       
+       <th>제목</th>
+    	<td><textarea rows="1" cols="40" name="title" ></textarea></td>
+    <tr>
+    	
+        <th>댓글</th>
+        <td><textarea rows="3" cols="40" name = "reply"></textarea></td>
+    
+        <td><input type = "submit" value = "댓글달기" onclick = "return com_check()"></td>
+    </tr>
+</table>
+</form>
+
+<form action="${ pageContext.servletContext.contextPath }/admin/reply" method="post">
+<div> 
+<c:forEach var="i" begin = "1" end ="" step="1">
+    <a href="BoardServlet?command=board_view&num=${param.num }&page=${i}">[${i}]</a>
+</c:forEach>
+ 
+<br><br>
+<input type = "button" value = "목록" onclick = "location.href='BoardServlet?command=board_list'">
+<c:if test = "${sessionId.id == sVo.mid }">
+
+<input type = "button" value = "답글" onclick = "open_win('BoardServlet?command=board_reply_form&num=${sVo.num}','reply')">
+</c:if>
+ </div>
+</form>
+ <br><br>
+ 
                 
                 <div id="holdUp2" class="compose-btn pull-left">
                   <a id="rewriteNoListA1" class="btn btn-sm btn-theme" onclick="location.href='${ pageContext.servletContext.contextPath }/admin/answer'">

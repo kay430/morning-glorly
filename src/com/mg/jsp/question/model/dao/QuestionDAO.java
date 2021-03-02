@@ -18,6 +18,7 @@ import com.mg.jsp.common.config.ConfigLocation;
 import com.mg.jsp.member.model.dto.MgDTO;
 import com.mg.jsp.question.model.dto.AttaQuestionDTO;
 import com.mg.jsp.question.model.dto.CategoryDTO;
+import com.mg.jsp.question.model.dto.QuestionAnswerDTO;
 import com.mg.jsp.question.model.dto.QuestionDTO;
 import com.mg.jsp.question.model.dto.QuestionPageInfoDTO;
 
@@ -424,6 +425,35 @@ public class QuestionDAO {
 		} finally {
 			close(pstmt);
 		}
+		
+		return result;
+	}
+	public int insertQuestionAnswer(Connection con, QuestionAnswerDTO questionAnswer) {
+		
+		PreparedStatement pstmt = null;
+		int result = 0;
+		
+		String query = prop.getProperty("insertReply");
+		System.out.println(" dhslda");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, questionAnswer.getAnsNo());
+			pstmt.setString(2, questionAnswer.getAnsTitle());
+			pstmt.setString(3, questionAnswer.getAnsBody());
+			pstmt.setInt(4, questionAnswer.getAnsPostNo());
+			pstmt.setInt(5, questionAnswer.getAndWriterAdminNo());
+			
+			result = pstmt.executeUpdate();
+			System.out.println("DAO 에서 " + result);      
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally{
+			close(pstmt);
+		}
+		
+		
 		
 		return result;
 	}

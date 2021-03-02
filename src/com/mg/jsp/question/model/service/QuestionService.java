@@ -10,6 +10,7 @@ import java.util.List;
 
 import com.mg.jsp.question.model.dao.QuestionDAO;
 import com.mg.jsp.question.model.dto.AttaQuestionDTO;
+import com.mg.jsp.question.model.dto.QuestionAnswerDTO;
 import com.mg.jsp.question.model.dto.QuestionDTO;
 import com.mg.jsp.question.model.dto.QuestionPageInfoDTO;
 
@@ -175,6 +176,23 @@ public class QuestionService {
 		} else { 
 			rollback(con);
 		}
+		close(con);
+		
+		return result;
+	}
+
+	public int insertQuestionAnswer(QuestionAnswerDTO questionAnswer) {
+		
+		Connection con = getConnection();
+		
+		int result = questionDAO.insertQuestionAnswer(con, questionAnswer);
+		  System.out.println("sevice 위 에서 " + result);    
+		if(result > 1) {
+			commit(con);
+		}else{
+			rollback(con);
+		}
+		  System.out.println("service 아래 에서 " + result);    
 		close(con);
 		
 		return result;
