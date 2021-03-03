@@ -445,9 +445,10 @@ public class QuestionDAO {
 			pstmt.setInt(5, questionAnswer.getAndWriterAdminNo());
 			
 			result = pstmt.executeUpdate();
-			System.out.println("DAO 에서 " + result);      
+			
+			System.out.println("DAO 에서 " + result);
+			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally{
 			close(pstmt);
@@ -456,6 +457,33 @@ public class QuestionDAO {
 		
 		
 		return result;
+	}
+	public int selectQuestionAnswerSequence(Connection con) {
+		
+		Statement stmt = null;
+		ResultSet rset = null;
+		
+		int lastQuestionAnswerNo = 0;
+		
+		String query = prop.getProperty("selectQuestionAnswerSequence");
+		try {
+			stmt = con.createStatement();
+			
+			rset = stmt.executeQuery(query);
+			
+			if(rset.next()) {
+				lastQuestionAnswerNo = rset.getInt("CURRVAL");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(stmt);
+		}   
+		
+	
+		return lastQuestionAnswerNo;
+	
 	}
 
 
