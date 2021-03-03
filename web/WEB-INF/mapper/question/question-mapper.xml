@@ -356,8 +356,13 @@
 	    ?
 	  , ?
 	  , ?
-	  , 25
-	  , 1  
+	  , ?
+	  , ?  
 	 )
 	</entry>
+	 <entry key="selectQuestionAnswerSequence">
+        SELECT
+               SEQ_QNA_ANS_NO.CURRVAL
+          FROM DUAL
+	</entry> 
 </properties>

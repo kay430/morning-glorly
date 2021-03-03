@@ -186,6 +186,9 @@ public class QuestionService {
 		Connection con = getConnection();
 		
 		int result = questionDAO.insertQuestionAnswer(con, questionAnswer);
+		
+		int questionSeqNo = questionDAO.selectQuestionAnswerSequence(con);
+		
 		  System.out.println("sevice 위 에서 " + result);    
 		if(result > 1) {
 			commit(con);

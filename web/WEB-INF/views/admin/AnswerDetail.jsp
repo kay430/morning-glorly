@@ -193,11 +193,13 @@
       <form action="${ pageContext.servletContext.contextPath }/admin/reply" method="post" >        
               <!-- dddd -->
        <table>
-       
+       <th><p>관리자번호</p></th>
+       <td><input type="text"  name="adminNo" value="${ requestScope.answer.writer.name	 }"/></textarea></td>
+       <tr>
        <th>제목</th>
     	<td><textarea rows="1" cols="40" name="title" ></textarea></td>
-    <tr>
-    	
+    	</tr>
+   	   <tr>
         <th>댓글</th>
         <td><textarea rows="3" cols="40" name = "reply"></textarea></td>
     
