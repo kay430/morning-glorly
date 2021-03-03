@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+	<entry key="incrementTransitCount">
+
+	</entry>
+	<entry key="selectTotalCount">
+		SELECT /**/
+		       COUNT(*)
+		  FROM MG_ORDER A
+	</entry>
+	<entry key="selectOrderList">
+        SELECT
+             A.RNUM
+           , A.ORDER_NO
+           , A.ORDER_MEMBER_NO
+           , A.ORDER_DATE
+           , A.ORDER_TITLE
+           , A.AMOUNT_PRICE
+      FROM (SELECT ROWNUM RNUM
+                 , B.ORDER_NO
+                 , B.ORDER_MEMBER_NO
+                 , B.ORDER_DATE
+                 , B.ORDER_TITLE
+                 , B.AMOUNT_PRICE
+            FROM (SELECT A.ORDER_NO
+                       , A.ORDER_MEMBER_NO
+                       , A.ORDER_DATE
+                       , A.ORDER_TITLE
+                       , A.AMOUNT_PRICE
+                    FROM MG_ORDER A
+                    JOIN MG_MEMBER B ON (A.ORDER_MEMBER_NO = B.MEMBER_NO)
+                ORDER BY A.ORDER_NO DESC
+                 ) B
+            ) A
+            WHERE RNUM BETWEEN ? AND ?
+	</entry>
+	<entry key="selectOrderSequence">
+        SELECT
+               SEQ_ORDER_NO.CURRVAL
+          FROM DUAL    
+	</entry>  
+	<entry key="searchOrderNoCount">
+        SELECT
+               COUNT(*)
+          FROM MG_ORDER A
+         WHERE A.ORDER_NO LIKE '%' || ? || '%'
+	</entry>
+	<entry key="searchMemberNoCount">
+        SELECT
+               COUNT(*)
+          FROM MG_ORDER A
+         WHERE A.ORDER_MEMBER_NO LIKE '%' || ? || '%' 
+	</entry>
+	<entry key="searchOrderTitleCount"> 
+        SELECT
+               COUNT(*)
+          FROM MG_ORDER A
+         WHERE A.ORDER_TITLE LIKE '%' || ? || '%'
+	</entry>
+	<entry key="searchOrderListByOrderNo">
+        SELECT
+             A.RNUM
+           , A.ORDER_NO
+           , A.ORDER_MEMBER_NO
+           , A.ORDER_DATE
+           , A.ORDER_TITLE
+           , A.AMOUNT_PRICE
+      FROM (SELECT ROWNUM RNUM
+                 , B.ORDER_NO
+                 , B.ORDER_MEMBER_NO
+                 , B.ORDER_DATE
+                 , B.ORDER_TITLE
+                 , B.AMOUNT_PRICE
+            FROM (SELECT A.ORDER_NO
+                       , A.ORDER_MEMBER_NO
+                       , A.ORDER_DATE
+                       , A.ORDER_TITLE
+                       , A.AMOUNT_PRICE
+                    FROM MG_ORDER A
+                    JOIN MG_MEMBER B ON (A.ORDER_MEMBER_NO = B.MEMBER_NO)
+                   WHERE A.ORDER_NO LIKE ?
+                ORDER BY A.ORDER_NO DESC
+                 ) B
+            ) A
+            WHERE RNUM BETWEEN ? AND ?
+	</entry>
+	<entry key="searchOrderListByMemberNo">
+        SELECT
+             A.RNUM
+           , A.ORDER_NO
+           , A.ORDER_MEMBER_NO
+           , A.ORDER_DATE
+           , A.ORDER_TITLE
+           , A.AMOUNT_PRICE
+      FROM (SELECT ROWNUM RNUM
+                 , B.ORDER_NO
+                 , B.ORDER_MEMBER_NO
+                 , B.ORDER_DATE
+                 , B.ORDER_TITLE
+                 , B.AMOUNT_PRICE
+            FROM (SELECT A.ORDER_NO
+                       , A.ORDER_MEMBER_NO
+                       , A.ORDER_DATE
+                       , A.ORDER_TITLE
+                       , A.AMOUNT_PRICE
+                    FROM MG_ORDER A
+                    JOIN MG_MEMBER B ON (A.ORDER_MEMBER_NO = B.MEMBER_NO)
+                   WHERE A.ORDER_MEMBER_NO LIKE ?
+                ORDER BY A.ORDER_NO DESC
+                 ) B
+            ) A
+            WHERE RNUM BETWEEN ? AND ?
+	</entry>
+		<entry key="searchOrderListByOrderTitle">
+        SELECT
+             A.RNUM
+           , A.ORDER_NO
+           , A.ORDER_MEMBER_NO
+           , A.ORDER_DATE
+           , A.ORDER_TITLE
+           , A.AMOUNT_PRICE
+      FROM (SELECT ROWNUM RNUM
+                 , B.ORDER_NO
+                 , B.ORDER_MEMBER_NO
+                 , B.ORDER_DATE
+                 , B.ORDER_TITLE
+                 , B.AMOUNT_PRICE
+            FROM (SELECT A.ORDER_NO
+                       , A.ORDER_MEMBER_NO
+                       , A.ORDER_DATE
+                       , A.ORDER_TITLE
+                       , A.AMOUNT_PRICE
+                    FROM MG_ORDER A
+                    JOIN MG_MEMBER B ON (A.ORDER_MEMBER_NO = B.MEMBER_NO)
+                   WHERE A.ORDER_TITLE LIKE '%' || ? || '%'
+                ORDER BY A.ORDER_NO DESC
+                 ) B
+            ) A
+            WHERE RNUM BETWEEN ? AND ?
+	</entry>
+
+</properties>

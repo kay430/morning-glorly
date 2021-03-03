@@ -9,6 +9,7 @@ public class TransitDTO implements java.io.Serializable {
 	private int dNo;
 	private String dType;
 	private int tNo;
+	private int newTNo;
 	private Date tDate;
 	private int oNo;
 	private int memberNo;
@@ -18,12 +19,13 @@ public class TransitDTO implements java.io.Serializable {
 
 	public TransitDTO() {}
 
-	public TransitDTO(int dNo, String dType, int tNo, Date tDate, int oNo, int memberNo, Date oDate, String oTitle,
-			int price, List trdList) {
+	public TransitDTO(int dNo, String dType, int tNo, int newTNo, Date tDate, int oNo, int memberNo, Date oDate,
+			String oTitle, int price) {
 		super();
 		this.dNo = dNo;
 		this.dType = dType;
 		this.tNo = tNo;
+		this.newTNo = newTNo;
 		this.tDate = tDate;
 		this.oNo = oNo;
 		this.memberNo = memberNo;
@@ -54,6 +56,14 @@ public class TransitDTO implements java.io.Serializable {
 
 	public void settNo(int tNo) {
 		this.tNo = tNo;
+	}
+
+	public int getnewTNo() {
+		return newTNo;
+	}
+
+	public void setnewTNo(int newTNo) {
+		this.newTNo = newTNo;
 	}
 
 	public Date gettDate() {
@@ -106,9 +116,9 @@ public class TransitDTO implements java.io.Serializable {
 
 	@Override
 	public String toString() {
-		return "TransitDTO [dNo=" + dNo + ", dType=" + dType + ", tNo=" + tNo + ", tDate=" + tDate + ", oNo=" + oNo
-				+ ", memberNo=" + memberNo + ", oDate=" + oDate + ", oTitle=" + oTitle + ", price=" + price
-				+ ", trdList=" + "]";
+		return "TransitDTO [dNo=" + dNo + ", dType=" + dType + ", tNo=" + tNo + ", newTNo=" + newTNo + ", tDate="
+				+ tDate + ", oNo=" + oNo + ", memberNo=" + memberNo + ", oDate=" + oDate + ", oTitle=" + oTitle
+				+ ", price=" + price + "]";
 	}
 
 
