@@ -60,8 +60,12 @@
 
 
 /* 사이드바 래퍼 스타일 */
-
-#page-wrapper {
+#page-wrapper-1 {
+      margin: 0 auto;
+    width: 1000px;
+    height: 840px;
+}
+#page-wrappers {
   padding-left: 30%;
   }
   /*사이드바 기본 세팅*/
@@ -104,24 +108,24 @@
   display: block;
   text-decoration: none;
   color:black;
- 	font-size:25px;
-	}
+    font-size:25px;
+   }
 /*사이드바 제목(상단)기본 색*/
-	.sidebar-brand {
-		background: rgb(229, 206, 248);
-		width: 170px;
-		height: auto;
-		font-family: 'Jua', sans-serif;
-	}
-	.sidebar-sub {
-		width: 170px;
-		height: auto;
-		font-family: 'Jua', sans-serif;
-	}
-	.wishList-List {
-		width: 80%;
-		height: auto;
-	}
+   .sidebar-brand {
+      background: rgb(229, 206, 248);
+      width: 170px;
+      height: auto;
+      font-family: 'Jua', sans-serif;
+   }
+   .sidebar-sub {
+      width: 170px;
+      height: auto;
+      font-family: 'Jua', sans-serif;
+   }
+   .wishList-List {
+      width: 80%;
+      height: auto;
+   }
   
   .seeMoreBtn{
     background: rgb(227, 240, 168);

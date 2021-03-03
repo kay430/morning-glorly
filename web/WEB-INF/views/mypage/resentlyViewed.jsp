@@ -23,28 +23,31 @@
 	href="/mg/resources/css/idFind.css">
 <link rel="stylesheet" type="text/css"
 	href="/mg/resources/css/mypage/resentlyViewed.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
 </head>
 <body>
 
 	<jsp:include page="../common/header.jsp" />
 <br>
 
-<div id="page-wrapper">
+<div id="page-wrapper-1">
 <!-- 사이드바 -->
 <div id="sidebar-wrapper">
 <ul class="sidebar-nav">
     <li class="sidebar-brand">
-    <a href="#"> <h3>MyPage</h3></a>
+    <a href="${ pageContext.servletContext.contextPath }/mypage/main">MyPage</a>
 </li>
-  <li><a href="${ pageContext.servletContext.contextPath }/mypage/orderList">주문 내역</a></li>
-  <li><a href="${ pageContext.servletContext.contextPath }/mypage/resentlyViewed">최근 본 상품</a></li>
-  <li><a href="${ pageContext.servletContext.contextPath }/mypage/wishList">관심 상품</a></li>
-  <li><a href="#">회원정보변경</a></li>
-  <li><a href="${ pageContext.servletContext.contextPath }/mypage/quitMember">회원탈퇴신청</a></li>
-</ul>
+            <li class="sidebar-sub"><a href="${ pageContext.servletContext.contextPath }/mypage/orderList">주문 내역</a></li>
+            <li class="sidebar-sub"><a href="${ pageContext.servletContext.contextPath }/mypage/resentlyViewed">최근 본 상품</a></li>
+            <li class="sidebar-sub"><a href="${ pageContext.servletContext.contextPath }/mypage/wishList">관심 상품</a></li>
+            <li class="sidebar-sub"><a href="${ pageContext.servletContext.contextPath }/change/memberInfo">회원정보변경</a></li>
+            <li class="sidebar-sub"><a href="${ pageContext.servletContext.contextPath }/change/memberPwd">비밀번호변경</a></li>
+            <li class="sidebar-sub"><a href="${ pageContext.servletContext.contextPath }/mypage/quitMember">회원탈퇴신청</a></li>
+          </ul>
 </div>
 <!-- /사이드바 -->
-    <div class="col-sm-8">
+    <div class="col-sm-8"style=" margin-left: 160px;width: 800px;height: 600px;">
       <h2>최근 본 상품</h2>
       <hr>
       
