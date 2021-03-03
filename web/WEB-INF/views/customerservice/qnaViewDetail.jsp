@@ -13,34 +13,44 @@
 <script src="//code.jquery.com/jquery.min.js"></script>
 <script
 	src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
-<link rel="stylesheet" type="text/css"
-	href="web/resources/css/customer/customer_qnadetail.css">
-<link rel="stylesheet" type="text/css"
-	href="/mg/resources/css/header.css">
+<link rel="stylesheet" type="text/css" href="/mg/resources/css/customer/customer_qnadetail.css">
+<link rel="stylesheet" type="text/css" href="/mg/resources/css/main-common.css">
+ 
+<link rel="stylesheet" type="text/css" href="/mg/resources/css/header.css">
 <link rel="stylesheet" type="text/css"
 	href="/mg/resources/css/footer.css">
-<!-- <link rel="stylesheet" type="text/css"
-	href="/mg/resources/css/main-common.css"> -->
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
 </head>
+<style>
+.btn-sm{
+font-family: 'Jua', sans-serif ;	
+	
+	background: rgb(227, 240, 168);
+    color: rgb(3, 3, 3) !important;
+    border: 1px #093 solid !important;
+    margin-left: 0%;
+    border-radius: 30px / 30px;}
+</style>
 <body>
 
 	<jsp:include page="../common/header.jsp" />
 
 	<section class="qna_panel"
-		style="margin: 0 auto; width: 1100px; height: 500px; margin-top: 50px;">
+		>
 		<header class="panel-heading wht-bg" style="margin: 0 0 30px 0;">
-			<h4 class="gen-case" style="font-size: 30px; text-align: center;">
-				질문게시판</h4>
+			<h4 class="gen-case" style="font-size: 30px; text-align: center;font-family: 'Jua', sans-serif;
+	font-size:40px">질문게시판</h4>
 		</header>
 		<div class="panel-body ">
 			<div class="mail-header row">
 				<div class="col-md-8">
 					<textarea id="headCore"
-						style="resize: none; width: 90%; height: 30px; margin-bottom: 10px;"
+						style="resize: none; width: 90%; height: 30px; margin-bottom: 14px; margin-left:19px"
 						readonly><c:out
 							value="${ requestScope.question.title }" /></textarea>
 				</div>
-				<div class="col-md-4">
+				<!--필요 없는 버튼 <div class="col-md-4">
 					<div class="compose-btn pull-right">
 						<button class="btn  btn-sm tooltips" data-original-title="Print"
 							type="button" data-toggle="tooltip" data-placement="top" title="">
@@ -50,55 +60,57 @@
 							data-toggle="tooltip" data-placement="top" title="">
 							<i class="fa fa-trash-o"></i>
 						</button>
-					</div>
+					</div> -->
 				</div>
 			</div>
 			<div class="mail-sender">
 				<div class="row">
-					<div class="col-md-8">
+					<div class="col-md-8"style="font-family: 'Jua', sans-serif">
 						<img src="img/ui-zac.jpg" alt=""> <strong class="col-md-8">작성자
 							: <c:out value="${ requestScope.question.mgDTO.name}" />
 						</strong>
 					</div>
-					<div class="col-md-4">
-						<p class="date">
+					<div class="col-md-4"style="font-family: 'Jua', sans-serif">
+						<p class="date">작성일:
 							<c:out value="${ requestScope.question.createDate }" />
 						</p>
 					</div>
 				</div>
 			</div>
 			<img
-				style="float: left; width: 200px; height: 200px; margin: 10px 15px 10px 0;"
+				style="float: left; width: 200px; height: 200px; margin: 10px 15px 10px 20px;"
 				src="${ pageContext.servletContext.contextPath }<c:out value="${ requestScope.question.attaQueList[0].thumbnailPath }"/>" />
 			<div class="view-mail" style="margin: 150px 0 0 0;">
 				<%-- <p><c:out value="${ requestScope.notice.body }"/></p> --%>
-				<textarea id="core" style="resize: none; width: 90%; height: 250px;"
+				<textarea id="core" style="resize: none; width: 90%; height: 250px;margin-left: 20px;"
 					readonly><c:out value="${ requestScope.question.body }" /></textarea>
 			</div>
 
 
-			<div id="holdUp2" class="compose-btn pull-left">
-				<a id="rewriteNoList" class="btn btn-sm btn-theme"
+			<div id="holdUp2" class="compose-btn pull-left" style="margin-left: 21px;
+    margin-top: 10px;">
+				
+				<button id="rewriteNoList" class="btn-sm"
 					onclick="location.href='${ pageContext.servletContext.contextPath }/question/list'">
 					<i class="fa fa-reply"></i> 목록으로
-				</a>
+				</button>
 				<c:if test="${ sessionScope.loginMember.status eq 'Y' }">
 					<div id="holdUp">
-						<button id="rewriteNo" class="btn btn-sm">
+						<button id="rewriteNo" class="btn-sm">
 							<!-- <a href='javascript:test("/mg/resources/js/event")'> -->
-							<i class="fa fa-arrow-right"></i> 수정하기
+							 수정하기
 							<!-- </a> -->
 						</button>
-						<button id="deleteNo" class="btn btn-sm">
+						<button id="deleteNo" class="btn-sm" >
 							<!-- <a href='javascript:test("/mg/resources/js/event")'> -->
-							<i class="fa fa-arrow-right"></i> 삭제하기
+							삭제하기
 							<!-- </a> -->
 						</button>
 
 					</div>
 					<div id="holdUp4">
-						<button id="rewriteNoCommit" class="btn btn-sm">
-							<i class="fa fa-arrow-right"></i>완료하기
+						<button id="rewriteNoCommit" class="btn-sm" >
+							완료하기
 						</button>
 					</div>	
                  	 </select>
@@ -211,14 +223,14 @@
                   </script>
 				</c:if>
 				<div id="holdUp3">
-					<button class="btn  btn-sm tooltips" data-original-title="Print"
+					<!-- <button class="btn  btn-sm tooltips" data-original-title="Print"
 						type="button" data-toggle="tooltip" data-placement="top" title="">
 						<i class="fa fa-print"></i>
 					</button>
 					<button class="btn btn-sm tooltips" data-original-title="Trash"
 						data-toggle="tooltip" data-placement="top" title="">
 						<i class="fa fa-trash-o"></i>
-					</button>
+					</button> -->
 				</div>
 			</div>
 		</div>

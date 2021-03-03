@@ -79,7 +79,7 @@
 									</table>
 									<br>
 									<div align="center">
-										<button class="buttons"type="reset" id="cancelNotice" style="font-family: 'Jua', sans-serif; font-size:20px;padding:15px 10px">취소하기</button>
+										<button class="buttons"type="reset" id="cancelReview" style="font-family: 'Jua', sans-serif; font-size:20px;padding:15px 10px">취소하기</button>
 										<button class="buttons"type="submit"id="updateReview" style="font-family: 'Jua', sans-serif; font-size:20px;padding:15px 10px">등록하기</button>
 									</div>
 								</form>

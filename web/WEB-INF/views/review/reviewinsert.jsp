@@ -95,7 +95,7 @@
 											
 										</div>
 									<div align="center">
-										<button class="buttons"type="reset" id="cancelNotice"style="font-family: 'Jua', sans-serif; font-size:25px;padding:15px 15px">취소하기</button>
+										<button class="buttons"type="reset" id="cancelInsert"style="font-family: 'Jua', sans-serif; font-size:25px;padding:15px 15px">취소하기</button>
 										<button class="buttons"type="submit" id="submitReview"style="font-family: 'Jua', sans-serif; font-size:25px; padding:15px 15px">등록하기</button>
 										</div>
 										</form>

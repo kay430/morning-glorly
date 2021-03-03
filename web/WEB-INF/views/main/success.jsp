@@ -75,7 +75,7 @@
             	break;	
 	            
 			case "insertReviewThumbnail":
-            	successMessage = "리뷰 등록 성공! 리뷰포인트 100p 적립됩니다.";
+            	successMessage = "리뷰 등록 성공! 관리자 확인후 리뷰포인트 100p 적립됩니다.";
             	movePath ="${ pageContext.servletContext.contextPath }/product/review"; 
             	break;  
 	        	
