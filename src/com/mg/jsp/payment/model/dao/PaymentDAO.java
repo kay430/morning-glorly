@@ -96,22 +96,11 @@ public class PaymentDAO {
 			close(pstmt);
 		}
 		
-		if(result > 0) {
-			System.out.println("첫번째 관문 통과");
-			System.out.println("1 : " + order.getMgInfo().getNo());
-			System.out.println("2 : " + order.getOrderTitle());
-			System.out.println("3 : " + order.getAmountPrice());
-		} else {
-			System.out.println("첫번째 탈락");
-		}
-		
 		return result;
 	}
 	
 	
 	public OrderDTO selectOrderNoSequence(Connection con, OrderDTO order) {
-		
-		System.out.println("시퀀스 조회 가자");
 		
 		Statement stmt = null;
 		ResultSet rset = null;
@@ -134,7 +123,6 @@ public class PaymentDAO {
 			close(stmt);
 		}
 		
-		System.out.println("시퀀스 번호 : " + order.getNo());
 		return order;
 	}
 	
@@ -142,10 +130,6 @@ public class PaymentDAO {
 
 	public int insertOrderGoods(Connection con, OrderDTO order) {
 
-		System.out.println("주문상품 등록 가자");
-		System.out.println("가져온 주문 시퀀스 : " + order.getNo());
-		System.out.println("2 : " + order.getOrderGoods().get(0).getAmountCount());
-		System.out.println("3 : " + order.getOrderGoods().get(0).getGoodsPrice());
 		PreparedStatement pstmt = null;
 		
 		int result = 0;
@@ -167,19 +151,11 @@ public class PaymentDAO {
 			close(pstmt);
 		}
 		
-		if(result > 0) {
-			System.out.println("두 번째 관문 통과");
-		} else {
-			System.out.println("두 번째 탈락");
-		}
-		
 		return result;
 	}
 
 	public int insertOrderDelivery(Connection con, OrderDTO order) {
 
-		System.out.println("배송 등록 ");
-		
 		PreparedStatement pstmt = null;
 		
 		String query = prop.getProperty("insertOrderDelivery");
@@ -198,18 +174,10 @@ public class PaymentDAO {
 			close(pstmt);
 		}
 		
-		if(result > 0) {
-			System.out.println("세 번째 관문 통과");
-		} else {
-			System.out.println("세 번째 탈락");
-		}
-		
 		return result;
 	}
 	
 	public OrderDTO selectOrderDeliveryNoSequence(Connection con, OrderDTO order) {
-		
-		System.out.println("시퀀스 조회 가자");
 		
 		Statement stmt = null;
 		ResultSet rset = null;
@@ -231,15 +199,12 @@ public class PaymentDAO {
 			close(rset);
 			close(stmt);
 		}
-		System.out.println("현재 여기에 뭐가 이씅ㄹ까 : " + order.getOrderDeli());
 	
 		return order;
 	}
 
 	public int insertOrderAddress(Connection con, OrderDTO order) {
 
-		System.out.println("배송주소 등록 ");
-		
 		PreparedStatement pstmt = null;
 		
 		String query = prop.getProperty("insertOrderAddress");
@@ -264,19 +229,11 @@ public class PaymentDAO {
 			close(pstmt);
 		}
 		
-		if(result > 0) {
-			System.out.println("네 번째 관문 통과");
-		} else {
-			System.out.println("네 번째 탈락");
-		}
-		
 		return result;
 	}
 
 	public int insertOrderPayment(Connection con, OrderDTO order) {
 
-		System.out.println("결제 등록 ");
-		
 		PreparedStatement pstmt = null;
 		
 		String query = prop.getProperty("insertOrderPayment");
@@ -298,18 +255,10 @@ public class PaymentDAO {
 			close(pstmt);
 		}
 		
-		if(result > 0) {
-			System.out.println("다섯 번째 관문 통과");
-		} else {
-			System.out.println("다섯 번째 탈락");
-		}
-		
 		return result;
 	}
 
 	public OrderDTO selectOrderPaymentNoSequence(Connection con, OrderDTO order) {
-		
-		System.out.println("결제 시퀀스 조회 가자");
 		
 		Statement stmt = null;
 		ResultSet rset = null;
@@ -331,15 +280,12 @@ public class PaymentDAO {
 			close(rset);
 			close(stmt);
 		}
-		System.out.println("현재 여기에 뭐가 결제 시퀀스? : " + order.getPayment());
 	
 		return order;
 	}
 
 	public int insertOrderPaymentDivision(Connection con, OrderDTO order) {
 
-		System.out.println("결제 등록 ");
-		
 		PreparedStatement pstmt = null;
 		
 		String query = prop.getProperty("insertOrderPaymentDivision");
@@ -357,12 +303,6 @@ public class PaymentDAO {
 			e.printStackTrace();
 		} finally {
 			close(pstmt);
-		}
-		
-		if(result > 0) {
-			System.out.println("여섯 번째 관문 통과");
-		} else {
-			System.out.println("여섯 번째 탈락");
 		}
 		
 		return result;
