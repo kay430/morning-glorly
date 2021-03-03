@@ -1,7 +1,9 @@
 package com.mg.jsp.admin.model.service.order;
 
 import static com.mg.jsp.common.jdbc.JDBCTemplate.close;
+import static com.mg.jsp.common.jdbc.JDBCTemplate.commit;
 import static com.mg.jsp.common.jdbc.JDBCTemplate.getConnection;
+import static com.mg.jsp.common.jdbc.JDBCTemplate.rollback;
 
 import java.sql.Connection;
 import java.util.List;
@@ -10,6 +12,7 @@ import com.mg.jsp.admin.model.dao.order.OrderDAO;
 import com.mg.jsp.admin.model.dto.order.OSearchDTO;
 import com.mg.jsp.admin.model.dto.order.OrderDTO;
 import com.mg.jsp.admin.model.dto.order.OrderPageInfoDTO;
+import com.mg.jsp.admin.model.dto.order.OrderDTO;
 
 
 public class OrderService {
@@ -63,6 +66,22 @@ public class OrderService {
 		close(con);
 		
 		return searchOrderList;
+	}
+	
+	public OrderDTO selectOrderDetail(int no) {
+		
+		Connection con = getConnection();
+		OrderDTO orderDetail = null;
+
+		orderDetail = orderDAO.selectOrderDetail(con, no);
+
+		if(orderDetail != null) {
+			commit(con);
+		} else {
+			rollback(con);
+		}
+
+		return orderDetail;
 	}
 
 

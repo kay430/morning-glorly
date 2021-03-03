@@ -70,8 +70,8 @@
 						<i class="fa fa-cogs"></i> <span>주문관리</span>
 				</a>
 					<ul class="sub">
-						<li><a href=" ${ pageContext.servletContext.contextPath }/admin/order">주문 조회</a></li>
-						<li class="active"><a href=" ${ pageContext.servletContext.contextPath }/admin/payment">결제내역</a></li>
+						<li class="active"><a href=" ${ pageContext.servletContext.contextPath }/admin/order">주문 조회</a></li>
+						<li><a href=" ${ pageContext.servletContext.contextPath }/admin/payment">결제내역</a></li>
 						<li><a href="gallery.html">환불 및 반품</a></li>
 						<li><a href="file_upload.html">배송 조회</a></li>
 					</ul></li>
@@ -80,7 +80,7 @@
 				</a>
 					<ul class="sub">
 						 <li><a href=" ${ pageContext.servletContext.contextPath }/admin/registProduct">상품등록</a></li>
-              <li><a href=" ${ pageContext.servletContext.contextPath }/admin/SelectProduct">상품조회</a></li>
+                         <li><a href=" ${ pageContext.servletContext.contextPath }/admin/SelectProduct">상품조회</a></li>
 						
 					</ul></li>
 				<li class="sub-menu"><a href="javascript:;"> <i
@@ -130,7 +130,7 @@
 					<section class="panel">
 						<header class="panel-heading wht-bg">
 							<h4 class="gen-case">
-								결제정보 상세 조회
+								주문정보 상세 조회
 								<form action="#" class="pull-right mail-src-position">
 									<div class="input-append">
 										<input type="text" class="form-control " placeholder="검색하기">
@@ -141,13 +141,13 @@
 						<div class="panel-body ">
 							<div class="mail-header row">
 								<div class="col-md-8">
-									<strong class="col-md-8">주문상품명 : <c:out	value="${ requestScope.payment.oTitle }" /></strong> 
-										<div class="col-md-8"><strong>결제번호 : <c:out value="${ requestScope.payment.pNo }" /></strong></div>
-										<div class="col-md-8"><strong>주문번호 : <c:out value="${ requestScope.payment.oNo }" /></strong></div>
-										<div class="col-md-8"><strong>결제금액 : <c:out value="${ requestScope.payment.amount }" /></strong></div>
-										<div class="col-md-8"><strong>사용한 포인트 : <c:out value="${ requestScope.payment.usedPoint }" /></strong></div>
-									    <div class="col-md-8"><strong>결제상태 : <c:out value="${ requestScope.payment.pType }" /></strong></div>
-									    <div class="col-md-8"><strong>결제승인번호 : <c:out value="${ requestScope.payment.adNo }" /></strong></div>
+									<strong class="col-md-8">주문상품명 : <c:out	value="${ requestScope.order.oTitle }" /></strong> 
+										<div class="col-md-8"><strong>주문번호 : <c:out value="${ requestScope.order.oNo }" /></strong></div>
+									    <div class="col-md-8"><strong>상품번호 : <c:out value="${ requestScope.order.gNo }" /></strong></div>
+										<div class="col-md-8"><strong>주문일자 : <c:out value="${ requestScope.order.oDate }" /></strong></div>
+									    <div class="col-md-8"><strong>개별가격 : <c:out value="${ requestScope.order.oGPrice }" /></strong></div>
+									    <div class="col-md-8"><strong>주문수량 : <c:out value="${ requestScope.order.aCount }" /></strong></div>
+										<div class="col-md-8"><strong>최종가격 : <c:out value="${ requestScope.order.amount }" /></strong></div>
 								</div>
 								<div class="col-md-4">
 									<div class="compose-btn pull-right">
@@ -167,26 +167,17 @@
 							</div>
 							<div class="mail-sender">
 								<div class="row">
-									<div class="col-md-8"><strong class="col-md-8">주문자 : <c:out	value="${ requestScope.payment.mName }" /></strong>
-										<div class="col-md-8"><strong>회원번호 : <c:out value="${ requestScope.payment.mNo }" /></strong></div>
-										<div class="col-md-8"><strong>잔여 포인트 : <c:out value="${ requestScope.payment.mPoint }" /></strong></div>
-										<div class="col-md-8"><strong>휴대폰 번호 : <c:out value="${ requestScope.payment.phNo }" /></strong></div>
-								    	<div class="col-md-8"><strong>이메일 : <c:out value="${ requestScope.payment.email }" /></strong></div>
-									    <div class="col-md-8"><strong>생년월일 : <c:out value="${ requestScope.payment.bNo }" /></strong></div>
-										<div class="col-md-8"><strong>회원여부 : <c:out value="${ requestScope.payment.mType }" /></strong></div>
-									</div>
-									<div class="col-md-4">
-										<p class="date">
-										<strong>결제 일자 : 
-											<c:out value="${ requestScope.payment.pDate }" /></strong>
-										</p>
+									<div class="col-md-8"><strong class="col-md-8">주문자 : <c:out	value="${ requestScope.order.mName }" /></strong>
+										<div class="col-md-8"><strong>회원번호 : <c:out value="${ requestScope.order.mNo }" /></strong></div>
+                                        <div class="col-md-8"><strong>휴대폰번호 : <c:out value="${ requestScope.order.phNo }" /></strong></div>
+									    <div class="col-md-8"><strong>주 소 : <c:out value="${ requestScope.order.addr }" /></strong></div>
 									</div>
 								</div>
 							</div>
 
 							<div id="holdUp2" class="compose-btn pull-left">
 								<a id="rewriteNoList" class="btn btn-sm btn-theme"
-									onclick="location.href='${ pageContext.servletContext.contextPath }/admin/payment'">
+									onclick="location.href='${ pageContext.servletContext.contextPath }/admin/order'">
 									<i class="fa fa-reply"></i> 목록으로
 								</a>
 								<div id="holdUp3">

@@ -1,4 +1,4 @@
-package com.mg.jsp.admin.controller.payment;
+package com.mg.jsp.admin.controller.order;
 
 import java.io.IOException;
 
@@ -8,27 +8,27 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.mg.jsp.admin.model.dto.payment.PaymentDTO;
-import com.mg.jsp.admin.model.service.payment.PaymentService;
+import com.mg.jsp.admin.model.dto.order.OrderDTO;
+import com.mg.jsp.admin.model.service.order.OrderService;
 
 
-@WebServlet("/admin/payment/detail")
-public class DetailViewPayment extends HttpServlet {
+@WebServlet("/admin/order/detail")
+public class DetailViewOrder extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		int no = Integer.parseInt(request.getParameter("no"));
 		int pageNumNo = no;
 		
-		PaymentDTO paymentDetail = new PaymentService().selectPaymentDetail(no);
+		OrderDTO orderDetail = new OrderService().selectOrderDetail(no);
 		
-		System.out.println(paymentDetail);
-		System.out.println("주서온 글과 이미지 : " + paymentDetail);
+		System.out.println(orderDetail);
+		System.out.println("주서온 글과 이미지 : " + orderDetail);
 		
 		String path = "";
-		if(paymentDetail != null) {
-			path = "/WEB-INF/views/admin/payment/PaymentDetail.jsp";
-			request.setAttribute("payment", paymentDetail);
+		if(orderDetail != null) {
+			path = "/WEB-INF/views/admin/order/OrderDetail.jsp";
+			request.setAttribute("order", orderDetail);
 			request.setAttribute("pageNumNo", pageNumNo);
 		} else {
 			path = "/WEB-INF/views/common/failed.jsp";

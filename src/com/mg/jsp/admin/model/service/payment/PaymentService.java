@@ -11,6 +11,7 @@ import java.util.List;
 import com.mg.jsp.admin.model.dao.payment.PaymentDAO;
 import com.mg.jsp.admin.model.dto.payment.PaymentDTO;
 import com.mg.jsp.admin.model.dto.payment.PaymentPageInfoDTO;
+import com.mg.jsp.transit.model.DTO.TransitDTO;
 import com.mg.jsp.admin.model.dto.payment.PSearchDTO;
 
 
@@ -65,6 +66,22 @@ public class PaymentService {
 		close(con);
 		
 		return searchPaymentList;
+	}
+	
+	public PaymentDTO selectPaymentDetail(int no) {
+		
+		Connection con = getConnection();
+		PaymentDTO paymentDetail = null;
+
+		paymentDetail = paymentDAO.selectPaymentDetail(con, no);
+
+		if(paymentDetail != null) {
+			commit(con);
+		} else {
+			rollback(con);
+		}
+
+		return paymentDetail;
 	}
 
 }
