@@ -22,7 +22,8 @@
 	}
 /*wrapper*/
 	#page-content-wrapper {
-		width: 100%;
+		width: 1100px;
+		margin: 0 auto;
 	}
 /* 사이드바 마우스 올렸을때 스타일 */
 	.sidebar-nav :hover {
@@ -48,7 +49,7 @@
 		height: 70px;
 		line-height: 70px;
 		color: black;
-			font-size:25px;
+		font-size:25px;
 	}
 /*사이드바 제목(상단)기본 색*/
 	.sidebar-brand {
@@ -61,7 +62,6 @@
 	font-family: 'Jua', sans-serif;
 	
 }
-
 
 	.wishList-List {
 		width: 80%;
@@ -155,6 +155,7 @@
 	height: auto;
 }
 
+
 .q-table {
 	border: 1px solid black;
 	text-align: center;
@@ -217,3 +218,74 @@
 
 .list-header-bd{border-right: 1px solid lightgray;}
 
+/* .panel{
+	width:1100px;
+	background:skyblue;
+	margin-left: 437px;
+}	 */
+.panel_body{
+	width: 1035px;
+    background: #e6f7f9;
+    margin: 0 auto;
+    height: 632px;
+}
+.col-md-8{
+	font-size:25px;
+}
+.col-md-9{
+    margin-left: 30px;
+    margin-top: 5px;
+    margin-bottom: 9px
+}
+.notice_body{
+	resize:none;
+	width:950px; 
+	height:200px;
+	margin-left:23px;
+	margin-top:10px;
+	mergin-bottom:20px;
+}
+.notice_image{
+	margin-left:23px;
+	margin-top:30px;
+	mergin-bottom:20px;
+}
+.btn-theme{
+	font-family: 'Jua', sans-serif ;	
+	padding : 3px 20px;
+	font-size:20px;
+	background: rgb(227, 240, 168);
+    color: rgb(3, 3, 3) !important;
+    border: 1px #093 solid !important;
+    margin-left: 0%;
+    border-radius: 30px / 30px;
+	
+}
+.btn-theme_2{
+	font-family: 'Jua', sans-serif ;	
+	padding : 0px 20px;
+	font-size:20px;
+	background: rgb(227, 240, 168);
+    color: rgb(3, 3, 3) !important;
+    border: 1px #093 solid !important;
+    margin-left: 0%;
+    border-radius: 30px / 30px;
+	
+}
+.btn-theme_3{
+	font-family: 'Jua', sans-serif ;	
+	padding : 8px 20px;
+	font-size:20px;
+	background: rgb(227, 240, 168);
+    color: rgb(3, 3, 3) !important;
+    border: 1px #093 solid !important;
+    margin-left: 15px;
+    border-radius: 30px / 30px;
+	
+}
+.compose-btn{
+	margin-top:25px;
+	margin-bottom:10px;
+	margin-left: 27px;
+}
+}
