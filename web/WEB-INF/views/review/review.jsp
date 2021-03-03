@@ -14,7 +14,7 @@
 <script
    src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css"
-   href="/mg/resources/css/customer/customer_qna.css">
+   href="/mg/resources/css/customer/customer_review.css">
 <link rel="stylesheet" type="text/css"
    href="/mg/resources/css/header.css">
 <link rel="stylesheet" type="text/css"

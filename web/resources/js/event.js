@@ -278,7 +278,20 @@ window.onload = function() {
 			location.href = "/mg/review/update";
 		}
 	}
-  
+	if(document.getElementById("cancelReview")) {
+		const $cancelReview = document.getElementById("cancelReview");
+		$cancelReview.onclick = function() {
+			location.href = "/mg/product/review";
+		}
+	}
+	if(document.getElementById("cancelInsert")) {
+		const $cancelInsert = document.getElementById("cancelInsert");
+		$cancelInsert.onclick = function() {
+			location.href = "/mg/product/review";
+		}
+	}
+	
+	
 /*	if(document.getElementById("basket")) {
 		const $basket = document.getElementById("basket");
 		$basket.onclick = function() {
