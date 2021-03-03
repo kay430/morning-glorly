@@ -100,7 +100,6 @@ public class JihunTestServlet extends HttpServlet {
 		/* 3. 주문 배송 테이블 */
 		orderDeliList.add(orderDeli);
 		order.setOrderDeli(orderDeliList);
-		System.out.println("주소가 왜 안나오냐 : " + order.getOrderDeli());
 		
 		/* 4. 주문 배송 주소 테이블 */
 		orderAdd.setAddType(((String[])paymentInfo.get("jihun[9][value]"))[0]);
@@ -135,11 +134,8 @@ public class JihunTestServlet extends HttpServlet {
 		/* 6. 결제 구분 테이블 - 전액 포인트 결제 유무에 따른 처리*/
 		if(orderPay.getFinalPrice() == 0) {
 			orderPayDivi.setAdmissionPayNo(0303); //전액 포인트 결제시 임의로 승인번호 부여함
-			System.out.println("임의로 저장한 번호 : " + orderPayDivi.getAdmissionPayNo());
 		} else {
 			orderPayDivi.setAdmissionPayNo(Integer.parseInt(request.getParameter("paySuccessNo"))); //결제 승인번호
-			System.out.println("받은 승인 번호 : " + orderPayDivi.getAdmissionPayNo());
-			System.out.println("카드결제");
 		}
 		orderPayDiviList.add(orderPayDivi);
 		order.setPayDivi(orderPayDiviList);

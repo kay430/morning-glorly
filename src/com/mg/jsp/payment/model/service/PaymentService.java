@@ -71,10 +71,8 @@ public class PaymentService {
 		int result1 = insertOrder + insertOrderGoods + insertOrderDelivery + insertOrderAddress + insertPayment + insertPaymentDivision;
 		if(result1 > 5) {
 			commit(con);
-			System.out.println("테이블 6개 완료 : " + result1);
 		} else {
 			rollback(con);
-			System.out.println("테이블 6개 실패 : " + result1);
 		}
 
 		
@@ -99,7 +97,6 @@ public class PaymentService {
 			}
 		}
 		
-		System.out.println("최종 result3 : " + result3);
 		return result3;
 	}
 
