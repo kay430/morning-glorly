@@ -34,13 +34,13 @@ public class AnswerWrite extends HttpServlet {
 	
 		String title = request.getParameter("title");
 		String replyAnswer = request.getParameter("reply");
-		/*int adminNo = Integer.parseInt(request.getParameter("adminNo"));*/
+		int adminNo = Integer.parseInt(request.getParameter("adminNo"));
 		
 	
 		QuestionAnswerDTO questionAnswer = new QuestionAnswerDTO();
 		questionAnswer.setAnsTitle(title);
 		questionAnswer.setAnsBody(replyAnswer);
-//		questionAnswer.setAndWriterAdminNo(adminNo);
+		questionAnswer.getMgAdDTO().setNo(adminNo);
 		
 		 QuestionService questionService = new QuestionService();
  	     int result =  questionService.insertQuestionAnswer(questionAnswer);
@@ -52,7 +52,7 @@ public class AnswerWrite extends HttpServlet {
  	     if(result > 0 ) {
  	    	 path = "/WEB-INF/views/main/success.jsp";
  	    	 request.setAttribute("successCode", "insertReply");
- 	    
+ 	    	 request.setAttribute("questionAnswer", questionAnswer);
  	     }else{
  	    	 path="/WEB-INF/views/common/failed.jsp";
  	    	 request.setAttribute("message", "댓글작성실패!");

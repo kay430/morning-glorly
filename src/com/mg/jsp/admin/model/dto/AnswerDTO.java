@@ -18,25 +18,9 @@ public class AnswerDTO {
 	private java.sql.Date createdDate;
 	private java.sql.Date modifiedDate;
 	private String display;
+	private MgAdDTO mgAdDTO;
 	
 	public AnswerDTO() {}
-
-	public AnswerDTO(int no, String status, int categoryCode, AnswerCategoryDTO category, String title, String body,
-			int writerMgNo, MgDTO writer, int count, Date createdDate, Date modifiedDate, String display) {
-		super();
-		this.no = no;
-		this.status = status;
-		this.categoryCode = categoryCode;
-		this.category = category;
-		this.title = title;
-		this.body = body;
-		this.writerMgNo = writerMgNo;
-		this.writer = writer;
-		this.count = count;
-		this.createdDate = createdDate;
-		this.modifiedDate = modifiedDate;
-		this.display = display;
-	}
 
 	public int getNo() {
 		return no;
@@ -134,12 +118,40 @@ public class AnswerDTO {
 		this.display = display;
 	}
 
+	public MgAdDTO getMgAdDTO() {
+		return mgAdDTO;
+	}
+
+	public void setMgAdDTO(MgAdDTO mgAdDTO) {
+		this.mgAdDTO = mgAdDTO;
+	}
+
 	@Override
 	public String toString() {
 		return "AnswerDTO [no=" + no + ", status=" + status + ", categoryCode=" + categoryCode + ", category="
 				+ category + ", title=" + title + ", body=" + body + ", writerMgNo=" + writerMgNo + ", writer=" + writer
 				+ ", count=" + count + ", createdDate=" + createdDate + ", modifiedDate=" + modifiedDate + ", display="
-				+ display + "]";
+				+ display + ", mgAdDTO=" + mgAdDTO + "]";
 	}
+
+	public AnswerDTO(int no, String status, int categoryCode, AnswerCategoryDTO category, String title, String body,
+			int writerMgNo, MgDTO writer, int count, Date createdDate, Date modifiedDate, String display,
+			MgAdDTO mgAdDTO) {
+		super();
+		this.no = no;
+		this.status = status;
+		this.categoryCode = categoryCode;
+		this.category = category;
+		this.title = title;
+		this.body = body;
+		this.writerMgNo = writerMgNo;
+		this.writer = writer;
+		this.count = count;
+		this.createdDate = createdDate;
+		this.modifiedDate = modifiedDate;
+		this.display = display;
+		this.mgAdDTO = mgAdDTO;
+	}
+
 	
 }
