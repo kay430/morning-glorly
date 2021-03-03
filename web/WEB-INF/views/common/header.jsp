@@ -28,10 +28,10 @@
                                 class="user_basket_quantity">0</span></span></a></li>
                 <li class="fr"><a href="${ pageContext.servletContext.contextPath }/mypage/main" title="마이페이지" id="mypage">마이페이지</a></li>
                 <c:if test="${ empty sessionScope.loginMember }"> 
-                <li class="fr"><input type="button" value="로그인/회원가입" id="mainLogin" class="login-btn btn-yg"></input></li>
+                <li class="fr"><input type="button" value="로그인/회원가입" id="mainLogin" class="login-btn btn-yg" style="font-size: 12px;"></input></li>
             	</c:if>
             	<c:if test="${ ! empty sessionScope.loginMember }"> 
-                <li class="fr"><input type="button" value="로그아웃" id="logout" class="login-btn btn-yg"></input></li>
+                <li class="fr"><input type="button" value="로그아웃" id="logout" class="login-btn btn-yg" style="font-size: 12px;"></input></li>
             	</c:if>
             </ul>
 

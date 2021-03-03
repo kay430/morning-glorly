@@ -25,12 +25,8 @@
 <div class="container" align="center">
 <br><br>
         	<div class="row">
-              
-                    <img style="max-width:100%;" src="./resources/image/dosirak/식단표.png"  width="700px" height="700px" />
-         
-                           
-        
-               
+                    <img style="max-width:100%;" src="./resources/image/dosirak/식단표2.PNG"  width="700px" height="400px" />
+                    <img style="max-width:100%;  margin:12px 6px 0 0;" src="./resources/image/dosirak/식단표1.PNG"  width="690px" height="600px" />
             </div>
         </div>     
         <jsp:include page="../common/footer.jsp"/>

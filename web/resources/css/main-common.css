@@ -24,7 +24,7 @@ input, select, textarea, button {
 body,
 h1, h2, h3, h4, h5, h6, table,
 input, select, textarea, a {
-    font-size: 12px;
+    font-size: 15px;
     line-height: 1.5;
     color: #777;
     /* font-family: Dotum, AppleGothic, Helvetica, sans-serif; */
