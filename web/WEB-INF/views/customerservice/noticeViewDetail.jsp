@@ -16,51 +16,57 @@
 <link rel="stylesheet" type="text/css"
 	href="/mg/resources/css/customer/customer_main.css">
 <link rel="stylesheet" type="text/css"
+	href="/mg/resources/css/customer/notice_view.css">
+
+<link rel="stylesheet" type="text/css"
 	href="/mg/resources/css/header.css">
 <link rel="stylesheet" type="text/css"
 	href="/mg/resources/css/footer.css">
 <link rel="stylesheet" type="text/css"
 	href="/mg/resources/css/main-common.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
 </head>
+
+
 <body>
 
 	<jsp:include page="../common/header.jsp" />
-
+	<header class="panel-heading wht-bg" style="margin: 0 0 30px 0;">
+			<h4 class="gen-case" style="font-size: 30px; text-align: center;font-family: 'Jua', sans-serif;
+	font-size:40px">공지사항</h4>
+		</header>
     <section class="panel">
               <header class="panel-heading wht-bg">
-                <h4 class="gen-case">
-                    공지사항 확인
-                  </h4>
               </header>
-              <div class="panel-body ">
+              <div class="panel_body ">
                 <div class="mail-header row">
                   <div class="col-md-8">
-                  <textarea id="headCore" style="resize:none; width:90%; height:30px;" readonly><c:out value="${ requestScope.notice.title }"/></textarea>
+                  <textarea id="headCore" style="resize:none; width:880px; height:30px;margin-left:20px;margin-top:10px;"readonly><c:out value="${ requestScope.notice.title }"/></textarea>
                   </div>
                   <div class="col-md-4">
-                    <div class="compose-btn pull-right">
-                                  <a class="btn btn-sm btn-theme" onclick="location.href='${ pageContext.servletContext.contextPath }/admin/notice'">
-                  <i class="fa fa-reply"></i> 목록으로</a>
-                      <button class="btn  btn-sm tooltips" data-original-title="Print" type="button" data-toggle="tooltip" data-placement="top" title=""><i class="fa fa-print"></i> </button>
-                      <button class="btn btn-sm tooltips" data-original-title="Trash" data-toggle="tooltip" data-placement="top" title=""><i class="fa fa-trash-o"></i></button>
-                    </div>
+                    <div class="compose-btn pull-right"style="margin-left: 227px;">
+                                  <a type="button" class="btn-theme" onclick="location.href='${ pageContext.servletContext.contextPath }/notice/list'" style="margin-top:-17px; margin-left: -17px;"> 목록으로</a>
+                     </div>
                   </div>
                 </div>
                 <div class="mail-sender">
                   <div class="row">
-                    <div class="col-md-8">
-                      <img src="img/ui-zac.jpg" alt="">
+                    <div class="col-md-9">
+                      <!-- <img src="img/ui-zac.jpg"> -->
                       <strong class="col-md-8">작성자 : <c:out value="${ requestScope.notice.writer.name }"/></strong>
-                    </div>
                     <div class="col-md-4">
-                      <p class="date"><c:out value="${ requestScope.notice.createdDate }"/></p>
+                      <p class="date"style="margin-left: 20px;font-size:20px;"><c:out value="${ requestScope.notice.createdDate }" /></p>
+                    </div>
                     </div>
                   </div>
                 </div>
                 <div class="view-mail">
                   <%-- <p><c:out value="${ requestScope.notice.body }"/></p> --%>
-                  <textarea id="core" style="resize:none; width:90%; height:200px;" readonly><c:out value="${ requestScope.notice.body }"/></textarea>
+                  <textarea id="core" class="notice_body" readonly><c:out value="${ requestScope.notice.body }"/></textarea>
+                <div class="notice_image">
                 <img src="${ pageContext.servletContext.contextPath }<c:out value="${ requestScope.notice.attaNotiList[0].thumbnailPath }"/>" />
+                </div>
                 </div>
                 <!-- 첨부파일 부분 -->
                <!--  <div class="attachment-mail">
@@ -98,12 +104,12 @@
                     </li>
                   </ul>
                 </div> -->
-                <div id="holdUp2" class="compose-btn pull-left">
-                  <a id="rewriteNoList" class="btn btn-sm btn-theme" onclick="location.href='${ pageContext.servletContext.contextPath }/admin/notice'">
-                  <i class="fa fa-reply"></i> 목록으로</a>
+                <div id="holdUp2" class="compose-btn" >
+                  <a id="rewriteNoList" type="button" class="btn-theme_2" onclick="location.href='${ pageContext.servletContext.contextPath }/notice/list'">
+                  	목록으로</a>
                   <c:if test="${ sessionScope.loginMember.status eq 'Y' }">
                   <div id="holdUp">
-                  <button id="rewriteNo" class="btn btn-sm">
+                  <button id="rewriteNo" class="btn-theme_3">
                   <!-- <a href='javascript:test("/mg/resources/js/event")'> -->
                   <i class="fa fa-arrow-right"></i> 수정하기
                   <!-- </a> -->
