@@ -24,22 +24,23 @@
 	<link rel="stylesheet" type="text/css"
 	href="/mg/resources/css/mypage/mypage.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
 	<jsp:include page="../common/header.jsp" />
 	
 	 <br>
-       <div id="page-wrapper">
+       <div id="page-wrapper-1">
         <!-- 사이드바 -->
         <div id="sidebar-wrapper">
           <ul class="sidebar-nav">
               <li class="sidebar-brand">
               <a href="${ pageContext.servletContext.contextPath }/mypage/main"><h3>MyPage</h3></a>
           </li>
-          <li class="sidebar-sub"><a href="${ pageContext.servletContext.contextPath }/mypage/orderList">주문 내역</a></li>
+
+            <li class="sidebar-sub"><a href="${ pageContext.servletContext.contextPath }/mypage/orderList">주문 내역</a></li>
             <li class="sidebar-sub"><a href="${ pageContext.servletContext.contextPath }/mypage/resentlyViewed">최근 본 상품</a></li>
             <li class="sidebar-sub"><a href="${ pageContext.servletContext.contextPath }/mypage/wishList">관심 상품</a></li>
             <li class="sidebar-sub"><a href="${ pageContext.servletContext.contextPath }/change/memberInfo">회원정보변경</a></li>
