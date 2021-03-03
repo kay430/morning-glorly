@@ -93,7 +93,7 @@
 
 
                         <div class="btn-order-ctrl">
-                            <a href="javascript:alert('주문이 가능한 금액이 아닙니다.고객센터에 문의 바랍니다.')" class="btn_large btn_color_point">주문하기</a>
+                            <button id="testJihun" class="btn btn-success" value="주문하기">주문하기</span></button>	
                             <a href="${ pageContext.servletContext.contextPath }" class="btn_large  btn_color">계속 쇼핑하기</a>
                             <a href="javascript:basket_clear();" class="btn_large btn_color">장바구니 비우기</a>
                             
@@ -121,6 +121,30 @@
 
         </div><!-- #contentWrap -->
     </div>
+    <script>
+    
+    $("#testJihun").click(function() {
+    	
+    	
+    	
+    	location.href = "${ pageContext.servletContext.contextPath }/testJihun/test?no=" + "${ requestScope.detailInfo.no }" + "&count=" +"${ param.count }" ; 
+    	 
+/*                 	 $.ajax({
+    		url : "${ pageContext.servletContext.contextPath }/testJihun/test",
+    		type : "get",
+    		data : {
+    			jihunTest : "${ requestScope.detailInfo.no }"
+    		},
+    		success : function(data, textStatus, xhr) {
+    			console.log('성공쓰');
+    		},
+    		error : function(xhr, status, error) {
+    			console.log('실패');
+    		}
+    	});  */
+    	
+    });
+    </script>
     
     		<jsp:include page="../common/footer.jsp"/>
 
