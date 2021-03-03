@@ -22,6 +22,8 @@
 	href="/mg/resources/css/footer.css">
 <link rel="stylesheet" type="text/css"
 	href="/mg/resources/css/main-common.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
 </head>
 <body>
 	<jsp:include page="../common/header.jsp" />
@@ -30,10 +32,10 @@
 		<!-- 사이드바 -->
 		<div id="sidebar-wrapper">
 			<ul class="sidebar-nav">
-				<li class="sidebar-brand"><a href="${ pageContext.servletContext.contextPath }/customer/list"> CUSTOMER</a></li>
-				<li><a href="${ pageContext.servletContext.contextPath }/notice/list">공지사항</a>
-				<li><a href="${ pageContext.servletContext.contextPath }/question/list">질문과 답변~</a></li>
-				<li><a href="${ pageContext.servletContext.contextPath }/product/review">상품 후기 </a></li>
+         <li class="sidebar-brand"><a href="${ pageContext.servletContext.contextPath }/customer/list"> CUSTOMER</a></li>
+				<li class="sidebar-text"><a href="${ pageContext.servletContext.contextPath }/notice/list">공지사항</a>
+				<li class="sidebar-text"><a href="${ pageContext.servletContext.contextPath }/question/list">질문과 답변</a></li>
+				<li class="sidebar-text"><a href="${ pageContext.servletContext.contextPath }/product/review">상품 후기 </a></li>
 			</ul>
 		</div>
 		<!-- /사이드바 -->
@@ -66,15 +68,15 @@
 								</table>
 							</div>
 							<div class="search-area" align="center">
-								<select id="searchCondition" name="searchCondition">
+								<select id="searchCondition" name="searchCondition"style="font-family: 'Jua', sans-serif;font-size:25px;">
 									<option value="writer">작성자</option>
 									<option value="title">제목</option>
 									<option value="body">내용</option>
-								</select> <input type="search" name="searchValue">
-								<button type="submit">검색하기</button>
+								</select> <input type="search" name="searchValue"> 
+								<button type="submit" style="font-family: 'Jua', sans-serif;font-size:25px;">검색하기</button>
 							</div>
 									 <!-- 페이징 버튼 -->
- 	<div class="pagingArea" align="center">
+ 	<div class="pagingArea" align="center" style="font-family: 'Jua', sans-serif;font-size:25px;">
          <c:choose>
             <c:when test="${ empty requestScope.searchValue }">
                <button id="startPage"><<</button>

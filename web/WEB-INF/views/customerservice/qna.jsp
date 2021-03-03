@@ -22,7 +22,10 @@
 <link rel="stylesheet" type="text/css"
 	href="/mg/resources/css/main-common.css">
 	     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
 </head>
+
 
 <body>
 
@@ -31,11 +34,11 @@
 	<div id="page-wrapper">
 		<!-- 사이드바 -->
 		<div id="sidebar-wrapper">
-			<ul class="sidebar-nav">
-			<li class="sidebar-brand"><a href="${ pageContext.servletContext.contextPath }/customer/list"> CUSTOMER</a></li>
-				<li><a href="${ pageContext.servletContext.contextPath }/notice/list">공지사항</a>
-				<li><a href="${ pageContext.servletContext.contextPath }/question/list">질문과 답변~</a></li>
-				<li><a href="${ pageContext.servletContext.contextPath }/product/review">상품 후기 </a></li>
+			  <ul class="sidebar-nav">
+                <li class="sidebar-brand"><a href="${ pageContext.servletContext.contextPath }/customer/list"> CUSTOMER</a></li>
+				<li class="sidebar-text"><a href="${ pageContext.servletContext.contextPath }/notice/list">공지사항</a>
+				<li class="sidebar-text"><a href="${ pageContext.servletContext.contextPath }/question/list">질문과 답변</a></li>
+				<li class="sidebar-text"><a href="${ pageContext.servletContext.contextPath }/product/review">상품 후기 </a></li>
 			</ul>
 		</div>
 		<!-- /사이드바 -->
@@ -76,19 +79,20 @@
 						
 		<form id="searchForm" action="${ pageContext.servletContext.contextPath }/question/search" method="get">
     		<div class="search-area" align="center">
-    			<select id="searchCondtion" name="searchCondition">
+    			<select id="searchCondtion" name="searchCondition"style="font-family: 'Jua', sans-serif;
+	font-size:25px;">
     				<option value="QueName" <c:if test="${ requestScope.searchCondition eq 'QueName' }">selected</c:if>>작성자</option>
 			        <option value="QueTitle" <c:if test="${ requestScope.searchCondition eq 'QueTitle' }">selected</c:if>>제목</option>
 				    <option value="QueBody" <c:if test="${ requestScope.searchCondition eq 'QueBody' }">selected</c:if>>내용</option>
 			    </select>
 		        	<input type="search" id="searchValue" name="searchValue" value="${ requestScope.searchValue }">
-		        	<button type="submit">검색하기</button>
-    	         	<button  type="button" id="writeQuestion">작성하기</button>	
+		        	<button type="submit"style="font-family: 'Jua', sans-serif; font-size:25px;">검색하기</button>
+    	         	<button  type="button" id="writeQuestion"style="font-family: 'Jua', sans-serif; font-size:25px;">작성하기</button>	
     	         	  </div>
     	         	  </form> 
 							           		
 					
-	  <div class="pagingArea" align="center">
+	  <div class="pagingArea" align="center"style="font-family: 'Jua', sans-serif; font-size:25px;">
          <c:choose>
             <c:when test="${ empty requestScope.searchValue }">
                <button id="startPage"><<</button>

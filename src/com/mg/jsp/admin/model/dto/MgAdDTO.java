@@ -13,6 +13,7 @@ public class MgAdDTO implements java.io.Serializable {
 	private java.sql.Date enrollDate;
 	private String status;
 	
+	
 	public MgAdDTO() {}
 
 	public MgAdDTO(int no, String name, String id, String pwd, String pno, String email, Date enrollDate,

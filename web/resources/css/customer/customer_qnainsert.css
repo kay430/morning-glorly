@@ -22,6 +22,7 @@
       
     width: 100%;
     padding: 20px;
+    margin-left:-150px;
     }
     /* 사이드바 마우스 올렸을때 스타일 */
     .sidebar-nav :hover{
@@ -62,7 +63,7 @@
 .gongji{
 background: rgb(248, 255, 255);
 width:1000px;
-height: 750px;
+height: 835px;
 margin-left: -30px;
 }
 /*자주묻는 질문 운영정보*/
@@ -77,7 +78,7 @@ margin-left: -30px;
 .outer-notice-list,
 .outer-notice-detail {
 	width:1000px;
-	height:800px;
+	height:835px;
     border:1px solid rgb(190, 190, 190);
     margin-left: 0px;
     
@@ -200,4 +201,17 @@ margin-left: -30px;
 
 .innerText {
 	
+}
+.button{
+	margin-left:280px;
+}
+.buttons{
+	font-family: 'Jua', sans-serif ;	
+	padding : 15px 15px;
+	font-size:20px;
+	background: rgb(227, 240, 168);
+    color: rgb(3, 3, 3) !important;
+    border: 1px #093 solid !important;
+    margin-left: 0%;
+    border-radius: 30px / 30px;}
 }

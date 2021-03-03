@@ -34,7 +34,7 @@
 		<header class="panel-heading wht-bg" style="margin: 0 0 30px 0;">
 			<h4 class="gen-case" style="font-size: 30px; text-align: center;font-family: 'Jua', sans-serif;
 	font-size:40px">
-				질문게시판</h4>
+				리뷰게시판</h4>
 		</header>
 		<div class="panel-body ">
 		<br>
@@ -52,12 +52,12 @@
 				<div class="row" style="width:600px; margin-left:50px;font-family: 'Jua', sans-serif;
 	font-size:25px">
 					<div class="col-md-8" style="width:150px;">
-						 <strong class="col-md-8">작성자
+						 <strong class="col-md-8" style="font-family: 'Jua', sans-serif">작성자
 							: <c:out value="${ requestScope.reviewDetail.mgDTO.name}" />
 						</strong>
 					</div>
 					<div class="col-md-4" style="width:200px;" >
-						<p class="date">작성일자
+						<p class="date"style="font-family: 'Jua', sans-serif">작성일자<br>
 							<c:out value="${ requestScope.reviewDetail.createDate }" />
 						</p>
 					</div>
@@ -86,7 +86,7 @@
 					<button class="buttons"onclick="location.href='${ pageContext.servletContext.contextPath }/review/update?no=${ requestScope.reviewDetail.no }'"
 					style="font-family: 'Jua', sans-serif; font-size:15px;font-family: 'Jua', sans-serif; font-size:25px;padding:15px 15px">수정하기</button>
 				<%-- </c:if> --%>
-				<button class="buttons" type="submit"id="deleteReview" onclick="alert('리뷰를 삭제합니다');"
+				<button class="buttons" type="submit"id="deleteReview"
 					style="font-family: 'Jua', sans-serif; font-size:15px;font-family: 'Jua', sans-serif; font-size:25px;padding:15px 15px">리뷰 삭제</button>
 				<br>
 		
@@ -104,7 +104,13 @@
 	
 		</section>
 
-
+<script>
+$("#deleteReview").click(function(){
+	confirm("리뷰를 삭제하시겠습니까");
+		
+	
+});
+</script>
 </body>
 </html>
    

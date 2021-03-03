@@ -23,6 +23,7 @@
 /*wrapper*/
 	#page-content-wrapper {
 		width: 1000px;
+		margin-left: -90px;
 	}
 /* 사이드바 마우스 올렸을때 스타일 */
 	.sidebar-nav :hover {
@@ -57,9 +58,7 @@
 		height: auto;
 		font-family: 'Jua', sans-serif;
 	}
-	.sidebar-text{
-	font-family: 'Jua', sans-serif;	
-    }
+
 	.wishList-List {
 		width: 80%;
 		height: auto;
@@ -117,8 +116,6 @@
 .outer-notice-list table, .outer-notice-detail table, .outer-board-list table
 	{
 	text-align: center;
-	width:999px;
-	margin-left:0px;
 }
 
 /* 공지사항 상세보기 테이블 사이즈 조정 */
@@ -195,15 +192,13 @@
 }
 
 .notice_header_txt {
-	font-size: 25px;
+	font-size: 30px;
 	height: 50px;
 	width: 1000px;
 	line-height: 50px;
 	text-align: center;
 	padding: 15px 191px 0 100px;
-	font-family: 'Jua', sans-serif;	
-	
-	
+	font-family: 'Jua', sans-serif;
 }
 
 .container-fluid {
@@ -232,4 +227,9 @@
 
 .board-list-wdate{width: 100px; line-height: 50px;}
 
-.list-header-bd{border-right: 1px solid black;}
+.list-header-bd{border-right: 1px solid lightgray;}
+
+.sidebar-text{
+	font-family: 'Jua', sans-serif;
+	
+}

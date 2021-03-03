@@ -69,10 +69,10 @@
               <span>주문관리</span>
               </a>
             <ul class="sub">
-              <li><a href="${ pageContext.servletContext.contextPath }/admin/order">주문 조회</a></li>
-              <li><a href=" ${ pageContext.servletContext.contextPath }/admin/payment">결제내역</a></li>
+              <li><a href="grids.html">주문 조회</a></li>
+              <li><a href="calendar.html">결제내역</a></li>
               <li><a href="gallery.html">환불 및 반품</a></li>
-              <li><a href="${ pageContext.servletContext.contextPath }/admin/transit">배송 조회</a></li>
+              <li><a href="file_upload.html">배송 조회</a></li>
             </ul>
           </li>
           <li class="sub-menu">
@@ -189,15 +189,18 @@
               
               
               
-              
+     <%--          
       <form action="${ pageContext.servletContext.contextPath }/admin/reply" method="post" >        
               <!-- dddd -->
        <table>
-       
+       <th><p>관리자번호</p></th>
+  	   <td><input type="text" readonly name="adminNo" value="${ requestScope.answer.writerMgNo }"/></td>
+ 
+       <tr>
        <th>제목</th>
     	<td><textarea rows="1" cols="40" name="title" ></textarea></td>
-    <tr>
-    	
+    	</tr>
+   	   <tr>
         <th>댓글</th>
         <td><textarea rows="3" cols="40" name = "reply"></textarea></td>
     
@@ -211,15 +214,51 @@
 <c:forEach var="i" begin = "1" end ="" step="1">
     <a href="BoardServlet?command=board_view&num=${param.num }&page=${i}">[${i}]</a>
 </c:forEach>
- 
-<br><br>
-<input type = "button" value = "목록" onclick = "location.href='BoardServlet?command=board_list'">
-<c:if test = "${sessionId.id == sVo.mid }">
 
-<input type = "button" value = "답글" onclick = "open_win('BoardServlet?command=board_reply_form&num=${sVo.num}','reply')">
-</c:if>
  </div>
-</form>
+</form> --%>
+
+<br><br>
+
+<!-- 댓글 박스 -->
+	<div class="row bootstrap snippets">
+		<div class="col-md-12">
+			<div class="comment-wrapper">
+				<div class="panel panel-info" style="barckground-color: red;">
+					<div class="panel-heading m-2" ><b>Comment</b></div>
+					
+					<div class="panel-body">
+					
+						<textarea id="reply__write__form" class="form-control" placeholder="write a comment..." rows="3"></textarea>
+						<br>
+						<button onclick="replyWrite(${detailDto.boardDto.board.id}, ${sessionScope.principal.id })" class="btn btn-primary pull-right">댓글쓰기</button>
+						<div class="clearfix"></div>
+						<hr />
+						
+						<!-- 댓글 리스트 시작-->
+						<ul id="reply__list" class="media-list">
+						
+							<c:forEach var="replyDto" items="${detailDto.replysDto }">
+							<!-- 댓글 아이템 -->
+							<li class="media">	
+								<img onerror="this.src='/blog/image/userProfile.png'" src="${replyDto.userProfile }" class="img-circle">		
+								<div class="media-body">
+									<strong class="text-primary">${replyDto.username }</strong>
+									<p>
+										${replyDto.reply.content }
+									</p>
+								</div>
+							</li>
+							</c:forEach>
+						</ul>
+						<!-- 댓글 리스트 끝-->
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<!-- 댓글 박스 끝 -->
  <br><br>
  
                 

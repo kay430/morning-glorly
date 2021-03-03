@@ -211,8 +211,7 @@ public class MgDAO {
 		ResultSet rset = null;
 
 		MgDTO memberInfo = null;
-
-		String query = prop.getProperty("selectMemberInfo");
+		String query = prop.getProperty("selectMemberId");
 
 		try {
 			pstmt = con.prepareStatement(query);

@@ -43,14 +43,13 @@
         WHERE A.MEMBER_NAME = ?
           AND A.PHONE = ?   
 	</entry> -->
-	<entry key="selectMemberInfo">
+	<entry key="selectMemberId">
        SELECT
                A.MEMBER_ID
              , A.MEMBER_NAME
          FROM MG_MEMBER A
         WHERE A.MEMBER_NAME = ?
           AND A.PHONE = ?       
-               	
 	</entry>
 	<entry key="selectMemberName">
 	  SELECT
@@ -114,5 +113,169 @@
              , A.MEMBER_STATUS
         FROM MG_MEMBER A
        WHERE A.MEMBER_ID = ?
+	</entry>
+	<entry key="insertOrder">
+        INSERT
+          INTO MG_ORDER A
+        (
+          A.ORDER_NO
+        , A.ORDER_MEMBER_NO
+        , A.ORDER_TITLE
+        , A.AMOUNT_PRICE
+        )
+        VALUES
+        (
+          SEQ_ORDER_NO.NEXTVAL
+        , ?
+        , ?
+        , ?
+        )
+	</entry>
+	<entry key="selectOrderNoSequence">
+        SELECT
+               SEQ_ORDER_NO.CURRVAL
+          FROM DUAL    
+	</entry>
+	<entry key="insertOrderGoods">
+        INSERT
+          INTO MG_ORDER_GOODS A
+        (
+          A.ORDER_NO
+        , A.GOODS_NO
+        , A.AMOUNT_COUNT
+        , A.ORDER_GOODS_PRICE
+        )
+        VALUES
+        (
+          ?
+        , ?
+        , ?
+        , ?
+        )
+	</entry>
+	<entry key="insertOrderDelivery">
+        INSERT
+          INTO MG_ORDER_DELIVERY A
+        (
+          A.DELIVERY_NO
+        , A.ORDER_NO
+        )
+        VALUES
+        (
+          SEQ_ORDER_DELI_NO.NEXTVAL
+        , ?
+        )
+	</entry>
+	<entry key="selectOrderDeliveryNoSequence">
+        SELECT
+               SEQ_ORDER_DELI_NO.CURRVAL
+          FROM DUAL  
+	</entry>
+	<entry key="insertOrderAddress">
+        INSERT
+          INTO MG_ORDER_ADDRESS A
+        (
+          A.ORDER_ADD_NO
+        , A.DELIVERY_NO
+        , A.ORDER_ADD_TYPE
+        , A.RECIEVER_NAME
+        , A.RECIEVER_PHONE
+        , A.RECIEVER_ADDRESS
+        , A.MEMBER_NO
+        )
+        VALUES
+        (
+          SEQ_ORDER_ADD_NO.NEXTVAL
+        , ?
+        , ?
+        , ?
+        , ?
+        , ?
+        , ?
+        )
+	</entry>
+	<entry key="insertOrderPayment">
+        INSERT
+          INTO MG_PAYMENT A
+        (
+          A.PAYMENT_NO
+        , A.PAYMENT_ORDER_NO
+        , A.PAYMENT_MEMBER_NO
+        , A.FINAL_PAYMENT_PRICE
+        , A.USED_POINT
+        )
+        VALUES
+        (
+          SEQ_PAYMENT_NO.NEXTVAL
+        , ?
+        , ?
+        , ?
+        , ?
+        )
+	</entry>
+	<entry key="selectOrderPaymentNoSequence">
+        SELECT
+               SEQ_PAYMENT_NO.CURRVAL
+          FROM DUAL  
+	</entry>
+	<entry key="insertOrderPaymentDivision">
+        INSERT
+          INTO MG_PAYMENT_DIVISION A
+        (
+          A.DIVISION_NO
+        , A.DIVISION_PAYMENT_NO
+        , A.ADMISSION_PAYMENT_NUM
+        )
+        VALUES
+        (
+          SEQ_DIVISION_NO.NEXTVAL
+        , ?
+        , ?
+        )
+	</entry>
+	<entry key="InsertMemberPoint">
+        INSERT
+          INTO MG_MEMBER_POINT A
+        (
+          A.POINT_NO
+        , A.CHANGED_POINT_TYPE
+        , A.PAYMENT_NO
+        , A.MODIFY_POINT
+        , A.MEMBER_NO
+        )
+        VALUES
+        (
+          SEQ_MEM_POINT_NO.NEXTVAL
+        , '사용'
+        , ?
+        , ?
+        , ?
+        )
+	</entry>
+	<entry key="UpdateMemberInfo">
+        UPDATE
+               MG_MEMBER M
+           SET M.MEMBER_POINT = ?
+             , M.MODIFIED_DATE = SYSDATE 
+         WHERE M.MEMBER_NO = ?
+	</entry>
+	<entry key="InsertMemberModify">
+        INSERT
+          INTO MG_MEMBER_MODIFY A
+        (
+          A.MODIFY_NO
+        , A.ORIGIN_COLUMN
+        , A.ORIGIN_INFO
+        , A.MODIFY_INFO
+        , A.MEMBER_NO
+        )
+        VALUES
+        (
+          SEQ_MEM_MODIFY_NO.NEXTVAL
+        , ?
+        , ?
+        , ?
+        , ?
+        )
 	</entry>
 </properties>

@@ -21,6 +21,8 @@
 	href="/mg/resources/css/footer.css">
 <link rel="stylesheet" type="text/css"
 	href="/mg/resources/css/main-common.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -29,22 +31,16 @@
 
 	<div id="page-wrapper">
 		<!-- 사이드바 -->
-		<div id="sidebar-wrapper">
-			<ul class="sidebar-nav">
-				<li class="sidebar-brand"><a href="#"> 고객센터</a></li>
-				<li><a href="#">공지사항</a></li>
-				<li><a href="#">질문과 답변</a></li>
-				<li><a href="#">상품 후기 </a></li>
-			</ul>
-		</div>
+		
 		<!-- /사이드바 -->
 
 		<!-- 본문 -->
-		<h1>질문과 답변</h1>
+		
 		<hr>
 		<div id="page-content-wrapper">
 			<div class="container-fluid">
-				<h2>질문하기</h2>
+				<div style="font-family: 'Jua', sans-serif;
+	font-size:40px;" >질문하기</div>
 				<hr>
 				<div class="gongji">
 					<div class="outer-notice-insert">
@@ -56,15 +52,15 @@
 									method="post" encType="multipart/form-data">
 									<table align="center">
 										<tr>
-											<td>제목</td>
+											<td style="font-family: 'Jua', sans-serif; font-size:25px">제목</td>
 											<td><input type="text" size="105" name="title"></td>
 										</tr>
 										<tr>
-											<td>작성자</td>
+											<td style="font-family: 'Jua', sans-serif; font-size:25px">작성자</td>
 											<td><input type="text"
 												value="${ sessionScope.loginMember.name }" name="writer"
 												readonly>
-									    <select id="qnaCode" name="qnaCode">
+									    <select id="qnaCode" name="qnaCode" style="font-family: 'Jua', sans-serif; font-size:25px">
                             				<option value="10">결제</option>	
                               				<option value="20">배송</option>
                               				<option value="30">상품</option>
@@ -77,7 +73,7 @@
 										</tr>
     
 										<tr class="innerText">
-											<td>내용</td>
+											<td style="font-family: 'Jua', sans-serif; font-size:25px">내용</td>
 											<td colspan="2"><textarea name="body" cols="60"
 													rows="15" style="resize: none; width: 600px; height: 550px;" required></textarea>
 											</td>
@@ -90,9 +86,9 @@
 												<img id="QuecontentImg1" width="100" height="100">
 										</div>								
 									<br>
-									<div align="center">
-										<button type="reset" id="cancelQuestion">취소하기</button>
-										<button type="submit">등록하기</button>
+									<div class="button" align="center">
+										<button class="buttons" type="reset" id="cancelQuestion">취소하기</button>
+										<button class="buttons" type="submit">등록하기</button>
 										<button></button>
 									</div>
 								</form>
