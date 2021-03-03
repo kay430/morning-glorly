@@ -66,7 +66,7 @@
 						<li><a href="buttons.html">블랙리스트</a></li>
 						<li><a href="panels.html">적립금 조회 </a></li>
 					</ul></li>
-				<li class="sub-menu"><a class="active" href="${ pageContext.servletContext.contextPath }/admin/transit">
+				<li class="sub-menu"><a class="active">
 						<i class="fa fa-cogs"></i> <span>주문관리</span>
 				</a>
 					<ul class="sub">
@@ -193,8 +193,8 @@
 										<strong class="col-md-8">주문일 : <c:out
 												value="${ requestScope.transit.oDate }" /></strong>
 										<div class="col-md-8">
-											<strong>운송장 번호 : <span id="transit_no"><c:out
-													value="${ requestScope.transit.tNo }" /></span><textarea id="transit_rewrite" style="width: 100px; height: 25px; resize:none; display: none;"></textarea></strong>
+											<strong>결제 번호 : <span id="transit_no"><c:out
+													value="${ requestScope.payment.pNo }" /></span><textarea id="transit_rewrite" style="width: 100px; height: 25px; resize:none; display: none;"></textarea></strong>
 										</div>
 										<div class="col-md-8">
 											<strong>주문자 : <c:out
@@ -211,191 +211,9 @@
 
 							<div id="holdUp2" class="compose-btn pull-left">
 								<a id="rewriteNoList" class="btn btn-sm btn-theme"
-									onclick="location.href='${ pageContext.servletContext.contextPath }/admin/transit'">
+									onclick="location.href='${ pageContext.servletContext.contextPath }/admin/payment'">
 									<i class="fa fa-reply"></i> 목록으로
 								</a>
-								<c:if test="${ sessionScope.loginMember.status eq 'Y' }">
-									<div id="holdUp">
-										<button id="rewriteNo" class="btn btn-sm">
-											<i class="fa fa-arrow-right"> 수정하기</i>
-										</button>
-									</div>
-									<div id="holdUp4">
-										<button id="rewriteNoCommit" class="btn btn-sm">
-											<i class="fa fa-arrow-right"></i>완료하기
-										</button>
-									</div>
-									<script src="/mg/resources/js/event.js"></script>
-									<script>
-										window.onload = function() {
-
-											if (document
-													.getElementById("logoutAdmin")) {
-												const $logout = document
-														.getElementById("logoutAdmin");
-												$logout.onclick = function() {
-													location.href = "/mg/admin/logout";
-												}
-											}
-											if (document
-													.getElementById("adminNotice")) {
-												const $logout = document
-														.getElementById("adminNotice");
-												$logout.onclick = function() {
-													location.href = "/mg/admin/notice";
-												}
-											}
-											if (document
-													.getElementById("sweetHome")) {
-												const $writeNotice = document
-														.getElementById("sweetHome");
-												$writeNotice.onclick = function() {
-													location.href = "/mg/admin/mainIndex";
-												}
-											}
-											if (document
-													.getElementById("sweetHome2")) {
-												const $writeNotice = document
-														.getElementById("sweetHome2");
-												$writeNotice.onclick = function() {
-													location.href = "/mg/admin/mainIndex";
-												}
-											}
-											if (document
-													.getElementById("answer")) {
-												const $answer = document
-														.getElementById("answer");
-												$answer.onclick = function() {
-													location.href = "/mg/admin/answer";
-												}
-											}
-											if (document
-													.getElementById("review")) {
-												const $review = document
-														.getElementById("review");
-												$review.onclick = function() {
-													location.href = "/mg/admin/review";
-												}
-											}
-											if (document
-													.getElementById("generalQna")) {
-												const $generalQna = document
-														.getElementById("generalQna");
-												$generalQna.onclick = function() {
-													location.href = "/mg/admin/generalQna";
-												}
-											}
-
-											$("#rewriteNoCommit").css(
-													"display", "none");
-											console.log('${ pageNumNo }')
-											$("#holdUp2").css("float", "left")
-													.css("display", "inline");
-											$("#rewriteNoList").css("float",
-													"left").css("display",
-													"inline");
-											$("#holdUp").css("float", "left")
-													.css("display", "inline");
-											$("#holdUp3").css("float", "left")
-													.css("display", "inline");
-											$("#holdUp4").css("float", "left")
-													.css("display", "inline");
-										}
-
-										$("#rewriteNo")
-												.click(
-														function() {
-															$(
-																	"#rewriteNoCommit")
-																	.css(
-																			"display",
-																			"block");
-															$("#rewriteNo")
-																	.css(
-																			"display",
-																			"none");
-															$("#sel_box")
-																	.css(
-																			"display",
-																			"block")
-																	.css(
-																			"margin",
-																			"-20px 0 0 70px");
-															$("#bf_sel_box")
-																	.css(
-																			"display",
-																			"none");
-															$("#transit_rewrite")
-															.css(
-																	"display",
-																	"block");
-															$("#transit_no")
-															.css(
-																	"display",
-																	"none");
-
-															$(
-																	"#rewriteNoCommit")
-																	.click(
-																			function() {
-
-																				if (confirm("배송상태를 변경하시겠습니까?")) {
-																				    var typeSel = document.getElementById("sel_box");
-																				    var transitRe = document.getElementById("transit_rewrite");
-																				    typeSel = typeSel.options[typeSel.selectedIndex].value;
-																				    transitRe = transitRe.value;
-																					console
-																							.log(sel_box);
-																					console.log(typeSel);
-																					$
-																							.ajax({
-																								url : "${ pageContext.servletContext.contextPath }/admin/transit/update",
-																								type : "post",
-																								data : {
-																									typeSel : typeSel,
-																									transitRe : transitRe,
-																									delNum : "${ requestScope.transit.dNo }",
-																									tranNum : "${ requestScope.transit.tNo }"
-																								},
-																								success : function(
-																										data,
-																										textStatus,
-																										xhr) {
-																									console
-																											.log(typeSel);
-																									$(
-																											"#rewriteNoCommit")
-																											.css(
-																													"display",
-																													"none");
-																									$(
-																											"#rewriteNo")
-																											.css(
-																													"display",
-																													"block");
-																								},
-																								error : function(
-																										xhr,
-																										status,
-																										error) {
-																									console
-																											.log(error);
-																								}
-																							});
-																					alert("변경 완료!")
-																					location.href = '${ pageContext.servletContext.contextPath }/admin/transit/detail?no='
-																				+ '${ pageNumNo }';
-																				} else {
-																					alert("변경 취소")
-																					location.href = '${ pageContext.servletContext.contextPath }/admin/transit/detail?no='
-																							+ '${ pageNumNo }';
-																				}
-
-																			});
-															alert("배송상태 변경가능");
-														});
-									</script>
-								</c:if>
 								<div id="holdUp3">
 									<button class="btn  btn-sm tooltips"
 										data-original-title="Print" type="button"

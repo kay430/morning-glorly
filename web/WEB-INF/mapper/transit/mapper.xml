@@ -67,7 +67,8 @@
 	<entry key="updateTransit">
 	        UPDATE
                MG_ORDER_DELIVERY A
-           SET A.DELIVERY_TYPE = ?
+           SET A.DELIVERY_TYPE = ?,
+               A.TRANSIT_NO = ?
          WHERE A.DELIVERY_NO = ?
            AND A.TRANSIT_NO = ?
 	</entry>

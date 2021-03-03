@@ -111,8 +111,9 @@ public class TransitDAO {
 		try {
 			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, newTransit.getdType());
-			pstmt.setInt(2, newTransit.getdNo());
-			pstmt.setInt(3, newTransit.gettNo());
+			pstmt.setInt(2, newTransit.getnewTNo());
+			pstmt.setInt(3, newTransit.getdNo());
+			pstmt.setInt(4, newTransit.gettNo());
 			
 			result = pstmt.executeUpdate();
 

@@ -63,10 +63,10 @@
 						<i class="fa fa-cogs"></i> <span>주문관리</span>
 				</a>
 					<ul class="sub">
-						<li><a href=" ${ pageContext.servletContext.contextPath }/admin/order">주문 조회</a></li>
+						<li class="active"><a href=" ${ pageContext.servletContext.contextPath }/admin/order">주문 조회</a></li>
 						<li><a href=" ${ pageContext.servletContext.contextPath }/admin/payment">결제내역</a></li>
 						<li><a href="gallery.html">환불 및 반품</a></li>
-						<li class="active"><a href="${ pageContext.servletContext.contextPath }/admin/transit">배송 조회</a></li>
+						<li><a href="${ pageContext.servletContext.contextPath }/admin/transit">배송 조회</a></li>
 					</ul></li>
 				<li class="sub-menu"><a href="javascript:;"> <i
 						class="fa fa-book"></i> <span>상품관리</span>
@@ -121,7 +121,7 @@
 				<section class="panel">
 					<header class="panel-heading wht-bg">
 						<h4 class="gen-case">
-							배송조회
+							주문내역조회
 							<form action="#" class="pull-right mail-src-position">
 								<div class="input-append">
 									<!-- <input type="text" class="form-control " placeholder="Search Mail"> -->
@@ -184,20 +184,20 @@
 
 									<tr>
 										<th><input type="checkbox" class=""></th>
-										<th>배송번호</th>
-										<th>배송상태</th>
-										<th>운송장 번호</th>
-										<th>배송일자</th>
-										<th>주문번호</th>
+										<th style="width: 50px;">주문번호</th>
+										<th>주문명</th>
+										<th>주문회원번호</th>
+										<th>주문일자</th>
+										<th>총주문금액</th>
 									</tr>
-									<c:forEach var="transit" items="${ requestScope.transitList }">
+									<c:forEach var="order" items="${ requestScope.orderList }">
 										<tr>
 											<td><input type="checkbox" class=""></td>
-											<td><c:out value="${ transit.dNo }" /></td>
-											<td><c:out value="${ transit.dType }" /></td>
-											<td><c:out value="${ transit.tNo }" /></td>
-											<td><c:out value="${ transit.tDate }" /></td>
-											<td><c:out value="${ transit.oNo }" /></td>
+											<td><c:out value="${ order.oNo }" /></td>
+											<td><c:out value="${ order.oTitle }" /></td>
+											<td><c:out value="${ order.mNo }" /></td>
+											<td><c:out value="${ order.oDate }" /></td>
+											<td><c:out value="${ order.amount }" /></td>
 										</tr>
 									</c:forEach>
 								</tbody>
@@ -206,17 +206,16 @@
 					</div>
 					<hr>
 					<form id="searchForm"
-						action="${ pageContext.servletContext.contextPath}/admin/transit/search"
+						action="${ pageContext.servletContext.contextPath}/admin/order/search"
 						method="get">
 						<div class="search-area" align="center">
 							<select id="searchCondition" name="searchCondition">
-								<option value="type"
-									<c:if test="${ requestScope.searchCondition eq 'type' }">selected</c:if>>배송상태</option>
-								<option value="tranum"
-									<c:if test="${ requestScope.searchCondition eq 'tranum' }">selected</c:if>>운송장
-									번호</option>
 								<option value="orderNo"
 									<c:if test="${ requestScope.searchCondition eq 'orderNo' }">selected</c:if>>주문번호</option>
+								<option value="memNo"
+									<c:if test="${ requestScope.searchCondition eq 'memNo' }">selected</c:if>>회원번호</option>
+								<option value="orderTitle"
+									<c:if test="${ requestScope.searchCondition eq 'orderTitle' }">selected</c:if>>제목</option>
 							</select> <input type="search" name="searchValue"
 								value="${ requestScope.searchValue }">
 							<button type="submit">검색하기</button>
@@ -320,7 +319,7 @@
 
 				$tds[i].onclick = function() {
 					const no = this.parentNode.children[1].innerText;
-					location.href = "${ pageContext.servletContext.contextPath }/admin/transit/detail?no="
+					location.href = "${ pageContext.servletContext.contextPath }/admin/order/detail?no="
 							+ no;
 				}
 			}
@@ -339,8 +338,8 @@
 	</script>
 
 	<script>
-		const link = "${ pageContext.servletContext.contextPath }/admin/transit";
-		const searchLink = "${ pageContext.servletContext.contextPath }/admin/transit/search";
+		const link = "${ pageContext.servletContext.contextPath }/admin/order";
+		const searchLink = "${ pageContext.servletContext.contextPath }/admin/order/search";
 
 		if (document.getElementById("startPage")) {
 			const $startPage = document.getElementById("startPage");

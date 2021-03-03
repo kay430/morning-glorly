@@ -64,9 +64,9 @@
 				</a>
 					<ul class="sub">
 						<li><a href=" ${ pageContext.servletContext.contextPath }/admin/order">주문 조회</a></li>
-						<li><a href=" ${ pageContext.servletContext.contextPath }/admin/payment">결제내역</a></li>
+						<li class="active"><a href=" ${ pageContext.servletContext.contextPath }/admin/payment">결제내역</a></li>
 						<li><a href="gallery.html">환불 및 반품</a></li>
-						<li class="active"><a href="${ pageContext.servletContext.contextPath }/admin/transit">배송 조회</a></li>
+						<li><a href="${ pageContext.servletContext.contextPath }/admin/transit">배송 조회</a></li>
 					</ul></li>
 				<li class="sub-menu"><a href="javascript:;"> <i
 						class="fa fa-book"></i> <span>상품관리</span>
@@ -121,7 +121,7 @@
 				<section class="panel">
 					<header class="panel-heading wht-bg">
 						<h4 class="gen-case">
-							배송조회
+							결제내역조회
 							<form action="#" class="pull-right mail-src-position">
 								<div class="input-append">
 									<!-- <input type="text" class="form-control " placeholder="Search Mail"> -->
@@ -184,20 +184,24 @@
 
 									<tr>
 										<th><input type="checkbox" class=""></th>
-										<th>배송번호</th>
-										<th>배송상태</th>
-										<th>운송장 번호</th>
-										<th>배송일자</th>
-										<th>주문번호</th>
+										<th>결제번호</th>
+										<th style="width: 50px;">주문번호</th>
+										<th>회원번호</th>
+										<th>결제금액</th>
+										<th>포인트 사용액</th>
+										<th>결제구분</th>
+										<th>결제일시</th>
 									</tr>
-									<c:forEach var="transit" items="${ requestScope.transitList }">
+									<c:forEach var="payment" items="${ requestScope.paymentList }">
 										<tr>
 											<td><input type="checkbox" class=""></td>
-											<td><c:out value="${ transit.dNo }" /></td>
-											<td><c:out value="${ transit.dType }" /></td>
-											<td><c:out value="${ transit.tNo }" /></td>
-											<td><c:out value="${ transit.tDate }" /></td>
-											<td><c:out value="${ transit.oNo }" /></td>
+											<td><c:out value="${ payment.pNo }" /></td>
+											<td><c:out value="${ payment.oNo }" /></td>
+											<td><c:out value="${ payment.mNo }" /></td>
+											<td><c:out value="${ payment.amount }" /></td>
+											<td><c:out value="${ payment.usedPoint }" /></td>
+											<td><c:out value="${ payment.pType }" /></td>
+											<td><c:out value="${ payment.pDate }" /></td>
 										</tr>
 									</c:forEach>
 								</tbody>
@@ -206,15 +210,14 @@
 					</div>
 					<hr>
 					<form id="searchForm"
-						action="${ pageContext.servletContext.contextPath}/admin/transit/search"
+						action="${ pageContext.servletContext.contextPath}/admin/payment/search"
 						method="get">
 						<div class="search-area" align="center">
 							<select id="searchCondition" name="searchCondition">
-								<option value="type"
-									<c:if test="${ requestScope.searchCondition eq 'type' }">selected</c:if>>배송상태</option>
-								<option value="tranum"
-									<c:if test="${ requestScope.searchCondition eq 'tranum' }">selected</c:if>>운송장
-									번호</option>
+								<option value="payNo"
+									<c:if test="${ requestScope.searchCondition eq 'payNo' }">selected</c:if>>결제번호</option>
+								<option value="memNo"
+									<c:if test="${ requestScope.searchCondition eq 'memNo' }">selected</c:if>>회원번호</option>
 								<option value="orderNo"
 									<c:if test="${ requestScope.searchCondition eq 'orderNo' }">selected</c:if>>주문번호</option>
 							</select> <input type="search" name="searchValue"
@@ -320,7 +323,7 @@
 
 				$tds[i].onclick = function() {
 					const no = this.parentNode.children[1].innerText;
-					location.href = "${ pageContext.servletContext.contextPath }/admin/transit/detail?no="
+					location.href = "${ pageContext.servletContext.contextPath }/admin/payment/detail?no="
 							+ no;
 				}
 			}
@@ -339,8 +342,8 @@
 	</script>
 
 	<script>
-		const link = "${ pageContext.servletContext.contextPath }/admin/transit";
-		const searchLink = "${ pageContext.servletContext.contextPath }/admin/transit/search";
+		const link = "${ pageContext.servletContext.contextPath }/admin/payment";
+		const searchLink = "${ pageContext.servletContext.contextPath }/admin/payment/search";
 
 		if (document.getElementById("startPage")) {
 			const $startPage = document.getElementById("startPage");

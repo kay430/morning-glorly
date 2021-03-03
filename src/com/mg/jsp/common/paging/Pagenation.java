@@ -3,6 +3,10 @@ package com.mg.jsp.common.paging;
 
 import com.mg.jsp.admin.model.dto.NoticePageInfoDTO;
 import com.mg.jsp.admin.model.dto.SearchReadyDTO;
+import com.mg.jsp.admin.model.dto.order.OSearchDTO;
+import com.mg.jsp.admin.model.dto.order.OrderPageInfoDTO;
+import com.mg.jsp.admin.model.dto.payment.PaymentPageInfoDTO;
+import com.mg.jsp.admin.model.dto.payment.PSearchDTO;
 import com.mg.jsp.customerservice.model.dto.PageInfoDTO;
 import com.mg.jsp.question.model.dto.QuestionPageInfoDTO;
 import com.mg.jsp.review.dto.ReviewPageInfoDTO;
@@ -232,6 +236,136 @@ public class Pagenation {
 			searchTransit.getPageInfo().setEndRow(endRow);
 			
 			return searchTransit;
+		}
+
+		public static PaymentPageInfoDTO getPageInfoPayment(int pageNo, int totalCount, int limit, int buttonAmount) {
+
+			int maxPage;
+			int startPage;
+			int endPage;
+			int startRow;
+			int endRow;
+			
+			maxPage = (int) Math.ceil((double) totalCount / limit);
+			
+			startPage = (int) (Math.ceil((double) pageNo / buttonAmount) -1) * buttonAmount + 1;
+			
+			endPage = startPage + buttonAmount -1;
+			
+			if(maxPage < endPage) {
+				endPage = maxPage;
+			}
+			
+			if(maxPage == 0 && endPage == 0) {
+				maxPage = startPage;
+				endPage = startPage;
+			}
+			
+			startRow = (pageNo - 1) * limit + 1;
+			endRow = startRow + limit -1;
+			
+			return new PaymentPageInfoDTO(pageNo, totalCount, limit, buttonAmount, maxPage, startPage, endPage, startRow, endRow);
+			
+		}
+		
+		public static PSearchDTO getPaymentPage(PSearchDTO searchPayment) {
+			
+			int maxPage;
+			int startPage;
+			int endPage;
+			int startRow;
+			int endRow;
+			
+			maxPage = (int) Math.ceil((double) searchPayment.getPageInfo().getTotalCount() / searchPayment.getPageInfo().getLimit());
+			
+			startPage = (int) (Math.ceil((double) searchPayment.getPageInfo().getPageNo() / searchPayment.getPageInfo().getButtonAmount()) -1) * searchPayment.getPageInfo().getButtonAmount() + 1;
+			
+			endPage = startPage + searchPayment.getPageInfo().getButtonAmount() -1;
+			
+			if(maxPage < endPage) {
+				endPage = maxPage;
+			}
+			
+			if(maxPage == 0 && endPage == 0) {
+				maxPage = startPage;
+				endPage = startPage;
+			}
+			
+			startRow = (searchPayment.getPageInfo().getPageNo() - 1) * searchPayment.getPageInfo().getLimit() + 1;
+			endRow = startRow + searchPayment.getPageInfo().getLimit() -1;
+			
+			searchPayment.getPageInfo().setMaxPage(maxPage);
+			searchPayment.getPageInfo().setStartPage(startPage);
+			searchPayment.getPageInfo().setEndPage(endPage);
+			searchPayment.getPageInfo().setStartRow(startRow);
+			searchPayment.getPageInfo().setEndRow(endRow);
+			
+			return searchPayment;
+		}
+
+		public static OrderPageInfoDTO getPageInfoOrder(int pageNo, int totalCount, int limit, int buttonAmount) {
+
+			int maxPage;
+			int startPage;
+			int endPage;
+			int startRow;
+			int endRow;
+			
+			maxPage = (int) Math.ceil((double) totalCount / limit);
+			
+			startPage = (int) (Math.ceil((double) pageNo / buttonAmount) -1) * buttonAmount + 1;
+			
+			endPage = startPage + buttonAmount -1;
+			
+			if(maxPage < endPage) {
+				endPage = maxPage;
+			}
+			
+			if(maxPage == 0 && endPage == 0) {
+				maxPage = startPage;
+				endPage = startPage;
+			}
+			
+			startRow = (pageNo - 1) * limit + 1;
+			endRow = startRow + limit -1;
+			
+			return new OrderPageInfoDTO(pageNo, totalCount, limit, buttonAmount, maxPage, startPage, endPage, startRow, endRow);
+			
+		}
+		
+		public static OSearchDTO getOrderPage(OSearchDTO searchOrder) {
+			
+			int maxPage;
+			int startPage;
+			int endPage;
+			int startRow;
+			int endRow;
+			
+			maxPage = (int) Math.ceil((double) searchOrder.getPageInfo().getTotalCount() / searchOrder.getPageInfo().getLimit());
+			
+			startPage = (int) (Math.ceil((double) searchOrder.getPageInfo().getPageNo() / searchOrder.getPageInfo().getButtonAmount()) -1) * searchOrder.getPageInfo().getButtonAmount() + 1;
+			
+			endPage = startPage + searchOrder.getPageInfo().getButtonAmount() -1;
+			
+			if(maxPage < endPage) {
+				endPage = maxPage;
+			}
+			
+			if(maxPage == 0 && endPage == 0) {
+				maxPage = startPage;
+				endPage = startPage;
+			}
+			
+			startRow = (searchOrder.getPageInfo().getPageNo() - 1) * searchOrder.getPageInfo().getLimit() + 1;
+			endRow = startRow + searchOrder.getPageInfo().getLimit() -1;
+			
+			searchOrder.getPageInfo().setMaxPage(maxPage);
+			searchOrder.getPageInfo().setStartPage(startPage);
+			searchOrder.getPageInfo().setEndPage(endPage);
+			searchOrder.getPageInfo().setStartRow(startRow);
+			searchOrder.getPageInfo().setEndRow(endRow);
+			
+			return searchOrder;
 		}
 
 }

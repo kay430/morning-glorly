@@ -27,10 +27,14 @@ public class UpdateTransit extends HttpServlet {
 		
 		TransitDTO newTransit = new TransitDTO();
 		String sed = request.getParameter("typeSel");
+		int transitRe = Integer.parseInt(request.getParameter("transitRe"));
 		int delNo = Integer.parseInt(request.getParameter("delNum"));
 		int tranNo = Integer.parseInt(request.getParameter("tranNum"));
+		System.out.println(sed);
 		System.out.println(delNo);
 		System.out.println(tranNo);
+		System.out.println(transitRe);
+		newTransit.setnewTNo(transitRe);
 		newTransit.setdType(sed);
 		newTransit.setdNo(delNo);
 		newTransit.settNo(tranNo);

@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+	<entry key="incrementTransitCount">
+
+	</entry>
+	<entry key="selectTransitDetail">
+        SELECT
+               A.DELIVERY_NO
+             , A.DELIVERY_TYPE
+             , A.TRANSIT_NO
+             , A.TRANSIT_DATE
+             , B.ORDER_NO
+             , B.ORDER_MEMBER_NO
+             , B.ORDER_DATE
+             , B.ORDER_TITLE
+             , B.AMOUNT_PRICE
+          FROM MG_ORDER_DELIVERY A
+          JOIN MG_ORDER B ON (A.DELIVERY_NO = B.ORDER_NO)
+         WHERE A.DELIVERY_NO = ?
+	</entry>
+	<entry key="selectTotalCount">
+		SELECT /**/
+		       COUNT(*)
+		  FROM MG_PAYMENT A
+	</entry>
+	<entry key="selectPaymentList">
+       SELECT
+             A.RNUM
+           , A.PAYMENT_NO
+           , A.PAYMENT_ORDER_NO
+           , A.PAYMENT_MEMBER_NO
+           , A.FINAL_PAYMENT_PRICE
+           , A.USED_POINT
+           , A.PAYMENT_STATUS
+           , A.PAYMENT_DATE
+      FROM (SELECT ROWNUM RNUM
+                 , B.PAYMENT_NO
+                 , B.PAYMENT_ORDER_NO
+                 , B.PAYMENT_MEMBER_NO
+                 , B.FINAL_PAYMENT_PRICE
+                 , B.USED_POINT
+                 , B.PAYMENT_STATUS
+                 , B.PAYMENT_DATE
+            FROM (SELECT A.PAYMENT_NO
+                       , A.PAYMENT_ORDER_NO
+                       , A.PAYMENT_MEMBER_NO
+                       , A.FINAL_PAYMENT_PRICE
+                       , A.USED_POINT
+                       , A.PAYMENT_STATUS
+                       , A.PAYMENT_DATE
+                    FROM MG_PAYMENT A
+                    JOIN MG_ORDER B ON (A.PAYMENT_ORDER_NO = B.ORDER_NO)
+                ORDER BY A.PAYMENT_NO DESC
+                 ) B
+            ) A
+            WHERE RNUM BETWEEN ? AND ?
+	</entry>
+	<entry key="updateTransit">
+	        UPDATE
+               MG_ORDER_DELIVERY A
+           SET A.DELIVERY_TYPE = ?,
+               A.TRANSIT_NO = ?
+         WHERE A.DELIVERY_NO = ?
+           AND A.TRANSIT_NO = ?
+	</entry>
+	<entry key="selectPAymentSequence">
+        SELECT
+               SEQ_PAYMENT_NO.CURRVAL
+          FROM DUAL    
+	</entry>  
+	<entry key="searchPaymentNoCount">
+        SELECT
+               COUNT(*)
+          FROM MG_PAYMENT A
+         WHERE A.PAYMENT_NO LIKE '%' || ? || '%'
+	</entry>
+	<entry key="searchMemberNoCount">
+        SELECT
+               COUNT(*)
+          FROM MG_PAYMENT A
+         WHERE A.PAYMENT_MEMBER_NO LIKE '%' || ? || '%' 
+	</entry>
+	<entry key="searchOdNoCount"> 
+        SELECT
+               COUNT(*)
+          FROM MG_PAYMENT A
+         WHERE A.PAYMENT_ORDER_NO LIKE '%' || ? || '%'
+	</entry>
+	<entry key="searchPaymentListByPaymentNo">
+       SELECT
+             A.RNUM
+           , A.PAYMENT_NO
+           , A.PAYMENT_ORDER_NO
+           , A.PAYMENT_MEMBER_NO
+           , A.FINAL_PAYMENT_PRICE
+           , A.USED_POINT
+           , A.PAYMENT_STATUS
+           , A.PAYMENT_DATE
+      FROM (SELECT ROWNUM RNUM
+                 , B.PAYMENT_NO
+                 , B.PAYMENT_ORDER_NO
+                 , B.PAYMENT_MEMBER_NO
+                 , B.FINAL_PAYMENT_PRICE
+                 , B.USED_POINT
+                 , B.PAYMENT_STATUS
+                 , B.PAYMENT_DATE
+            FROM (SELECT A.PAYMENT_NO
+                       , A.PAYMENT_ORDER_NO
+                       , A.PAYMENT_MEMBER_NO
+                       , A.FINAL_PAYMENT_PRICE
+                       , A.USED_POINT
+                       , A.PAYMENT_STATUS
+                       , A.PAYMENT_DATE
+                    FROM MG_PAYMENT A
+                    JOIN MG_ORDER B ON (A.PAYMENT_ORDER_NO = B.ORDER_NO)
+                    WHERE A.PAYMENT_NO LIKE '%' || ? || '%'
+                ORDER BY A.PAYMENT_NO DESC
+                 ) B
+            ) A
+            WHERE RNUM BETWEEN ? AND ?
+	</entry>
+	<entry key="searchPaymentListByMemberNo">
+       SELECT
+             A.RNUM
+           , A.PAYMENT_NO
+           , A.PAYMENT_ORDER_NO
+           , A.PAYMENT_MEMBER_NO
+           , A.FINAL_PAYMENT_PRICE
+           , A.USED_POINT
+           , A.PAYMENT_STATUS
+           , A.PAYMENT_DATE
+      FROM (SELECT ROWNUM RNUM
+                 , B.PAYMENT_NO
+                 , B.PAYMENT_ORDER_NO
+                 , B.PAYMENT_MEMBER_NO
+                 , B.FINAL_PAYMENT_PRICE
+                 , B.USED_POINT
+                 , B.PAYMENT_STATUS
+                 , B.PAYMENT_DATE
+            FROM (SELECT A.PAYMENT_NO
+                       , A.PAYMENT_ORDER_NO
+                       , A.PAYMENT_MEMBER_NO
+                       , A.FINAL_PAYMENT_PRICE
+                       , A.USED_POINT
+                       , A.PAYMENT_STATUS
+                       , A.PAYMENT_DATE
+                    FROM MG_PAYMENT A
+                    JOIN MG_ORDER B ON (A.PAYMENT_ORDER_NO = B.ORDER_NO)
+                    WHERE A.PAYMENT_MEMBER_NO LIKE '%' || ? || '%'
+                ORDER BY A.PAYMENT_NO DESC
+                 ) B
+            ) A
+            WHERE RNUM BETWEEN ? AND ?
+	</entry>
+		<entry key="searchTransitListByOrderNo">
+       SELECT
+             A.RNUM
+           , A.PAYMENT_NO
+           , A.PAYMENT_ORDER_NO
+           , A.PAYMENT_MEMBER_NO
+           , A.FINAL_PAYMENT_PRICE
+           , A.USED_POINT
+           , A.PAYMENT_STATUS
+           , A.PAYMENT_DATE
+      FROM (SELECT ROWNUM RNUM
+                 , B.PAYMENT_NO
+                 , B.PAYMENT_ORDER_NO
+                 , B.PAYMENT_MEMBER_NO
+                 , B.FINAL_PAYMENT_PRICE
+                 , B.USED_POINT
+                 , B.PAYMENT_STATUS
+                 , B.PAYMENT_DATE
+            FROM (SELECT A.PAYMENT_NO
+                       , A.PAYMENT_ORDER_NO
+                       , A.PAYMENT_MEMBER_NO
+                       , A.FINAL_PAYMENT_PRICE
+                       , A.USED_POINT
+                       , A.PAYMENT_STATUS
+                       , A.PAYMENT_DATE
+                    FROM MG_PAYMENT A
+                    JOIN MG_ORDER B ON (A.PAYMENT_ORDER_NO = B.ORDER_NO)
+                    WHERE A.PAYMENT_ORDER_NO LIKE '%' || ? || '%'
+                ORDER BY A.PAYMENT_NO DESC
+                 ) B
+            ) A
+            WHERE RNUM BETWEEN ? AND ?
+	</entry>
+	<entry key="selectPaymentDetail">
+                    SELECT
+               A.PAYMENT_NO
+             , A.PAYMENT_ORDER_NO
+             , A.PAYMENT_MEMBER_NO
+             , A.FINAL_PAYMENT_PRICE
+             , A.USED_POINT
+             , A.PAYMENT_STATUS
+             , A.PAYMENT_DATE
+             , C.MEMBER_NAME
+             , C.MEMBER_PNO
+             , C.MEMBER_STATUS
+             , C.EMAIL
+             , C.MEMBER_POINT
+          FROM MG_PAYMENT A
+          JOIN MG_ORDER B ON (A.PAYMENT_ORDER_NO = B.ORDER_NO)
+          JOIN MG_MEMBER C ON (A.PAYMENT_MEMBER_NO = C.MEMBER_NO)
+         WHERE A.PAYMENT_NO = ?
+	</entry>
+
+</properties>
