@@ -24,7 +24,10 @@
 <link rel="stylesheet" type="text/css"
 	href="/mg/resources/css/mymapge/changeMemberInfo.css">
 <link href="/mg/resources/admin/jihunh.css" rel="stylesheet" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 </head>
 <body>
 
@@ -40,133 +43,9 @@
 
                <div class="page-body">
 
-                  <form name="form1" id="order_form" action="/shop/orderin.html"
+                  <form name="payment" id="order_form" action="/shop/orderin.html"
                      method="post">
-                     <input type="hidden" name="ok" value="N"> <input
-                        type="hidden" name="paymethod" value=""> <input
-                        type="hidden" name="paydata1" value=""> <input
-                        type="hidden" name="paydata2" value=""> <input
-                        type="hidden" name="address" value="" id="address"> <input
-                        type="hidden" name="etcaddress" value=""> <input
-                        type="hidden" name="virresno1" value=""> <input
-                        type="hidden" name="virresno2" value=""> <input
-                        type="hidden" name="resno" value=""> <input
-                        type="hidden" name="msecure_key"
-                        value="8F1wtpoxVL2LAAWdwN95aw=="> <input type="hidden"
-                        name="add_msecure_key" value=""> <input type="hidden"
-                        name="id_info" value=""> <input type="hidden"
-                        name="id_name" value=""> <input type="hidden"
-                        name="sslid" value="slimcook"> <input type="hidden"
-                        name="sslip" value="www.slimcook.co.kr"> <input
-                        type="hidden" name="tempid"
-                        value="01f8eb55b54bee855e1ae8f8940d60cf"> <input
-                        type="hidden" name="id" value="kim113"> <input
-                        type="hidden" name="use_freedeli_coupon" value="N" /> <input
-                        type="hidden" name="banktown_id" value=""> <input
-                        type="hidden" name="card_brand" value="하루 약 900Kcal 프로그램">
-                     <input type="hidden" name="card_brand_npay"
-                        value="하루 약 900Kcal 프로그램"> <input type="hidden"
-                        name="total_amount" value="1"> <input type="hidden"
-                        name="banktownprice" value="118000"> <input
-                        type="hidden" name="cardprice" value="118000"> <input
-                        type="hidden" name="cur_reserve" value="3000"> <input
-                        type="hidden" name="reserveonlyprice" value=""> <input
-                        type="hidden" name="ktprice" value="118000"
-                        origin-data-value="118000"> <input type="hidden"
-                        name="kt_id" value=""> <input type="hidden"
-                        name="deli_product_price" value="0"> <input
-                        type="hidden" name="bankonly" value="N"> <input
-                        type="hidden" name="quickdelihour" value=""> <input
-                        type="hidden" name="quickdelimethod" value=""> <input
-                        type="hidden" name="quickdelipricetype" value="C"> <input
-                        type="hidden" name="shoplang" value=""> <input
-                        type="hidden" name="pay_path" value="PC"> <input
-                        type="hidden" name="tm1post1" value="" id=tm1post1> <input
-                        type="hidden" name="tm1post2" value="" id=tm1post2> <input
-                        type="hidden" name="tm1address1" value="" id=tm1address1>
-                     <input type="hidden" name="tm1address2" value="" id=tm1address2>
-                     <input type="hidden" name="tm2post1" value="" id=tm2post1>
-                     <input type="hidden" name="tm2post2" value="" id=tm2post2>
-                     <input type="hidden" name="tm2address1" value="" id=tm2address1>
-                     <input type="hidden" name="tm2address2" value="" id=tm2address2>
-                     <input type="hidden" name="deli_reserve" value="3000"> <input
-                        type="hidden" name="deli_emoney" value=""> <input
-                        type="hidden" name="order_deli_price" value="0"> <input
-                        type="hidden" name="discount_use_not_reserve" value="0">
-                     <input type="hidden" name="mobile_type" value="NONE">
-                     <!--핸드폰 결제 타입  (DA : 다날, MO : 모빌리언스)-->
-                     <input type="hidden" name="group_deli_type" id="group_deli_type"
-                        value="">
-                     <!--회원등급 배송료처리-->
-                     <input type="hidden" name="mk_ems_type" id="mk_ems_type" value="">
-                     <!--해외 배송료처리-->
-                     <input type="hidden" name="simplepay_type" id="simplepay_type"
-                        value="">
-                     <!-- 간편결제 -->
-                     <input type="hidden" name="order_paytype" id="order_paytype"
-                        value="PAY">
-                     <!-- 스마트주문서(주문서리뉴얼) 결제팝업 버전 -->
-                     <input type="hidden" name="add_deli_price" id="add_deli_price"
-                        value="0">
-                     <!-- 스마트주문서(주문서리뉴얼) 추가배송비 -->
-                     <input type="hidden" name="add_deli_price_temp"
-                        id="add_deli_price_temp" value="0">
-                     <!-- 스마트주문서(주문서리뉴얼) 추가배송비 -->
-                     <input type="hidden" name="tba_name" id="tba_name" />
-                     <!-- 증빙신청 세금계산서 신청자명 -->
-                     <input type="hidden" name="tba_phone" id="tba_phone" />
-                     <!-- 증빙신청 세금계산서 휴대전화 번호 -->
-                     <input type="hidden" name="tba_email" id="tba_email" />
-                     <!-- 증빙신청 세금계산서 이메일 -->
-                     <input type="hidden" name="tba_company_num" id="tba_company_num" />
-                     <!-- 증빙신청 세금계산서 사업자번호 -->
-                     <input type="hidden" name="tba_company_name"
-                        id="tba_company_name" />
-                     <!-- 증빙신청 세금계산서 (상호)법인명 -->
-                     <input type="hidden" name="tba_company_owner"
-                        id="tba_company_owner" />
-                     <!-- 증빙신청 세금계산서 대표자명 -->
-                     <input type="hidden" name="tba_company_post"
-                        id="tba_company_post" />
-                     <!-- 증빙신청 세금계산서 우편번호 -->
-                     <input type="hidden" name="tba_company_addr"
-                        id="tba_company_addr" />
-                     <!-- 증빙신청 세금계산서 주소 -->
-                     <input type="hidden" name="tba_company_addr2"
-                        id="tba_company_addr2" />
-                     <!-- 증빙신청 세금계산서 상세주소 -->
-                     <input type="hidden" name="tba_company_biz" id="tba_company_biz" />
-                     <!-- 증빙신청 세금계산서 업태 -->
-                     <input type="hidden" name="tba_company_item"
-                        id="tba_company_item" />
-                     <!-- 증빙신청 세금계산서 업종 -->
-                     <input type="hidden" name="is_evidence_serchaddress"
-                        id="is_evidence_serchaddress" />
-                     <!-- 증빙신청 세금계산서 우편번호 클릭여부 -->
-                     <input type="hidden" name="evidence_data" id="evidence_data"
-                        value="" /> <input type="hidden" name="use_tax" id="use_tax"
-                        value="" /> <input type="hidden" name="pvd_deli_price"
-                        id="pvd_deli_price" value="0" />
-                     <!-- 공급자 배송비 (추가배송비 포함)-->
-                     <input type="hidden" id="emoneyok" name="emoneyok" value="Y">
-                     <input type="hidden" name="year" value="2021"> <input
-                        type="hidden" name="mon" value="03"> <input
-                        type="hidden" name="day" value="05"> <input
-                        type="hidden" name="hope_deli_s_date" value=""> <input
-                        type="hidden" name="hope_deli_e_date" value=""> <input
-                        type="hidden" name="hope_deli_day2_setting" value="3649">
-                     <input type="hidden" name="hopedate_start_year" value="2021">
-                     <input type="hidden" name="hopedate_start_month" value="03">
-                     <input type="hidden" name="hopedate_start_day" value="05">
-                     <input type="hidden" id="hopedate_except_month" value="">
-                     <input type="hidden" id="hopedate_except_day"
-                        value="2021-03-02,2021-03-03,2021-03-04,"> <input
-                        type="hidden" id="hopedate_except_holiday"
-                        value="01-01,03-01,05-05,06-06,08-15,10-03,10-09,12-25,">
-                     <input type="hidden" name="tempslimPhone" value="" id=tempslimPhone>
-                     <input type="hidden" name="tempslimPhoneMid" value="" id=tempslimPhoneMid> 
-                     <input type="hidden" name="tempslimPhoneEnd" value="" id=tempslimPhoneEnd>
-                     <input type="hidden" name="member_before_pay" id="member_before_agree" value="Y">
+                    
 
                      <fieldset>
                         <h3>주문리스트</h3>
@@ -258,10 +137,11 @@
                         <!-- .tbl-order -->
 
                         <h3>
-                           배송 정보 <label> <input type="checkbox" name="same"
-                              form="order_form" id="same" onclick="copydata()"> 위
+                           배송 정보 <label> <input type="checkbox" name=""
+                              form="order_form" id="same" value="수취인동일" onclick="copydata()"> 위
                               정보와 같음
                            </label>
+                           <input type="hidden" name="필요없음" value="필요없음">
                         </h3>
                         
                         <div class="tbl-order">
@@ -297,9 +177,9 @@
                                  </tr>
                                  <tr>
                                     <th scope="row"><div class="txt-l">배송지 선택</div></th>
-                                    <td colspan="3"><input type="radio" value="A"
-                                       name="place" form="order_form" onclick="addrclick()" />
-                                       내 주소&nbsp; &nbsp;&nbsp;<input type="radio" value="E" form="order_form"
+                                    <td colspan="3"><input type="radio" value="즐겨찾기"
+                                       name="place" form="order_form" onclick="addrclick()"/>
+                                       내 주소&nbsp; &nbsp;&nbsp;<input type="radio" id="place2" value="직접입력" form="order_form"
                                        name="place" onclick="post();" />신규 배송지</font></td>
                                  </tr>
                                  <tr>
@@ -386,12 +266,12 @@
                               </thead>
                               <tbody>
                                  <tr>
-                                    <th class="txt-l">적립금 사용&nbsp;&nbsp;<button id="usePoint" type="button">적용</button></th>
+                                    <th class="txt-l">적립금 사용&nbsp;&nbsp;<button id="allUseButton" type="button">적용</button></th>
                                     <td colspan="4">
-                                    <input type="text" id="usePointNum" name="usereserve" form="order_form" autocomplete="off"
-                                       size="7" style="background: silver" class="MS_input_txt allways-disable">
-                                        <label> <input type="checkbox" id="usePointNumAll"
-                                          name="all_check_reserve"> 전액사용
+                                    <input type="text" id="usePointNum" name="" form="order_form" autocomplete="off"
+                                       size="15" style="background: silver" class="MS_input_txt allways-disable">
+                                       <input type="hidden" name="필요없음2" value="필요없음2">
+                                        <label> 
                                     </label> <span class="fc-gray">(사용가능 적립금: <span id="ableUsePoint"></span> 원) 
                                     </span>
                                        <div class="cnt-box"></div></td>
@@ -416,7 +296,7 @@
                                     <td>
                                        <ul class="pay-method">
                                           <li><input type="radio" class="chk-rdo"
-                                             name="radio_paymethod" value="C" /> 신용카드 <em><span
+                                             name="radio_paymethod" value="신용카드" /> 신용카드 <em><span
                                                 class="op-card-dc-price fc-red"></span></em></li>
                                        </ul>
                                     </td>
@@ -426,165 +306,6 @@
                         </div>
                         <!-- .tbl-order -->
 
-
-								<!-- 증빙신청 태그 추가 시 임의로 태그를 제거하게 되면 결제 등 정상 동작이 불가할 수 있습니다 !!! -->
-								<div id="evidence" style="display: none;">
-									<div class="tbl-order"
-										style="margin-top: 0px; border-top: 0px;">
-										<table>
-											<caption>증빙 신청</caption>
-											<colgroup>
-												<col width="130">
-												<col />
-											</colgroup>
-											<tbody>
-												<tr>
-													<th scope="row"><div class="txt-l">증빙 신청</div></th>
-													<td style="padding-left: 18px;"><input type="radio"
-														name="evidencecheck" form="order_form" onclick=""
-														value="N" checked /> 신청안함 <input type="radio"
-														name="evidencecheck" form="order_form" onclick=""
-														value="cashbill" /> 현금영수증
-
-														<div style="padding-top: 5px;">
-															<div id="evidence_data">
-																<script type='text/javascript' src="/js/check.js"></script>
-																<div id="evidence_donot_data"
-																	style="display: none; color: red;">
-																	* 투명한 온라인 거래를 위해서 현금영수증 의무발행을 사용하고 있습니다.<br />* 현금영수증을
-																	신청하지 않아도 의무발행제도에 의하여 '국세청 발급번호 010-000-1234'로 발행 됩니다.
-																</div>
-																<div id="evidence_cashbill_data" style="display: none;">
-																	<span id="cashbilltype"> <select
-																		name="evidence_banktype" class="bank-type"
-																		onchange="togglecashbilltype(this.value)">
-																			<option value='0' selected>핸드폰 번호
-																			<option value='1'>국세청 현금영수증 카드
-																			<option value='2'>사업자 번호
-																	</select>
-																	</span> <span id="evidence_cashbill_tel"> <input
-																		type="text" name="mobilephone" size="5" maxlength="3"
-																		class="MS_input_txt txt-input w60"
-																		onkeyup="nextfocus(this.form['mobilephone'][0], this.form['mobilephone'][1], 3);"
-																		onKeyPress="InpuOnlyPhone(this)" /> - <input
-																		type="text" name="mobilephone" size="5" maxlength="4"
-																		class="MS_input_txt txt-input w60"
-																		onkeyup="nextfocus(this.form['mobilephone'][1], this.form['mobilephone'][2], 4);"
-																		onKeyPress="InpuOnlyPhone(this)" /> - <input
-																		type="text" name="mobilephone" size="5" maxlength="4"
-																		class="MS_input_txt txt-input w60"
-																		onKeyPress="InpuOnlyPhone(this)" />&nbsp;<span
-																		style=""><input type="checkbox" name="reset" />초기화</span></span>
-																	<span
-																		id="evidence_cashbill_card" style="display: none">                    <input
-																		type="text" name="tax_card_number" size="5"
-																		maxlength="4" class="MS_input_txt txt-input w60"
-																		onkeyup="nextfocus(this.form['tax_card_number'][0], this.form['tax_card_number'][1], 4);"
-																		onKeyPress="InpuOnlyPhone(this)" /> - 
-                    <input type="text" name="tax_card_number" size="5"
-																		maxlength="4" class="MS_input_txt txt-input w60"
-																		onkeyup="nextfocus(this.form['tax_card_number'][1], this.form['tax_card_number'][2], 4);"
-																		onKeyPress="InpuOnlyPhone(this)" /> - 
-                    <input type="text" name="tax_card_number" size="5"
-																		maxlength="4" class="MS_input_txt txt-input w60"
-																		onkeyup="nextfocus(this.form['tax_card_number'][2], this.form['tax_card_number'][3], 4);"
-																		onKeyPress="InpuOnlyPhone(this)" /> - 
-                    <input type="text" name="tax_card_number" size="6"
-																		maxlength="6" class="MS_input_txt txt-input w60"
-																		onKeyPress="InpuOnlyPhone(this)" /></span>                                                        <span
-																		id="evidence_cashbill_company" style="display:none">                                                                                <input
-																		type="text" name="crn" size="4" maxlength="3"
-																		class="MS_input_txt txt-input w60"
-																		onkeyup="nextfocus(this.form['crn'][0], this.form['crn'][1], 3);"
-																		onKeyPress="InpuOnlyPhone(this)" /> - 
-                    <input type="text" name="crn" size="3" maxlength="2"
-																		class="MS_input_txt txt-input w60"
-																		onkeyup="nextfocus(this.form['crn'][1], this.form['crn'][2], 2);"
-																		onKeyPress="InpuOnlyPhone(this)" /> - 
-                    <input type="text" name="crn" size="6" maxlength="5"
-																		class="MS_input_txt txt-input w60" />                                                            <span
-																		class="company-name">업체명 :                     <input
-																			type="text" name="crname" size="16" maxlength="20"
-																			class="MS_input_txt txt-input w60"></span>
-                                                        </span>                                            
-                                                                                                    </div>
-                                                <div
-																	id="evidence_taxbill_data" style="display:none;">                                                <table
-																		class="tbl-taxbill">
-                                                    <colgroup>
-                                                        <col
-																				style="width: 19%">
-                                                        <col
-																				style="width: *">
-                                                    </colgroup>
-                                                    <tbody>
-                                                        <tr>
-                                                            <th><div>신청자명</div></th>
-                                                            <td>
-                                                                <div></div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th><div>휴대폰번호</div></th>
-                                                            <td>
-                                                                <div></div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th><div>이메일</div></th>
-                                                            <td>
-                                                                <div></div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th><div>사업자번호</div></th>
-                                                            <td>
-                                                                <div></div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th><div>상호(법인명)</div></th>
-                                                            <td>
-                                                                <div></div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th><div>대표자명</div></th>
-                                                            <td>
-                                                                <div></div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th><div>사업장주소</div></th>
-                                                            <td>
-                                                                <div>
-                                                                                                                                        <a
-																							href="" class="btn-white">우편번호</a><br />
-                                                                    <br />
-                                                                                                                                    </div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th><div>업태</div></th>
-                                                            <td>
-                                                                <div></div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th><div>종목</div></th>
-                                                            <td>
-                                                                <div></div>
-                                                            </td>
-                                                        </tr>                                            
-                                                    </tbody>              
-                                                </table>
-                                                </div>                                            </div>                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        </div>                        
                         <div class='lst-order'>
         <ul id='payinfo_C' class='payment-info' style="display: none">
             <li>· 안심클릭 및 인터넷안전결제(ISP)서비스로 <font color=blue>128bit SSL</font>로 암호화된 결제 창이 새로 뜹니다.</li>
@@ -654,16 +375,20 @@
                                 </table>
                             </div>
 								<!-- .tbl-pay -->
-								<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+				<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 								                        <script>
                         $('select[name="phone1"] option[value='+'${ requestScope.loginInfo.phone}'.substring(0, 3)+']').attr("selected", true);
                         $('input[name="phone2"]').val('${ requestScope.loginInfo.phone}'.substring(3, 7));
                         $('input[name="phone3"]').val('${ requestScope.loginInfo.phone}'.substring(7, 11));
-                        console.log('${ requestScope.loginInfo.phone}'.substring(0, 3));
+                        var address = '${ requestScope.loginInfo.address }'.split('$');
+                        var addressResult = '';
+                        for(var i = 0; i < address.length; i++) {
+                        	addressResult += address[i] + ' ';
+                        }
                         
                         //주문정보 동일checkbox action
                         function copydata() {
-                            if ($('input[name="same"]').prop('checked') === true) {
+                            if ($('#same').prop('checked') === true) {
                                
                                 $('input[name="receiver"]').val($('input[name="sender"]').val());
                                 
@@ -742,95 +467,65 @@
                         });
                         
                         var p = 0;
-                        $("#usePointNum").click(function() {
-                        	if($("#usePointNumAll").prop("checked")) {
-                        		$("#usePointNum").val('');
-                        		
-                        		//실패. 왜 안되는지 모르겠다.(03/01)
-                        		$("#usePointNumAll").attr("checked", false);
-                        	} else {
-                        		/* $("#usePointNumAll").attr("checked", true); */
-                        	}
-                        	
-                        	
-                        });
+                        var payMoney = resultPr;
                         /* $("#usePointNum").keyup(function() {}); */
+                        var returnPoint = 0;
                         $("#usePointNum").blur(function() {
                         	/* console.log($("#usePointNum").val());
                         	console.log("온");
                         	console.log(resultPr - $("#usePointNum").val());
                         	console.log(p); */
                         	p = resultPr - $("#usePointNum").val();
-                        	if(p > 0) {
-                        		$("#salePrice").html(makeComma($("#usePointNum").val()) + ' ');
-                        		$("#price2").html(makeComma(p) + ' '); 
-                        		$("#price3").html(makeComma(p) + ' ');
+                        	if(p > 0 || p === 0) {
+                        		if(${ requestScope.loginInfo.point } >= $("#usePointNum").val()) {
+	                        		returnPoint = $("#usePointNum").val();
+	                        		$("#salePrice").html(makeComma($("#usePointNum").val()) + ' ');
+	                        		$("#usePointNum").val(makeComma($("#usePointNum").val()));
+	                        		$("#price2").html(makeComma(p) + ' '); 
+	                        		$("#price3").html(makeComma(p) + ' ');
+	                        		payMoney = p;
+	                        		console.log('하 포인트 : ' + payMoney);
+                        		} else {
+                        			alert('포인트 한도 초과');
+                        			$("#usePointNum").val('');
+                        			returnPoint = $("#usePointNum").val('');
+                            		$("#salePrice").html(makeComma($("#usePointNum").val()) + ' ');
+                            		$("#usePointNum").val(makeComma($("#usePointNum").val()));
+                            		$("#price2").html(makeComma(resultPr) + ' '); 
+                            		$("#price3").html(makeComma(resultPr) + ' ');
+                            		payMoney = resultPr;
+                        		}
+                        		
+                        		/* 결제 금액 < 포인트 입력한경우 */
                         	} else {
                         		$("#salePrice").html(makeComma(resultPr) + ' ');
-                        		$("#usePointNum").val(makeComma(resultPr) + ' ');
+                        		$("#usePointNum").val(makeComma(resultPr));
                         		$("#price2").html(0 + ' '); 
                         		$("#price3").html(0 + ' ');
+                        		payMoney = 0;
+                        		returnPoint = resultPr; 
                         	}
+                        	
+                        	/* if($("#usePointNum").val() === '') {
+                        		alert('이거지 blur');
+                        	} */
+                        	
+                        console.log(payMoney);
                         });
                         
-                        $("#usePoint").click(function() {
-                        	if(p > 0) {
-                        		$("#salePrice").html(makeComma($("#usePointNum").val()) + ' ');
-                        		$("#price2").html(makeComma(p) + ' '); 
-                        		$("#price3").html(makeComma(p) + ' ');
-                        	} else {
-                        		$("#salePrice").html(makeComma(resultPr) + ' ');
-                        		$("#usePointNum").val(makeComma(resultPr) + ' ');
-                        		$("#price2").html(0 + ' '); 
-                        		$("#price3").html(0 + ' ');
-                        	}
-                        	console.log("클릭버튼");
-                        })
-                	 
-              	   	$("#usePointNumAll").change(function() {
-              	    	if($(this).prop("checked")) {
-              	    		console.log("클릭버튼");
-              	    		
-              	    		$("#usePointNum").click(function() {
-              	    			//체크박스 변경 실패.
-              	   			});
-              	    		
-              	    		if(${ requestScope.loginInfo.point } > 0) {
-              	    			
-              	    			if(${ requestScope.loginInfo.point } > resultPr) {
-              	    				$("#usePointNum").val(resultPr);
-              	    			} else {
-              	    				$("#usePointNum").val(${ requestScope.loginInfo.point });
-              	    			}
-              	    			
-              	    				
-              	    		}
-              	    		
-            	    	} else {
-            	    		$("#usePointNum").val('');
-            	    		console.log("클릭버튼dd");
-            	    		
-            	    	}
-                 	});
+                        /* 포인트창 클릭하면 초기화 */
+                        $("#usePointNum").click(function() { $("#usePointNum").val(''); });
                         
-                        </script>
-                           
+             </script>
                             
-                            <div id="paybutton"><a href="${ pageContext.servletContext.contextPath }/proceed/payment" class="pay_btn">주문하기</a>
+                            <div id="paybutton"><a id="gogo" class="pay_btn">주문하기</a>
                                 <a href="javascript:order_cancel('cancel')" class="can_btn">주문취소</a>
                             </div>                        </fieldset>
                         </form>                    </div>
 					<!-- .page-body -->
 
-
-
                 </div>
 				<!-- #order -->
-
-
-
-
-
 
           </div>
 			<!-- #contentSub -->
@@ -841,32 +536,141 @@
     </div>
 	<!-- #contentWrapper-->
     <hr />
+    
     <script>
-    function requestPay() {
-      // IMP.request_pay(param, callback) 호출
-      IMP.request_pay({ // param
-          pg: "html5_inicis",
-          pay_method: "card",
-          merchant_uid: "ORD20180131-0000011",
-          name: "노르웨이 회전 의자",
-          amount: 64900,
-          buyer_email: "gildong@gmail.com",
-          buyer_name: "홍길동",
-          buyer_tel: "010-4242-4242",
-          buyer_addr: "서울특별시 강남구 신사동",
-          buyer_postcode: "01181"
-      }, function (rsp) { // callback
-          if (rsp.success) {
-              ...,
-              // 결제 성공 시 로직,
-              ...
-          } else {
-              ...,
-              // 결제 실패 시 로직,
-              ...
-          }
-      });
-    }
+     $("#gogo").click(function() {
+    	 
+    	 if($('input[name="place"]').prop('checked') === false && ($("#place2").prop('checked') === false)) {
+    		 alert('주소를 입력해주세요');
+    	 } else if ($('input[name="radio_paymethod"]').prop('checked') === false) {
+    		 alert('결제 방법을 선택해주세요');
+    	 } else if ($('input[name="pay_agree"]').prop('checked') === false) {
+    		 alert('주문 동의 후 결제를 진행해주세요.');
+    	 } else if(payMoney === 0) {
+    		 
+    		 var jihun = $('form[name="payment"]').serializeArray();
+             console.log($('input[name="receiver"]').val());
+        	 
+
+             jihun.push(
+                     {name : "payMoney", value : payMoney }
+                    , {name : 'goodsNo', value : ${ requestScope.detailInfo.no } }
+                    , {name : 'goodsPrice', value : ${ requestScope.detailInfo.price } }
+                    , {name : 'count', value : ${ param.count } }
+                    , {name : 'buyerName', value : '${ requestScope.loginInfo.name}' }
+                    , {name : 'buyerTel', value : ${ requestScope.loginInfo.phone} }
+                    , {name : 'buyerAddr', value : addressResult }
+                    , {name : 'buyerPostcode', value : address[0] }
+                    , {name : 'buyerEmail', value : '${ requestScope.loginInfo.email}' }
+                    , {name : 'payName', value : '${ requestScope.detailInfo.name } ${ param.count }개' }
+                    , {name : 'existingPoint', value : ${ requestScope.loginInfo.point } }
+                    , {name : 'resultPr', value : payMoney }
+                    , {name : 'usePointNum', value : returnPoint }
+                    , {name : 'end', value : '끝내자' }
+                     );
+             
+             console.table(jihun);
+             console.log(typeof jihun);
+    		 
+    		 $.ajax({
+                 url: "${ pageContext.servletContext.contextPath }/testJihun/test", //cross-domain error가 발생하지 않도록 주의해주세요
+                 type: 'POST',
+                 dataType: 'json',
+                 data: {
+                     paySuccessNo : 0,
+                     jihun : jihun
+                 },
+                 success : function(data, textStatus, xhr) {
+                	 alert(data);
+                	 location.href= '${ pageContext.servletContext.contextPath }/mypage/main';
+                 },
+                 error : function(xhr, status, error) {}
+             });
+    		 
+    	 } else {
+    	 
+         var jihun = $('form[name="payment"]').serializeArray();
+         console.log($('input[name="receiver"]').val());
+    	 
+
+         jihun.push(
+                 {name : "payMoney", value : payMoney }
+                , {name : 'goodsNo', value : ${ requestScope.detailInfo.no } }
+                , {name : 'goodsPrice', value : ${ requestScope.detailInfo.price } }
+                , {name : 'count', value : ${ param.count } }
+                , {name : 'buyerName', value : '${ requestScope.loginInfo.name}' }
+                , {name : 'buyerTel', value : ${ requestScope.loginInfo.phone} }
+                , {name : 'buyerAddr', value : addressResult }
+                , {name : 'buyerPostcode', value : address[0] }
+                , {name : 'buyerEmail', value : '${ requestScope.loginInfo.email}' }
+                , {name : 'payName', value : '${ requestScope.detailInfo.name } ${ param.count }개' }
+                , {name : 'existingPoint', value : ${ requestScope.loginInfo.point } }
+                , {name : 'resultPr', value : payMoney }
+                , {name : 'usePointNum', value : returnPoint }
+                , {name : 'end', value : '끝내자' }
+                 );
+         
+         console.table(jihun);
+         console.log(typeof jihun);
+         
+         /* 분쇄기 */
+         /* $.each(jihun, function(key, data) 
+         { 
+        	if (this.name == "sender")
+        	this.value = this.value.replace(",", "");
+        	console.log(this.value);
+         }); */
+         
+    	 
+        var IMP = window.IMP; // 생략가능
+        IMP.init('imp63084868'); // 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용
+        var msg;
+        
+        IMP.request_pay({
+            pg : 'nice',
+            pay_method : 'card',
+            merchant_uid : 'merchant_' + new Date().getTime(),
+            name : '${ requestScope.detailInfo.name } ${ param.count }개',
+            amount : payMoney,
+            buyer_email : '${ requestScope.loginInfo.email}',
+            buyer_name : '${ requestScope.loginInfo.name}',
+            buyer_tel : '${ requestScope.loginInfo.phone}',
+            buyer_addr : addressResult,
+            buyer_postcode : address[0],
+        }, function(rsp) {
+            if ( rsp.success ) {
+            	/* 방법1. ajax success로 알림창 띄워주기 */
+                $.ajax({
+                    url: "${ pageContext.servletContext.contextPath }/testJihun/test", //cross-domain error가 발생하지 않도록 주의해주세요
+                    type: 'POST',
+                    dataType: 'json',
+                    data: {
+                        payId : rsp.imp_uid,
+                        payStore : rsp.merchant_uid,
+                        payAmount : rsp.paid_amount,
+                        paySuccessNo : rsp.apply_num,
+                        jihun : jihun
+                    },
+                    success : function(data, textStatus, xhr) {
+                   	 alert(data);
+                   	location.href= '${ pageContext.servletContext.contextPath }/mypage/main';
+                    },
+                    error : function(xhr, status, error) {}
+                });
+                
+                /* 방법2. ajax 밖인 if문 안에서 알림창 띄우기.
+                     	    대신 ajax success와 동시에 사용할수 업고 동시에 사용하면 ajax의 success는 작동하지 않는다.*/
+                
+            } else {
+                //실패시 이동할 페이지
+                alert('결제가 실패하였습니다');
+                location.href= '${ pageContext.servletContext.contextPath }/mypage/main';
+            }
+        });
+        
+    } //if문
+   
+  });
   </script>
     
 
@@ -874,5 +678,5 @@
 	
 	
 	<jsp:include page="../common/footer.jsp" />
-</body>
+	</body>
 </html>
