@@ -86,8 +86,8 @@
 				    <option value="QueBody" <c:if test="${ requestScope.searchCondition eq 'QueBody' }">selected</c:if>>내용</option>
 			    </select>
 		        	<input type="search" id="searchValue" name="searchValue" value="${ requestScope.searchValue }">
-		        	<button type="submit"style="font-family: 'Jua', sans-serif; font-size:25px;">검색하기</button>
-    	         	<button  type="button" id="writeQuestion"style="font-family: 'Jua', sans-serif; font-size:25px;">작성하기</button>	
+		        	<button type="submit"style="font-family: 'Jua', sans-serif; font-size:25px; background-color: white;">검색하기</button>
+    	         	<button  type="button" id="writeQuestion"style="font-family: 'Jua', sans-serif; font-size:25px; background-color: white;">작성하기</button>	
     	         	  </div>
     	         	  </form> 
 							           		
@@ -95,31 +95,31 @@
 	  <div class="pagingArea" align="center"style="font-family: 'Jua', sans-serif; font-size:25px;">
          <c:choose>
             <c:when test="${ empty requestScope.searchValue }">
-               <button id="startPage"><<</button>
+               <button id="startPage" style="background-color:white"><<</button>
                <c:if test="${ requestScope.questionPageInfo.pageNo <= 1 }">
-                  <button disabled><</button>
+                  <button disabled style="background-color:white;"><</button>
                </c:if>
                <c:if test="${ requestScope.questionPageInfo.pageNo > 1 }">
-                  <button id="prevPage"><</button>
+                  <button id="prevPage" style="background-color:white;"><</button>
                </c:if>
                
                <c:forEach var="p" begin="${ requestScope.questionPageInfo.startPage }" end="${ requestScope.questionPageInfo.endPage }" step="1">
                	<c:if test="${ requestScope.questionPageInfo.pageNo eq P }">
-               		<button disabled><c:out value="${ p }"/></button>
+               		<button disabled style="background-color:white"><c:out value="${ p }"/></button>
                	</c:if>
                	<c:if test="${ requestScope.questionPageInfo.pageNo ne P }">
-               		<button onclick="pageButtonAction(this.innerText);"><c:out value="${ p }"/></button>
+               		<button onclick="pageButtonAction(this.innerText);" style="background-color:white;"><c:out value="${ p }"/></button>
                	</c:if>
                </c:forEach>
                
                <c:if test="${ requestScope.questionPageInfo.pageNo >= requestScope.questionPageInfo.maxPage }">
-                  <button disabled>></button>
+                  <button disabled style="background-color:white">></button>
                </c:if>
                <c:if test="${ requestScope.questionPageInfo.pageNo < requestScope.questionPageInfo.maxPage }">
-                  <button id="nextPage">></button>
+                  <button id="nextPage" style="background-color:white">></button>
                </c:if>
                
-               <button id="maxPage">>></button>
+               <button id="maxPage" style="background-color:white">>></button>
                
             </c:when>
              <c:otherwise>

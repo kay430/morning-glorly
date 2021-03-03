@@ -73,18 +73,18 @@
 									<option value="title">제목</option>
 									<option value="body">내용</option>
 								</select> <input type="search" name="searchValue"> 
-								<button type="submit" style="font-family: 'Jua', sans-serif;font-size:25px;">검색하기</button>
+								<button type="submit" style="font-family: 'Jua', sans-serif;font-size:25px; background-color:white;">검색하기</button>
 							</div>
 									 <!-- 페이징 버튼 -->
  	<div class="pagingArea" align="center" style="font-family: 'Jua', sans-serif;font-size:25px;">
          <c:choose>
             <c:when test="${ empty requestScope.searchValue }">
-               <button id="startPage"><<</button>
+               <button id="startPage" style="background-color:white;"><<</button>
                <c:if test="${ requestScope.pageInfo.pageNo <= 1 }">
                   <button disabled><</button>
                </c:if>
                <c:if test="${ requestScope.pageInfo.pageNo > 1 }">
-                  <button id="prevPage"><</button>
+                  <button id="prevPage" style="background-color:white;"><</button>
                </c:if>
                
                <c:forEach var="p" begin="${ requestScope.pageInfo.startPage }" end="${ requestScope.pageInfo.endPage }" step="1">
@@ -92,7 +92,7 @@
                		<button disabled><c:out value="${ p }"/></button>
                	</c:if>
                	<c:if test="${ requestScope.pageInfo.pageNo ne P }">
-               		<button onclick="pageButtonAction(this.innerText);"><c:out value="${ p }"/></button>
+               		<button onclick="pageButtonAction(this.innerText);" style="background-color:white;"><c:out value="${ p }"/></button>
                	</c:if>
                </c:forEach>
                
@@ -100,10 +100,10 @@
                   <button disabled>></button>
                </c:if>
                <c:if test="${ requestScope.pageInfo.pageNo < requestScope.pageInfo.maxpage }">
-                  <button id="nextPage">></button>
+                  <button id="nextPage" style="background-color:white;">></button>
                </c:if>
                
-               <button id="maxpage">>></button>
+               <button id="maxpage" style="background-color:white;">>></button>
                
             </c:when>
          </c:choose>
