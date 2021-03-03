@@ -278,4 +278,16 @@
         , ?
         )
 	</entry>
+	<entry key="memIdOverlap">
+        SELECT
+               A.MEMBER_ID
+          FROM MG_MEMBER A     
+         WHERE A.MEMBER_ID = ?     
+	</entry>
+	<entry key="memEmailOverlap">
+         SELECT
+               A.EMAIL
+          FROM MG_MEMBER A     
+         WHERE A.EMAIL = ?    
+	</entry>
 </properties>

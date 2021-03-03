@@ -1,6 +1,7 @@
 package com.mg.jsp.member.model.dao;
 
 import static com.mg.jsp.common.jdbc.JDBCTemplate.close;
+import static com.mg.jsp.common.jdbc.JDBCTemplate.getConnection;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -366,7 +367,60 @@ public class MgDAO {
 		return result;
 	}
 
+	public int memIdOverlap(Connection con, String id) {
+		
+		System.out.println("DAO에서 id 조회하자");
+		System.out.println(id);
+		
+		PreparedStatement pstmt = null;
+		
+		int result = 0;
+		
+		String query = prop.getProperty("memIdOverlap");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, id);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+	public int memEmailOverlap(Connection con, String emailOverlap) {
+		
+		System.out.println("DAO에서 id 조회하자");
+		System.out.println(emailOverlap);
+		
+		PreparedStatement pstmt = null;
+		
+		int result = 0;
+		
+		String query = prop.getProperty("memEmailOverlap");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, emailOverlap);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
 }
+
 
 
 
