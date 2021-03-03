@@ -90,17 +90,6 @@ public class TransitService {
 		return totalTransitCount;
 	}
 
-	public List<TransitDTO> searchNoticeList(SearchDTO searchTransit) {
-		
-		Connection con = getConnection();
-		
-		List<TransitDTO> searchTransitList = transitDAO.searchTransitList(con, searchTransit);
-		
-		close(con);
-		
-		return searchTransitList;
-	}
-
 	public List<TransitDTO> searchTransitList(SearchDTO searchTransit) {
 		Connection con = getConnection();
 		

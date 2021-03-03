@@ -140,5 +140,23 @@
             ) A
             WHERE RNUM BETWEEN ? AND ?
 	</entry>
+	<entry key="selectOrderDetail">
+     SELECT
+          A.ORDER_NO
+        , A.ORDER_MEMBER_NO
+        , A.ORDER_DATE
+        , A.ORDER_TITLE
+        , A.AMOUNT_PRICE
+        , B.MEMBER_NAME
+        , B.ADDRESS
+        , B.PHONE
+        , C.GOODS_NO
+        , C.AMOUNT_COUNT
+        , C.ORDER_GOODS_PRICE   
+     FROM MG_ORDER A
+     JOIN MG_MEMBER B ON (A.ORDER_MEMBER_NO = B.MEMBER_NO)
+     JOIN MG_ORDER_GOODS C ON (A.ORDER_NO = C.ORDER_NO)
+    WHERE A.ORDER_NO = ?
+	</entry>
 
 </properties>

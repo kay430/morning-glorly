@@ -228,7 +228,7 @@ public class PaymentDAO {
 			
 			PaymentDTO paymentDetail = null;
 			
-			List<PaymentDTO> trdList = new ArrayList<>();
+			List<PaymentDTO> pmtList = new ArrayList<>();
 			String query = prop.getProperty("selectPaymentDetail");
 			System.out.println(no);
 			
@@ -249,12 +249,15 @@ public class PaymentDAO {
 					paymentDetail.setpType(rset.getString("PAYMENT_STATUS"));
 					paymentDetail.setpDate(rset.getDate("PAYMENT_DATE"));
 					paymentDetail.setmName(rset.getString("MEMBER_NAME"));
-					paymentDetail.setPhNo(rset.getInt("MEMBER_PNO"));
+					paymentDetail.setbNo(rset.getInt("MEMBER_PNO"));					
 					paymentDetail.setmType(rset.getString("MEMBER_STATUS"));
 					paymentDetail.setEmail(rset.getString("EMAIL"));
-					paymentDetail.setmPoint(rset.getInt("MEMBER_PNO"));
+					paymentDetail.setmPoint(rset.getInt("MEMBER_POINT"));
+					paymentDetail.setPhNo(rset.getString("PHONE"));
+					paymentDetail.setoTitle(rset.getString("ORDER_TITLE"));
+					paymentDetail.setAdNo(rset.getString("ADMISSION_PAYMENT_NUM"));
 					
-					trdList.add(paymentDetail);
+					pmtList.add(paymentDetail);
 					
 				}
 			

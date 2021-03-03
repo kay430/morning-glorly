@@ -17,6 +17,7 @@ import java.util.Properties;
 import com.mg.jsp.admin.model.dto.order.OSearchDTO;
 import com.mg.jsp.admin.model.dto.order.OrderDTO;
 import com.mg.jsp.admin.model.dto.order.OrderPageInfoDTO;
+import com.mg.jsp.admin.model.dto.order.OrderDTO;
 import com.mg.jsp.common.config.ConfigLocation;
 
 
@@ -216,5 +217,50 @@ public class OrderDAO {
 		
 		return totalCount;
 	}
+		
+		public OrderDTO selectOrderDetail(Connection con, int no) {
+			
+			PreparedStatement pstmt = null;
+			ResultSet rset = null;
+			
+			OrderDTO orderDetail = null;
+			
+			List<OrderDTO> pmtList = new ArrayList<>();
+			String query = prop.getProperty("selectOrderDetail");
+			System.out.println(no);
+			
+			try {
+				pstmt = con.prepareStatement(query);
+				pstmt.setInt(1, no);
+				
+				rset = pstmt.executeQuery();
+				
+				if(rset.next()) {
+					orderDetail = new OrderDTO();
+					
+					orderDetail.setoNo(rset.getInt("ORDER_NO"));
+					orderDetail.setmNo(rset.getInt("ORDER_MEMBER_NO"));
+					orderDetail.setoTitle(rset.getString("ORDER_TITLE"));
+					orderDetail.setAmount(rset.getInt("AMOUNT_PRICE"));
+					orderDetail.setmName(rset.getString("MEMBER_NAME"));
+					orderDetail.setAddr(rset.getString("ADDRESS"));
+					orderDetail.setPhNo(rset.getString("PHONE"));
+					orderDetail.setgNo(rset.getInt("GOODS_NO"));
+					orderDetail.setaCount(rset.getInt("AMOUNT_COUNT"));
+					orderDetail.setoGPrice(rset.getInt("ORDER_GOODS_PRICE"));
+					
+					pmtList.add(orderDetail);
+					
+				}
+			
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close(rset);
+				close(pstmt);
+			}
+
+			return orderDetail;
+		}
 
 }

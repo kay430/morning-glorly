@@ -188,7 +188,7 @@
             WHERE RNUM BETWEEN ? AND ?
 	</entry>
 	<entry key="selectPaymentDetail">
-                    SELECT
+           SELECT
                A.PAYMENT_NO
              , A.PAYMENT_ORDER_NO
              , A.PAYMENT_MEMBER_NO
@@ -201,9 +201,13 @@
              , C.MEMBER_STATUS
              , C.EMAIL
              , C.MEMBER_POINT
+             , C.PHONE
+             , B.ORDER_TITLE
+             , D.ADMISSION_PAYMENT_NUM
           FROM MG_PAYMENT A
           JOIN MG_ORDER B ON (A.PAYMENT_ORDER_NO = B.ORDER_NO)
           JOIN MG_MEMBER C ON (A.PAYMENT_MEMBER_NO = C.MEMBER_NO)
+          JOIN MG_PAYMENT_DIVISION D ON (A.PAYMENT_NO = D.DIVISION_PAYMENT_NO)
          WHERE A.PAYMENT_NO = ?
 	</entry>
 

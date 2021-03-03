@@ -14,15 +14,18 @@ public class PaymentDTO implements java.io.Serializable {
 	private String pType;
 	private Date pDate;
 	private String mName;
-	private int phNo;
+	private int bNo;
 	private String mType;
 	private String email;
 	private int mPoint;
+	private String phNo;
+	private String oTitle;
+	private String adNo;
 	
 	public PaymentDTO() {}
 
 	public PaymentDTO(int pNo, int oNo, int mNo, int amount, int usedPoint, String pType, Date pDate, String mName,
-			int phNo, String mType, String email, int mPoint) {
+			int bNo, String mType, String email, int mPoint, String phNo, String oTitle, String adNo) {
 		super();
 		this.pNo = pNo;
 		this.oNo = oNo;
@@ -32,10 +35,13 @@ public class PaymentDTO implements java.io.Serializable {
 		this.pType = pType;
 		this.pDate = pDate;
 		this.mName = mName;
-		this.phNo = phNo;
+		this.bNo = bNo;
 		this.mType = mType;
 		this.email = email;
 		this.mPoint = mPoint;
+		this.phNo = phNo;
+		this.oTitle = oTitle;
+		this.adNo = adNo;
 	}
 
 	public int getpNo() {
@@ -102,12 +108,12 @@ public class PaymentDTO implements java.io.Serializable {
 		this.mName = mName;
 	}
 
-	public int getPhNo() {
-		return phNo;
+	public int getbNo() {
+		return bNo;
 	}
 
-	public void setPhNo(int phNo) {
-		this.phNo = phNo;
+	public void setbNo(int bNo) {
+		this.bNo = bNo;
 	}
 
 	public String getmType() {
@@ -134,12 +140,36 @@ public class PaymentDTO implements java.io.Serializable {
 		this.mPoint = mPoint;
 	}
 
+	public String getPhNo() {
+		return phNo;
+	}
+
+	public void setPhNo(String phNo) {
+		this.phNo = phNo;
+	}
+
+	public String getoTitle() {
+		return oTitle;
+	}
+
+	public void setoTitle(String oTitle) {
+		this.oTitle = oTitle;
+	}
+
+	public String getAdNo() {
+		return adNo;
+	}
+
+	public void setAdNo(String adNo) {
+		this.adNo = adNo;
+	}
+
 	@Override
 	public String toString() {
 		return "PaymentDTO [pNo=" + pNo + ", oNo=" + oNo + ", mNo=" + mNo + ", amount=" + amount + ", usedPoint="
-				+ usedPoint + ", pType=" + pType + ", pDate=" + pDate + ", mName=" + mName + ", phNo=" + phNo
-				+ ", mType=" + mType + ", email=" + email + ", mPoint=" + mPoint + "]";
+				+ usedPoint + ", pType=" + pType + ", pDate=" + pDate + ", mName=" + mName + ", bNo=" + bNo + ", mType="
+				+ mType + ", email=" + email + ", mPoint=" + mPoint + ", phNo=" + phNo + ", oTitle=" + oTitle
+				+ ", adNo=" + adNo + "]";
 	}
-
 
 }
