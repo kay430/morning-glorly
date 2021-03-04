@@ -58,11 +58,13 @@ public class SendupdatePwd {
               };
              
             // Subject
-            message.setSubject("비밀번호 변경 "); //메일 제목을 입력
-            
+            message.setSubject("Morning Glory 임시비밀번호 "); //메일 제목을 입력
+		
+
             // Text
             String massageText = "변경된 임시비밀번호입니다  "
-                  + "(to reset your password)." + uuid + "감사합니다. 아침밥은먹어야죠!";
+                  + "'"+uuid+"'" +
+            		"감사합니다. 아침밥은먹어야죠!";
             message.setText(massageText);    //메일 내용을 입력
             MgDTO updatePwd = new MgDTO();
             updatePwd.setPwd(uuid);
