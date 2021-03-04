@@ -13,11 +13,12 @@ public class MemberPointDTO {
 	private java.sql.Date modifyDate;	//변경이력 날짜
 	private int modifyPoint;			//변경 후 포인트
 	private MgDTO mgInfo;
+	private int mNo;
 	
 	public MemberPointDTO() {}
 
 	public MemberPointDTO(int no, String changedType, PaymentDTO payInfo, Date modifyDate, int modifyPoint,
-			MgDTO mgInfo) {
+			MgDTO mgInfo, int mNo) {
 		super();
 		this.no = no;
 		this.changedType = changedType;
@@ -25,8 +26,8 @@ public class MemberPointDTO {
 		this.modifyDate = modifyDate;
 		this.modifyPoint = modifyPoint;
 		this.mgInfo = mgInfo;
+		this.mNo = mNo;
 	}
-
 	public int getNo() {
 		return no;
 	}
@@ -75,10 +76,20 @@ public class MemberPointDTO {
 		this.mgInfo = mgInfo;
 	}
 
+	public int getmNo() {
+		return mNo;
+	}
+
+	public void setmNo(int mNo) {
+		this.mNo = mNo;
+	}
+
 	@Override
 	public String toString() {
 		return "MemberPointDTO [no=" + no + ", changedType=" + changedType + ", payInfo=" + payInfo + ", modifyDate="
-				+ modifyDate + ", modifyPoint=" + modifyPoint + ", mgInfo=" + mgInfo + "]";
+				+ modifyDate + ", modifyPoint=" + modifyPoint + ", mgInfo=" + mgInfo + ", mNo=" + mNo + "]";
 	}
+
+
 	
 }

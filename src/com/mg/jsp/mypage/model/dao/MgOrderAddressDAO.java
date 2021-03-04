@@ -12,8 +12,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+import com.mg.jsp.admin.model.dto.MemberPointDTO;
 import com.mg.jsp.admin.model.product.model.dto.MgGoodsDTO;
 import com.mg.jsp.common.config.ConfigLocation;
+import com.mg.jsp.member.model.dto.MgDTO;
 import com.mg.jsp.mypage.model.dto.MgOrderAddressDTO;
 import com.mg.jsp.mypage.model.dto.MgOrderDTO;
 import com.mg.jsp.mypage.model.dto.MgOrderDeliveryDTO;
@@ -36,7 +38,7 @@ public class MgOrderAddressDAO {
 
 	public List<MgOrderAddressDTO> selectAllOrderList(Connection con) {
 		
-		PreparedStatement pstmt = null;
+		PreparedStatement pstmt = null; 
 		ResultSet rset = null;
 		
 		List<MgOrderAddressDTO> mypageOrderList = null;
@@ -104,4 +106,67 @@ public class MgOrderAddressDAO {
 		return mypageOrderList;
 	}
 
+//	public List<MgOrderAddressDTO> selectNewPointList(Connection con, MgDTO no) {
+		
+		/*PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		List<MgOrderAddressDTO> newPoint = null; 
+		
+		String query = prop.getProperty("selectNewPoint");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			
+			rset = pstmt.executeQuery();
+			
+			newPoint = new ArrayList<>();
+			
+			List<MemberPointDTO> newPointInfo = new ArrayList<>();
+			while(rset.next()){
+				
+				
+				
+			} 
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		
+		
+		return newPoint;*/
+//	}
+
+	public List<MgOrderAddressDTO> selectNewPointList(Connection con, int no, List<MgOrderAddressDTO> mypageOrderList1) {
+		PreparedStatement pstmt = null; 
+		ResultSet rset = null;
+		
+		String query = prop.getProperty("selectNewPoint");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, no);
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()){
+				
+				MgDTO pointInfo = new MgDTO();
+				
+				pointInfo.setPoint(rset.getInt("MEMBER_POINT"));
+					
+				mypageOrderList1.get(0).setMgDTO(pointInfo);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return mypageOrderList1;
+	}
+
+	
 }

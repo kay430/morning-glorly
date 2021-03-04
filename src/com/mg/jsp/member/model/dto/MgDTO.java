@@ -27,7 +27,7 @@ public class MgDTO implements java.io.Serializable {
 	private String blackList;
 	private String status;
 	private String nickname;			//- 이거 닉넹미 쓰는분 있습니까? 02/22(월) 지훈 -
-	
+	  
 	private List<MemberModifyDTO> mgModify;
 	private List<MemberBlackListDTO> mgBlack;
 	private List<MemberAddress> mgAddress;

@@ -34,7 +34,7 @@
               <li class="sidebar-brand">
               <a href="${ pageContext.servletContext.contextPath }/mypage/main">MyPage</a>
           </li>
-
+ 
             <li class="sidebar-sub"><a href="${ pageContext.servletContext.contextPath }/mypage/orderList">주문 내역</a></li>
             <li class="sidebar-sub"><a href="${ pageContext.servletContext.contextPath }/mypage/resentlyViewed">최근 본 상품</a></li>
             <li class="sidebar-sub"><a href="${ pageContext.servletContext.contextPath }/mypage/wishList">관심 상품</a></li>
@@ -57,10 +57,10 @@
           <aside class="area2">
             <h4 class="h">총 주문금액 :</h4>
             <br><br>
-            적립금 : <input  value="${ sessionScope.loginMember.point }"  id="address" size="40" readonly class="abc" style="width: 150px;">
+            적립금 : <input  value="${ requestScope.orderSelectList[0].mgDTO.point }"  id="address" size="40" readonly class="abc" style="width: 150px;">
           </aside>
       </div>
-      <br>
+      <br> 
       <div>
       <script>
 		var result = '${ sessionScope.loginMember.address }'.split('$');
@@ -70,7 +70,7 @@
 	</script>
       <h5>최근주문정보
       
-        <input type="button" value="더보기" class="seeMoreBtn"></h5>
+        <input type="button" value="더보기" class="seeMoreBtn"></h5> 
 
       <hr>
       

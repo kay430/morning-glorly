@@ -1,5 +1,6 @@
 package com.mg.jsp.mypage.model.dto;
 
+import com.mg.jsp.admin.model.dto.MemberPointDTO;
 import com.mg.jsp.admin.model.product.model.dto.MgGoodsDTO;
 import com.mg.jsp.member.model.dto.MgDTO;
 
@@ -19,14 +20,18 @@ public class MgOrderAddressDTO implements java.io.Serializable {
 	private MgOrderDTO mgOrderDTO;
 	private MgOrderDeliveryDTO mgOrderDeliveryDTO;
 	private MgOrderGoodsDTO mgOrderGoodsDTO;
-	
+	private MemberPointDTO mgPointDTO;
+	private int modPoint;
+	private int pNo;
+	 
 	public MgOrderAddressDTO() {
 		
 	}
 
 	public MgOrderAddressDTO(int orderAddNo, int deliveryNo, String orderAddType, String recieverName, String phone,
 			String recieverAddress, int memberNo, MgDTO mgDTO, int addressNo, MgGoodsDTO mgGoodsDTO,
-			MgOrderDTO mgOrderDTO, MgOrderDeliveryDTO mgOrderDeliveryDTO, MgOrderGoodsDTO mgOrderGoodsDTO) {
+			MgOrderDTO mgOrderDTO, MgOrderDeliveryDTO mgOrderDeliveryDTO, MgOrderGoodsDTO mgOrderGoodsDTO,
+			MemberPointDTO mgPointDTO, int modPoint, int pNo) {
 		super();
 		this.orderAddNo = orderAddNo;
 		this.deliveryNo = deliveryNo;
@@ -41,6 +46,9 @@ public class MgOrderAddressDTO implements java.io.Serializable {
 		this.mgOrderDTO = mgOrderDTO;
 		this.mgOrderDeliveryDTO = mgOrderDeliveryDTO;
 		this.mgOrderGoodsDTO = mgOrderGoodsDTO;
+		this.mgPointDTO = mgPointDTO;
+		this.modPoint = modPoint;
+		this.pNo = pNo;
 	}
 
 	public int getOrderAddNo() {
@@ -147,13 +155,38 @@ public class MgOrderAddressDTO implements java.io.Serializable {
 		this.mgOrderGoodsDTO = mgOrderGoodsDTO;
 	}
 
+	public MemberPointDTO getMgPointDTO() {
+		return mgPointDTO;
+	}
+
+	public void setMgPointDTO(MemberPointDTO mgPointDTO) {
+		this.mgPointDTO = mgPointDTO;
+	}
+
+	public int getModPoint() {
+		return modPoint;
+	}
+
+	public void setModPoint(int modPoint) {
+		this.modPoint = modPoint;
+	}
+
+	public int getpNo() {
+		return pNo;
+	}
+
+	public void setpNo(int pNo) {
+		this.pNo = pNo;
+	}
+
 	@Override
 	public String toString() {
 		return "MgOrderAddressDTO [orderAddNo=" + orderAddNo + ", deliveryNo=" + deliveryNo + ", orderAddType="
 				+ orderAddType + ", recieverName=" + recieverName + ", phone=" + phone + ", recieverAddress="
 				+ recieverAddress + ", memberNo=" + memberNo + ", mgDTO=" + mgDTO + ", addressNo=" + addressNo
 				+ ", mgGoodsDTO=" + mgGoodsDTO + ", mgOrderDTO=" + mgOrderDTO + ", mgOrderDeliveryDTO="
-				+ mgOrderDeliveryDTO + ", mgOrderGoodsDTO=" + mgOrderGoodsDTO + "]";
+				+ mgOrderDeliveryDTO + ", mgOrderGoodsDTO=" + mgOrderGoodsDTO + ", mgPointDTO=" + mgPointDTO
+				+ ", modPoint=" + modPoint + ", pNo=" + pNo + "]";
 	}
 
 
