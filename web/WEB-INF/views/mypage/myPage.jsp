@@ -57,7 +57,7 @@
           <aside class="area2">
             <h4 class="h">총 주문금액 :</h4>
             <br><br>
-            적립금 : <input  value="${ sessionScope.loginMember.point }"  id="address" size="40" readonly class="abc" style="width: 150px;">
+            적립금 : <input  value="${ requestScope.orderSelectList[0].mgDTO.point }"  id="address" size="40" readonly class="abc" style="width: 150px;">
           </aside>
       </div>
       <br>

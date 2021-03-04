@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.mg.jsp.member.model.dto.MgDTO;
+import com.mg.jsp.member.model.service.MgService;
 import com.mg.jsp.mypage.model.dto.MgOrderAddressDTO;
 import com.mg.jsp.mypage.model.service.MgOrderAddressService;
 
@@ -18,7 +20,11 @@ public class MypageMain extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		List<MgOrderAddressDTO> orderSelectList = new MgOrderAddressService().selectAllOrderList();
+		int no = ((MgDTO) request.getSession().getAttribute("loginMember")).getNo();
+		
+		List<MgOrderAddressDTO> orderSelectList = new MgOrderAddressService().selectAllOrderList(no);
+		//List<MgOrderAddressDTO> pointList = new MgOrderAddressService().
+		
 		
 		for(MgOrderAddressDTO orderState : orderSelectList) {
 			System.out.println("orderState : " + orderState);
