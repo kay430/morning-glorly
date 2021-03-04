@@ -127,7 +127,7 @@
     	
     	
     	
-    	location.href = "${ pageContext.servletContext.contextPath }/testJihun/test?no=" + "${ requestScope.detailInfo.no }" + "&count=" +"${ param.count }" ; 
+    	location.href = "${ pageContext.servletContext.contextPath }/basket/payment?no=" + "${ requestScope.detailInfo.no }" + "&count=" +"${ param.count }" ; 
     	 
 /*                 	 $.ajax({
     		url : "${ pageContext.servletContext.contextPath }/testJihun/test",

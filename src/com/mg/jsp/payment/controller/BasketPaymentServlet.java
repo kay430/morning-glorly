@@ -26,8 +26,8 @@ import com.mg.jsp.payment.model.dto.PaymentDTO;
 import com.mg.jsp.payment.model.dto.PaymentDivisionDTO;
 import com.mg.jsp.payment.model.service.PaymentService;
 
-@WebServlet("/testJihun/test")
-public class JihunTestServlet extends HttpServlet {
+@WebServlet("/basket/payment")
+public class BasketPaymentServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -41,7 +41,7 @@ public class JihunTestServlet extends HttpServlet {
 
 		String path = ""; 
 		if(detailInfo !=null) { 
-			path ="/WEB-INF/views/payment/testJihun.jsp";
+			path ="/WEB-INF/views/payment/basketPayment.jsp";
 			request.setAttribute("detailInfo", detailInfo);
 			request.setAttribute("loginInfo", loginInfo);
 
