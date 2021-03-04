@@ -24,7 +24,7 @@ public class MypageMain extends HttpServlet {
 		
 		List<MgOrderAddressDTO> orderSelectList = new MgOrderAddressService().selectAllOrderList(no);
 		//List<MgOrderAddressDTO> pointList = new MgOrderAddressService().
-		
+		 
 		
 		for(MgOrderAddressDTO orderState : orderSelectList) {
 			System.out.println("orderState : " + orderState);
@@ -38,7 +38,7 @@ public class MypageMain extends HttpServlet {
 		request.getRequestDispatcher(path).forward(request, response);
 	}
 
-	
+	  
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);

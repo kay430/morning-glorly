@@ -21,8 +21,8 @@ public class MgOrderAddressService {
 
 	public List<MgOrderAddressDTO> selectAllOrderList(int no) {
 		Connection con = getConnection();
-		
-		
+		 
+		 
 		List<MgOrderAddressDTO> mypageOrderList1 = mgOrderAddressDAO.selectAllOrderList(con);
 		 mypageOrderList1 = mgOrderAddressDAO.selectNewPointList(con, no, mypageOrderList1);
 		

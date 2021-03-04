@@ -23,8 +23,8 @@
          JOIN MG_ORDER_GOODS C ON ( A.ORDER_ADD_NO = C.ORDER_NO)
          JOIN MG_GOODS D ON (C.GOODS_NO = D.GOODS_NO)
          JOIN MG_ORDER_DELIVERY E ON (A.ORDER_ADD_NO = E.ORDER_NO)
-	</entry>
-	<entry key="selectNewPoint">	
+	</entry> 
+	<entry key="selectNewPoint">	 
        SELECT
       		A.MEMBER_POINT
             FROM MG_MEMBER A

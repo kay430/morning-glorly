@@ -38,7 +38,7 @@ public class MgOrderAddressDAO {
 
 	public List<MgOrderAddressDTO> selectAllOrderList(Connection con) {
 		
-		PreparedStatement pstmt = null;
+		PreparedStatement pstmt = null; 
 		ResultSet rset = null;
 		
 		List<MgOrderAddressDTO> mypageOrderList = null;
@@ -127,7 +127,7 @@ public class MgOrderAddressDAO {
 				
 				
 				
-			}
+			} 
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -141,7 +141,7 @@ public class MgOrderAddressDAO {
 //	}
 
 	public List<MgOrderAddressDTO> selectNewPointList(Connection con, int no, List<MgOrderAddressDTO> mypageOrderList1) {
-		PreparedStatement pstmt = null;
+		PreparedStatement pstmt = null; 
 		ResultSet rset = null;
 		
 		String query = prop.getProperty("selectNewPoint");

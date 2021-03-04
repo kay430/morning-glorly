@@ -23,7 +23,7 @@ public class MgOrderAddressDTO implements java.io.Serializable {
 	private MemberPointDTO mgPointDTO;
 	private int modPoint;
 	private int pNo;
-	
+	 
 	public MgOrderAddressDTO() {
 		
 	}
