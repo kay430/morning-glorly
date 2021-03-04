@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
@@ -26,8 +27,8 @@ import com.mg.jsp.payment.model.dto.PaymentDTO;
 import com.mg.jsp.payment.model.dto.PaymentDivisionDTO;
 import com.mg.jsp.payment.model.service.PaymentService;
 
-@WebServlet("/testJihun/test")
-public class JihunTestServlet extends HttpServlet {
+@WebServlet("/basket/payment")
+public class BasketPaymentServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -41,7 +42,7 @@ public class JihunTestServlet extends HttpServlet {
 
 		String path = ""; 
 		if(detailInfo !=null) { 
-			path ="/WEB-INF/views/payment/testJihun.jsp";
+			path ="/WEB-INF/views/payment/BasketPayment.jsp";
 			request.setAttribute("detailInfo", detailInfo);
 			request.setAttribute("loginInfo", loginInfo);
 
@@ -56,19 +57,17 @@ public class JihunTestServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		/* 0. Ajax로 전송받은 key, value 확인 */
-		SortedMap<String,String[]> paymentInfo = Collections.synchronizedSortedMap
-				( new TreeMap<String,String[]>(request.getParameterMap()));
+		System.out.println("==================== Map으로 꺼내온 값 =====================");
 		
-		synchronized(paymentInfo) {
+		Map<String, String[]> paymentInfo = new TreeMap<String, String[]>(request.getParameterMap());
+		
+		for(String key : paymentInfo.keySet()) {
+			String[] value = paymentInfo.get(key);
 			
-			for(String key : paymentInfo.keySet()) {
-				String[] value = paymentInfo.get(key);
-				
-				for(int i=0; i<value.length; i++) {
-					System.out.println((key + " : " + value[i]));
-				}
+			for(int i = 0; i < value.length; i++) {
+				System.out.println((key + " : " + value[i]));
 			}
+			
 		}
 		
 		/* 0-1. 데이터를 저장할 해당 테이블 DTO 생성 */
@@ -212,4 +211,18 @@ public class JihunTestServlet extends HttpServlet {
  * System.out.println("payId : " + payId); System.out.println("payStore : " +
  * payStore); System.out.println("payAmount : " + payAmount);
  * System.out.println("paySuccessNo : " + paySuccessNo);
+ */
+
+/* 0. Ajax로 전송받은 key, value 확인 */
+/*
+ * SortedMap<String,String[]> paymentInfo = Collections.synchronizedSortedMap (
+ * new TreeMap<String,String[]>(request.getParameterMap()));
+ * 
+ * synchronized(paymentInfo) {
+ * 
+ * for(String key : paymentInfo.keySet()) { String[] value =
+ * paymentInfo.get(key);
+ * 
+ * for(int i=0; i<value.length; i++) { System.out.println((key + " : " +
+ * value[i])); } } }
  */

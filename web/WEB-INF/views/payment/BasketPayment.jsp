@@ -364,7 +364,7 @@
                                             <td>
                                                 <strong class="price"><em><span id="price3"></span></em> 
                                                 <span id="block_unit_won">원</span></strong> &nbsp; 
-                                        (적립예정: <span id="block_expect_reserve" data-original-reserve="1100"
+                                        (적립예정: <span id="point37" data-original-reserve="1100"
 													coupon-reserve="0">1,100</span>원)
                                                         <div
 														class="reserve-msg">(적립 예정금액과 최종 적립금액은 상이할 수 있습니다. 주문 완료 시 지급되는 적립금을 확인해주시기 바랍니다.)</div>
@@ -452,6 +452,7 @@
                         $("#price2").html(makeComma(resultPr) + ' '); 
                         $("#price3").html(makeComma(resultPr) + ' '); 
                         $("#point1").html(makeComma(point) + '원'); 
+                        $("#point37").html(makeComma(point)); 
                         $("#ableUsePoint").html(makeComma(${ requestScope.loginInfo.point })); 
                         
                         $("#searchPost").click(function() {
@@ -573,7 +574,7 @@
              console.log(typeof jihun);
     		 
     		 $.ajax({
-                 url: "${ pageContext.servletContext.contextPath }/testJihun/test", //cross-domain error가 발생하지 않도록 주의해주세요
+                 url: "${ pageContext.servletContext.contextPath }/basket/payment", //cross-domain error가 발생하지 않도록 주의해주세요
                  type: 'POST',
                  dataType: 'json',
                  data: {
@@ -641,7 +642,7 @@
             if ( rsp.success ) {
             	/* 방법1. ajax success로 알림창 띄워주기 */
                 $.ajax({
-                    url: "${ pageContext.servletContext.contextPath }/testJihun/test", //cross-domain error가 발생하지 않도록 주의해주세요
+                    url: "${ pageContext.servletContext.contextPath }/basket/payment", //cross-domain error가 발생하지 않도록 주의해주세요
                     type: 'POST',
                     dataType: 'json',
                     data: {

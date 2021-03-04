@@ -52,17 +52,16 @@
                 </div>
         
                     <div class="section" style="padding-bottom:20px;">
-                          <button onClick="location.href='${ pageContext.servletContext.contextPath }/proceed/payment'" class="btn btn-success"><span style="margin-right:20px" class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>결제하러가기</button>
+               			 <button id="testJihun" class="btn btn-success"><span style="text-align: center;" class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>결제하기</button>
                     </div>                                        
                 </div>                        
                 <br><hr>
-                <button id="testJihun" class="btn btn-success"><span style="margin-right:20px" class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>지훈테스트</button>
                 <script>
                 $("#testJihun").click(function() {
                 	
                 	
                 	
-                	location.href = "${ pageContext.servletContext.contextPath }/testJihun/test?no=" + "${ requestScope.detailInfo.no }" + "&count=" + $('input[name="count"]').val(); 
+                	location.href = "${ pageContext.servletContext.contextPath }/basket/payment?no=" + "${ requestScope.detailInfo.no }" + "&count=" + $('input[name="count"]').val(); 
                 	 
 /*                 	 $.ajax({
                 		url : "${ pageContext.servletContext.contextPath }/testJihun/test",
