@@ -180,6 +180,7 @@
                   $("#memberPwd2").focus().css("background", "red");
                } else {
                   $("#pwdresult").html("비밀번호일치").css("color", "green");
+                  $("#memberPwd2").focus().css("background", "green");
                }
               
            });
