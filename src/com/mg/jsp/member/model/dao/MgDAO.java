@@ -1,7 +1,6 @@
 package com.mg.jsp.member.model.dao;
 
 import static com.mg.jsp.common.jdbc.JDBCTemplate.close;
-import static com.mg.jsp.common.jdbc.JDBCTemplate.getConnection;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -9,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Properties;
 
 import com.mg.jsp.common.config.ConfigLocation;
@@ -419,7 +419,59 @@ public class MgDAO {
 		return result;
 	}
 
+	public MgDTO selectRegistMemberSequence(Connection con, MgDTO requestMember) {
+		
+		Statement stmt = null;
+		ResultSet rset = null;
+		
+		String query = prop.getProperty("selectRegistMemberSequence");
+		
+		try {
+			stmt = con.createStatement();
+			
+			rset = stmt.executeQuery(query);
+			
+			if(rset.next()) {
+				requestMember.setNo(rset.getInt("CURRVAL"));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(stmt);
+		}
+		
+		return requestMember;
+	}
+
+	public int InsertRegistMemberPoint(Connection con, MgDTO requestMember) {
+
+		PreparedStatement pstmt = null;
+		
+		int result = 0;
+		
+		String query = prop.getProperty("InsertRegistMemberPoint");
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, requestMember.getNo());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+
 }
+
+
 
 
 
