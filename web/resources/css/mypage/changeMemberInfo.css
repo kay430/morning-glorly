@@ -78,9 +78,9 @@ tr {
     color: #ff3333;
 }
 .btn-or{
-    background: #093;
+    background: #87ceeb;
     color: #FFF !important;
-    border: 1px #093 solid !important;
+    border: 1px #87ceeb solid !important;
     display: inline-block;
     display: inline;
     zoom: 1;
@@ -114,9 +114,9 @@ tr {
     transition: all 250ms ease-out;
 }
 .btn-ygs{
-    background: #093;
+    background: #87ceeb;
     color: #FFF !important;
-    border: 1px #093 solid !important;
+    border: 1px #87ceeb solid !important;
     display: inline-block;
     *display: inline;
     zoom: 1;
