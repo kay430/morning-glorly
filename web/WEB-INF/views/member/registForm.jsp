@@ -16,6 +16,7 @@
 <link rel="stylesheet" type="text/css" href="/mg/resources/css/header.css">
 <link rel="stylesheet" type="text/css" href="/mg/resources/css/footer.css">
 <link rel="stylesheet" type="text/css" href="/mg/resources/css/main-common.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
     <jsp:include page="../common/header.jsp"/>
@@ -37,7 +38,7 @@
                         <td text-align="center" class="signup_cate"><sup class="required">*</sup> 아이디 </td>
                         <td class="signup_cate_detail">
                             <input type="text" maxlength="13" name="memberId" id="memberId" required>&nbsp;&nbsp;
-                            <input type="button" value="중복확인" class="duplication_check_btn btn-or" id="duplicationCheck">
+                            <input type="button" value="중복확인" class="duplication_check_btn btn-or" id="checkId">
                         </td>
                     </tr>
 
@@ -74,12 +75,12 @@
                         <td class="signup_cate_detail">
                             <input type="text" name="email01"> @ <input type="text" name="email02"> &nbsp;&nbsp;
                             <select name="email03" class="email_sel">
-                                <option> 선택 </option>
-                                <option> naver.com </option>
-                                <option> daum.net </option>
-                                <option> google.com </option>
+                                <option value=''> 선택 </option>
+                                <option value="naver.com"> naver.com </option>
+                                <option value="daum.net"> daum.net </option>
+                                <option value="gmail.com"> gmail.com </option>
                             </select>&nbsp;&nbsp;
-                            <input type="button" value="중복확인" class="duplication_check_btn">
+                            <input type="button" value="중복확인" class="duplication_check_btn" id="checkEmail">
                         </td>
                     </tr>
 
@@ -204,6 +205,67 @@
            }); */
            
         });
+        
+    	$("#checkId").click(function() {
+			const idOverlap = $("#memberId").val();
+			console.log("값은? : " + idOverlap);
+		
+		$.ajax({
+			url: "${ pageContext.servletContext.contextPath }/member/regist/checkId",
+			type: "post",
+			data: { idOverlap : idOverlap },
+			success: function(data, textStatus, xhr) {
+				 if(data == "can") {
+					alert("사용할수 있습니다.");
+                    $("#adminId").css("background", "#7fd113");
+                    $("#overlapIdResult").html("[사용가능]").css("color", "green");
+				} else if(data == "not") {
+					alert("아이디를 입력해주세요.");
+					 $("#adminId").focus().css("background", "#b82909");
+					 $("#overlapIdResult").html("[사용불가]").css("color", "red");
+				} else {
+					alert("중복된 아이디가 존재합니다.");
+					console.log("사용 불가");
+					 $("#adminId").focus().css("background", "#b82909");
+					 $("#overlapIdResult").html("[사용불가]").css("color", "red");
+				} 
+			},
+			error: function(xhr, status, error) {
+				console.log(error);
+			}
+		});
+	});
+    	
+    	
+    	$("#checkEmail").click(function() {
+    		const emailOverlap = $("input[name='email01']").val() + '@' + $("input[name='email02']").val() + $("select[name='email03']").val();
+			console.log("값은? : " + emailOverlap);
+		
+		 $.ajax({
+			url: "${ pageContext.servletContext.contextPath }/member/regist/checkEmail",
+			type: "post",
+			data: { emailOverlap : emailOverlap },
+			success: function(data, textStatus, xhr) {
+				 if(data == "can") {
+					alert("사용할수 있는 이메일입니다.");
+                    $("#adminId").css("background", "#7fd113");
+                    $("#overlapIdResult").html("[사용가능]").css("color", "green");
+				} else if(data == "not") {
+					alert("이메일을 입력해주세요.");
+					 $("#adminId").focus().css("background", "#b82909");
+					 $("#overlapIdResult").html("[사용불가]").css("color", "red");
+				} else {
+					alert("중복된 이메일이 존재합니다.");
+					console.log("사용 불가");
+					 $("#adminId").focus().css("background", "#b82909");
+					 $("#overlapIdResult").html("[사용불가]").css("color", "red");
+				} 
+			},
+			error: function(xhr, status, error) {
+				console.log(error);
+			}
+		}); 
+	});
     </script>
 
    <script

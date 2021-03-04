@@ -210,6 +210,29 @@ public class MgService {
 		return result2;
 	}
 
+	public int memIdOverlap(String id) {
+		
+		Connection con = getConnection();
+		
+		int result = mgDAO.memIdOverlap(con, id);
+		
+		close(con);
+		
+		return result;
+	}
+
+	public int memEmailOverlap(String emailOverlap) {
+		
+		Connection con = getConnection();
+		
+		int result = mgDAO.memEmailOverlap(con, emailOverlap);
+		
+		close(con);
+		
+		return result;
+	}
+
+
 }
 
 
