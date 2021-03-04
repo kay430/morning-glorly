@@ -290,4 +290,26 @@
           FROM MG_MEMBER A     
          WHERE A.EMAIL = ?    
 	</entry>
+	<entry key="selectRegistMemberSequence">
+        SELECT
+               SEQ_MEMBER_NO.CURRVAL
+          FROM DUAL  
+	</entry>
+	<entry key="InsertRegistMemberPoint">
+        INSERT
+          INTO MG_MEMBER_POINT A
+        (
+          A.POINT_NO
+        , A.CHANGED_POINT_TYPE
+        , A.MODIFY_POINT
+        , A.MEMBER_NO
+        )
+        VALUES
+        (
+          SEQ_MEM_POINT_NO.NEXTVAL
+        , '지급'
+        , 1000
+        , ?
+        )
+	</entry>
 </properties>

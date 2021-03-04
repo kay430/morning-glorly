@@ -26,8 +26,16 @@ public class MgService {
 
 		Connection con = getConnection();
 
-		int result = mgDAO.insertMember(con, requestMember);
-		if(result > 0) {
+		/* 회원정보 인서트 */
+		int result1 = mgDAO.insertMember(con, requestMember);
+		
+		/* 등록한 회원정보 No 가져오기 */
+		requestMember = mgDAO.selectRegistMemberSequence(con, requestMember);
+		
+		/* 해당 회원 포인트 이력 인서트 */
+		int result2 = mgDAO.InsertRegistMemberPoint(con, requestMember);
+		
+		if(result1 + result2 > 1) {
 			commit(con);
 		} else {
 			rollback(con);
@@ -35,7 +43,7 @@ public class MgService {
 
 		close(con);
 
-		return result;
+		return result1 + result2;
 	}
 
 	public MgDTO loginCheck(MgDTO requestMember) {
