@@ -36,7 +36,7 @@ public class MgOrderAddressDAO {
 		}
 	}
 
-	public List<MgOrderAddressDTO> selectAllOrderList(Connection con) {
+	public List<MgOrderAddressDTO> selectAllOrderList(Connection con, int no) {
 		
 		PreparedStatement pstmt = null; 
 		ResultSet rset = null;
@@ -47,6 +47,8 @@ public class MgOrderAddressDAO {
 		
 		try {
 			pstmt = con.prepareStatement(query);
+			
+			pstmt.setInt(1, no);
 			
 			rset = pstmt.executeQuery();
 			
@@ -83,15 +85,6 @@ public class MgOrderAddressDAO {
 				
 				mypageOrderList.add(order);
 				
-//				   A.ORDER_ADD_NO
-//		              , A.MEMBER_NO
-//		              , B.ORDER_MEMBER_NO
-//		              , B.ORDER_DATE
-//		              , B.ORDER_TITLE
-//		              , A.DELIVERY_NO
-//		              , A.RECIEVER_NAME
-//		              , A.RECIEVER_PHONE
-//		              , A.RECIEVER_ADDRESS
 			}
 			
 		} catch (SQLException e) {
@@ -154,10 +147,19 @@ public class MgOrderAddressDAO {
 			while(rset.next()){
 				
 				MgDTO pointInfo = new MgDTO();
+				MgOrderAddressDTO order = new MgOrderAddressDTO();
 				
 				pointInfo.setPoint(rset.getInt("MEMBER_POINT"));
+				
+				if(mypageOrderList1.size() == 0) {
+					mypageOrderList1 = new ArrayList<>();
 					
-				mypageOrderList1.get(0).setMgDTO(pointInfo);
+					order.setMgDTO(pointInfo);
+					mypageOrderList1.add(order);
+				} else {
+					mypageOrderList1.get(0).setMgDTO(pointInfo);
+				}
+				
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
