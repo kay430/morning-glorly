@@ -13,16 +13,11 @@
 <script src="//code.jquery.com/jquery.min.js"></script>
 <script
 	src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
-<link rel="stylesheet" type="text/css"
-	href="/mg/resources/css/customer_main.css">
-<link rel="stylesheet" type="text/css"
-	href="/mg/resources/css/header.css">
-<link rel="stylesheet" type="text/css"
-	href="/mg/resources/css/footer.css">
-<link rel="stylesheet" type="text/css"
-	href="/mg/resources/css/idFind.css">
-<link rel="stylesheet" type="text/css"
-	href="/mg/resources/css/mypage/wishList.css">
+<link rel="stylesheet" type="text/css" href="/mg/resources/css/main-common.css">
+<link rel="stylesheet" type="text/css" href="/mg/resources/css/header.css">
+<link rel="stylesheet" type="text/css" href="/mg/resources/css/footer.css">
+<link rel="stylesheet" type="text/css" href="/mg/resources/css/side_bar.css">
+<link rel="stylesheet" type="text/css" href="/mg/resources/css/mypage/wishList.css">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
 </head>
@@ -32,12 +27,12 @@
 <br>
 
       <br>
-    <div id="page-wrapper-1">
+    <div id="page-wrapper" style="height: 500px;">
         <!-- 사이드바 -->
         <div id="sidebar-wrapper">
           <ul class="sidebar-nav">
               <li class="sidebar-brand">
-              <a href="${ pageContext.servletContext.contextPath }/mypage/main"><h3>MyPage</h3></a>
+              <a href="${ pageContext.servletContext.contextPath }/mypage/main">MyPage</a>
           </li>
 
             <li class="sidebar-sub"><a href="${ pageContext.servletContext.contextPath }/mypage/orderList">주문 내역</a></li>

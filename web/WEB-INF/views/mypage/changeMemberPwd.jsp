@@ -13,16 +13,10 @@
 <script src="//code.jquery.com/jquery.min.js"></script>
 <script
 	src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
-<link rel="stylesheet" type="text/css"
-	href="/mg/resources/css/customer_main.css">
-<link rel="stylesheet" type="text/css"
-	href="/mg/resources/css/header.css">
-<link rel="stylesheet" type="text/css"
-	href="/mg/resources/css/footer.css">
-<link rel="stylesheet" type="text/css"
-	href="/mg/resources/css/idFind.css">
-	<link rel="stylesheet" type="text/css"
-	href="/mg/resources/css/mymapge/changeMemberInfo.css">
+<link rel="stylesheet" type="text/css" href="/mg/resources/css/header.css">
+<link rel="stylesheet" type="text/css" href="/mg/resources/css/footer.css">
+<link rel="stylesheet" type="text/css" href="/mg/resources/css/main-common.css">
+<link rel="stylesheet" type="text/css" href="/mg/resources/css/mymapge/changeMemberInfo.css">
 </head> 
 <style>
 #reconfirmPasswd { padding: 60px 60px 120px; font-size: 12px; font-family: dotum; }
@@ -45,7 +39,7 @@
 
 	<jsp:include page="../common/header.jsp" />
 	
-	<hr />            <div id="subContent">
+	<hr />            <div id="subContent-1">
 	
 		<div id="reconfirmPasswd">
 		    <div class="reconfirm">

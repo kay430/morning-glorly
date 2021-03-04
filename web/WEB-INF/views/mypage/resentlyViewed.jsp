@@ -13,16 +13,11 @@
 <script src="//code.jquery.com/jquery.min.js"></script>
 <script
 	src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
-<link rel="stylesheet" type="text/css"
-	href="/mg/resources/css/customer_main.css">
-<link rel="stylesheet" type="text/css"
-	href="/mg/resources/css/header.css">
-<link rel="stylesheet" type="text/css"
-	href="/mg/resources/css/footer.css">
-<link rel="stylesheet" type="text/css"
-	href="/mg/resources/css/idFind.css">
-<link rel="stylesheet" type="text/css"
-	href="/mg/resources/css/mypage/resentlyViewed.css">
+<link rel="stylesheet" type="text/css" href="/mg/resources/css/header.css">
+<link rel="stylesheet" type="text/css" href="/mg/resources/css/footer.css">
+<link rel="stylesheet" type="text/css" href="/mg/resources/css/main-common.css">
+<link rel="stylesheet" type="text/css" href="/mg/resources/css/side_bar.css">
+<link rel="stylesheet" type="text/css" href="/mg/resources/css/mypage/resentlyViewed.css">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
 </head>
@@ -31,7 +26,7 @@
 	<jsp:include page="../common/header.jsp" />
 <br>
 
-<div id="page-wrapper-1">
+<div id="page-wrapper" style="margin-left: 562px;">
 <!-- 사이드바 -->
 <div id="sidebar-wrapper">
 <ul class="sidebar-nav">
@@ -47,8 +42,8 @@
           </ul>
 </div>
 <!-- /사이드바 -->
-    <div class="col-sm-8"style=" margin-left: 160px;width: 800px;height: 600px;">
-      <h2>최근 본 상품</h2>
+    <div class="col-sm-8">
+      <h2 style="font-size: 20px;">최근 본 상품</h2>
       <hr>
       
       <div class="fakeimg">
@@ -56,7 +51,7 @@
       <br>
       <br>
       <div class="bar">
-          	<input value="${sessionScope.loginMember.name }" size="2" readonly class="abc">님이 최근 본 상품 입니다
+          	<input value="${sessionScope.loginMember.name }" size="4" readonly class="abc" style="padding: 0 0 4px 0;">님이 최근 본 상품 입니다
       
       </div>
       <br><br>
