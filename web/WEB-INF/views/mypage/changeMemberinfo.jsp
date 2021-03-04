@@ -13,16 +13,11 @@
 <script src="//code.jquery.com/jquery.min.js"></script>
 <script
 	src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
-<link rel="stylesheet" type="text/css"
-	href="/mg/resources/css/customer_main.css">
-<link rel="stylesheet" type="text/css"
-	href="/mg/resources/css/header.css">
-<link rel="stylesheet" type="text/css"
-	href="/mg/resources/css/footer.css">
-<link rel="stylesheet" type="text/css"
-	href="/mg/resources/css/idFind.css">
-	<link rel="stylesheet" type="text/css"
-	href="/mg/resources/css/mypage/changeMemberInfo.css">
+<link rel="stylesheet" type="text/css" href="/mg/resources/css/customer_main.css">
+<link rel="stylesheet" type="text/css" href="/mg/resources/css/header.css">
+<link rel="stylesheet" type="text/css" href="/mg/resources/css/footer.css">
+<link rel="stylesheet" type="text/css" href="/mg/resources/css/main-common.css">
+<link rel="stylesheet" type="text/css" href="/mg/resources/css/mypage/changeMemberInfo.css">
 </head>
 <body>
 
@@ -30,7 +25,7 @@
 	
 	<div class="ud">
 		<div class="img_area">
-			<img src="image/Logo1.png">
+			<img style="margin: -30px 0 30px 94px;" src="/mg/resources/image/Logo1(2).png">
 		</div> 
         <h1 align="center">모닝글로리
             <strong>회원정보수정</strong>
@@ -94,7 +89,7 @@
 			<div class="btns" align="center">
 				<input type="submit" value="수정하기" class="btn-or" 
 				onclick="${ pageContext.servletContext.contextPath }/change/memberInfo">
-                <input type="reset" value="메인으로" class="btn-yg" id="goMain">
+                <input type="reset" value="메인으로" class="btn-yg-1" id="goMain">
 			</div>
 		</form>
 		

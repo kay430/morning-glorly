@@ -13,16 +13,11 @@
 <script src="//code.jquery.com/jquery.min.js"></script>
 <script
 	src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
-<link rel="stylesheet" type="text/css"
-	href="/mg/resources/css/customer_main.css">
-<link rel="stylesheet" type="text/css"
-	href="/mg/resources/css/header.css">
-<link rel="stylesheet" type="text/css"
-	href="/mg/resources/css/footer.css">
-<link rel="stylesheet" type="text/css"
-	href="/mg/resources/css/idFind.css">
-<link rel="stylesheet" type="text/css"
-	href="/mg/resources/css/mypage/quitMember.css">
+<link rel="stylesheet" type="text/css" href="/mg/resources/css/customer_main.css">
+<link rel="stylesheet" type="text/css" href="/mg/resources/css/header.css">
+<link rel="stylesheet" type="text/css" href="/mg/resources/css/footer.css">
+<link rel="stylesheet" type="text/css" href="/mg/resources/css/main-common.css">
+<link rel="stylesheet" type="text/css" href="/mg/resources/css/mypage/quitMember.css">
 </head>
 <body>
 
@@ -30,7 +25,7 @@
 
 	<div class="ud">
 		<div class="img_area">
-			<img src="/mg/resources/image/Logo1.png">
+			<img style="margin: -34px 0 26px 97px;" src="/mg/resources/image/Logo1(2).png">
 		</div>
 		<h1>
 			모닝글로리 <strong>회원탈퇴</strong>
@@ -69,7 +64,7 @@
 				<div class="btns" align="center">
 					<input type="submit" value="탈퇴하기" class="btn-or"
 						onclick="${ pageContext.servletContext.contextPath }/mypage/quitMember"> <input
-						type="reset" value="메인으로" class="btn-yg" id="goMain">
+						type="reset" value="메인으로" class="btn-yg-1" id="goMain">
 				</div>
 
 			</div>
