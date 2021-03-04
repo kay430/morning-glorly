@@ -61,7 +61,7 @@
     }
     
 .gongji{
-background: rgb(248, 255, 255);
+background: rgb(255 255 255);
 width:1000px;
 height: 835px;
 margin-left: -30px;
@@ -78,7 +78,7 @@ margin-left: -30px;
 .outer-notice-list,
 .outer-notice-detail {
 	width:1000px;
-	height:835px;
+    height: 880px;
     border:1px solid rgb(190, 190, 190);
     margin-left: 0px;
     
@@ -206,12 +206,12 @@ margin-left: -30px;
 	margin-left:280px;
 }
 .buttons{
-	font-family: 'Jua', sans-serif ;	
-	padding : 15px 15px;
-	font-size:20px;
-	background: rgb(227, 240, 168);
+    font-family: 'Jua', sans-serif;
+    padding: 3px 20px;
+    font-size: 20px;
+    background: rgb(196 238 255);
     color: rgb(3, 3, 3) !important;
-    border: 1px #093 solid !important;
+    border: 0;
     margin-left: 0%;
-    border-radius: 30px / 30px;}
+    border-radius: 12px;
 }

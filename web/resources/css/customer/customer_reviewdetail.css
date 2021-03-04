@@ -159,7 +159,11 @@
 /* ------------------*/
 /*리뷰상세보기 페이지 틀*/
 .panel-body{
-	background: rgb(226, 240, 219);
+	width: 1035px;
+    margin: 0 auto;
+    height: 632px;
+    border: 1px solid #bfbfbf;
+    height: auto;
 }
 .outer-review-detail {
 	width:1000px;
@@ -169,10 +173,13 @@
     
 }
 .buttons{
-	   background: rgb(227, 240, 168);
+    font-family: 'Jua', sans-serif;
+    padding: 3px 20px;
+    font-size: 20px;
+    background: rgb(196 238 255);
     color: rgb(3, 3, 3) !important;
-    border: 1px #093 solid !important;
+    border: 0;
     margin-left: 0%;
-    border-radius: 30px / 30px;
+    border-radius: 12px;
   }
 }

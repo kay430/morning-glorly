@@ -13,16 +13,12 @@
 <script src="//code.jquery.com/jquery.min.js"></script>
 <script
 	src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
-<link rel="stylesheet" type="text/css"
-	href="/mg/resources/css/customer/customer_main.css">
-<link rel="stylesheet" type="text/css"
-	href="/mg/resources/css/customer/customer_reviewinsert.css">
-<link rel="stylesheet" type="text/css"
-	href="/mg/resources/css/header.css">
-<link rel="stylesheet" type="text/css"
-	href="/mg/resources/css/footer.css">
-<link rel="stylesheet" type="text/css"
-	href="/mg/resources/css/main-common.css">
+<link rel="stylesheet" type="text/css" href="/mg/resources/css/customer/customer_main.css">
+<link rel="stylesheet" type="text/css" href="/mg/resources/css/side_bar.css">
+<link rel="stylesheet" type="text/css" href="/mg/resources/css/customer/customer_reviewinsert.css">
+<link rel="stylesheet" type="text/css" href="/mg/resources/css/header.css">
+<link rel="stylesheet" type="text/css" href="/mg/resources/css/footer.css">
+<link rel="stylesheet" type="text/css" href="/mg/resources/css/main-common.css">
 <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -48,11 +44,11 @@
 			<div class="container-fluid">
 				
 				<hr>
-				<div class="gongji">
+				<div class="gongji" style="height: 950px;">
 					<div class="outer-notice-insert">
 						<div class="outer outer-notice-list">
 							<br>
-							<div class="table-area">
+							<div class="table-area" style="padding: 0 0 0 19px;">
 								<form action="${ pageContext.servletContext.contextPath }/review/insert"
 									method="post" encType="multipart/form-data">
 									<table align="center" style="margin-left:-80px ">
@@ -62,8 +58,8 @@
 										</tr>
 										<tr>
 											<td><div style="font-family: 'Jua', sans-serif; font-size:25px;">작성자</div></td>
-											<td><input type="text"
-												value="${ sessionScope.loginMember.name }" name="writer" readonly style="margin-top: 15px; margin-bottom: 15px"></td>
+											<td><input type="text" 
+												value="${ sessionScope.loginMember.name }" name="writer" readonly style="padding: 0 70px 0 0; margin-top: 15px; margin-bottom: 15px"></td>
 										</tr>
 										<tr>
 											<td><div style="font-family: 'Jua', sans-serif; font-size:25px;">내용</div></td>
@@ -81,22 +77,22 @@
 										<tr>
 											<td><div style="font-family: 'Jua', sans-serif; font-size:25px;">후기 사진</div></td>
 											 <td colspan="3">
-												<div class="title-image-area1">
+												<div class="title-image-area1" style="padding: 0 380px 10px 0;">
 													<img id="titleImg" width="350" height="200" style="margin-top: 15px; margin-bottom: 15px;">
 												</div>
 											</td> 
 										</tr>
 										
  												</table>
-										<div class="thumbnail-file-area" align="center">
+										<div class="thumbnail-file-area" align="center" style="padding: 0 125px 0 0;">
  												
 											<input type="file" id="thumbnailImg1" name="thumbnailImage1"
 												onchange="loadImg(this, 1)" style="font-family: 'Jua', sans-serif; font-size:25px;"> 
 											
 										</div>
-									<div align="center">
-										<button class="buttons"type="reset" id="cancelInsert"style="font-family: 'Jua', sans-serif; font-size:25px;padding:15px 15px">취소하기</button>
-										<button class="buttons"type="submit" id="submitReview"style="font-family: 'Jua', sans-serif; font-size:25px; padding:15px 15px">등록하기</button>
+									<div align="center" style="padding-top: 15px;">
+										<button class="buttons"type="reset" id="cancelInsert"style="font-family: 'Jua', sans-serif; padding: 9px 20px; font-size: 20px; background: rgb(196 238 255); color: rgb(3, 3, 3) !important; border: 0; margin-left: 0%; border-radius: 12px;">취소하기</button>
+										<button class="buttons"type="submit" id="submitReview"style="font-family: 'Jua', sans-serif; padding: 9px 20px; font-size: 20px; background: rgb(196 238 255); color: rgb(3, 3, 3) !important; border: 0; margin-left: 0%; border-radius: 12px;">등록하기</button>
 										</div>
 										</form>
 										<!--썸네일 들어갈곳 -->
