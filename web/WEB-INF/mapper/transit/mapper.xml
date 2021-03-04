@@ -17,7 +17,7 @@
              , B.ORDER_TITLE
              , B.AMOUNT_PRICE
           FROM MG_ORDER_DELIVERY A
-          JOIN MG_ORDER B ON (A.DELIVERY_NO = B.ORDER_NO)
+          JOIN MG_ORDER B ON (A.ORDER_NO = B.ORDER_NO)
          WHERE A.DELIVERY_NO = ?
 	</entry>
 	<entry key="selectTotalCount">
