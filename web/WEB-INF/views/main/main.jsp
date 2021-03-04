@@ -178,7 +178,7 @@
                             <p><img src="./resources/image/dosirak/부채살200g.PNG" style="height:500px;"></p>
                             <p style="padding-top: 120px;">
                                 <span>🍝메뉴명 : 부채살 200g</span>
-                                <span>💝간단한 설명 💝 : 근육을 조금더 성장시켜볼까!!</span>
+                                <span>💝근육을 조금더 성장시켜볼까!! 💝 </span>
                                 <span></span>
                                 <span><i></i></span>
                                 <span>8,500<i>원</i></span>

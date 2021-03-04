@@ -26,7 +26,7 @@
 	<jsp:include page="../common/header.jsp" />
 <br>
 
-<div id="page-wrapper" style="margin-left: 562px;">
+<div id="page-wrapper" style="padding-left: 400px; width: 1580px; height: 500px;">
 <!-- 사이드바 -->
 <div id="sidebar-wrapper">
 <ul class="sidebar-nav">
@@ -77,7 +77,6 @@
             <hr>
         </table>
         <hr>
-        <br><br>
         <div>
             <input type="button" value="선택삭제" class="del">
         </div>
@@ -85,7 +84,6 @@
     </div>
    
 
-<br><br><br><br><br><br>
 
 		<jsp:include page="../common/footer.jsp" />
 </body>

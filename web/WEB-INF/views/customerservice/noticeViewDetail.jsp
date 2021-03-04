@@ -13,17 +13,11 @@
 <script src="//code.jquery.com/jquery.min.js"></script>
 <script
 	src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
-<link rel="stylesheet" type="text/css"
-	href="/mg/resources/css/customer/customer_main.css">
-<link rel="stylesheet" type="text/css"
-	href="/mg/resources/css/customer/notice_view.css">
-
-<link rel="stylesheet" type="text/css"
-	href="/mg/resources/css/header.css">
-<link rel="stylesheet" type="text/css"
-	href="/mg/resources/css/footer.css">
-<link rel="stylesheet" type="text/css"
-	href="/mg/resources/css/main-common.css">
+<link rel="stylesheet" type="text/css" href="/mg/resources/css/customer/customer_main.css">
+<link rel="stylesheet" type="text/css" href="/mg/resources/css/customer/notice_view.css">
+<link rel="stylesheet" type="text/css" href="/mg/resources/css/header.css">
+<link rel="stylesheet" type="text/css" href="/mg/resources/css/footer.css">
+<link rel="stylesheet" type="text/css" href="/mg/resources/css/main-common.css">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
 </head>
@@ -32,6 +26,7 @@
 <body>
 
 	<jsp:include page="../common/header.jsp" />
+	
 	<header class="panel-heading wht-bg" style="margin: 0 0 30px 0;">
 			<h4 class="gen-case" style="font-size: 30px; text-align: center;font-family: 'Jua', sans-serif;
 	font-size:40px">공지사항</h4>
@@ -224,6 +219,9 @@
                   </div>
                 </div>
               </div>
+              
+                	<jsp:include page="../common/footer.jsp" />
+                	
             </section>
 
 

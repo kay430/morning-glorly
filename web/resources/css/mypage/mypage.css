@@ -16,10 +16,11 @@
     margin-top: 20px;
     margin-right: 27px;
     border: 4px solid gray;
+    padding: 18px;
   
   }
   .abc{
-  
+    padding-bottom: 3.5px;
     border:none;
   }
   .area2{
@@ -29,6 +30,7 @@
     margin-top: 20px;
     background-color: white;
     border: 4px solid gray;
+    padding: 18px;
   }
   #listArea{
       border: 4px;

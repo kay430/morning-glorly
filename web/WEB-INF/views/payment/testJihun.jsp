@@ -13,16 +13,11 @@
 <script src="//code.jquery.com/jquery.min.js"></script>
 <script
 	src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
-<link rel="stylesheet" type="text/css"
-	href="/mg/resources/css/customer_main.css">
-<link rel="stylesheet" type="text/css"
-	href="/mg/resources/css/header.css">
-<link rel="stylesheet" type="text/css"
-	href="/mg/resources/css/footer.css">
-<link rel="stylesheet" type="text/css"
-	href="/mg/resources/css/idFind.css">
-<link rel="stylesheet" type="text/css"
-	href="/mg/resources/css/mymapge/changeMemberInfo.css">
+<link rel="stylesheet" type="text/css" href="/mg/resources/css/customer_main.css">
+<link rel="stylesheet" type="text/css" href="/mg/resources/css/header.css">
+<link rel="stylesheet" type="text/css" href="/mg/resources/css/footer.css">
+<link rel="stylesheet" type="text/css" href="/mg/resources/css/main-common.css">
+<link rel="stylesheet" type="text/css" href="/mg/resources/css/mymapge/changeMemberInfo.css">
 <link href="/mg/resources/admin/jihunh.css" rel="stylesheet" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
@@ -77,7 +72,7 @@
                                        </div>
                                     </td>
                                     <td>
-                                       <div class="tb-left">
+                                       <div class="tb-left" style="padding-left: 200px;">
                                           <c:out value="${ requestScope.detailInfo.name }"/>
                                        </div>
                                     </td>

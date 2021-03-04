@@ -30,9 +30,9 @@
              
 
 
-                  <h3 class="w330">벌크업 도시락<strong> BEST</strong></h3>
+                  <h3 class="w330 onnn">벌크업 도시락<strong> BEST</strong></h3>
                 <ul>
-                    <li>
+                    <li class="onnn">
                         <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
                             <img class="MS_prod_img_s" src="./resources/image/dosirak/닭가슴살 200g.PNG" alt="">
                             <p class="s_price">
@@ -43,7 +43,7 @@
                             <p class="s_subname">근육을 성장시키자!</p>
                         </a>
                     </li>
-                    <li>
+                    <li class="onnn">
                         <a href="${ pageContext.servletContext.contextPath }/user/select?no=13" title="">
                             <img class="MS_prod_img_s" src="./resources/image/dosirak/부채살200g.PNG" alt="" height="280px">
                             <p class="s_price">
@@ -53,7 +53,7 @@
                             <p class="s_subname">근육을 조금 더 성장시키자!</p>
                         </a>
                     </li>
-                    <li>
+                    <li class="onnn">
                         <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
                             <img class="MS_prod_img_s" src="./resources/image/dosirak/홍두깨살 200g.jpg" alt="" height="280px">
                             <p class="s_price">
@@ -64,7 +64,7 @@
                             <p class="s_subname">근육아 나에게 오라~!</p>
                         </a>
                     </li>
-                    <li class="last">
+                    <li class="last onnn">
                         <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
                             <img class="MS_prod_img_s" src="./resources/image/dosirak/스페셜도시락.PNG" alt="" height="280px">
                             <p class="s_price">

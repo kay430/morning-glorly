@@ -27,7 +27,7 @@
 <br>
 
       <br>
-    <div id="page-wrapper" style="height: 500px;">
+    <div id="page-wrapper" style="padding-left: 170px; width: 1100px; height: 500px;">
         <!-- 사이드바 -->
         <div id="sidebar-wrapper">
           <ul class="sidebar-nav">
@@ -44,12 +44,12 @@
           </ul>
         </div>
       <!-- /사이드바 -->
-      <h2><input value="${sessionScope.loginMember.name }" size="2" readonly class="abc"> 님의 위시리스트~</h2>
+      <h2><input value="${sessionScope.loginMember.name }" size="3" readonly class="abc"> 님의 위시리스트~</h2>
       <hr>
       <table align="center" id="listArea">
         <tr>  
             <th width="10px"><input type="checkbox" name="checkbox" class="chk1"></th>
-            <th width="150px">사진</th>
+            <th width="150px" style="padding: 20px; text-align: center;">사진</th>
             <th width="150px">상품명</th>
             <th width="70px">수량</th>
             <th width="70px">재고</th>

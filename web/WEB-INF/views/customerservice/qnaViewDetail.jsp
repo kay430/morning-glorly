@@ -15,7 +15,7 @@
 	src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="/mg/resources/css/customer/customer_qnadetail.css">
 <link rel="stylesheet" type="text/css" href="/mg/resources/css/main-common.css">
- 
+<link rel="stylesheet" type="text/css" href="/mg/resources/css/side_bar.css">
 <link rel="stylesheet" type="text/css" href="/mg/resources/css/header.css">
 <link rel="stylesheet" type="text/css"
 	href="/mg/resources/css/footer.css">
@@ -304,6 +304,7 @@ font-family: 'Jua', sans-serif ;
         </table>
     </div>
 </div>
+	<jsp:include page="../common/footer.jsp" />
 
 
 	

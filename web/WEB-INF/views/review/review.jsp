@@ -13,14 +13,11 @@
 <script src="//code.jquery.com/jquery.min.js"></script>
 <script
    src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
-<link rel="stylesheet" type="text/css"
-   href="/mg/resources/css/customer/customer_review.css">
-<link rel="stylesheet" type="text/css"
-   href="/mg/resources/css/header.css">
-<link rel="stylesheet" type="text/css"
-   href="/mg/resources/css/footer.css">
-<link rel="stylesheet" type="text/css"
-   href="/mg/resources/css/main-common.css">
+<link rel="stylesheet" type="text/css" href="/mg/resources/css/customer/customer_review.css">
+<link rel="stylesheet" type="text/css" href="/mg/resources/css/header.css">
+<link rel="stylesheet" type="text/css" href="/mg/resources/css/footer.css">
+<link rel="stylesheet" type="text/css" href="/mg/resources/css/side_bar.css">
+<link rel="stylesheet" type="text/css" href="/mg/resources/css/main-common.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
@@ -49,8 +46,8 @@
       <div id="page-content-wrapper">
          <div class="container-fluid">
             <div class="outer-review-list">
-               <div class="table-area">
-                  <table align="center" id="listArea">
+               <div class="table-area" style="padding: 0 120px 0 0; margin: 0 0 0 -40px;">
+                  <table align="center" id="listArea" style="border: 1px solid lightgray;">
                      <tr class="board-list-tr">
                         <th class="board-list-th list-header-bd">글번호</th>
                         <th class="board-list-main-td list-header-bd">글제목</th>
