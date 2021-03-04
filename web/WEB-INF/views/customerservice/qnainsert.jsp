@@ -53,7 +53,7 @@
 									<table align="center">
 										<tr>
 											<td style="font-family: 'Jua', sans-serif; font-size:25px">제목</td>
-											<td><input type="text" size="105" name="title"></td>
+											<td><input type="text" size="80" name="title"></td>
 										</tr>
 										<tr>
 											<td style="font-family: 'Jua', sans-serif; font-size:25px">작성자</td>
@@ -82,9 +82,9 @@
 									</table>
 										<div align="center">
 											<div class="thumbnail-file-area" id="titleQueImgArea">
-												<input type="file" id="QuethumbnailImg1" name="QuethumbnailImg1" onchange="QueloadImg(this, 1)">
-												<img id="QuecontentImg1" width="100" height="100">
+												<img style="margin: 0 151px 20px 0;" id="QuecontentImg1" width="100" height="100">
 										</div>								
+												<input type="file" id="QuethumbnailImg1" name="QuethumbnailImg1" onchange="QueloadImg(this, 1)" >
 									<br>
 									<div class="button" align="center">
 										<button class="buttons" type="reset" id="cancelQuestion">취소하기</button>

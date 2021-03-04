@@ -1,16 +1,17 @@
 @charset "UTF-8";
     
 .gongji{
-background: rgb(226, 240, 219);
-width:1000px;
-height: 900px;
-margin-left: -30px;
+    background: rgb(255 255 255);
+    width: 1000px;
+    height: 900px;
+    margin-left: -30px;
+    border: 1px solid #b4b4b4;
 }
 /*자주묻는 질문 운영정보*/
 .info{
     width: 80%;
     height: 100px;
-    background: rgb(177 239 251);
+    background: rgb(235 251 255);
     margin: 100px;
     
 }
@@ -41,7 +42,7 @@ margin-left: -30px;
 } */
 
 .main-header{
-    border: 1px solid #e9e9e9;
+    border: 1px solid #bebebe;
     text-align: center;
     width:1070px;
 }

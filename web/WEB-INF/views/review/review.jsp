@@ -131,7 +131,7 @@
          for(let i = 0; i < $tds.length; i++) {
             
             $tds[i].onmouseenter = function() {
-               this.parentNode.style.backgroundColor = "yellow";
+               this.parentNode.style.backgroundColor = "#d4f0ff";
                this.parentNode.style.cursor = "pointer";
             }
             

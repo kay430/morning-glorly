@@ -24,13 +24,14 @@
 </head>
 <style>
 .btn-sm{
-font-family: 'Jua', sans-serif ;	
-	
-	background: rgb(227, 240, 168);
+    font-family: 'Jua', sans-serif;
+    padding: 3px 20px;
+    font-size: 20px;
+    background: rgb(196 238 255);
     color: rgb(3, 3, 3) !important;
-    border: 1px #093 solid !important;
-    margin-left: 0%;
-    border-radius: 30px / 30px;}
+    border: 0;
+    margin-left: 6px;
+    border-radius: 12px;
 </style>
 <body>
 
@@ -77,9 +78,7 @@ font-family: 'Jua', sans-serif ;
 					</div>
 				</div>
 			</div>
-			<img
-				style="float: left; width: 200px; height: 200px; margin: 10px 15px 10px 20px;"
-				src="${ pageContext.servletContext.contextPath }<c:out value="${ requestScope.question.attaQueList[0].thumbnailPath }"/>" />
+			<img style="float: left; width: 200px; height: 200px; margin: 10px 15px 10px 20px;" onerror="this.style.display='none'"	src="${ pageContext.servletContext.contextPath }<c:out value="${ requestScope.question.attaQueList[0].thumbnailPath }"/>" />
 			<div class="view-mail" style="margin: 150px 0 0 0;">
 				<%-- <p><c:out value="${ requestScope.notice.body }"/></p> --%>
 				<textarea id="core" style="resize: none; width: 90%; height: 250px;margin-left: 20px;"

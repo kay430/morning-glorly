@@ -60,7 +60,7 @@
                   <%-- <p><c:out value="${ requestScope.notice.body }"/></p> --%>
                   <textarea id="core" class="notice_body" readonly><c:out value="${ requestScope.notice.body }"/></textarea>
                 <div class="notice_image">
-                <img src="${ pageContext.servletContext.contextPath }<c:out value="${ requestScope.notice.attaNotiList[0].thumbnailPath }"/>" />
+                <img onerror="this.style.display='none'" src="${ pageContext.servletContext.contextPath }<c:out value="${ requestScope.notice.attaNotiList[0].thumbnailPath }"/>" />
                 </div>
                 </div>
                 <!-- 첨부파일 부분 -->

@@ -70,8 +70,7 @@
 			<br>
 			<br>
 			<br>
-			<img src="${ pageContext.servletContext.contextPath }${ requestScope.reviewDetail.attachmentList[0].thumbnailPath }"
-							width="500" height="300" style="margin-left:50px">
+			<img src="${ pageContext.servletContext.contextPath }${ requestScope.reviewDetail.attachmentList[0].thumbnailPath }" alt="" onerror="this.style.display='none'" style="margin-left:50px; height: 200px; width: 300px;">
 	<br>
 	<br>
 	<br>
