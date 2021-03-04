@@ -15,6 +15,7 @@
   <link rel="stylesheet" type="text/css" href="/mg/resources/css/header.css">
   <link rel="stylesheet" type="text/css" href="/mg/resources/css/footer.css">
   <link rel="stylesheet" type="text/css" href="/mg/resources/css/main-common.css">
+  <link rel="stylesheet" type="text/css" href="/mg/resources/css/side_bar.css">
  <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
 </head>

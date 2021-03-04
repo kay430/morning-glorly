@@ -30,9 +30,9 @@
              
 
 
-                  <h3 class="w330">정기배송<strong> 종류</strong></h3>
+                  <h3 class="w330 onnn">정기배송<strong> 종류</strong></h3>
                 <ul>
-                    <li style="width: 320px;">
+                    <li class="onnn" style="width: 320px;">
                         <a href="${ pageContext.servletContext.contextPath }/user/select?no=14" title="">
                             <img class="MS_prod_img_s" src="../resources/image/dosirak/정기.PNG" alt="" height="280px">
                             <p class="s_price">
@@ -43,7 +43,7 @@
                             <p class="s_subname">불고기,닭가슴살,크래미베이컨,훈제오리 고구마,쉬림프크림파스타 샐러드!</p>
                         </a>
                     </li>
-                    <li style="width: 320px;">
+                    <li class="onnn" style="width: 320px;">
                         <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
                             <img class="MS_prod_img_s" src="../resources/image/dosirak/유지어터.PNG" alt="" height="280px">
                             <p class="s_price">
@@ -53,7 +53,7 @@
                             <p class="s_subname">닭가슴살,부채살,홍두깨살,틸라피아,스페셜 도시락</p>
                         </a>
                     </li>
-                    <li style="width: 350px;">
+                    <li class="onnn" style="width: 350px;">
                         <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
                             <img class="MS_prod_img_s" src="../resources/image/dosirak/유지어터1.PNG" alt="" height="280px">
                             <p class="s_price">

@@ -75,7 +75,7 @@ div#hdTop form:after {content:''; display:block; clear:both;}
 div#hdTop .hbanner { position: absolute; z-index: 2; right: 25px; top: 63px; }
 
 
-
+.opacity-1{ visibility: hidden; }
 
 
 

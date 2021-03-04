@@ -27,7 +27,7 @@
 	
 	
       <br>
-    <div id="page-wrapper" style="height: 500px;">
+    <div id="page-wrapper" style="padding-left: 400px; width: 1580px; height: 500px;">
         <!-- 사이드바 -->
         <div id="sidebar-wrapper">
           <ul class="sidebar-nav">

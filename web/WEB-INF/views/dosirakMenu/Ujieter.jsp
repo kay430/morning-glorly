@@ -30,9 +30,9 @@
                
 
                
-                <h3 class="w210">유지어터 도시락<strong> BEST</strong></h3>
+                <h3 class="w210 onnn">유지어터 도시락<strong> BEST</strong></h3>
                 <ul>
-                    <li>
+                    <li class="onnn">
                         <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
                             <img class="MS_prod_img_s" src="./resources/image/dosirak/닭가슴살도시락.jpg" alt="">
                             <p class="s_price">
@@ -43,7 +43,7 @@
                             <p class="s_subname">다이어트 유지</p>
                         </a>
                     </li>
-                    <li>
+                    <li class="onnn">
                         <a href="${ pageContext.servletContext.contextPath }/user/select?no=29" title="">
                             <img class="MS_prod_img_s" src="./resources/image/dosirak/부채살도시락.jpg" alt="" height="224.5px">
                             <p class="s_price">
@@ -54,7 +54,7 @@
                             <p class="s_subname">부채살로 다이어트 유지해보자!</p>
                         </a>
                     </li>
-                    <li>
+                    <li class="onnn">
                         <a href="${ pageContext.servletContext.contextPath }/user/select?no=28" title="">
                             <img class="MS_prod_img_s"  src="./resources/image/dosirak/틸라피아 도시락.jpg" alt="">
                             <p class="s_price">
@@ -65,7 +65,7 @@
                             <p class="s_subname">맛과 건강을 단번에</p>
                         </a>
                     </li>
-                    <li class="last">
+                    <li class="last onnn">
                         <a href="${ pageContext.servletContext.contextPath }/menu/detail" title="">
                             <img class="MS_prod_img_s"  src="./resources/image/dosirak/홍두깨살 도시락.jpg" alt="">
                             <p class="s_price">
